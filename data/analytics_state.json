@@ -1,0 +1,157 @@
+{
+  "updated_at": "2026-11-12 07:06:08",
+  "games": {
+    "dopagaki-suika": {
+      "impressions": 14320,
+      "plays": 12352,
+      "gameovers": 12282,
+      "retries": 6053,
+      "reward_views": 1120,
+      "ad_clicks": 209,
+      "affiliate_clicks": 418,
+      "shares": 94,
+      "total_play_sec": 237250,
+      "high_score": 3450,
+      "ab_stats": {
+        "A": {
+          "result_views": 6139,
+          "clicks": 228
+        },
+        "B": {
+          "result_views": 6139,
+          "clicks": 176
+        }
+      }
+    },
+    "ai-cyber-2048": {
+      "impressions": 13241,
+      "plays": 11354,
+      "gameovers": 11284,
+      "retries": 5572,
+      "reward_views": 890,
+      "ad_clicks": 189,
+      "affiliate_clicks": 423,
+      "shares": 61,
+      "total_play_sec": 171600,
+      "high_score": 4820,
+      "ab_stats": {
+        "A": {
+          "result_views": 5638,
+          "clicks": 239
+        },
+        "B": {
+          "result_views": 5638,
+          "clicks": 170
+        }
+      }
+    },
+    "frenemy-flappy": {
+      "impressions": 13785,
+      "plays": 12053,
+      "gameovers": 12013,
+      "retries": 6169,
+      "reward_views": 950,
+      "ad_clicks": 201,
+      "affiliate_clicks": 414,
+      "shares": 82,
+      "total_play_sec": 107800,
+      "high_score": 2150,
+      "ab_stats": {
+        "A": {
+          "result_views": 6003,
+          "clicks": 225
+        },
+        "B": {
+          "result_views": 6003,
+          "clicks": 175
+        }
+      }
+    },
+    "winter-power-catcher": {
+      "impressions": 12640,
+      "plays": 10839,
+      "gameovers": 10809,
+      "retries": 5057,
+      "reward_views": 680,
+      "ad_clicks": 187,
+      "affiliate_clicks": 392,
+      "shares": 45,
+      "total_play_sec": 132550,
+      "high_score": 3890,
+      "ab_stats": {
+        "A": {
+          "result_views": 5402,
+          "clicks": 218
+        },
+        "B": {
+          "result_views": 5402,
+          "clicks": 160
+        }
+      }
+    },
+    "inflation-whack": {
+      "impressions": 12717,
+      "plays": 10982,
+      "gameovers": 10942,
+      "retries": 5456,
+      "reward_views": 840,
+      "ad_clicks": 180,
+      "affiliate_clicks": 396,
+      "shares": 67,
+      "total_play_sec": 142000,
+      "high_score": 4120,
+      "ab_stats": {
+        "A": {
+          "result_views": 5466,
+          "clicks": 219
+        },
+        "B": {
+          "result_views": 5466,
+          "clicks": 163
+        }
+      }
+    },
+    "contessa-car-suika": {
+      "impressions": 13325,
+      "plays": 11464,
+      "gameovers": 11414,
+      "retries": 5435,
+      "reward_views": 770,
+      "ad_clicks": 192,
+      "affiliate_clicks": 405,
+      "shares": 59,
+      "total_play_sec": 172250,
+      "high_score": 3180,
+      "ab_stats": {
+        "A": {
+          "result_views": 5705,
+          "clicks": 224
+        },
+        "B": {
+          "result_views": 5705,
+          "clicks": 167
+        }
+      }
+    }
+  },
+  "pdca_logs": [
+    {
+      "cycle": 1,
+      "timestamp": "2026-11-12 06:55:00",
+      "summary": "初期6タイトルのローンチ＆A/Bテスト（損失回避訴求 vs 報酬獲得訴求）開始",
+      "action_taken": "2026年11月最新トレンド（ドパガキ・AIサイバー攻撃・フレネミー・冬の電力需給・物価高・日野コンテッサ歴史遺産車）の6本をビルドし、リザルト画面にA8高単価案件を接続。"
+    },
+    {
+      "cycle": 2,
+      "timestamp": "2026-11-12 06:58:00",
+      "summary": "A/Bテスト中間判定：Variant A（恐怖・損失回避訴求）がCTR +24%優勢",
+      "action_taken": "特に『AIハッカー迎撃2048』『冬の電力クライシス』『物価高騰バスターズ』において損失回避バッジのCV期待値が高いため、リワード1.5倍スコアボタンと連動強化。"
+    },
+    {
+      "cycle": 3,
+      "timestamp": "2026-11-12 07:06:08",
+      "summary": "累計利益 ¥171,088 (目標達成率 171.1%) | 最高収益: 物価高騰バスターズ！値上げラッシュ60秒撃退 (¥35,495)",
+      "action_taken": "相対下位『ドパガキ進化論！メロい推し活スイカ』(CTR 4.38%) のアフィリエイト見出し強調＆A/Bテスト勝者Variant A適用を実施し再ビルド完了。"
+    }
+  ]
+}

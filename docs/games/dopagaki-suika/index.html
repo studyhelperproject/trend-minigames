@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ドパガキ進化論！メロい推し活スイカ | 1分時事ミニゲーム</title>
+  <meta name="description" content="2026流行語『ドパガキ』『メロい』完全ゲーム化！1分で脳汁MAX合体パズル - ショート動画と推し活でドーパミン全開の『ドパガキ』部屋へようこそ！上から落ちてくるトレンドアイテムをぶつけて合体させ、最終形態『神推し脳汁MAX』を召喚しよう！箱から溢れたら即スマホ没収（ゲームオーバー）！" />
+  <meta property="og:title" content="ドパガキ進化論！メロい推し活スイカ | 1分時事ミニゲーム" />
+  <meta property="og:description" content="2026流行語『ドパガキ』『メロい』完全ゲーム化！1分で脳汁MAX合体パズル" />
+  <meta property="og:type" content="website" />
+  <style>
+:root {
+  --bg-grad-1: #141e30;
+  --bg-grad-2: #243b55;
+  --bg-grad-3: #c94b4b;
+  --accent-color: #ff4081;
+  --board-bg: rgba(20, 25, 40, 0.94);
+  --border-color: #ff4081;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  font-family: 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3));
+  background-size: 300% 300%;
+  animation: gradientMove 15s ease infinite;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header Navigation & Top Ad Slot */
+.top-bar {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 20;
+}
+
+.top-bar a.portal-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px 10px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.top-bar a.portal-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.top-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn-icon {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 5px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.btn-icon:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Ad Slots */
+.ad-banner-slot {
+  width: 100%;
+  max-width: 520px;
+  min-height: 56px;
+  background: rgba(10, 14, 24, 0.88);
+  border: 1px dashed rgba(255, 215, 0, 0.45);
+  border-radius: 8px;
+  margin: 6px 0;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.15s, border-color 0.2s;
+  position: relative;
+}
+
+.ad-banner-slot:hover {
+  transform: translateY(-1px);
+  border-color: #ffd700;
+  background: rgba(20, 28, 48, 0.95);
+}
+
+.ad-pr-badge {
+  background: #ffab00;
+  color: #111;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.ad-banner-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.ad-banner-cta {
+  background: linear-gradient(90deg, #ff4081, #ff9100);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 14px;
+  white-space: nowrap;
+}
+
+/* Game Container */
+.game-wrapper {
+  width: 100%;
+  max-width: 500px;
+  padding: 4px 10px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.trend-tag {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid var(--accent-color);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 12px;
+  margin-bottom: 4px;
+}
+
+.game-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+  line-height: 1.25;
+}
+
+.hud-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 6px 12px;
+  margin: 6px 0;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.hud-item span.val {
+  color: #ffd700;
+  font-size: 1.1rem;
+  margin-left: 4px;
+}
+
+.stage-container {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: var(--board-bg);
+  border: 3px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas#gameCanvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+}
+
+.evolution-guide {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 6px 10px;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Modals (Intro, Reward Ad, GameOver Result) */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 18, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  z-index: 100;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 460px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: linear-gradient(160deg, #1b2234, #101522);
+  border: 2px solid var(--border-color);
+  border-radius: 18px;
+  padding: 18px 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+  color: #ffd700;
+}
+
+.story-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.controls-box {
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  margin-bottom: 14px;
+  color: #e0f7fa;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 13px 18px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(90deg, #ff4081, #ff9100);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 64, 129, 0.5);
+  transition: transform 0.15s;
+  margin-bottom: 8px;
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+}
+
+.btn-reward {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #111;
+  background: linear-gradient(90deg, #ffd700, #ffab00);
+  border: none;
+  border-radius: 26px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+  margin-bottom: 10px;
+}
+
+.result-score-box {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.result-score-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ffd700;
+}
+
+.result-rank-badge {
+  display: inline-block;
+  background: var(--accent-color);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 4px 12px;
+  border-radius: 16px;
+  margin: 4px 0;
+}
+
+/* Native Affiliate Cards inside Result Modal */
+.affiliate-section {
+  margin-top: 12px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.affiliate-header-badge {
+  display: inline-block;
+  background: #ff3d00;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.affiliate-header-badge.gold_shine {
+  background: #ffd700;
+  color: #111;
+}
+
+.offer-card {
+  background: rgba(15, 22, 38, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 8px;
+}
+
+.offer-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  background: rgba(0, 229, 255, 0.2);
+  color: #00e5ff;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.offer-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+  line-height: 1.35;
+}
+
+.offer-desc {
+  font-size: 0.76rem;
+  color: #cfd8dc;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.offer-cta-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.84rem;
+  color: #fff;
+  background: linear-gradient(90deg, #00c853, #00bfa5);
+  box-shadow: 0 3px 10px rgba(0, 200, 83, 0.35);
+}
+
+.offer-cta-btn.urgent_red {
+  background: linear-gradient(90deg, #ff1744, #ff6d00);
+}
+
+.offer-cta-btn.gold_shine {
+  background: linear-gradient(90deg, #ffd600, #ff9100);
+  color: #111;
+}
+
+.share-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.btn-share {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  background: #1da1f2;
+  text-align: center;
+}
+
+.btn-share.other-games {
+  background: #7c4dff;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Top Navigation -->
+  <div class="top-bar">
+    <a href="../../index.html" class="portal-link">🏠 時事ゲーム一覧へ</a>
+    <div class="top-controls">
+      <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
+      <a href="../../dashboard.html" class="btn-icon" style="text-decoration:none;">📊 CEO効果測定</a>
+    </div>
+  </div>
+
+  <!-- Header Ad Slot (Ninja AdMax / Affiliate Native Slot) -->
+  <a id="topAdBanner" class="ad-banner-slot" href="#pr"></a>
+
+  <!-- Main Game Wrapper -->
+  <div class="game-wrapper">
+    <div class="game-header">
+      <span class="trend-tag">🔥 Z世代トレンド・流行語2026</span>
+      <h1 class="game-title">ドパガキ進化論！メロい推し活スイカ</h1>
+    </div>
+
+    <div class="hud-bar">
+      <div class="hud-item">SCORE:<span id="hudScore" class="val">0</span></div>
+      <div class="hud-item">TIME:<span id="hudTime" class="val">60</span>s</div>
+      <div class="hud-item">BEST:<span id="hudBest" class="val">0</span></div>
+    </div>
+
+    <div class="stage-container">
+      <canvas id="gameCanvas" width="400" height="480"></canvas>
+    </div>
+
+    <div id="evolutionGuide" class="evolution-guide"></div>
+  </div>
+
+  <!-- Footer Ad Slot -->
+  <a id="bottomAdBanner" class="ad-banner-slot" href="#pr"></a>
+
+  <!-- Intro Story Modal -->
+  <div id="introModal" class="modal-overlay">
+    <div class="modal-card">
+      <span class="trend-tag">Z世代トレンド・流行語2026</span>
+      <h2 class="modal-title">ドパガキ進化論！メロい推し活スイカ</h2>
+      <div class="story-box">
+        <strong>【ストーリー】</strong><br />
+        ショート動画と推し活でドーパミン全開の『ドパガキ』部屋へようこそ！上から落ちてくるトレンドアイテムをぶつけて合体させ、最終形態『神推し脳汁MAX』を召喚しよう！箱から溢れたら即スマホ没収（ゲームオーバー）！
+      </div>
+      <div class="controls-box">
+        <strong>🎮 操作方法（約1分で完結！）</strong><br />
+        マウス移動（または左右タップ）で位置を決め、クリック/タップで落下！同じアイテムをぶつけて進化させよう！
+      </div>
+      <button id="btnStartGame" class="btn-primary">▶ ゲームスタート！（BGM再生）</button>
+      <div style="font-size:0.74rem; color:#90a4ae; margin-top:4px;">
+        トレンドワード: #ドパガキ / #メロい / #ちいかわ / #M!LK / #推し活
+      </div>
+    </div>
+  </div>
+
+  <!-- GameOver & Monetization Result Modal -->
+  <div id="resultModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <h2 class="modal-title">⏱️ タイムアップ＆結果発表！</h2>
+      <div class="result-score-box">
+        <div style="font-size:0.8rem; color:#cfd8dc;">獲得スコア</div>
+        <div id="resultScoreNum" class="result-score-num">0</div>
+        <div id="resultRankTitle" class="result-rank-badge">称号：判定中</div>
+        <p id="resultRankComment" style="font-size:0.82rem; color:#eceff1; margin-top:6px;"></p>
+      </div>
+
+      <!-- Reward Ad Boost Button -->
+      <button id="btnRewardBoost" class="btn-reward">
+        🔥 スポンサーPRを見てスコア1.5倍＆称号解放！
+      </button>
+
+      <!-- Retry & Share Buttons -->
+      <button id="btnRetryGame" class="btn-primary">🔄 もう1回プレイしてハイスコア更新！</button>
+      <div class="share-row">
+        <a id="btnShareX" href="#" target="_blank" rel="noopener noreferrer" class="btn-share">𝕏 結果をポスト</a>
+        <a href="../../index.html" class="btn-share other-games">🎮 他の時事ゲームで遊ぶ</a>
+      </div>
+
+      <!-- Context-Matched Affiliate Offers (A8.net / Moshimo) -->
+      <div id="resultAffiliateBox" class="affiliate-section"></div>
+    </div>
+  </div>
+
+  <script>
+    window.THEME_DATA = {"slug": "dopagaki-suika", "title": "ドパガキ進化論！メロい推し活スイカ", "subtitle": "2026流行語『ドパガキ』『メロい』完全ゲーム化！1分で脳汁MAX合体パズル", "engine": "suika", "trend_category": "Z世代トレンド・流行語2026", "trend_keywords": ["ドパガキ", "メロい", "ちいかわ", "M!LK", "推し活"], "story_intro": "ショート動画と推し活でドーパミン全開の『ドパガキ』部屋へようこそ！上から落ちてくるトレンドアイテムをぶつけて合体させ、最終形態『神推し脳汁MAX』を召喚しよう！箱から溢れたら即スマホ没収（ゲームオーバー）！", "controls_hint": "マウス移動（または左右タップ）で位置を決め、クリック/タップで落下！同じアイテムをぶつけて進化させよう！", "bgm_preset": "upbeat_pop", "background": {"gradient": ["#ff9a9e", "#fecfef", "#a18cd1"], "board_bg": "rgba(255, 245, 252, 0.94)", "border_color": "#ff4081", "particle_emoji": "💖", "accent_color": "#ff4081"}, "items": [{"level": 0, "emoji": "📱", "name": "倍速ショート動画", "radius": 18, "color": "#ff80ab", "score": 10}, {"level": 1, "emoji": "🍬", "name": "地球グミ", "radius": 24, "color": "#ea80fc", "score": 25}, {"level": 2, "emoji": "🧋", "name": "ご褒美ラテ", "radius": 31, "color": "#b388ff", "score": 50}, {"level": 3, "emoji": "🎀", "name": "参戦うちわ", "radius": 38, "color": "#8c9eff", "score": 90}, {"level": 4, "emoji": "🐹", "name": "ちいかわ系ぬいくん", "radius": 46, "color": "#82b1ff", "score": 150}, {"level": 5, "emoji": "💎", "name": "爆光ペンライト", "radius": 55, "color": "#80d8ff", "score": 240}, {"level": 6, "emoji": "✨", "name": "限定アクスタ", "radius": 65, "color": "#a7ffeb", "score": 380}, {"level": 7, "emoji": "🕺", "name": "メロい王子様", "radius": 76, "color": "#ffd180", "score": 600}, {"level": 8, "emoji": "👑", "name": "アリーナ最前列神席", "radius": 88, "color": "#ff9e80", "score": 1000}, {"level": 9, "emoji": "🌈", "name": "脳汁ドーパミンMAX", "radius": 102, "color": "#ff4081", "score": 2000}], "ranks": [{"min_score": 0, "title": "スマホ見すぎ予備軍", "comment": "まだまだドーパミンが足りてない！もう1回落としてメロい領域へ！"}, {"min_score": 800, "title": "一人前のドパガキ", "comment": "いい感じに脳汁が出てきました！推しの尊さで目が冴えるレベル！"}, {"min_score": 2000, "title": "超絶メロい推し活覇王", "comment": "圧倒的ドーパミン制御力！今年の流行語大賞はあなたのものです！"}], "affiliate_offers": [{"offer_id": "af_dopagaki_gameapp", "network": "A8.net / Smart-C", "title": "【注目特典】【無料】ドパガキ必見！今SNSでバズり中の爽快パズル＆推し育成RPG", "description": "1分で脳汁が出る神演出！基本プレイ無料・今ならガチャ30連分プレゼント中！", "cta_text": "無料で今すぐダウンロード (PR)", "url": "https://px.a8.net/svt/ejp?a8mat=DEMO_DOPAGAKI_APP", "cpa_jpy": 1200, "expected_cvr": 0.0238, "tag": "人気No.1アプリ"}, {"offer_id": "af_dopagaki_eyecare", "network": "もしも / 楽天アフィリエイト", "title": "【注目特典】スマホ・ゲームの目の疲れに！『めぐりズム 蒸気でホットアイマスク』大容量パック", "description": "夜更かしショート動画＆ゲーム後の目をじんわり40℃蒸気でリセット！", "cta_text": "最安値・ポイント還元を見る (PR)", "url": "https://af.moshimo.com/af/c/click?a_id=DEMO_EYEMASK", "cpa_jpy": 450, "expected_cvr": 0.035, "tag": "スマホ疲れ対策"}]};
+    window.MONETIZATION_CONFIG = {"company_name": "TrendMiniGames Studio (時事ミニゲーム製作委員会)", "monthly_profit_target_jpy": 100000, "treasurer_status": {"payment_required_now": false, "payment_amount_jpy": 0, "payout_setup_required": true, "notes": "初期費用・サーバー費用は0円（GitHub Pages / Cloudflare Pages / PLiCy等の無料枠活用）で構築完了しています。報酬受け取りのため、以下のASP・アドネットワークの無料アカウント開設とID設定のみ金庫番様にてお願いいたします。"}, "ad_networks": {"ninja_admax": {"enabled": true, "name": "忍者AdMax (審査なし・即日収益化・インプレッション/クリック報酬)", "signup_url": "https://www.ninja.co.jp/admax/", "header_banner_tag_id": "NINJA_HEADER_DEMO_ID", "footer_banner_tag_id": "NINJA_FOOTER_DEMO_ID", "interstitial_tag_id": "NINJA_RESULT_DEMO_ID", "estimated_rpm_jpy": 300}, "google_adsense": {"enabled": false, "name": "Google AdSense (PV増加後の高単価メイン広告)", "signup_url": "https://www.google.com/adsense/start/", "client_id": "ca-pub-XXXXXXXXXXXXXXXX", "slot_header": "1111111111", "slot_result": "2222222222", "estimated_rpm_jpy": 550}, "a8_net": {"enabled": true, "name": "A8.net (日本最大級ASP・高単価成果報酬アフィリエイト)", "signup_url": "https://www.a8.net/", "media_id": "A8_DEMO_MEDIA_ID"}, "moshimo_affiliate": {"enabled": true, "name": "もしもアフィリエイト / 楽天・Amazon物販連携", "signup_url": "https://af.moshimo.com/", "media_id": "MOSHIMO_DEMO_ID"}}, "ab_testing": {"active_experiment": "result_cta_copy_v1", "variants": {"A": {"name": "恐怖・損失回避訴求 (Loss Aversion)", "badge_text": "【警告】現実でも対策していますか？", "button_style": "urgent_red", "reward_button_text": "🔥 スポンサーPRを見てスコア1.5倍＆称号解放！"}, "B": {"name": "お得・報酬獲得訴求 (Gain & Reward)", "badge_text": "【プレイヤー限定特典】今だけのお得情報", "button_style": "gold_shine", "reward_button_text": "🎁 PRをチェックしてボーナススコア＋150%獲得！"}}}, "pdca_rules": {"min_impressions_for_judgment": 50, "target_ad_ctr_percent": 3.5, "target_retry_rate_percent": 45.0, "auto_optimize_enabled": true}};
+  </script>
+  <script>
+/**
+ * Web Audio API Procedural BGM & Sound Effects Synthesizer
+ * 外部MP3ファイル不要・著作権完全フリー・容量0KBでテーマ別BGMと効果音を自動生成
+ */
+class ProceduralAudioEngine {
+  constructor(preset = 'upbeat_pop') {
+    this.preset = preset;
+    this.ctx = null;
+    this.isMuted = false;
+    this.isPlayingBgm = false;
+    this.bgmTimer = null;
+    this.stepIndex = 0;
+
+    this.presets = {
+      upbeat_pop: {
+        tempoMs: 190,
+        wave: 'triangle',
+        notes: [523.25, 659.25, 783.99, 659.25, 880.0, 783.99, 659.25, 587.33]
+      },
+      cyber_tension: {
+        tempoMs: 165,
+        wave: 'sawtooth',
+        notes: [220.0, 261.63, 329.63, 220.0, 293.66, 349.23, 329.63, 196.0]
+      },
+      retro_8bit: {
+        tempoMs: 180,
+        wave: 'square',
+        notes: [392.0, 440.0, 493.88, 523.25, 587.33, 523.25, 493.88, 440.0]
+      },
+      panic_rush: {
+        tempoMs: 145,
+        wave: 'square',
+        notes: [329.63, 392.0, 493.88, 659.25, 587.33, 493.88, 392.0, 329.63]
+      },
+      chill_melody: {
+        tempoMs: 240,
+        wave: 'sine',
+        notes: [261.63, 329.63, 392.0, 493.88, 440.0, 392.0, 329.63, 293.66]
+      }
+    };
+  }
+
+  initContext() {
+    if (!this.ctx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) {
+        this.ctx = new AudioCtx();
+      }
+    }
+    if (this.ctx && this.ctx.state === 'suspended') {
+      this.ctx.resume();
+    }
+  }
+
+  toggleMute() {
+    this.isMuted = !this.isMuted;
+    if (this.isMuted) {
+      this.stopBgm();
+    } else {
+      this.startBgm();
+    }
+    return this.isMuted;
+  }
+
+  startBgm() {
+    if (this.isMuted || this.isPlayingBgm) return;
+    this.initContext();
+    if (!this.ctx) return;
+
+    this.isPlayingBgm = true;
+    const cfg = this.presets[this.preset] || this.presets.upbeat_pop;
+
+    this.bgmTimer = setInterval(() => {
+      if (this.isMuted || !this.isPlayingBgm) return;
+      const freq = cfg.notes[this.stepIndex % cfg.notes.length];
+      this.playTone(freq, cfg.tempoMs / 1000 * 0.75, cfg.wave, 0.045);
+      if (this.stepIndex % 2 === 0) {
+        this.playTone(freq / 2, cfg.tempoMs / 1000 * 0.85, 'sine', 0.035);
+      }
+      this.stepIndex++;
+    }, cfg.tempoMs);
+  }
+
+  stopBgm() {
+    this.isPlayingBgm = false;
+    if (this.bgmTimer) {
+      clearInterval(this.bgmTimer);
+      this.bgmTimer = null;
+    }
+  }
+
+  playTone(freq, durationSec, type = 'sine', volume = 0.08, slideToFreq = null) {
+    if (this.isMuted) return;
+    this.initContext();
+    if (!this.ctx) return;
+
+    const now = this.ctx.currentTime;
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, now);
+    if (slideToFreq) {
+      osc.frequency.exponentialRampToValueAtTime(slideToFreq, now + durationSec);
+    }
+
+    gain.gain.setValueAtTime(volume, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + durationSec);
+
+    osc.connect(gain);
+    gain.connect(this.ctx.destination);
+    osc.start(now);
+    osc.stop(now + durationSec);
+  }
+
+  playSE(type, level = 1) {
+    if (this.isMuted) return;
+    switch (type) {
+      case 'drop':
+        this.playTone(300, 0.09, 'sine', 0.08, 180);
+        break;
+      case 'merge':
+        const baseFreq = 330 + (level * 55);
+        this.playTone(baseFreq, 0.14, 'triangle', 0.12, baseFreq * 1.35);
+        break;
+      case 'jump':
+        this.playTone(280, 0.12, 'square', 0.07, 560);
+        break;
+      case 'hit':
+        this.playTone(520, 0.1, 'triangle', 0.1, 880);
+        break;
+      case 'damage':
+        this.playTone(190, 0.22, 'sawtooth', 0.11, 95);
+        break;
+      case 'reward':
+        this.playTone(523.25, 0.12, 'triangle', 0.12, 659.25);
+        setTimeout(() => this.playTone(783.99, 0.25, 'triangle', 0.14, 1046.5), 110);
+        break;
+      case 'gameover':
+        this.playTone(392.0, 0.18, 'sawtooth', 0.1, 329.63);
+        setTimeout(() => this.playTone(293.66, 0.35, 'sawtooth', 0.1, 196.0), 180);
+        break;
+    }
+  }
+}
+
+window.ProceduralAudioEngine = ProceduralAudioEngine;
+
+  </script>
+  <script>
+/**
+ * TrendMiniGames Ad Monetization, A/B Testing & Telemetry SDK
+ * - ゲーム内広告（忍者AdMax本番タグ / リワード動画風インタースティシャル / 文脈連動アフィリエイト）の描画
+ * - A/Bテストバリアント自動割り当て（Variant A: 損失回避訴求 vs Variant B: 報酬獲得訴求）
+ * - インプレッション・プレイ時間・リトライ率・広告CTR・推定収益の計測＆サーバー同期
+ */
+class MiniGameMonetizationSDK {
+  constructor(themeData, monetizationConfig) {
+    this.theme = themeData;
+    this.config = monetizationConfig;
+    this.slug = themeData.slug;
+    this.variant = this.assignABVariant();
+    this.sessionStart = Date.now();
+    this.rewardClaimed = false;
+    this.currentScore = 0;
+
+    this.initStorage();
+    this.renderBannerSlots();
+    this.trackEvent('impression', { variant: this.variant });
+  }
+
+  assignABVariant() {
+    const key = 'tmg_ab_variant';
+    let saved = localStorage.getItem(key);
+    if (!saved || (saved !== 'A' && saved !== 'B')) {
+      saved = Math.random() < 0.5 ? 'A' : 'B';
+      localStorage.setItem(key, saved);
+    }
+    return saved;
+  }
+
+  initStorage() {
+    const raw = localStorage.getItem('tmg_analytics_v1');
+    if (!raw) {
+      localStorage.setItem('tmg_analytics_v1', JSON.stringify({ games: {}, events: [] }));
+    }
+  }
+
+  getAnalyticsStore() {
+    try {
+      return JSON.parse(localStorage.getItem('tmg_analytics_v1')) || { games: {}, events: [] };
+    } catch (e) {
+      return { games: {}, events: [] };
+    }
+  }
+
+  saveAnalyticsStore(store) {
+    localStorage.setItem('tmg_analytics_v1', JSON.stringify(store));
+  }
+
+  trackEvent(eventType, payload = {}) {
+    const store = this.getAnalyticsStore();
+    if (!store.games[this.slug]) {
+      store.games[this.slug] = {
+        impressions: 0,
+        plays: 0,
+        gameovers: 0,
+        retries: 0,
+        reward_views: 0,
+        ad_clicks: 0,
+        affiliate_clicks: 0,
+        shares: 0,
+        total_play_sec: 0,
+        high_score: 0,
+        ab_stats: {
+          A: { result_views: 0, clicks: 0 },
+          B: { result_views: 0, clicks: 0 }
+        }
+      };
+    }
+
+    const g = store.games[this.slug];
+    const v = this.variant;
+
+    if (eventType === 'impression') g.impressions++;
+    if (eventType === 'play_start') g.plays++;
+    if (eventType === 'retry') g.retries++;
+    if (eventType === 'gameover') {
+      g.gameovers++;
+      g.total_play_sec += (payload.duration_sec || 30);
+      if ((payload.score || 0) > g.high_score) g.high_score = payload.score;
+      if (g.ab_stats[v]) g.ab_stats[v].result_views++;
+    }
+    if (eventType === 'reward_ad_view') g.reward_views++;
+    if (eventType === 'banner_click') g.ad_clicks++;
+    if (eventType === 'affiliate_click') {
+      g.affiliate_clicks++;
+      if (g.ab_stats[v]) g.ab_stats[v].clicks++;
+    }
+    if (eventType === 'share_click') g.shares++;
+
+    store.events.push({
+      ts: new Date().toISOString(),
+      slug: this.slug,
+      type: eventType,
+      variant: v,
+      ...payload
+    });
+    if (store.events.length > 300) {
+      store.events = store.events.slice(-300);
+    }
+
+    this.saveAnalyticsStore(store);
+
+    if (window.location.protocol.startsWith('http') && window.location.hostname === 'localhost') {
+      fetch('/api/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          slug: this.slug,
+          event: eventType,
+          variant: v,
+          payload
+        })
+      }).catch(() => {});
+    }
+  }
+
+  extractNinjaSrc(tagOrId) {
+    if (!tagOrId || tagOrId.includes('DEMO')) return null;
+    const match = tagOrId.match(/https:\/\/adm\.shinobi\.jp\/[a-zA-Z0-9_\/]+/);
+    if (match) return match[0];
+    if (/^[a-fA-F0-9]{32}$/.test(tagOrId.trim())) {
+      return `https://adm.shinobi.jp/s/${tagOrId.trim()}`;
+    }
+    return null;
+  }
+
+  injectNinjaScript(container, scriptUrl) {
+    container.innerHTML = '';
+    const wrapper = document.createElement('div');
+    wrapper.style.width = '100%';
+    wrapper.style.display = 'flex';
+    wrapper.style.justifyContent = 'center';
+    const s = document.createElement('script');
+    s.src = scriptUrl;
+    wrapper.appendChild(s);
+    container.appendChild(wrapper);
+  }
+
+  renderBannerSlots() {
+    const ninjaCfg = (this.config.ad_networks && this.config.ad_networks.ninja_admax) || {};
+    const headerNinjaUrl = this.extractNinjaSrc(ninjaCfg.header_banner_tag_id);
+    const footerNinjaUrl = this.extractNinjaSrc(ninjaCfg.footer_banner_tag_id) || headerNinjaUrl;
+
+    const primaryOffer = (this.theme.affiliate_offers && this.theme.affiliate_offers[0]) || {
+      title: '【PR】今話題のトレンドサービスをチェック！',
+      cta_text: '詳細を見る',
+      url: '#affiliate'
+    };
+    const secondaryOffer = (this.theme.affiliate_offers && this.theme.affiliate_offers[1]) || primaryOffer;
+
+    const topSlot = document.getElementById('topAdBanner');
+    if (topSlot) {
+      if (headerNinjaUrl) {
+        topSlot.removeAttribute('href');
+        this.injectNinjaScript(topSlot, headerNinjaUrl);
+      } else {
+        topSlot.href = primaryOffer.url;
+        topSlot.target = '_blank';
+        topSlot.rel = 'noopener noreferrer';
+        topSlot.innerHTML = `
+          <span class="ad-pr-badge">PR・忍者AdMax枠</span>
+          <span class="ad-banner-text">${primaryOffer.title}</span>
+          <span class="ad-banner-cta">${primaryOffer.cta_text}</span>
+        `;
+      }
+      topSlot.addEventListener('click', () => {
+        this.trackEvent('banner_click', { slot: 'header', offer_id: primaryOffer.offer_id });
+      });
+    }
+
+    const bottomSlot = document.getElementById('bottomAdBanner');
+    if (bottomSlot) {
+      if (footerNinjaUrl) {
+        bottomSlot.removeAttribute('href');
+        this.injectNinjaScript(bottomSlot, footerNinjaUrl);
+      } else {
+        bottomSlot.href = secondaryOffer.url;
+        bottomSlot.target = '_blank';
+        bottomSlot.rel = 'noopener noreferrer';
+        bottomSlot.innerHTML = `
+          <span class="ad-pr-badge">スポンサーPR</span>
+          <span class="ad-banner-text">${secondaryOffer.title}</span>
+          <span class="ad-banner-cta">チェック &raquo;</span>
+        `;
+      }
+      bottomSlot.addEventListener('click', () => {
+        this.trackEvent('banner_click', { slot: 'footer', offer_id: secondaryOffer.offer_id });
+      });
+    }
+  }
+
+  evaluateRank(score) {
+    const ranks = this.theme.ranks || [];
+    let chosen = ranks[0] || { title: 'チャレンジャー', comment: 'ナイスプレイ！' };
+    for (const r of ranks) {
+      if (score >= r.min_score) chosen = r;
+    }
+    return chosen;
+  }
+
+  showResultModal(score, durationSec, onScoreBoosted) {
+    this.currentScore = score;
+    this.rewardClaimed = false;
+    this.trackEvent('gameover', { score, duration_sec: durationSec });
+
+    const rank = this.evaluateRank(score);
+    const abCfg = (this.config.ab_testing && this.config.ab_testing.variants[this.variant]) || {
+      badge_text: '【プレイヤー限定おすすめ情報】',
+      button_style: 'urgent_red',
+      reward_button_text: '🔥 PRをチェックしてスコア1.5倍ボーナス！'
+    };
+
+    const scoreEl = document.getElementById('resultScoreNum');
+    const rankEl = document.getElementById('resultRankTitle');
+    const commentEl = document.getElementById('resultRankComment');
+    const rewardBtn = document.getElementById('btnRewardBoost');
+    const affiliateBox = document.getElementById('resultAffiliateBox');
+    const shareXBtn = document.getElementById('btnShareX');
+
+    if (scoreEl) scoreEl.textContent = score.toLocaleString();
+    if (rankEl) rankEl.textContent = `称号：${rank.title}`;
+    if (commentEl) commentEl.textContent = rank.comment;
+
+    if (rewardBtn) {
+      rewardBtn.style.display = 'block';
+      rewardBtn.textContent = abCfg.reward_button_text;
+      rewardBtn.onclick = () => {
+        if (this.rewardClaimed) return;
+        this.rewardClaimed = true;
+        this.trackEvent('reward_ad_view', { score });
+        if (window.gameAudio) window.gameAudio.playSE('reward');
+        const boosted = Math.round(score * 1.5);
+        this.currentScore = boosted;
+        const newRank = this.evaluateRank(boosted);
+        if (scoreEl) scoreEl.textContent = `${boosted.toLocaleString()} (1.5x UP!)`;
+        if (rankEl) rankEl.textContent = `称号：${newRank.title} [PR特典解放]`;
+        rewardBtn.textContent = '✅ 1.5倍スコアボーナス適用済み！下の限定特典もチェック↓';
+        rewardBtn.style.opacity = '0.8';
+        if (typeof onScoreBoosted === 'function') onScoreBoosted(boosted);
+      };
+    }
+
+    if (affiliateBox) {
+      const offersHtml = (this.theme.affiliate_offers || []).map(offer => `
+        <div class="offer-card">
+          <span class="offer-tag">${offer.tag || '注目PR'} / ${offer.network}</span>
+          <div class="offer-title">${offer.title}</div>
+          <div class="offer-desc">${offer.description}</div>
+          <a href="${offer.url}" target="_blank" rel="noopener noreferrer"
+             class="offer-cta-btn ${abCfg.button_style}"
+             data-offer-id="${offer.offer_id}"
+             data-cpa="${offer.cpa_jpy || 2000}">
+             ${offer.cta_text} &raquo;
+          </a>
+        </div>
+      `).join('');
+
+      affiliateBox.innerHTML = `
+        <div class="affiliate-header-badge ${abCfg.button_style}">${abCfg.badge_text} (AB:${this.variant})</div>
+        ${offersHtml}
+      `;
+
+      affiliateBox.querySelectorAll('.offer-cta-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          this.trackEvent('affiliate_click', {
+            offer_id: btn.getAttribute('data-offer-id'),
+            cpa_jpy: Number(btn.getAttribute('data-cpa') || 2000)
+          });
+        });
+      });
+    }
+
+    if (shareXBtn) {
+      const shareText = encodeURIComponent(
+        `【${this.theme.title}】でスコア ${score}点 獲得！\n称号「${rank.title}」を達成しました！\n#${this.theme.trend_keywords[0]} #時事ミニゲーム`
+      );
+      shareXBtn.href = `https://twitter.com/intent/tweet?text=${shareText}`;
+      shareXBtn.onclick = () => this.trackEvent('share_click', { platform: 'x' });
+    }
+
+    const modal = document.getElementById('resultModal');
+    if (modal) modal.classList.remove('hidden');
+  }
+}
+
+window.MiniGameMonetizationSDK = MiniGameMonetizationSDK;
+
+  </script>
+  <script>
+/**
+ * Engine 1: Suika-Physics (落下＆合体物理パズルエンジン)
+ * 参照OSS: sgbj/suika-clone, isobelmcrae/suika (MIT)
+ * 1分で決着がつく「60秒スコアアタック＋デッドライン溢れ判定」ハイブリッド仕様
+ */
+class SuikaGameEngine {
+  constructor(canvas, theme, audio, sdk, callbacks) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.theme = theme;
+    this.audio = audio;
+    this.sdk = sdk;
+    this.cb = callbacks;
+
+    this.width = 400;
+    this.height = 500;
+    this.canvas.width = this.width;
+    this.canvas.height = this.height;
+
+    this.items = theme.items || [];
+    this.balls = [];
+    this.particles = [];
+    this.floatingTexts = [];
+
+    this.score = 0;
+    this.timeLeft = 60;
+    this.isRunning = false;
+    this.dropX = this.width / 2;
+    this.currentLevel = 0;
+    this.nextLevel = 1;
+    this.canDrop = true;
+    this.deadLineY = 85;
+    this.timerInterval = null;
+    this.animId = null;
+
+    this.bindEvents();
+    this.renderEvolutionGuide();
+  }
+
+  renderEvolutionGuide() {
+    const guide = document.getElementById('evolutionGuide');
+    if (!guide) return;
+    const chain = this.items.map(it => `${it.emoji}<span style="font-size:0.7rem">${it.name.slice(0, 4)}</span>`).join(' ➔ ');
+    guide.innerHTML = `<strong>【進化図鑑】</strong> ${chain}`;
+  }
+
+  bindEvents() {
+    const updatePos = (clientX) => {
+      const rect = this.canvas.getBoundingClientRect();
+      const scaleX = this.width / rect.width;
+      const r = (this.items[this.currentLevel] && this.items[this.currentLevel].radius) || 20;
+      let x = (clientX - rect.left) * scaleX;
+      this.dropX = Math.max(r + 6, Math.min(this.width - r - 6, x));
+    };
+
+    this.canvas.addEventListener('mousemove', (e) => {
+      if (!this.isRunning) return;
+      updatePos(e.clientX);
+    });
+
+    this.canvas.addEventListener('click', (e) => {
+      if (!this.isRunning) return;
+      updatePos(e.clientX);
+      this.dropBall();
+    });
+
+    this.canvas.addEventListener('touchstart', (e) => {
+      if (!this.isRunning) return;
+      if (e.touches.length > 0) updatePos(e.touches[0].clientX);
+    }, { passive: true });
+
+    this.canvas.addEventListener('touchmove', (e) => {
+      if (!this.isRunning) return;
+      if (e.touches.length > 0) updatePos(e.touches[0].clientX);
+    }, { passive: true });
+
+    this.canvas.addEventListener('touchend', () => {
+      if (!this.isRunning) return;
+      this.dropBall();
+    });
+  }
+
+  start() {
+    this.balls = [];
+    this.particles = [];
+    this.floatingTexts = [];
+    this.score = 0;
+    this.timeLeft = 60;
+    this.isRunning = true;
+    this.canDrop = true;
+    this.currentLevel = Math.floor(Math.random() * 3);
+    this.nextLevel = Math.floor(Math.random() * 4);
+    this.startTime = Date.now();
+
+    this.cb.onScoreChange(this.score);
+    this.cb.onTimeChange(this.timeLeft);
+
+    if (this.timerInterval) clearInterval(this.timerInterval);
+    this.timerInterval = setInterval(() => {
+      if (!this.isRunning) return;
+      this.timeLeft--;
+      this.cb.onTimeChange(this.timeLeft);
+      if (this.timeLeft <= 0) {
+        this.finishGame();
+      }
+    }, 1000);
+
+    const loop = () => {
+      if (!this.isRunning) return;
+      this.update();
+      this.draw();
+      this.animId = requestAnimationFrame(loop);
+    };
+    this.animId = requestAnimationFrame(loop);
+  }
+
+  dropBall() {
+    if (!this.canDrop || !this.isRunning) return;
+    this.canDrop = false;
+    const spec = this.items[this.currentLevel] || this.items[0];
+    this.balls.push({
+      x: this.dropX + (Math.random() - 0.5) * 2,
+      y: 52,
+      vx: 0,
+      vy: 1.5,
+      level: this.currentLevel,
+      radius: spec.radius,
+      bornAt: Date.now()
+    });
+    this.audio.playSE('drop');
+
+    this.currentLevel = this.nextLevel;
+    this.nextLevel = Math.floor(Math.random() * Math.min(4, this.items.length));
+
+    setTimeout(() => {
+      this.canDrop = true;
+    }, 340);
+  }
+
+  spawnParticles(x, y, color) {
+    for (let i = 0; i < 12; i++) {
+      const angle = (Math.PI * 2 * i) / 12;
+      const speed = 2 + Math.random() * 3.5;
+      this.particles.push({
+        x, y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 1.0,
+        color
+      });
+    }
+  }
+
+  update() {
+    const gravity = 0.38;
+    const bounce = 0.35;
+    const friction = 0.985;
+
+    for (const b of this.balls) {
+      b.vy += gravity;
+      b.vx *= friction;
+      b.x += b.vx;
+      b.y += b.vy;
+
+      if (b.x - b.radius < 4) {
+        b.x = b.radius + 4;
+        b.vx = Math.abs(b.vx) * bounce;
+      } else if (b.x + b.radius > this.width - 4) {
+        b.x = this.width - b.radius - 4;
+        b.vx = -Math.abs(b.vx) * bounce;
+      }
+
+      if (b.y + b.radius > this.height - 6) {
+        b.y = this.height - b.radius - 6;
+        b.vy = -Math.abs(b.vy) * bounce;
+        b.vx *= 0.92;
+      }
+    }
+
+    // Physics sub-steps & collision merge
+    for (let iter = 0; iter < 4; iter++) {
+      for (let i = 0; i < this.balls.length; i++) {
+        for (let j = i + 1; j < this.balls.length; j++) {
+          const a = this.balls[i];
+          const b = this.balls[j];
+          if (!a || !b) continue;
+
+          const dx = b.x - a.x;
+          const dy = b.y - a.y;
+          const dist = Math.hypot(dx, dy) || 0.001;
+          const minDist = a.radius + b.radius;
+
+          if (dist < minDist) {
+            if (a.level === b.level && a.level < this.items.length - 1) {
+              // Merge into next level!
+              const nextLv = a.level + 1;
+              const nextSpec = this.items[nextLv];
+              const mx = (a.x + b.x) / 2;
+              const my = (a.y + b.y) / 2;
+
+              this.balls.splice(j, 1);
+              this.balls.splice(i, 1);
+              this.balls.push({
+                x: mx,
+                y: my,
+                vx: 0,
+                vy: -1.5,
+                level: nextLv,
+                radius: nextSpec.radius,
+                bornAt: Date.now()
+              });
+
+              const gained = nextSpec.score || (nextLv + 1) * 30;
+              this.score += gained;
+              this.cb.onScoreChange(this.score);
+              this.audio.playSE('merge', nextLv);
+              this.spawnParticles(mx, my, nextSpec.color);
+              this.floatingTexts.push({
+                x: mx,
+                y: my,
+                text: `${nextSpec.emoji} +${gained}`,
+                life: 1.0
+              });
+              break;
+            } else {
+              // Elastic separation
+              const overlap = (minDist - dist) * 0.52;
+              const nx = dx / dist;
+              const ny = dy / dist;
+              a.x -= nx * overlap;
+              a.y -= ny * overlap;
+              b.x += nx * overlap;
+              b.y += ny * overlap;
+
+              const rvx = b.vx - a.vx;
+              const rvy = b.vy - a.vy;
+              const velAlongNormal = rvx * nx + rvy * ny;
+              if (velAlongNormal < 0) {
+                const impulse = -(1 + 0.2) * velAlongNormal * 0.5;
+                a.vx -= impulse * nx;
+                a.vy -= impulse * ny;
+                b.vx += impulse * nx;
+                b.vy += impulse * ny;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Check overflow above deadline
+    const now = Date.now();
+    for (const b of this.balls) {
+      if (now - b.bornAt > 1800 && b.y - b.radius < this.deadLineY && Math.abs(b.vy) < 0.8) {
+        this.finishGame();
+        return;
+      }
+    }
+
+    // Update particles & floating texts
+    this.particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life -= 0.04;
+    });
+    this.particles = this.particles.filter(p => p.life > 0);
+
+    this.floatingTexts.forEach(ft => {
+      ft.y -= 1.2;
+      ft.life -= 0.03;
+    });
+    this.floatingTexts = this.floatingTexts.filter(ft => ft.life > 0);
+  }
+
+  draw() {
+    const ctx = this.ctx;
+    ctx.clearRect(0, 0, this.width, this.height);
+
+    // Deadline line
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255, 82, 82, 0.7)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([6, 6]);
+    ctx.beginPath();
+    ctx.moveTo(0, this.deadLineY);
+    ctx.lineTo(this.width, this.deadLineY);
+    ctx.stroke();
+    ctx.restore();
+
+    // Preview dropper & guide line
+    if (this.canDrop) {
+      const curSpec = this.items[this.currentLevel] || this.items[0];
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.22)';
+      ctx.beginPath();
+      ctx.moveTo(this.dropX, 45);
+      ctx.lineTo(this.dropX, this.height);
+      ctx.stroke();
+      ctx.restore();
+
+      this.drawBallItem(this.dropX, 42, curSpec, true);
+    }
+
+    // Next item badge
+    const nextSpec = this.items[this.nextLevel] || this.items[0];
+    ctx.save();
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
+    ctx.fillRect(this.width - 105, 8, 97, 32);
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 12px sans-serif';
+    ctx.fillText(`NEXT: ${nextSpec.emoji}`, this.width - 96, 29);
+    ctx.restore();
+
+    // Active balls
+    for (const b of this.balls) {
+      const spec = this.items[b.level] || this.items[0];
+      this.drawBallItem(b.x, b.y, spec, false);
+    }
+
+    // Particles
+    for (const p of this.particles) {
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, p.life);
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Floating texts
+    for (const ft of this.floatingTexts) {
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, ft.life);
+      ctx.font = 'bold 15px sans-serif';
+      ctx.fillStyle = '#ffd700';
+      ctx.textAlign = 'center';
+      ctx.fillText(ft.text, ft.x, ft.y);
+      ctx.restore();
+    }
+  }
+
+  drawBallItem(x, y, spec, isPreview) {
+    const ctx = this.ctx;
+    ctx.save();
+    if (isPreview) ctx.globalAlpha = 0.85;
+
+    ctx.beginPath();
+    ctx.arc(x, y, spec.radius, 0, Math.PI * 2);
+    ctx.fillStyle = spec.color || '#ff80ab';
+    ctx.fill();
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = '#ffffff';
+    ctx.stroke();
+
+    ctx.font = `${Math.max(14, Math.floor(spec.radius * 0.95))}px sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(spec.emoji, x, y - 2);
+
+    if (spec.radius >= 30) {
+      ctx.font = 'bold 9px sans-serif';
+      ctx.fillStyle = 'rgba(0,0,0,0.75)';
+      ctx.fillText(spec.name.slice(0, 6), x, y + spec.radius * 0.58);
+    }
+    ctx.restore();
+  }
+
+  finishGame() {
+    if (!this.isRunning) return;
+    this.isRunning = false;
+    if (this.timerInterval) clearInterval(this.timerInterval);
+    if (this.animId) cancelAnimationFrame(this.animId);
+    this.audio.playSE('gameover');
+    const durationSec = Math.max(5, Math.round((Date.now() - this.startTime) / 1000));
+    this.cb.onGameOver(this.score, durationSec);
+  }
+}
+
+window.SuikaGameEngine = SuikaGameEngine;
+
+  </script>
+  <script>
+    (function() {
+      const theme = window.THEME_DATA;
+      const config = window.MONETIZATION_CONFIG;
+
+      // Apply theme CSS variables
+      const root = document.documentElement;
+      if (theme.background) {
+        const g = theme.background.gradient || ['#141e30', '#243b55', '#c94b4b'];
+        root.style.setProperty('--bg-grad-1', g[0]);
+        root.style.setProperty('--bg-grad-2', g[1] || g[0]);
+        root.style.setProperty('--bg-grad-3', g[2] || g[1]);
+        root.style.setProperty('--board-bg', theme.background.board_bg || 'rgba(20,25,40,0.94)');
+        root.style.setProperty('--border-color', theme.background.border_color || '#ff4081');
+        root.style.setProperty('--accent-color', theme.background.accent_color || '#ff4081');
+      }
+
+      const audio = new window.ProceduralAudioEngine(theme.bgm_preset || 'upbeat_pop');
+      window.gameAudio = audio;
+      const sdk = new window.MiniGameMonetizationSDK(theme, config);
+
+      const scoreEl = document.getElementById('hudScore');
+      const timeEl = document.getElementById('hudTime');
+      const bestEl = document.getElementById('hudBest');
+      const bestKey = 'tmg_best_' + theme.slug;
+      let bestScore = Number(localStorage.getItem(bestKey) || 0);
+      bestEl.textContent = bestScore.toLocaleString();
+
+      const canvas = document.getElementById('gameCanvas');
+      const engineMap = {
+        suika: window.SuikaGameEngine,
+        game2048: window.Game2048Engine,
+        flappy: window.FlappyGameEngine,
+        catcher: window.CatcherGameEngine,
+        whack: window.WhackGameEngine
+      };
+      const EngineClass = engineMap[theme.engine] || window.SuikaGameEngine;
+
+      const engine = new EngineClass(canvas, theme, audio, sdk, {
+        onScoreChange: (newScore) => {
+          scoreEl.textContent = newScore.toLocaleString();
+          if (newScore > bestScore) {
+            bestScore = newScore;
+            localStorage.setItem(bestKey, String(bestScore));
+            bestEl.textContent = bestScore.toLocaleString();
+          }
+        },
+        onTimeChange: (sec) => {
+          timeEl.textContent = String(sec);
+        },
+        onGameOver: (finalScore, durationSec) => {
+          audio.stopBgm();
+          sdk.showResultModal(finalScore, durationSec, (boostedScore) => {
+            scoreEl.textContent = boostedScore.toLocaleString();
+            if (boostedScore > bestScore) {
+              bestScore = boostedScore;
+              localStorage.setItem(bestKey, String(bestScore));
+              bestEl.textContent = bestScore.toLocaleString();
+            }
+          });
+        }
+      });
+
+      document.getElementById('btnMuteToggle').addEventListener('click', (e) => {
+        const muted = audio.toggleMute();
+        e.target.textContent = muted ? '🔇 BGM OFF' : '🔊 BGM ON';
+      });
+
+      document.getElementById('btnStartGame').addEventListener('click', () => {
+        document.getElementById('introModal').classList.add('hidden');
+        sdk.trackEvent('play_start');
+        audio.startBgm();
+        engine.start();
+      });
+
+      document.getElementById('btnRetryGame').addEventListener('click', () => {
+        document.getElementById('resultModal').classList.add('hidden');
+        sdk.trackEvent('retry');
+        sdk.trackEvent('play_start');
+        audio.startBgm();
+        engine.start();
+      });
+    })();
+  </script>
+</body>
+</html>

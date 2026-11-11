@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>{{TITLE}} | 1分時事ミニゲーム</title>
+  <meta name="description" content="{{SUBTITLE}} - {{STORY_INTRO}}" />
+  <meta property="og:title" content="{{TITLE}} | 1分時事ミニゲーム" />
+  <meta property="og:description" content="{{SUBTITLE}}" />
+  <meta property="og:type" content="website" />
+  <style>
+{{INLINE_CSS}}
+  </style>
+</head>
+<body>
+  <!-- Top Navigation -->
+  <div class="top-bar">
+    <a href="../../index.html" class="portal-link">🏠 時事ゲーム一覧へ</a>
+    <div class="top-controls">
+      <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
+      <a href="../../dashboard.html" class="btn-icon" style="text-decoration:none;">📊 CEO効果測定</a>
+    </div>
+  </div>
+
+  <!-- Header Ad Slot (Ninja AdMax / Affiliate Native Slot) -->
+  <a id="topAdBanner" class="ad-banner-slot" href="#pr"></a>
+
+  <!-- Main Game Wrapper -->
+  <div class="game-wrapper">
+    <div class="game-header">
+      <span class="trend-tag">🔥 {{TREND_CATEGORY}}</span>
+      <h1 class="game-title">{{TITLE}}</h1>
+    </div>
+
+    <div class="hud-bar">
+      <div class="hud-item">SCORE:<span id="hudScore" class="val">0</span></div>
+      <div class="hud-item">TIME:<span id="hudTime" class="val">60</span>s</div>
+      <div class="hud-item">BEST:<span id="hudBest" class="val">0</span></div>
+    </div>
+
+    <div class="stage-container">
+      <canvas id="gameCanvas" width="400" height="480"></canvas>
+    </div>
+
+    <div id="evolutionGuide" class="evolution-guide"></div>
+  </div>
+
+  <!-- Footer Ad Slot -->
+  <a id="bottomAdBanner" class="ad-banner-slot" href="#pr"></a>
+
+  <!-- Intro Story Modal -->
+  <div id="introModal" class="modal-overlay">
+    <div class="modal-card">
+      <span class="trend-tag">{{TREND_CATEGORY}}</span>
+      <h2 class="modal-title">{{TITLE}}</h2>
+      <div class="story-box">
+        <strong>【ストーリー】</strong><br />
+        {{STORY_INTRO}}
+      </div>
+      <div class="controls-box">
+        <strong>🎮 操作方法（約1分で完結！）</strong><br />
+        {{CONTROLS_HINT}}
+      </div>
+      <button id="btnStartGame" class="btn-primary">▶ ゲームスタート！（BGM再生）</button>
+      <div style="font-size:0.74rem; color:#90a4ae; margin-top:4px;">
+        トレンドワード: {{TREND_KEYWORDS}}
+      </div>
+    </div>
+  </div>
+
+  <!-- GameOver & Monetization Result Modal -->
+  <div id="resultModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <h2 class="modal-title">⏱️ タイムアップ＆結果発表！</h2>
+      <div class="result-score-box">
+        <div style="font-size:0.8rem; color:#cfd8dc;">獲得スコア</div>
+        <div id="resultScoreNum" class="result-score-num">0</div>
+        <div id="resultRankTitle" class="result-rank-badge">称号：判定中</div>
+        <p id="resultRankComment" style="font-size:0.82rem; color:#eceff1; margin-top:6px;"></p>
+      </div>
+
+      <!-- Reward Ad Boost Button -->
+      <button id="btnRewardBoost" class="btn-reward">
+        🔥 スポンサーPRを見てスコア1.5倍＆称号解放！
+      </button>
+
+      <!-- Retry & Share Buttons -->
+      <button id="btnRetryGame" class="btn-primary">🔄 もう1回プレイしてハイスコア更新！</button>
+      <div class="share-row">
+        <a id="btnShareX" href="#" target="_blank" rel="noopener noreferrer" class="btn-share">𝕏 結果をポスト</a>
+        <a href="../../index.html" class="btn-share other-games">🎮 他の時事ゲームで遊ぶ</a>
+      </div>
+
+      <!-- Context-Matched Affiliate Offers (A8.net / Moshimo) -->
+      <div id="resultAffiliateBox" class="affiliate-section"></div>
+    </div>
+  </div>
+
+  <script>
+    window.THEME_DATA = {{THEME_JSON}};
+    window.MONETIZATION_CONFIG = {{MONETIZATION_JSON}};
+  </script>
+  <script>
+{{INLINE_AUDIO_JS}}
+  </script>
+  <script>
+{{INLINE_SDK_JS}}
+  </script>
+  <script>
+{{INLINE_ENGINE_JS}}
+  </script>
+  <script>
+    (function() {
+      const theme = window.THEME_DATA;
+      const config = window.MONETIZATION_CONFIG;
+
+      // Apply theme CSS variables
+      const root = document.documentElement;
+      if (theme.background) {
+        const g = theme.background.gradient || ['#141e30', '#243b55', '#c94b4b'];
+        root.style.setProperty('--bg-grad-1', g[0]);
+        root.style.setProperty('--bg-grad-2', g[1] || g[0]);
+        root.style.setProperty('--bg-grad-3', g[2] || g[1]);
+        root.style.setProperty('--board-bg', theme.background.board_bg || 'rgba(20,25,40,0.94)');
+        root.style.setProperty('--border-color', theme.background.border_color || '#ff4081');
+        root.style.setProperty('--accent-color', theme.background.accent_color || '#ff4081');
+      }
+
+      const audio = new window.ProceduralAudioEngine(theme.bgm_preset || 'upbeat_pop');
+      window.gameAudio = audio;
+      const sdk = new window.MiniGameMonetizationSDK(theme, config);
+
+      const scoreEl = document.getElementById('hudScore');
+      const timeEl = document.getElementById('hudTime');
+      const bestEl = document.getElementById('hudBest');
+      const bestKey = 'tmg_best_' + theme.slug;
+      let bestScore = Number(localStorage.getItem(bestKey) || 0);
+      bestEl.textContent = bestScore.toLocaleString();
+
+      const canvas = document.getElementById('gameCanvas');
+      const engineMap = {
+        suika: window.SuikaGameEngine,
+        game2048: window.Game2048Engine,
+        flappy: window.FlappyGameEngine,
+        catcher: window.CatcherGameEngine,
+        whack: window.WhackGameEngine
+      };
+      const EngineClass = engineMap[theme.engine] || window.SuikaGameEngine;
+
+      const engine = new EngineClass(canvas, theme, audio, sdk, {
+        onScoreChange: (newScore) => {
+          scoreEl.textContent = newScore.toLocaleString();
+          if (newScore > bestScore) {
+            bestScore = newScore;
+            localStorage.setItem(bestKey, String(bestScore));
+            bestEl.textContent = bestScore.toLocaleString();
+          }
+        },
+        onTimeChange: (sec) => {
+          timeEl.textContent = String(sec);
+        },
+        onGameOver: (finalScore, durationSec) => {
+          audio.stopBgm();
+          sdk.showResultModal(finalScore, durationSec, (boostedScore) => {
+            scoreEl.textContent = boostedScore.toLocaleString();
+            if (boostedScore > bestScore) {
+              bestScore = boostedScore;
+              localStorage.setItem(bestKey, String(bestScore));
+              bestEl.textContent = bestScore.toLocaleString();
+            }
+          });
+        }
+      });
+
+      document.getElementById('btnMuteToggle').addEventListener('click', (e) => {
+        const muted = audio.toggleMute();
+        e.target.textContent = muted ? '🔇 BGM OFF' : '🔊 BGM ON';
+      });
+
+      document.getElementById('btnStartGame').addEventListener('click', () => {
+        document.getElementById('introModal').classList.add('hidden');
+        sdk.trackEvent('play_start');
+        audio.startBgm();
+        engine.start();
+      });
+
+      document.getElementById('btnRetryGame').addEventListener('click', () => {
+        document.getElementById('resultModal').classList.add('hidden');
+        sdk.trackEvent('retry');
+        sdk.trackEvent('play_start');
+        audio.startBgm();
+        engine.start();
+      });
+    })();
+  </script>
+</body>
+</html>

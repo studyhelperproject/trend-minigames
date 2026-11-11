@@ -1,0 +1,179 @@
+{
+  "catalog_version": "2026.11",
+  "description": "GitHubで公開されているMIT/オープンソースの『1分で遊べる超単純・高リプレイ性ミニゲーム』厳選リスト。タイトル・ストーリー・キャラ・背景・BGMを差し替えるだけで量産可能なベースゲーム群。",
+  "repositories": [
+    {
+      "id": "suika-physics",
+      "genre": "落下＆合体物理パズル (スイカゲーム系)",
+      "engine_key": "suika",
+      "reference_repos": [
+        {
+          "name": "sgbj/suika-clone",
+          "url": "https://github.com/sgbj/suika-clone",
+          "license": "MIT",
+          "tech_stack": "HTML5 Canvas / JS Physics"
+        },
+        {
+          "name": "isobelmcrae/suika",
+          "url": "https://github.com/isobelmcrae/suika",
+          "license": "MIT",
+          "tech_stack": "HTML5 / TypeScript / Matter.js"
+        },
+        {
+          "name": "liyupi/daxigua",
+          "url": "https://github.com/liyupi/daxigua",
+          "license": "MIT",
+          "tech_stack": "Vanilla JS / Canvas (カスタムテーマ改変の元祖)"
+        }
+      ],
+      "avg_play_time_sec": 75,
+      "viral_potential": 5,
+      "ad_monetization_score": 5,
+      "reskin_points": [
+        "10段階の進化キャラクターアイコン・名称・サイズ・色彩",
+        "落下ボックスの背景テーマとストーリー設定",
+        "合体時の効果音ピッチとBGMループ",
+        "最終進化到達時＆ゲームオーバー時の称号・連動アフィリエイト広告"
+      ]
+    },
+    {
+      "id": "2048-evolution",
+      "genre": "スライド合体パズル (2048タイムアタック系)",
+      "engine_key": "game2048",
+      "reference_repos": [
+        {
+          "name": "gabrielecirulli/2048",
+          "url": "https://github.com/gabrielecirulli/2048",
+          "license": "MIT",
+          "tech_stack": "Vanilla HTML5 / CSS3 / JS"
+        },
+        {
+          "name": "AlexDreamien/html5-2048",
+          "url": "https://github.com/AlexDreamien/html5-2048",
+          "license": "MIT",
+          "tech_stack": "HTML5 / JS"
+        }
+      ],
+      "avg_play_time_sec": 60,
+      "viral_potential": 4,
+      "ad_monetization_score": 5,
+      "reskin_points": [
+        "2→4→8→...→2048 の各タイルに割り当てる時事ランク名称・絵文字・背景色",
+        "60秒制限タイマーによる1分完結ゲームサイクル",
+        "到達ランクに応じた『時事診断結果』とA8アフィリエイト案件マッチング"
+      ]
+    },
+    {
+      "id": "flappy-dodge",
+      "genre": "1タップ障害物回避アクション (Flappy Bird系)",
+      "engine_key": "flappy",
+      "reference_repos": [
+        {
+          "name": "nebez/floppybird",
+          "url": "https://github.com/nebez/floppybird",
+          "license": "Apache-2.0 / Open Source",
+          "tech_stack": "HTML5 / JS"
+        },
+        {
+          "name": "pyforgedev/flappy-bird",
+          "url": "https://github.com/pyforgedev/flappy-bird",
+          "license": "MIT",
+          "tech_stack": "Zero-dependency HTML5 Canvas / Vanilla JS"
+        },
+        {
+          "name": "dev-ggomes/flappy-bird-web-game",
+          "url": "https://github.com/dev-ggomes/flappy-bird-web-game",
+          "license": "MIT",
+          "tech_stack": "HTML5 Canvas / JS"
+        }
+      ],
+      "avg_play_time_sec": 35,
+      "viral_potential": 5,
+      "ad_monetization_score": 5,
+      "reskin_points": [
+        "自機キャラクターとジャンプ時の吹き出しセリフ",
+        "上下から迫る障害物（土管）の見た目と『炎上ワード』ラベル",
+        "短時間で何度もゲームオーバーになるためリザルト広告表示回数（Imp）が最大"
+      ]
+    },
+    {
+      "id": "catch-drop",
+      "genre": "60秒ハイスピード収集＆罠回避 (フルーツキャッチャー系)",
+      "engine_key": "catcher",
+      "reference_repos": [
+        {
+          "name": "end3r/Gamedev-Canvas-workshop",
+          "url": "https://github.com/end3r/Gamedev-Canvas-workshop",
+          "license": "CC0 / Public Domain",
+          "tech_stack": "HTML5 Canvas / Vanilla JS"
+        }
+      ],
+      "avg_play_time_sec": 60,
+      "viral_potential": 4,
+      "ad_monetization_score": 4,
+      "reskin_points": [
+        "プレイヤー操作バスケットのキャラクター",
+        "上から降ってくる『お宝時事アイテム（高得点）』と『罠・社会問題アイテム（減点・スタン）』",
+        "残り15秒の『インフレ・フィーバータイム』演出と高速BGM"
+      ]
+    },
+    {
+      "id": "whack-tap",
+      "genre": "60秒高速反射タップ撃退 (もぐら叩き・クリッカー系)",
+      "engine_key": "whack",
+      "reference_repos": [
+        {
+          "name": "wesbos/JavaScript30 (30 - Whack A Mole)",
+          "url": "https://github.com/wesbos/JavaScript30",
+          "license": "MIT",
+          "tech_stack": "Vanilla JS / CSS / HTML5"
+        }
+      ],
+      "avg_play_time_sec": 50,
+      "viral_potential": 4,
+      "ad_monetization_score": 5,
+      "reskin_points": [
+        "9つのホールから出現する『撃退対象（悪役・社会問題）』と『誤タップ厳禁の味方キャラ』",
+        "連打コンボ時の爽快エフェクトとストレス発散型ストーリー",
+        "撃退数に応じたストレス解消診断＆リザルト広告"
+      ]
+    },
+    {
+      "id": "future-candidates",
+      "genre": "次期拡張候補（いつでも追加可能なGitHub MITゲーム群）",
+      "engine_key": "roadmap",
+      "reference_repos": [
+        {
+          "name": "ellisonleao/clumsy-bird",
+          "url": "https://github.com/ellisonleao/clumsy-bird",
+          "license": "MIT",
+          "tech_stack": "MelonJS / HTML5"
+        },
+        {
+          "name": "Hextris/hextris",
+          "url": "https://github.com/Hextris/hextris",
+          "license": "GPL-3.0 / Open Source",
+          "tech_stack": "HTML5 Canvas 六角形パズル"
+        },
+        {
+          "name": "wayou/t-rex-runner",
+          "url": "https://github.com/wayou/t-rex-runner",
+          "license": "BSD-3-Clause",
+          "tech_stack": "Chrome Dino Runner HTML5 Canvas"
+        },
+        {
+          "name": "iamkun/tower_game",
+          "url": "https://github.com/iamkun/tower_game",
+          "license": "MIT",
+          "tech_stack": "HTML5 Canvas タイミング積み上げタワーゲーム"
+        }
+      ],
+      "avg_play_time_sec": 60,
+      "viral_potential": 5,
+      "ad_monetization_score": 5,
+      "reskin_points": [
+        "1タップジャンプ、ブロック積み上げ、回転パズルなどスマホブラウザと相性抜群"
+      ]
+    }
+  ]
+}

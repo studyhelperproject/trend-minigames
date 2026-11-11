@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>時事ミニゲーム横丁 | 1分で遊べる最新トレンドゲームポータル</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      background: #0d1117;
+      color: #f0f6fc;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      padding: 28px 18px;
+      text-align: center;
+      border-bottom: 2px solid #ff4081;
+    }
+    .badge-live {
+      display: inline-block;
+      background: #ff1744;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 16px;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .sub {
+      font-size: 0.92rem;
+      color: #e0e0e0;
+      max-width: 680px;
+      margin: 0 auto 14px;
+    }
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 22px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: background 0.2s;
+    }
+    .nav-btn.ceo {
+      background: linear-gradient(90deg, #ffd600, #ff6d00);
+      color: #111;
+      border: none;
+    }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+    .portal-ad-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: linear-gradient(90deg, #16222a, #3a6073);
+      border: 1px dashed #ffd700;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 20px;
+    }
+    .game-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .game-card:hover {
+      transform: translateY(-4px);
+      border-color: #ff4081;
+    }
+    .card-banner {
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-emoji {
+      font-size: 2.8rem;
+    }
+    .card-meta {
+      text-align: right;
+    }
+    .engine-badge {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.55);
+      color: #ffd700;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 12px;
+    }
+    .card-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-cat {
+      font-size: 0.75rem;
+      color: #ff80ab;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .card-desc {
+      font-size: 0.84rem;
+      color: #8b949e;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+    .kw-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .kw {
+      font-size: 0.7rem;
+      background: #21262d;
+      color: #58a6ff;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .play-btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: linear-gradient(90deg, #ff4081, #ff9100);
+      color: #fff;
+      font-weight: 900;
+      padding: 11px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #8b949e;
+      font-size: 0.82rem;
+      border-top: 1px solid #21262d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="badge-live">🔥 2026年最新トレンド即時ゲーム化</span>
+    <h1>🎮 時事ミニゲーム横丁</h1>
+    <p class="sub">
+      スイカゲーム・2048・フラッピーなど「1分で遊べる中毒ゲーム」×「最新ニュース・流行語」！<br />
+      インストール不要・ブラウザで今すぐ無料プレイ！
+    </p>
+    <div class="nav-bar">
+      <a href="#games" class="nav-btn">🕹️ ゲーム一覧 (6本稼働中)</a>
+      <a href="dashboard.html" class="nav-btn ceo">📊 CEO経営＆PDCA効果測定ダッシュボード</a>
+    </div>
+  </header>
+
+  <div class="container" id="games">
+    <a class="portal-ad-banner" href="https://px.a8.net/svt/ejp?a8mat=DEMO_PORTAL_TOP" target="_blank" rel="noopener noreferrer">
+      <div>
+        <span style="background:#ffd700;color:#111;font-weight:800;font-size:0.72rem;padding:2px 7px;border-radius:4px;">注目PR</span>
+        <strong style="margin-left:8px;">【2026年話題】スキマ時間1分でポイ活＆最新トレンドアプリ特集！</strong>
+      </div>
+      <span style="background:#00e676;color:#111;font-weight:800;font-size:0.82rem;padding:6px 14px;border-radius:18px;">無料でチェック &raquo;</span>
+    </a>
+
+    <div class="grid">
+
+      <div class="game-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);">
+          <span class="card-emoji">💖</span>
+          <div class="card-meta">
+            <span class="engine-badge">Engine: SUIKA</span>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥1,200</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Z世代トレンド・流行語2026</div>
+          <h2 class="card-title">ドパガキ進化論！メロい推し活スイカ</h2>
+          <p class="card-desc">2026流行語『ドパガキ』『メロい』完全ゲーム化！1分で脳汁MAX合体パズル</p>
+          <div class="kw-list"><span class="kw">#ドパガキ</span><span class="kw">#メロい</span><span class="kw">#ちいかわ</span><span class="kw">#M!LK</span><span class="kw">#推し活</span></div>
+          <a href="games/dopagaki-suika/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #0f2027, #203a43);">
+          <span class="card-emoji">🛡️</span>
+          <div class="card-meta">
+            <span class="engine-badge">Engine: GAME2048</span>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥4,500</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">IT・テクノロジー時事2026</div>
+          <h2 class="card-title">AIハッカー迎撃！サイバー防衛2048</h2>
+          <p class="card-desc">2026年急増するAIサイバー攻撃を60秒で撃退せよ！高速スライド防衛パズル</p>
+          <div class="kw-list"><span class="kw">#AIサイバー攻撃</span><span class="kw">#情報漏洩</span><span class="kw">#パスワード対策</span><span class="kw">#セキュリティ</span><span class="kw">#ホワイトハッカー</span></div>
+          <a href="games/ai-cyber-2048/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #2b1055, #7597de);">
+          <span class="card-emoji">💬</span>
+          <div class="card-meta">
+            <span class="engine-badge">Engine: FLAPPY</span>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥1,800</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">SNS・人間関係トレンド2026</div>
+          <h2 class="card-title">フレネミー回避！SNS裏アカ脱出フラッピー</h2>
+          <p class="card-desc">笑顔の裏でマウンティング！？話題の『フレネミー』と怪しいDMをかわして飛べ！</p>
+          <div class="kw-list"><span class="kw">#フレネミー</span><span class="kw">#裏アカ</span><span class="kw">#SNS疲れ</span><span class="kw">#マウント</span><span class="kw">#闇バイト回避</span></div>
+          <a href="games/frenemy-flappy/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #1a2a6c, #11998e);">
+          <span class="card-emoji">⚡</span>
+          <div class="card-meta">
+            <span class="engine-badge">Engine: CATCHER</span>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥4,000</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">経済・くらし・エネルギー時事2026</div>
+          <h2 class="card-title">冬の電力クライシス！節電＆GXキャッチパニック</h2>
+          <p class="card-desc">今冬の電気代高騰＆電力需給ひっ迫を乗り切れ！60秒エコエネルギー収集ゲーム</p>
+          <div class="kw-list"><span class="kw">#冬の電力需給</span><span class="kw">#電気代高騰</span><span class="kw">#GX</span><span class="kw">#J-クレジット</span><span class="kw">#節電ポイント</span></div>
+          <a href="games/winter-power-catcher/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #870000, #190a05);">
+          <span class="card-emoji">💥</span>
+          <div class="card-meta">
+            <span class="engine-badge">Engine: WHACK</span>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥5,000</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">マネー・生活防衛時事2026</div>
+          <h2 class="card-title">物価高騰バスターズ！値上げラッシュ60秒撃退</h2>
+          <p class="card-desc">止まらない値上げモンスターを連打でぶっ飛ばせ！爽快ストレス発散タップゲーム</p>
+          <div class="kw-list"><span class="kw">#物価高</span><span class="kw">#ステルス値上げ</span><span class="kw">#実質賃金</span><span class="kw">#ポイ活</span><span class="kw">#新NISA</span></div>
+          <a href="games/inflation-whack/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #141e30, #243b55);">
+          <span class="card-emoji">🏆</span>
+          <div class="card-meta">
+            <span class="engine-badge">Engine: SUIKA</span>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥6,500</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">クルマ・カルチャー時事2026</div>
+          <h2 class="card-title">伝説の名車復活！日野コンテッサ＆日本車進化スイカ</h2>
+          <p class="card-desc">2026年『日野コンテッサ1300クーペ』自動車殿堂・歴史遺産車選定記念パズル！</p>
+          <div class="kw-list"><span class="kw">#日野コンテッサ1300クーペ</span><span class="kw">#日本自動車殿堂</span><span class="kw">#歴史遺産車</span><span class="kw">#旧車ブーム</span><span class="kw">#名車</span></div>
+          <a href="games/contessa-car-suika/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>TrendMiniGames Studio - Powered by Open Source HTML5 Engines &amp; Autonomous PDCA Factory</p>
+  </footer>
+</body>
+</html>

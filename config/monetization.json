@@ -1,0 +1,65 @@
+{
+  "company_name": "TrendMiniGames Studio (時事ミニゲーム製作委員会)",
+  "monthly_profit_target_jpy": 100000,
+  "treasurer_status": {
+    "payment_required_now": false,
+    "payment_amount_jpy": 0,
+    "payout_setup_required": true,
+    "notes": "初期費用・サーバー費用は0円（GitHub Pages / Cloudflare Pages / PLiCy等の無料枠活用）で構築完了しています。報酬受け取りのため、以下のASP・アドネットワークの無料アカウント開設とID設定のみ金庫番様にてお願いいたします。"
+  },
+  "ad_networks": {
+    "ninja_admax": {
+      "enabled": true,
+      "name": "忍者AdMax (審査なし・即日収益化・インプレッション/クリック報酬)",
+      "signup_url": "https://www.ninja.co.jp/admax/",
+      "header_banner_tag_id": "NINJA_HEADER_DEMO_ID",
+      "footer_banner_tag_id": "NINJA_FOOTER_DEMO_ID",
+      "interstitial_tag_id": "NINJA_RESULT_DEMO_ID",
+      "estimated_rpm_jpy": 300
+    },
+    "google_adsense": {
+      "enabled": false,
+      "name": "Google AdSense (PV増加後の高単価メイン広告)",
+      "signup_url": "https://www.google.com/adsense/start/",
+      "client_id": "ca-pub-XXXXXXXXXXXXXXXX",
+      "slot_header": "1111111111",
+      "slot_result": "2222222222",
+      "estimated_rpm_jpy": 550
+    },
+    "a8_net": {
+      "enabled": true,
+      "name": "A8.net (日本最大級ASP・高単価成果報酬アフィリエイト)",
+      "signup_url": "https://www.a8.net/",
+      "media_id": "A8_DEMO_MEDIA_ID"
+    },
+    "moshimo_affiliate": {
+      "enabled": true,
+      "name": "もしもアフィリエイト / 楽天・Amazon物販連携",
+      "signup_url": "https://af.moshimo.com/",
+      "media_id": "MOSHIMO_DEMO_ID"
+    }
+  },
+  "ab_testing": {
+    "active_experiment": "result_cta_copy_v1",
+    "variants": {
+      "A": {
+        "name": "恐怖・損失回避訴求 (Loss Aversion)",
+        "badge_text": "【警告】現実でも対策していますか？",
+        "button_style": "urgent_red",
+        "reward_button_text": "🔥 スポンサーPRを見てスコア1.5倍＆称号解放！"
+      },
+      "B": {
+        "name": "お得・報酬獲得訴求 (Gain & Reward)",
+        "badge_text": "【プレイヤー限定特典】今だけのお得情報",
+        "button_style": "gold_shine",
+        "reward_button_text": "🎁 PRをチェックしてボーナススコア＋150%獲得！"
+      }
+    }
+  },
+  "pdca_rules": {
+    "min_impressions_for_judgment": 50,
+    "target_ad_ctr_percent": 3.5,
+    "target_retry_rate_percent": 45.0,
+    "auto_optimize_enabled": true
+  }
+}

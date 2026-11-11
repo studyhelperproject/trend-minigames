@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>時事ミニゲーム横丁 | 1分で遊べる最新トレンドゲームポータル</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      background: #0d1117;
+      color: #f0f6fc;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      padding: 28px 18px;
+      text-align: center;
+      border-bottom: 2px solid #ff4081;
+    }
+    .badge-live {
+      display: inline-block;
+      background: #ff1744;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 16px;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .sub {
+      font-size: 0.92rem;
+      color: #e0e0e0;
+      max-width: 680px;
+      margin: 0 auto 14px;
+    }
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 22px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: background 0.2s;
+    }
+    .nav-btn.ceo {
+      background: linear-gradient(90deg, #ffd600, #ff6d00);
+      color: #111;
+      border: none;
+    }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+    .portal-ad-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: linear-gradient(90deg, #16222a, #3a6073);
+      border: 1px dashed #ffd700;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 20px;
+    }
+    .game-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .game-card:hover {
+      transform: translateY(-4px);
+      border-color: #ff4081;
+    }
+    .card-banner {
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-emoji {
+      font-size: 2.8rem;
+    }
+    .card-meta {
+      text-align: right;
+    }
+    .engine-badge {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.55);
+      color: #ffd700;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 12px;
+    }
+    .card-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-cat {
+      font-size: 0.75rem;
+      color: #ff80ab;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .card-desc {
+      font-size: 0.84rem;
+      color: #8b949e;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+    .kw-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .kw {
+      font-size: 0.7rem;
+      background: #21262d;
+      color: #58a6ff;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .play-btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: linear-gradient(90deg, #ff4081, #ff9100);
+      color: #fff;
+      font-weight: 900;
+      padding: 11px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #8b949e;
+      font-size: 0.82rem;
+      border-top: 1px solid #21262d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="badge-live">🔥 2026年最新トレンド即時ゲーム化</span>
+    <h1>🎮 時事ミニゲーム横丁</h1>
+    <p class="sub">
+      スイカゲーム・2048・フラッピーなど「1分で遊べる中毒ゲーム」×「最新ニュース・流行語」！<br />
+      インストール不要・ブラウザで今すぐ無料プレイ！
+    </p>
+    <div class="nav-bar">
+      <a href="#games" class="nav-btn">🕹️ ゲーム一覧 ({{GAME_COUNT}}本稼働中)</a>
+      <a href="dashboard.html" class="nav-btn ceo">📊 CEO経営＆PDCA効果測定ダッシュボード</a>
+    </div>
+  </header>
+
+  <div class="container" id="games">
+    <a class="portal-ad-banner" href="https://px.a8.net/svt/ejp?a8mat=DEMO_PORTAL_TOP" target="_blank" rel="noopener noreferrer">
+      <div>
+        <span style="background:#ffd700;color:#111;font-weight:800;font-size:0.72rem;padding:2px 7px;border-radius:4px;">注目PR</span>
+        <strong style="margin-left:8px;">【2026年話題】スキマ時間1分でポイ活＆最新トレンドアプリ特集！</strong>
+      </div>
+      <span style="background:#00e676;color:#111;font-weight:800;font-size:0.82rem;padding:6px 14px;border-radius:18px;">無料でチェック &raquo;</span>
+    </a>
+
+    <div class="grid">
+{{GAME_CARDS_HTML}}
+    </div>
+  </div>
+
+  <footer>
+    <p>TrendMiniGames Studio - Powered by Open Source HTML5 Engines &amp; Autonomous PDCA Factory</p>
+  </footer>
+</body>
+</html>
