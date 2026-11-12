@@ -1,6 +1,6 @@
 # 週刊時事風刺ミニゲーム横丁 (Weekly Buzz Satire Mini-Games 2026)
 
-> 1分で遊べる無料HTML5ブラウザ風刺ミニゲーム集（全16タイトル・PC/スマホ対応・インストール不要）。
+> 1分で遊べる無料HTML5ブラウザ風刺ミニゲーム集（全17タイトル・PC/スマホ対応・インストール不要）。
 > ポータルURL: https://studyhelperproject.github.io/trend-minigames/
 
 ## ゲーム一覧 (Playable Browser Mini-Games)
@@ -20,3 +20,4 @@
 - [『ピーーッ！トロイの木馬に感染しました！』片言サポート詐欺魔王討伐RPG](https://studyhelperproject.github.io/trend-minigames/games/support-scam-rpg/): 「修理代はコンビニでアップルギフトカード5万円分買ってきて番号教えて！」を正論コマンドで粉砕せよ！ (⚔️ 風刺コマンドRPG)
 - [始発で並んだのに目の前で完売！？転売ヤー軍団をかわして限定推しグッズ確保キャッチャー](https://studyhelperproject.github.io/trend-minigames/games/tenbai-queue-catcher/): 「1人10個制限で先頭の転売集団が段ボール買い占め→5分後にフリマで3倍価格」の理不尽を突破せよ！ (⚡ 雷撃回避キャッチ)
 - [ノーコンティニューでクリアしてやるぜ！天才ゲーマー研修医vs『神の才能』ゲーム社長討伐RPG](https://studyhelperproject.github.io/trend-minigames/games/gamer-doctor-rpg/): 「私が神だ！！コンティニュー土管から99回復活する社長」と「天井300連爆死ガシャ」を医療コマンドで攻略せよ！ (⚔️ 風刺コマンドRPG)
+- [黒革ジャン社長ハニートラップ辞任危機！？半導体株ナイアガラ＆AIグラボ流出防衛RPG](https://studyhelperproject.github.io/trend-minigames/games/leather-jacket-ceo-rpg/): 「年中無休で黒い革ジャンを着ていたカリスマが傾国の美女スパイに陥落！？」半導体株ガチホ民の資産防衛バトル！ (⚔️ 風刺コマンドRPG)

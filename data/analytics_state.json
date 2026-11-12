@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12 23:13:37",
+  "updated_at": "2026-11-12 23:19:46",
   "games": {
     "dopagaki-suika": {
       "impressions": 23877,
@@ -392,13 +392,19 @@
       "timestamp": "2026-11-12 23:13:37",
       "summary": "全16本稼働 | IndexNow: HTTP 202 OK (20 URLs submitted) | WebSub: HTTP 204 OK (RSS Hub Notified)",
       "action_taken": "集客エンジン稼働：15本へ拡充、sitemap.xml/rss.xml/llms.txt/OGP画像16枚/JSON-LD生成、IndexNow＆Google WebSubへ全20 URLを即時Ping送信。"
+    },
+    {
+      "cycle": 11,
+      "timestamp": "2026-11-12 23:19:46",
+      "summary": "全17本稼働 | IndexNow: HTTP 200 OK (21 URLs submitted) | WebSub: HTTP 204 OK (RSS Hub Notified)",
+      "action_taken": "集客エンジン稼働：15本へ拡充、sitemap.xml/rss.xml/llms.txt/OGP画像16枚/JSON-LD生成、IndexNow＆Google WebSubへ全21 URLを即時Ping送信。"
     }
   ],
   "seo_acquisition": {
     "last_ping": {
-      "timestamp": "2026-11-12 23:13:34",
-      "submitted_urls_count": 20,
-      "indexnow_status": "HTTP 202 OK (20 URLs submitted)",
+      "timestamp": "2026-11-12 23:19:43",
+      "submitted_urls_count": 21,
+      "indexnow_status": "HTTP 200 OK (21 URLs submitted)",
       "google_websub_status": "HTTP 204 OK (RSS Hub Notified)",
       "github_real_traffic": {
         "views": {
