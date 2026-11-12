@@ -64,23 +64,29 @@
       border: none;
     }
     .container {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 24px 16px 48px;
+      padding: 20px 16px 48px;
     }
-    .portal-ad-banner {
+    .sponsor-bar {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 22px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 12px;
-      background: linear-gradient(90deg, #16222a, #3a6073);
-      border: 1px dashed #ffd700;
-      border-radius: 12px;
-      padding: 14px 18px;
-      margin-bottom: 24px;
-      text-decoration: none;
-      color: #fff;
+      align-items: center;
+      justify-content: space-around;
+      gap: 14px;
+    }
+    .sponsor-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      border-radius: 10px;
+      padding: 10px 14px;
+      flex: 1;
+      min-width: 260px;
     }
     .grid {
       display: grid;
@@ -171,7 +177,7 @@
     }
     footer {
       text-align: center;
-      padding: 24px;
+      padding: 28px 16px;
       color: #8b949e;
       font-size: 0.82rem;
       border-top: 1px solid #21262d;
@@ -190,19 +196,66 @@
       <a href="#games" class="nav-btn">🕹️ ゲーム一覧 ({{GAME_COUNT}}本稼働中)</a>
       <a href="dashboard.html" class="nav-btn ceo">📊 CEO経営＆PDCA効果測定ダッシュボード</a>
     </div>
+    <!-- 忍者AdMax 320x50 バナー広告 -->
+    <div style="margin-top:14px;display:flex;justify-content:center;">
+      <!-- admax -->
+      <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+      <!-- admax -->
+    </div>
   </header>
 
   <div class="container" id="games">
-    <a class="portal-ad-banner" href="https://px.a8.net/svt/ejp?a8mat=DEMO_PORTAL_TOP" target="_blank" rel="noopener noreferrer">
-      <div>
-        <span style="background:#ffd700;color:#111;font-weight:800;font-size:0.72rem;padding:2px 7px;border-radius:4px;">注目PR</span>
-        <strong style="margin-left:8px;">【2026年話題】スキマ時間1分でポイ活＆最新トレンドアプリ特集！</strong>
+    <!-- A8.net 公式スポンサー枠 (3大案件フル掲載) -->
+    <div class="sponsor-bar">
+      <div class="sponsor-card">
+        <div style="font-size:0.7rem;color:#ffd700;font-weight:800;margin-bottom:4px;">【PR・株式投資特集】</div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I" rel="nofollow" target="_blank" style="color:#fff;font-weight:800;font-size:0.9rem;text-decoration:none;display:block;margin-bottom:6px;">
+          📈 あなたの株式投資が一変するかもしれない情報源【旬の厳選10銘柄】 &raquo;
+        </a>
+        <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I" alt="">
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D" rel="nofollow" target="_blank">
+          <img border="0" width="320" height="50" alt="" src="https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1" style="max-width:100%;height:auto;border-radius:6px;">
+        </a>
+        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D" alt="">
       </div>
-      <span style="background:#00e676;color:#111;font-weight:800;font-size:0.82rem;padding:6px 14px;border-radius:18px;">無料でチェック &raquo;</span>
-    </a>
+
+      <div class="sponsor-card">
+        <div style="font-size:0.7rem;color:#ff80ab;font-weight:800;margin-bottom:4px;">【PR・アニメ＆ゲーム公式グッズ】</div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP" rel="nofollow" target="_blank" style="color:#fff;font-weight:800;font-size:0.9rem;text-decoration:none;display:block;margin-bottom:6px;">
+          ✨ アニメ・マンガ・ゲーム等のオリジナルグッズをお届け！【FaNeMa】 &raquo;
+        </a>
+        <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP" alt="">
+        <div style="font-size:0.78rem;color:#8b949e;">限定描き下ろしアクスタ・ぬいぐるみ好評予約受付中！</div>
+      </div>
+
+      <div class="sponsor-card">
+        <div style="font-size:0.7rem;color:#00e5ff;font-weight:800;margin-bottom:4px;">【PR・ネットセキュリティ強化】</div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6" rel="nofollow" target="_blank" style="color:#fff;font-weight:800;font-size:0.9rem;text-decoration:none;display:block;margin-bottom:6px;">
+          🛡️ MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！ &raquo;
+        </a>
+        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6" alt="">
+        <div style="font-size:0.78rem;color:#8b949e;">フリーWi-Fiの盗聴防止・スマホ＆PCの通信をワンタップ暗号化！</div>
+      </div>
+    </div>
 
     <div class="grid">
 {{GAME_CARDS_HTML}}
+    </div>
+
+    <!-- Bottom Banner Row -->
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center;">
+      <div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP" rel="nofollow" target="_blank">
+          <img border="0" width="120" height="60" alt="" src="https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1" style="border-radius:6px;">
+        </a>
+        <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TTTEP" alt="">
+      </div>
+      <div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP" rel="nofollow" target="_blank">
+          <img border="0" width="160" height="600" alt="" src="https://www21.a8.net/svt/bgt?aid=261112167571&wid=001&eno=01&mid=s00000025309001005000&mc=1" style="max-height:120px;width:auto;border-radius:6px;">
+        </a>
+        <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP" alt="">
+      </div>
     </div>
   </div>
 

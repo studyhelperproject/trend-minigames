@@ -64,23 +64,29 @@
       border: none;
     }
     .container {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 24px 16px 48px;
+      padding: 20px 16px 48px;
     }
-    .portal-ad-banner {
+    .sponsor-bar {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 22px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 12px;
-      background: linear-gradient(90deg, #16222a, #3a6073);
-      border: 1px dashed #ffd700;
-      border-radius: 12px;
-      padding: 14px 18px;
-      margin-bottom: 24px;
-      text-decoration: none;
-      color: #fff;
+      align-items: center;
+      justify-content: space-around;
+      gap: 14px;
+    }
+    .sponsor-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      border-radius: 10px;
+      padding: 10px 14px;
+      flex: 1;
+      min-width: 260px;
     }
     .grid {
       display: grid;
@@ -171,7 +177,7 @@
     }
     footer {
       text-align: center;
-      padding: 24px;
+      padding: 28px 16px;
       color: #8b949e;
       font-size: 0.82rem;
       border-top: 1px solid #21262d;
@@ -187,19 +193,50 @@
       インストール不要・ブラウザで今すぐ無料プレイ！
     </p>
     <div class="nav-bar">
-      <a href="#games" class="nav-btn">🕹️ ゲーム一覧 (6本稼働中)</a>
+      <a href="#games" class="nav-btn">🕹️ ゲーム一覧 (10本稼働中)</a>
       <a href="dashboard.html" class="nav-btn ceo">📊 CEO経営＆PDCA効果測定ダッシュボード</a>
+    </div>
+    <!-- 忍者AdMax 320x50 バナー広告 -->
+    <div style="margin-top:14px;display:flex;justify-content:center;">
+      <!-- admax -->
+      <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+      <!-- admax -->
     </div>
   </header>
 
   <div class="container" id="games">
-    <a class="portal-ad-banner" href="https://px.a8.net/svt/ejp?a8mat=DEMO_PORTAL_TOP" target="_blank" rel="noopener noreferrer">
-      <div>
-        <span style="background:#ffd700;color:#111;font-weight:800;font-size:0.72rem;padding:2px 7px;border-radius:4px;">注目PR</span>
-        <strong style="margin-left:8px;">【2026年話題】スキマ時間1分でポイ活＆最新トレンドアプリ特集！</strong>
+    <!-- A8.net 公式スポンサー枠 (3大案件フル掲載) -->
+    <div class="sponsor-bar">
+      <div class="sponsor-card">
+        <div style="font-size:0.7rem;color:#ffd700;font-weight:800;margin-bottom:4px;">【PR・株式投資特集】</div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I" rel="nofollow" target="_blank" style="color:#fff;font-weight:800;font-size:0.9rem;text-decoration:none;display:block;margin-bottom:6px;">
+          📈 あなたの株式投資が一変するかもしれない情報源【旬の厳選10銘柄】 &raquo;
+        </a>
+        <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I" alt="">
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D" rel="nofollow" target="_blank">
+          <img border="0" width="320" height="50" alt="" src="https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1" style="max-width:100%;height:auto;border-radius:6px;">
+        </a>
+        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D" alt="">
       </div>
-      <span style="background:#00e676;color:#111;font-weight:800;font-size:0.82rem;padding:6px 14px;border-radius:18px;">無料でチェック &raquo;</span>
-    </a>
+
+      <div class="sponsor-card">
+        <div style="font-size:0.7rem;color:#ff80ab;font-weight:800;margin-bottom:4px;">【PR・アニメ＆ゲーム公式グッズ】</div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP" rel="nofollow" target="_blank" style="color:#fff;font-weight:800;font-size:0.9rem;text-decoration:none;display:block;margin-bottom:6px;">
+          ✨ アニメ・マンガ・ゲーム等のオリジナルグッズをお届け！【FaNeMa】 &raquo;
+        </a>
+        <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP" alt="">
+        <div style="font-size:0.78rem;color:#8b949e;">限定描き下ろしアクスタ・ぬいぐるみ好評予約受付中！</div>
+      </div>
+
+      <div class="sponsor-card">
+        <div style="font-size:0.7rem;color:#00e5ff;font-weight:800;margin-bottom:4px;">【PR・ネットセキュリティ強化】</div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6" rel="nofollow" target="_blank" style="color:#fff;font-weight:800;font-size:0.9rem;text-decoration:none;display:block;margin-bottom:6px;">
+          🛡️ MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！ &raquo;
+        </a>
+        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6" alt="">
+        <div style="font-size:0.78rem;color:#8b949e;">フリーWi-Fiの盗聴防止・スマホ＆PCの通信をワンタップ暗号化！</div>
+      </div>
+    </div>
 
     <div class="grid">
 
@@ -208,14 +245,14 @@
           <span class="card-emoji">💖</span>
           <div class="card-meta">
             <span class="engine-badge">Engine: SUIKA</span>
-            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥1,200</div>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥1,500</div>
           </div>
         </div>
         <div class="card-body">
-          <div class="card-cat">Z世代トレンド・流行語2026</div>
+          <div class="card-cat">Z世代トレンド・推し活2026</div>
           <h2 class="card-title">ドパガキ進化論！メロい推し活スイカ</h2>
           <p class="card-desc">2026流行語『ドパガキ』『メロい』完全ゲーム化！1分で脳汁MAX合体パズル</p>
-          <div class="kw-list"><span class="kw">#ドパガキ</span><span class="kw">#メロい</span><span class="kw">#ちいかわ</span><span class="kw">#M!LK</span><span class="kw">#推し活</span></div>
+          <div class="kw-list"><span class="kw">#ドパガキ</span><span class="kw">#メロい</span><span class="kw">#アニメグッズ</span><span class="kw">#推し活</span><span class="kw">#ちいかわ</span></div>
           <a href="games/dopagaki-suika/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
         </div>
       </div>
@@ -225,14 +262,14 @@
           <span class="card-emoji">🛡️</span>
           <div class="card-meta">
             <span class="engine-badge">Engine: GAME2048</span>
-            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥4,500</div>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥3,500</div>
           </div>
         </div>
         <div class="card-body">
-          <div class="card-cat">IT・テクノロジー時事2026</div>
+          <div class="card-cat">IT・セキュリティ時事2026</div>
           <h2 class="card-title">AIハッカー迎撃！サイバー防衛2048</h2>
           <p class="card-desc">2026年急増するAIサイバー攻撃を60秒で撃退せよ！高速スライド防衛パズル</p>
-          <div class="kw-list"><span class="kw">#AIサイバー攻撃</span><span class="kw">#情報漏洩</span><span class="kw">#パスワード対策</span><span class="kw">#セキュリティ</span><span class="kw">#ホワイトハッカー</span></div>
+          <div class="kw-list"><span class="kw">#AIサイバー攻撃</span><span class="kw">#MillenVPN</span><span class="kw">#情報漏洩対策</span><span class="kw">#セキュリティ</span><span class="kw">#通信暗号化</span></div>
           <a href="games/ai-cyber-2048/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
         </div>
       </div>
@@ -242,14 +279,14 @@
           <span class="card-emoji">💬</span>
           <div class="card-meta">
             <span class="engine-badge">Engine: FLAPPY</span>
-            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥1,800</div>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥3,500</div>
           </div>
         </div>
         <div class="card-body">
-          <div class="card-cat">SNS・人間関係トレンド2026</div>
+          <div class="card-cat">SNS・ネット護身トレンド2026</div>
           <h2 class="card-title">フレネミー回避！SNS裏アカ脱出フラッピー</h2>
-          <p class="card-desc">笑顔の裏でマウンティング！？話題の『フレネミー』と怪しいDMをかわして飛べ！</p>
-          <div class="kw-list"><span class="kw">#フレネミー</span><span class="kw">#裏アカ</span><span class="kw">#SNS疲れ</span><span class="kw">#マウント</span><span class="kw">#闇バイト回避</span></div>
+          <p class="card-desc">笑顔の裏でマウンティング！？話題の『フレネミー』と裏アカ特定班をかわして飛べ！</p>
+          <div class="kw-list"><span class="kw">#フレネミー</span><span class="kw">#裏アカ</span><span class="kw">#SNS疲れ</span><span class="kw">#IP特定対策</span><span class="kw">#推し活</span></div>
           <a href="games/frenemy-flappy/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
         </div>
       </div>
@@ -263,10 +300,10 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="card-cat">経済・くらし・エネルギー時事2026</div>
+          <div class="card-cat">経済・エネルギー・投資時事2026</div>
           <h2 class="card-title">冬の電力クライシス！節電＆GXキャッチパニック</h2>
-          <p class="card-desc">今冬の電気代高騰＆電力需給ひっ迫を乗り切れ！60秒エコエネルギー収集ゲーム</p>
-          <div class="kw-list"><span class="kw">#冬の電力需給</span><span class="kw">#電気代高騰</span><span class="kw">#GX</span><span class="kw">#J-クレジット</span><span class="kw">#節電ポイント</span></div>
+          <p class="card-desc">今冬の電気代高騰＆インフレを乗り切れ！60秒エネルギー＆高騰資産収集ゲーム</p>
+          <div class="kw-list"><span class="kw">#冬の電力需給</span><span class="kw">#GX関連株</span><span class="kw">#電気代高騰</span><span class="kw">#J-クレジット</span><span class="kw">#株式投資</span></div>
           <a href="games/winter-power-catcher/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
         </div>
       </div>
@@ -276,14 +313,14 @@
           <span class="card-emoji">💥</span>
           <div class="card-meta">
             <span class="engine-badge">Engine: WHACK</span>
-            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥5,000</div>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥4,000</div>
           </div>
         </div>
         <div class="card-body">
-          <div class="card-cat">マネー・生活防衛時事2026</div>
+          <div class="card-cat">マネー・物価高・株式投資2026</div>
           <h2 class="card-title">物価高騰バスターズ！値上げラッシュ60秒撃退</h2>
-          <p class="card-desc">止まらない値上げモンスターを連打でぶっ飛ばせ！爽快ストレス発散タップゲーム</p>
-          <div class="kw-list"><span class="kw">#物価高</span><span class="kw">#ステルス値上げ</span><span class="kw">#実質賃金</span><span class="kw">#ポイ活</span><span class="kw">#新NISA</span></div>
+          <p class="card-desc">止まらない値上げモンスターを連打でぶっ飛ばせ！インフレ時代の資産防衛タップゲーム</p>
+          <div class="kw-list"><span class="kw">#物価高</span><span class="kw">#ステルス値上げ</span><span class="kw">#高騰期待銘柄</span><span class="kw">#資産防衛</span><span class="kw">#株式投資</span></div>
           <a href="games/inflation-whack/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
         </div>
       </div>
@@ -293,16 +330,100 @@
           <span class="card-emoji">🏆</span>
           <div class="card-meta">
             <span class="engine-badge">Engine: SUIKA</span>
-            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥6,500</div>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥4,000</div>
           </div>
         </div>
         <div class="card-body">
-          <div class="card-cat">クルマ・カルチャー時事2026</div>
+          <div class="card-cat">クルマ・産業・コレクター時事2026</div>
           <h2 class="card-title">伝説の名車復活！日野コンテッサ＆日本車進化スイカ</h2>
           <p class="card-desc">2026年『日野コンテッサ1300クーペ』自動車殿堂・歴史遺産車選定記念パズル！</p>
-          <div class="kw-list"><span class="kw">#日野コンテッサ1300クーペ</span><span class="kw">#日本自動車殿堂</span><span class="kw">#歴史遺産車</span><span class="kw">#旧車ブーム</span><span class="kw">#名車</span></div>
+          <div class="kw-list"><span class="kw">#日野コンテッサ1300クーペ</span><span class="kw">#日本自動車殿堂</span><span class="kw">#歴史遺産車</span><span class="kw">#自動車関連株</span><span class="kw">#コレクター</span></div>
           <a href="games/contessa-car-suika/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
         </div>
+      </div>
+
+      <div class="game-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #134e5e, #71b280);">
+          <span class="card-emoji">📈</span>
+          <div class="card-meta">
+            <span class="engine-badge">Engine: SUIKA</span>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥4,000</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">株式投資・マネートレンド2026</div>
+          <h2 class="card-title">新NISA＆日経バブル！テンバガー株進化スイカ</h2>
+          <p class="card-desc">小銭株から合体させて株価10倍『テンバガー銘柄』＆『億り人』を召喚せよ！</p>
+          <div class="kw-list"><span class="kw">#旬の厳選10銘柄</span><span class="kw">#テンバガー株</span><span class="kw">#新NISA</span><span class="kw">#高騰期待銘柄</span><span class="kw">#億り人</span></div>
+          <a href="games/tenbagger-stock-suika/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #0f0c29, #302b63);">
+          <span class="card-emoji">💹</span>
+          <div class="card-meta">
+            <span class="engine-badge">Engine: CATCHER</span>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥4,000</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">株式相場・デイトレ時事2026</div>
+          <h2 class="card-title">暴落回避！急騰10銘柄キャッチ＆狼狽売りサバイバル</h2>
+          <p class="card-desc">ストップ安爆弾を避けながらプロ厳選の『急騰期待株』を60秒で掴み取れ！</p>
+          <div class="kw-list"><span class="kw">#高騰期待銘柄</span><span class="kw">#ストップ高</span><span class="kw">#決算サプライズ</span><span class="kw">#旬の厳選10銘柄</span><span class="kw">#利確</span></div>
+          <a href="games/stock-surge-catcher/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #ff0844, #ffb199);">
+          <span class="card-emoji">✨</span>
+          <div class="card-meta">
+            <span class="engine-badge">Engine: FLAPPY</span>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥1,500</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">アニメ・マンガ・ゲーム時事2026</div>
+          <h2 class="card-title">転売ヤー回避！神アニメ限定グッズ争奪フラッピー</h2>
+          <p class="card-desc">高額転売の罠や売り切れの壁をかわして、公式オリジナルグッズをコンプリートせよ！</p>
+          <div class="kw-list"><span class="kw">#FaNeMa</span><span class="kw">#アニメグッズ</span><span class="kw">#推し活祭壇</span><span class="kw">#限定アクスタ</span><span class="kw">#転売ヤー回避</span></div>
+          <a href="games/anime-goods-flappy/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #000428, #004e92);">
+          <span class="card-emoji">🔒</span>
+          <div class="card-meta">
+            <span class="engine-badge">Engine: WHACK</span>
+            <div style="font-size:0.7rem;color:#fff;margin-top:4px;font-weight:700;">連動案件単価: ¥3,500</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">スマホ防犯・VPN時事2026</div>
+          <h2 class="card-title">フリーWi-Fi盗聴バスター！覗き見ハッカー60秒撃退</h2>
+          <p class="card-desc">カフェやホテルの危険な野良Wi-Fiに潜む盗聴ハッカーを連打でぶっ飛ばせ！</p>
+          <div class="kw-list"><span class="kw">#フリーWi-Fi危険</span><span class="kw">#MillenVPN</span><span class="kw">#通信盗聴対策</span><span class="kw">#パスワード流出</span><span class="kw">#スマホセキュリティ</span></div>
+          <a href="games/freewifi-hacker-whack/index.html" class="play-btn">▶ 1分ゲームを今すぐ遊ぶ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Banner Row -->
+    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center;">
+      <div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP" rel="nofollow" target="_blank">
+          <img border="0" width="120" height="60" alt="" src="https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1" style="border-radius:6px;">
+        </a>
+        <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TTTEP" alt="">
+      </div>
+      <div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP" rel="nofollow" target="_blank">
+          <img border="0" width="160" height="600" alt="" src="https://www21.a8.net/svt/bgt?aid=261112167571&wid=001&eno=01&mid=s00000025309001005000&mc=1" style="max-height:120px;width:auto;border-radius:6px;">
+        </a>
+        <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP" alt="">
       </div>
     </div>
   </div>

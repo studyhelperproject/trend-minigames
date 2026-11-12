@@ -4,55 +4,65 @@
   "treasurer_status": {
     "payment_required_now": false,
     "payment_amount_jpy": 0,
-    "payout_setup_required": true,
-    "notes": "初期費用・サーバー費用は0円（GitHub Pages / Cloudflare Pages / PLiCy等の無料枠活用）で構築完了しています。報酬受け取りのため、以下のASP・アドネットワークの無料アカウント開設とID設定のみ金庫番様にてお願いいたします。"
+    "payout_setup_required": false,
+    "notes": "忍者AdMax（全自動枠＋320x50バナー枠）およびA8.net本番アフィリエイト案件3種（旬の厳選10銘柄・FaNeMa・MillenVPN）の全ゲーム組み込みが完了しました。現在100%本番収益化モードで稼働中です。"
   },
   "ad_networks": {
     "ninja_admax": {
       "enabled": true,
-      "name": "忍者AdMax (審査なし・即日収益化・インプレッション/クリック報酬)",
+      "name": "忍者AdMax (本番稼働中：全自動広告＋320x50バナー)",
       "signup_url": "https://www.ninja.co.jp/admax/",
       "admax_auto_id": "59519514442d60e1492d52de2c0f401b",
-      "auto_script_tag": "<script async src=\"https://adm.shinobi.jp/st/auto.js\" data-admax-id=\"59519514442d60e1492d52de2c0f401b\"></script>",
-      "header_banner_tag_id": "59519514442d60e1492d52de2c0f401b",
-      "footer_banner_tag_id": "59519514442d60e1492d52de2c0f401b",
-      "interstitial_tag_id": "59519514442d60e1492d52de2c0f401b",
-      "estimated_rpm_jpy": 300
-    },
-    "google_adsense": {
-      "enabled": false,
-      "name": "Google AdSense (PV増加後の高単価メイン広告)",
-      "signup_url": "https://www.google.com/adsense/start/",
-      "client_id": "ca-pub-XXXXXXXXXXXXXXXX",
-      "slot_header": "1111111111",
-      "slot_result": "2222222222",
-      "estimated_rpm_jpy": 550
+      "banner_320x50_id": "93752c4fffa6919b91e2a59f34ce4982",
+      "banner_320x50_src": "https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982",
+      "header_banner_tag_id": "93752c4fffa6919b91e2a59f34ce4982",
+      "footer_banner_tag_id": "93752c4fffa6919b91e2a59f34ce4982",
+      "interstitial_tag_id": "93752c4fffa6919b91e2a59f34ce4982",
+      "estimated_rpm_jpy": 350
     },
     "a8_net": {
       "enabled": true,
-      "name": "A8.net (日本最大級ASP・高単価成果報酬アフィリエイト)",
+      "name": "A8.net (本番稼働中：厳選10銘柄・FaNeMa・MillenVPN)",
       "signup_url": "https://www.a8.net/",
-      "media_id": "A8_DEMO_MEDIA_ID"
-    },
-    "moshimo_affiliate": {
-      "enabled": true,
-      "name": "もしもアフィリエイト / 楽天・Amazon物販連携",
-      "signup_url": "https://af.moshimo.com/",
-      "media_id": "MOSHIMO_DEMO_ID"
+      "media_id": "4BGJFR",
+      "live_offers": {
+        "stocks_10": {
+          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
+          "text_link_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "text_link_pixel": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "banner_320x50_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D",
+          "banner_320x50_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1",
+          "banner_320x50_pixel": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D",
+          "banner_120x60_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP",
+          "banner_120x60_img": "https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1",
+          "banner_120x60_pixel": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TTTEP"
+        },
+        "fanema": {
+          "title": "アニメ・マンガ・ゲーム等のオリジナルグッズをお届け【FaNeMa】",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "banner_img": "https://www21.a8.net/svt/bgt?aid=261112167571&wid=001&eno=01&mid=s00000025309001005000&mc=1",
+          "pixel": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP"
+        },
+        "millenvpn": {
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6"
+        }
+      }
     }
   },
   "ab_testing": {
-    "active_experiment": "result_cta_copy_v1",
+    "active_experiment": "result_cta_copy_v2_live",
     "variants": {
       "A": {
         "name": "恐怖・損失回避訴求 (Loss Aversion)",
-        "badge_text": "【警告】現実でも対策していますか？",
+        "badge_text": "【警告】知らないと損する現実の対策・情報源",
         "button_style": "urgent_red",
         "reward_button_text": "🔥 スポンサーPRを見てスコア1.5倍＆称号解放！"
       },
       "B": {
         "name": "お得・報酬獲得訴求 (Gain & Reward)",
-        "badge_text": "【プレイヤー限定特典】今だけのお得情報",
+        "badge_text": "【プレイヤー限定】今チェックすべき厳選おすすめ情報",
         "button_style": "gold_shine",
         "reward_button_text": "🎁 PRをチェックしてボーナススコア＋150%獲得！"
       }

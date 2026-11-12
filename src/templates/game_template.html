@@ -17,14 +17,21 @@
 <body>
   <!-- Top Navigation -->
   <div class="top-bar">
-    <a href="../../index.html" class="portal-link">🏠 時事ゲーム一覧へ</a>
+    <a href="../../index.html" class="portal-link">🏠 時事ゲーム一覧(10本)</a>
     <div class="top-controls">
       <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
       <a href="../../dashboard.html" class="btn-icon" style="text-decoration:none;">📊 CEO効果測定</a>
     </div>
   </div>
 
-  <!-- Header Ad Slot (Ninja AdMax / Affiliate Native Slot) -->
+  <!-- 忍者AdMax バナー広告 (320×50) 本番枠 -->
+  <div style="width:100%;max-width:520px;display:flex; flex-direction:column; align-items:center; justify-content:center; margin:6px 0 2px; min-height:54px;">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <!-- Header Native Affiliate Slot (A8.net Context-Matched) -->
   <a id="topAdBanner" class="ad-banner-slot" href="#pr"></a>
 
   <!-- Main Game Wrapper -->
@@ -47,8 +54,25 @@
     <div id="evolutionGuide" class="evolution-guide"></div>
   </div>
 
-  <!-- Footer Ad Slot -->
+  <!-- Footer Ad Slot (A8.net Official Banner + Text Link) -->
   <a id="bottomAdBanner" class="ad-banner-slot" href="#pr"></a>
+
+  <div style="width:100%;max-width:520px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;padding:8px 10px 24px;">
+    <!-- A8 素材ID007 (320x50) -->
+    <div>
+      <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D" rel="nofollow" target="_blank">
+        <img border="0" width="320" height="50" alt="旬の厳選10銘柄" src="https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1" style="border-radius:6px;display:block;">
+      </a>
+      <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D" alt="">
+    </div>
+    <!-- A8 通常広告 (120x60) -->
+    <div>
+      <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP" rel="nofollow" target="_blank">
+        <img border="0" width="120" height="60" alt="旬の厳選10銘柄" src="https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1" style="border-radius:6px;display:block;">
+      </a>
+      <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TTTEP" alt="">
+    </div>
+  </div>
 
   <!-- Intro Story Modal -->
   <div id="introModal" class="modal-overlay">
@@ -64,8 +88,13 @@
         {{CONTROLS_HINT}}
       </div>
       <button id="btnStartGame" class="btn-primary">▶ ゲームスタート！（BGM再生）</button>
-      <div style="font-size:0.74rem; color:#90a4ae; margin-top:4px;">
-        トレンドワード: {{TREND_KEYWORDS}}
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.12);font-size:0.76rem;">
+        <span style="background:#ffab00;color:#111;font-weight:800;padding:1px 6px;border-radius:4px;margin-right:4px;">PR</span>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I" rel="nofollow" target="_blank" style="color:#ffd700;font-weight:700;">あなたの株式投資が一変するかもしれない情報源</a>
+        <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I" alt="">
+        <span style="margin:0 6px;color:#555;">|</span>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6" rel="nofollow" target="_blank" style="color:#00e5ff;font-weight:700;">MillenVPN</a>
+        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6" alt="">
       </div>
     </div>
   </div>
@@ -93,7 +122,7 @@
         <a href="../../index.html" class="btn-share other-games">🎮 他の時事ゲームで遊ぶ</a>
       </div>
 
-      <!-- Context-Matched Affiliate Offers (A8.net / Moshimo) -->
+      <!-- Context-Matched Affiliate Offers (A8.net Live Offers) -->
       <div id="resultAffiliateBox" class="affiliate-section"></div>
     </div>
   </div>
@@ -116,7 +145,6 @@
       const theme = window.THEME_DATA;
       const config = window.MONETIZATION_CONFIG;
 
-      // Apply theme CSS variables
       const root = document.documentElement;
       if (theme.background) {
         const g = theme.background.gradient || ['#141e30', '#243b55', '#c94b4b'];
