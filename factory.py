@@ -36,22 +36,44 @@ def save_json(path: Path, data: dict) -> None:
 
 def extract_cast_emojis(theme: dict) -> list:
     emojis = []
+    if "player" in theme and theme["player"].get("emoji"):
+        emojis.append(theme["player"]["emoji"])
+    if theme.get("engine") == "rpg_battle":
+        vtype = (theme.get("boss") or {}).get("visual_type", "")
+        boss_emoji_map = {
+            "ai_server_god": ["🤖", "⚡", "💸"],
+            "kumagaa_ceo": ["🎙️", "⏳", "💢"],
+            "shrink_demon": ["👹", "🍱", "📉"],
+            "frenemy_queen": ["💅", "📸", "🐍"],
+            "algo_demon": ["👁️", "🧟‍♂️", "🔥"],
+        }
+        for em in boss_emoji_map.get(vtype, ["⚔️", "🔥", "💥"]):
+            if em not in emojis:
+                emojis.append(em)
     for key in ("items", "good_items", "bad_items", "targets", "collectibles"):
         for it in theme.get(key, []):
             em = it.get("emoji")
             if em and em not in emojis:
                 emojis.append(em)
-    if "player" in theme and theme["player"].get("emoji"):
-        emojis.insert(0, theme["player"]["emoji"])
     return (emojis + ["🔥", "⚡", "👑", "💥"])[:4]
 
 
 def classify_group(slug: str) -> str:
-    if "cyber" in slug or "hacker" in slug:
+    if "cyber" in slug or "hacker" in slug or "algorithm" in slug:
         return "cyber"
     if "stock" in slug or "power" in slug or "inflation" in slug:
         return "money"
     return "trend"
+
+
+ENGINE_LABELS = {
+    "rpg_battle": "⚔️ 風刺コマンドRPG",
+    "suika": "🧩 合体進化パズル",
+    "catcher": "⚡ 雷撃回避キャッチ",
+    "flappy": "🕊️ 3ライフ回避",
+    "whack": "🔨 25波防衛タップ",
+    "game2048": "🔢 風刺2048",
+}
 
 
 def build_all() -> dict:
@@ -83,7 +105,10 @@ def build_all() -> dict:
             raise FileNotFoundError(f"Engine file not found: {engine_file}")
         engine_js = engine_file.read_text(encoding="utf-8")
 
-        buzz_context = theme.get("buzz_news_context", theme.get("story_intro", ""))
+        sns_reply = theme.get(
+            "sns_reply_template",
+            f"この風刺ミニゲームが皮肉効きすぎてて草😂 https://studyhelperproject.github.io/trend-minigames/games/{slug}/",
+        )
 
         html = game_tpl
         replacements = {
@@ -91,7 +116,7 @@ def build_all() -> dict:
             "{{SUBTITLE}}": theme["subtitle"],
             "{{TREND_CATEGORY}}": theme["trend_category"],
             "{{STORY_INTRO}}": theme["story_intro"],
-            "{{BUZZ_NEWS_CONTEXT}}": buzz_context,
+            "{{SNS_REPLY_TEMPLATE}}": sns_reply,
             "{{CONTROLS_HINT}}": theme["controls_hint"],
             "{{TREND_KEYWORDS}}": " / ".join(f"#{w}" for w in theme.get("trend_keywords", [])),
             "{{INLINE_CSS}}": style_css,
@@ -116,15 +141,17 @@ def build_all() -> dict:
         cutins = theme.get("buzz_cutins") or [{"speaker": "速報", "quote": theme["subtitle"]}]
         featured_quote = f"{cutins[0]['speaker']}「{cutins[0]['quote']}」"
         group_tag = classify_group(slug)
+        engine_label = ENGINE_LABELS.get(engine_name, engine_name.upper())
+        escaped_reply = sns_reply.replace('"', '&quot;')
 
         kws_html = "".join(f'<span class="kw">#{kw}</span>' for kw in theme.get("trend_keywords", []))
         card_html = f"""
-      <div class="game-card" data-group="{group_tag}">
+      <div class="game-card" data-group="{group_tag}" data-engine="{engine_name}">
         <div class="card-thumb" style="background: linear-gradient(135deg, {grad[0]}, {grad[1]}, {grad[-1]});">
           <div class="thumb-rays"></div>
           <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 {engine_name.upper()} 60s</span>
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">{engine_label}</span>
           </div>
           <div class="thumb-cast-row">
             <div class="cast-avatar">{cast[0]}</div>
@@ -138,9 +165,15 @@ def build_all() -> dict:
           <div class="card-cat">🔥 {theme["trend_category"]}</div>
           <h2 class="card-title">{theme["title"]}</h2>
           <p class="card-desc">{theme["subtitle"]}</p>
-          <div class="scoop-context">{buzz_context}</div>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="{escaped_reply}" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">{sns_reply}</div>
+          </div>
           <div class="kw-list">{kws_html}</div>
-          <a href="games/{slug}/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
+          <a href="games/{slug}/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
         </div>
       </div>"""
         cards_html_list.append(card_html)
@@ -263,7 +296,7 @@ def run_pdca_cycle(simulate_days: int = 0) -> dict:
         "cycle": cycle_no,
         "timestamp": now_str,
         "summary": f"累計利益 ¥{total_profit:,} (目標達成率 {total_profit / target_profit * 100:.1f}%) | 最高収益: {best['title'][:22]}... (¥{best['estimated_revenue_jpy']:,})",
-        "action_taken": f"全{len(themes)}本稼働中（最新追加:『{newest}...』）。時事ネタ解像度強化＆A8本番3案件（旬の厳選10銘柄・FaNeMa・MillenVPN）＋忍者AdMax最適化を継続。",
+        "action_taken": f"ユーザーFB2反映：全{len(themes)}本を完全架空パロディ名（クマガー社長等）へ刷新、タイマー廃止＆新『風刺コマンドRPGエンジン』5本投入、元ネタ解説撤廃＋フィクション免責＆SNSリプライ用コピペ枠を実装。",
     }
     analytics.setdefault("pdca_logs", []).append(log_entry)
     analytics["updated_at"] = now_str

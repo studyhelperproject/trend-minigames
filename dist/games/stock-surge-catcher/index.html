@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>植田総裁の利上げ砲をかわして急騰10銘柄を掴め！東証アローズ大相場キャッチャー | 週刊時事ミニゲームアーケード</title>
-  <meta name="description" content="米中間選挙ショック＆イナゴ天井掴みを避け、プロ厳選の『ストップ高銘柄』を60秒で集めろ！ - 午後3時半、日銀・植田総裁の記者会見が始まり為替と日経先物が大乱高下！上から降ってくる『好決算サプライズ』『大規模自社株買い』『プロ厳選の旬の10銘柄』をポートフォリオでキャッチし、『SNS煽りイナゴ天井爆弾』『下方修正ナイアガラ』を華麗に回避せよ！" />
-  <meta property="og:title" content="植田総裁の利上げ砲をかわして急騰10銘柄を掴め！東証アローズ大相場キャッチャー | 週刊時事ミニゲームアーケード" />
-  <meta property="og:description" content="米中間選挙ショック＆イナゴ天井掴みを避け、プロ厳選の『ストップ高銘柄』を60秒で集めろ！" />
+  <title>ウエダー魔導総裁の利上げ砲をかわして急騰10銘柄を掴め！証券アロー大相場キャッチャー | 週刊風刺ミニゲーム横丁</title>
+  <meta name="description" content="空から降ってくる『利上げ雷撃レーザー』と『追証ロスカット爆弾』を避けて急騰株だけ集めろ！ ※このゲームはフィクションであり実在の人物・団体とは関係ありません。" />
+  <meta property="og:title" content="ウエダー魔導総裁の利上げ砲をかわして急騰10銘柄を掴め！証券アロー大相場キャッチャー | 週刊風刺ミニゲーム横丁" />
+  <meta property="og:description" content="空から降ってくる『利上げ雷撃レーザー』と『追証ロスカット爆弾』を避けて急騰株だけ集めろ！" />
   <meta property="og:type" content="website" />
   <!-- 忍者AdMax 全自動広告タグ -->
   <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
@@ -536,16 +536,16 @@ canvas#gameCanvas {
   </style>
 </head>
 <body>
-  <!-- Live Breaking News Ticker -->
+  <!-- Live Satire Ticker -->
   <div class="news-ticker-bar">
     <div class="news-ticker-track">
-      🚨【緊急スクープ速報】植田総裁の利上げ砲をかわして急騰10銘柄を掴め！東証アローズ大相場キャッチャー が現在バズり中！ ｜ 【元ネタ時事解説】2026年、日銀・植田総裁の12月利上げ観測や米中間選挙でのハイテク規制懸念から日経平均が1日で数千円乱高下！SNSの煽りに乗って高値ジャンピングキャッチする『イナゴ投資家』と、好決算・自社株買いの『厳選銘柄』を拾うプロの明暗を再現！ ｜ 🎵 4トラック・チップチューンシンセBGM＆記者会見カットイン演出稼働中！
+      🚨【風刺ジョーク速報】ウエダー魔導総裁の利上げ砲をかわして急騰10銘柄を掴め！証券アロー大相場キャッチャー ｜ 空から降ってくる『利上げ雷撃レーザー』と『追証ロスカット爆弾』を避けて急騰株だけ集めろ！ ｜ ※この物語・登場キャラはすべて架空のフィクションであり、実在の人物・企業・商標とは一切関係ありません
     </div>
   </div>
 
   <!-- Top Navigation -->
   <div class="top-bar">
-    <a href="../../index.html" class="portal-link">⚡ 時事ゲームアーケード一覧(12本)</a>
+    <a href="../../index.html" class="portal-link">⚡ 風刺ゲーム横丁一覧(12本)</a>
     <div class="top-controls">
       <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
       <a href="../../dashboard.html" class="btn-icon" style="text-decoration:none;">📊 CEO効果測定</a>
@@ -565,13 +565,13 @@ canvas#gameCanvas {
   <!-- Main Game Wrapper -->
   <div class="game-wrapper">
     <div class="game-header">
-      <span class="trend-tag">🔥 2026年日経平均ボラティリティ＆金融政策時事</span>
-      <h1 class="game-title">植田総裁の利上げ砲をかわして急騰10銘柄を掴め！東証アローズ大相場キャッチャー</h1>
+      <span class="trend-tag">🔥 株式相場×雷撃回避アクション</span>
+      <h1 class="game-title">ウエダー魔導総裁の利上げ砲をかわして急騰10銘柄を掴め！証券アロー大相場キャッチャー</h1>
     </div>
 
     <div class="hud-bar">
       <div class="hud-item">SCORE<span id="hudScore" class="val">0</span></div>
-      <div class="hud-item">TIME LEFT<span id="hudTime" class="val">60</span></div>
+      <div class="hud-item">STATUS / 戦況<span id="hudTime" class="val">READY</span></div>
       <div class="hud-item">HIGH SCORE<span id="hudBest" class="val">0</span></div>
     </div>
 
@@ -581,10 +581,16 @@ canvas#gameCanvas {
 
     <div id="evolutionGuide" class="evolution-guide"></div>
 
-    <!-- 元ネタ時事ニュース解説ボックス -->
+    <!-- バズ投稿へのリプライ用ワンタップコピー枠 ＆ フィクション免責表示 -->
     <div class="news-context-box">
-      <strong style="color:#ffd700;">📰 なぜバズっている？元ネタ時事ニュース解説</strong><br />
-      【元ネタ時事解説】2026年、日銀・植田総裁の12月利上げ観測や米中間選挙でのハイテク規制懸念から日経平均が1日で数千円乱高下！SNSの煽りに乗って高値ジャンピングキャッチする『イナゴ投資家』と、好決算・自社株買いの『厳選銘柄』を拾うプロの明暗を再現！
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;">
+        <strong style="color:#00e5ff;">💬 関連するSNSのバズ投稿へリプライで貼る用</strong>
+        <button id="btnCopyReply" type="button" style="cursor:pointer;background:linear-gradient(90deg,#00e5ff,#2563eb);color:#fff;border:none;padding:4px 12px;border-radius:14px;font-size:0.74rem;font-weight:900;">📋 リプライ文＋URLをコピー</button>
+      </div>
+      <div id="snsReplyText" style="background:rgba(0,0,0,0.45);padding:8px 10px;border-radius:8px;font-size:0.76rem;color:#e2e8f0;margin-bottom:8px;word-break:break-all;">総裁の『サプライズ利上げレーザー予告』をママチャリでかわしながら急騰株を拾うゲーム、相場の理不尽さがそのまま再現されてて草😂 https://studyhelperproject.github.io/trend-minigames/games/stock-surge-catcher/</div>
+      <div style="font-size:0.7rem;color:#94a3b8;border-top:1px solid rgba(255,255,255,0.1);padding-top:6px;">
+        ⚠️ <strong>【免責事項】</strong> 本作は世相を風刺した100%フィクションのジョークゲームです。登場する人物（クマガー社長・キリタマ仙人・ウエダー魔導総裁等）・団体・会社・名称はすべて架空のものであり、実在の人物・企業・商標とは一切関係ありません。
+      </div>
     </div>
   </div>
 
@@ -609,21 +615,21 @@ canvas#gameCanvas {
   <!-- Intro Story Modal -->
   <div id="introModal" class="modal-overlay">
     <div class="modal-card">
-      <span class="trend-tag">2026年日経平均ボラティリティ＆金融政策時事</span>
-      <h2 class="modal-title">植田総裁の利上げ砲をかわして急騰10銘柄を掴め！東証アローズ大相場キャッチャー</h2>
+      <span class="trend-tag">株式相場×雷撃回避アクション</span>
+      <h2 class="modal-title">ウエダー魔導総裁の利上げ砲をかわして急騰10銘柄を掴め！証券アロー大相場キャッチャー</h2>
       <div class="story-box">
-        <strong style="color:#ffd700;">【事件・ストーリー背景】</strong><br />
-        午後3時半、日銀・植田総裁の記者会見が始まり為替と日経先物が大乱高下！上から降ってくる『好決算サプライズ』『大規模自社株買い』『プロ厳選の旬の10銘柄』をポートフォリオでキャッチし、『SNS煽りイナゴ天井爆弾』『下方修正ナイアガラ』を華麗に回避せよ！
-      </div>
-      <div class="story-box" style="border-color:rgba(255,215,0,0.35);background:rgba(255,215,0,0.06);font-size:0.78rem;">
-        【元ネタ時事解説】2026年、日銀・植田総裁の12月利上げ観測や米中間選挙でのハイテク規制懸念から日経平均が1日で数千円乱高下！SNSの煽りに乗って高値ジャンピングキャッチする『イナゴ投資家』と、好決算・自社株買いの『厳選銘柄』を拾うプロの明暗を再現！
+        <strong style="color:#ffd700;">【風刺ストーリー（完全フィクション）】</strong><br />
+        ※フィクションの風刺ゲームです。証券取引所『トウショウ・アロー』の上空から、ウエダー魔導総裁が予告付きの『サプライズ利上げ雷撃レーザー』を照射してくる！レーザーと追証爆弾を左右にかわしながら、優良銘柄を25個集めて相場を制覇せよ！
       </div>
       <div class="controls-box">
-        <strong>🎮 操作方法（60秒完結・バズり名言カットイン搭載！）</strong><br />
-        マウス移動（または左右キー/スワイプ）で証券バスケットを操作！急騰株だけを狙い撃ちしよう！
+        <strong>🎮 遊び方（時間制限なし・約1分目途で決着！）</strong><br />
+        左右ドラッグ/スワイプで移動！赤い『⚠️利上げ砲予告』の射線から退避しつつ緑の急騰株をキャッチ！（3回被弾で退場）
       </div>
-      <button id="btnStartGame" class="btn-primary">▶ 実況ゲームスタート！（マルチトラックBGM再生）</button>
-      <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.12);font-size:0.76rem;">
+      <button id="btnStartGame" class="btn-primary">▶ 風刺ゲームスタート！（BGM＆カットインON）</button>
+      <div style="margin-top:8px;font-size:0.68rem;color:#94a3b8;">
+        ※登場する人物・団体・名称はすべて架空のフィクションであり、実在のものとは一切関係ありません。
+      </div>
+      <div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.12);font-size:0.76rem;">
         <span style="background:#ffab00;color:#111;font-weight:800;padding:1px 6px;border-radius:4px;margin-right:4px;">PR</span>
         <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I" rel="nofollow" target="_blank" style="color:#ffd700;font-weight:700;">あなたの株式投資が一変するかもしれない情報源</a>
         <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I" alt="">
@@ -637,7 +643,7 @@ canvas#gameCanvas {
   <!-- GameOver & Monetization Result Modal -->
   <div id="resultModal" class="modal-overlay hidden">
     <div class="modal-card">
-      <h2 class="modal-title">🚨 60秒終了！緊急会見・判定結果</h2>
+      <h2 class="modal-title">🚨 決着！風刺バトル判定結果</h2>
       <div class="result-score-box">
         <div style="font-size:0.8rem; color:#cfd8dc;">最終獲得スコア</div>
         <div id="resultScoreNum" class="result-score-num">0</div>
@@ -654,7 +660,7 @@ canvas#gameCanvas {
       <button id="btnRetryGame" class="btn-primary">🔄 もう1回プレイしてハイスコア更新！</button>
       <div class="share-row">
         <a id="btnShareX" href="#" target="_blank" rel="noopener noreferrer" class="btn-share">𝕏 結果をポスト</a>
-        <a href="../../index.html" class="btn-share other-games">🎮 他の時事ゲームで遊ぶ</a>
+        <a href="../../index.html" class="btn-share other-games">🎮 他の風刺ゲームで遊ぶ</a>
       </div>
 
       <!-- Context-Matched Affiliate Offers (A8.net Live Offers) -->
@@ -663,15 +669,13 @@ canvas#gameCanvas {
   </div>
 
   <script>
-    window.THEME_DATA = {"slug": "stock-surge-catcher", "title": "植田総裁の利上げ砲をかわして急騰10銘柄を掴め！東証アローズ大相場キャッチャー", "subtitle": "米中間選挙ショック＆イナゴ天井掴みを避け、プロ厳選の『ストップ高銘柄』を60秒で集めろ！", "engine": "catcher", "stage_style": "stock_exchange", "trend_category": "2026年日経平均ボラティリティ＆金融政策時事", "trend_keywords": ["植田総裁会見", "米中間選挙ショック", "旬の厳選10銘柄", "イナゴタワー崩壊", "自社株買いサプライズ"], "buzz_news_context": "【元ネタ時事解説】2026年、日銀・植田総裁の12月利上げ観測や米中間選挙でのハイテク規制懸念から日経平均が1日で数千円乱高下！SNSの煽りに乗って高値ジャンピングキャッチする『イナゴ投資家』と、好決算・自社株買いの『厳選銘柄』を拾うプロの明暗を再現！", "story_intro": "午後3時半、日銀・植田総裁の記者会見が始まり為替と日経先物が大乱高下！上から降ってくる『好決算サプライズ』『大規模自社株買い』『プロ厳選の旬の10銘柄』をポートフォリオでキャッチし、『SNS煽りイナゴ天井爆弾』『下方修正ナイアガラ』を華麗に回避せよ！", "controls_hint": "マウス移動（または左右キー/スワイプ）で証券バスケットを操作！急騰株だけを狙い撃ちしよう！", "bgm_preset": "panic_rush", "buzz_comments": ["植田総裁の第一声でドル円が2円飛んだぞwww", "Xの株クラ煽り銘柄に飛びついたら即イナゴタワー崩壊した…", "やっぱりPBR改善＆自社株買いの厳選銘柄が一番強い", "ボラティリティ高すぎて1分で月給分動く相場w"], "buzz_cutins": [{"speaker": "日銀・植田総裁", "quote": "データがオントラックであれば、金融緩和の度合いを調整していく…", "badge": "🏦 日銀政策決定会合"}, {"speaker": "東証アローズ速報", "quote": "大規模自社株買い＆増配発表！気配値が張り付いてストップ高！！", "badge": "🚀 厳選銘柄が大爆発"}, {"speaker": "イナゴ投資家の末路", "quote": "SNSで煽られてた仕手株を天井でジャンピングキャッチしてしまった…", "badge": "📉 イナゴタワー崩壊"}], "background": {"gradient": ["#0f0c29", "#064e3b", "#1e1b4b"], "board_bg": "rgba(10, 18, 36, 0.95)", "border_color": "#00e676", "particle_emoji": "💹", "accent_color": "#00e676"}, "player": {"emoji": "💼", "name": "プロ機関投資家ファンド"}, "good_items": [{"emoji": "📈", "name": "好決算＆増配サプライズ", "score": 160, "speed": 3.4, "quote": "過去最高益更新＆増配発表でギャップアップ！"}, {"emoji": "💎", "name": "発行株10%自社株買い", "score": 260, "speed": 4.0, "quote": "強烈な株主還元発表で買い注文殺到！"}, {"emoji": "🚀", "name": "国策AI・防衛ストップ高株", "score": 420, "speed": 4.8, "quote": "国策テーマに乗った本命銘柄が連日ストップ高！"}, {"emoji": "👑", "name": "プロ厳選【旬の10銘柄】", "score": 680, "speed": 5.6, "quote": "アナリスト厳選の高騰期待銘柄で資産倍増！"}], "bad_items": [{"emoji": "📉", "name": "決算またぎ下方修正爆弾", "score": -290, "speed": 4.2, "quote": "無謀な決算ギャンブルでストップ安被弾！(-290)"}, {"emoji": "💣", "name": "SNS煽りイナゴ天井掴み", "score": -390, "speed": 5.0, "quote": "Xの煽り屋にハメ込まれて大暴落！(-390)"}], "ranks": [{"min_score": 0, "title": "SNS煽り屋のカモ・イナゴ投資家", "comment": "根拠のないSNSの噂に飛びついて天井掴みしてしまいました！プロが徹底分析した『旬の厳選10銘柄』で本物の情報源を手に入れましょう！"}, {"min_score": 1600, "title": "植田ショックを乗りこなす敏腕トレーダー", "comment": "悪材料をかわして好業績株だけを的確にキャッチ！さらに勝率を高めるプロの厳選10銘柄リストも必見です！"}, {"min_score": 3400, "title": "東証の伝説・令和のCis＆BNF級相場師", "comment": "神がかり的なエントリーとリスク管理！どんな乱高下相場もすべて利益に変えるカリスマです！"}], "affiliate_offers": [{"offer_id": "a8_stocks10_catcher_main", "network": "A8.net 株式投資プログラム", "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】", "description": "SNSのイナゴ投資はもう卒業！プロのアナリストが徹底調査して選び抜いた高騰期待の10銘柄を公開中。", "cta_text": "【旬の厳選10銘柄】を今すぐチェック (PR)", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D", "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D", "banner_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1", "cpa_jpy": 4000, "expected_cvr": 0.032, "tag": "急騰期待株・厳選レポート"}, {"offer_id": "a8_millenvpn_trader", "network": "A8.net セキュリティ枠", "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！", "description": "証券口座の不正アクセス・乗っ取り被害が急増中！外出先でのトレード通信を国産VPNで完全保護。", "cta_text": "MillenVPNで取引環境を守る (PR)", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6", "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6", "cpa_jpy": 3500, "expected_cvr": 0.019, "tag": "証券口座セキュリティ"}]};
+    window.THEME_DATA = {"slug": "stock-surge-catcher", "title": "ウエダー魔導総裁の利上げ砲をかわして急騰10銘柄を掴め！証券アロー大相場キャッチャー", "subtitle": "空から降ってくる『利上げ雷撃レーザー』と『追証ロスカット爆弾』を避けて急騰株だけ集めろ！", "engine": "catcher", "has_timer": false, "bgm_preset": "stock_fever", "stage_style": "stock_exchange", "trend_category": "株式相場×雷撃回避アクション", "trend_keywords": ["ウエダー利上げ砲", "追証ロスカット", "急騰銘柄キャッチ", "大相場アクション"], "story_intro": "※フィクションの風刺ゲームです。証券取引所『トウショウ・アロー』の上空から、ウエダー魔導総裁が予告付きの『サプライズ利上げ雷撃レーザー』を照射してくる！レーザーと追証爆弾を左右にかわしながら、優良銘柄を25個集めて相場を制覇せよ！", "sns_reply_template": "総裁の『サプライズ利上げレーザー予告』をママチャリでかわしながら急騰株を拾うゲーム、相場の理不尽さがそのまま再現されてて草😂 https://studyhelperproject.github.io/trend-minigames/games/stock-surge-catcher/", "controls_hint": "左右ドラッグ/スワイプで移動！赤い『⚠️利上げ砲予告』の射線から退避しつつ緑の急騰株をキャッチ！（3回被弾で退場）", "background": {"gradient": ["#061826", "#0c2d48", "#145374"], "board_bg": "rgba(8, 24, 38, 0.96)", "border_color": "#00e676", "accent_color": "#ffd700"}, "player": {"emoji": "🚲", "name": "優待チャリ仙人", "avatar": "kiritama_master"}, "good_items": [{"emoji": "📈", "name": "好決算ストップ高", "score": 240, "speed": 3.5, "quote": "上方修正＆増配コンボきたーー！！"}, {"emoji": "💎", "name": "増配・自社株買い", "score": 320, "speed": 4.0, "quote": "株主還元発表で空売り勢が丸焦げに！"}, {"emoji": "👑", "name": "旬の厳選急騰株", "score": 520, "speed": 4.7, "avatar": "kiritama_master", "quote": "プロの眼が光るテンバガー候補を確保！！"}], "bad_items": [{"emoji": "⚡", "name": "タカ派発言ショック", "score": -350, "speed": 4.3, "avatar": "uedaa_gov", "quote": "会見の一言で先物がナイアガラ落下！！"}, {"emoji": "💀", "name": "二階建て追証爆弾", "score": -500, "speed": 4.9, "quote": "信用全力二階建てで強制ロスカット執行…！"}], "buzz_comments": ["利上げレーザーの予告線から逃げろwww", "俺がポジった瞬間に総裁会見始まるのやめろ", "信用二階建てはダメ絶対", "増配＆自社株買いは正義", "※フィクションの風刺ゲームです"], "buzz_cutins": [{"speaker": "ウエダー魔導総裁", "quote": "経済・物価情勢に応じて…利上げレーザー発射します⚡", "avatar": "uedaa_gov", "badge": "🏦 金融政策速報"}, {"speaker": "優待チャリ仙人", "quote": "信用買いはせず現物で好業績株を拾うのが長生きの秘訣！", "avatar": "kiritama_master", "badge": "🚲 仙人の教え"}, {"speaker": "イナゴ投資家", "quote": "SNSで煽られてた銘柄に飛びついたら即座にナイアガラきた…", "avatar": "kumagaa_ceo", "badge": "📉 追証アラート"}], "ranks": [{"min_score": 0, "title": "利上げレーザー直撃のイナゴ民", "comment": "総裁のタカ派ビームを真正面から浴びて強制退場…。"}, {"min_score": 2500, "title": "現物ガチホの波乗りトレーダー", "comment": "利上げレーザーを華麗にかわし、増配銘柄を着実にキャッチ！"}, {"min_score": 5000, "title": "証券アローの伝説ファンド王", "comment": "相場制覇達成！さらに実戦的な銘柄研究は旬の厳選10銘柄でチェック！"}], "affiliate_offers": [{"offer_id": "a8_stock_10", "tag": "資産防衛・注目株PR", "network": "A8.net", "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】", "description": "乱高下相場やインフレ・電気代高騰に負けない！プロが厳選した旬の10銘柄レポートを無料チェック。", "cta_text": "旬の厳選10銘柄を無料で見る", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I", "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I", "cpa_jpy": 3500, "expected_cvr": 0.022}, {"offer_id": "a8_millenvpn", "tag": "通信暗号化・身バレ対策PR", "network": "A8.net", "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！", "description": "巨大IT企業でも侵入に気づけない時代！フリーWi-FiやSNS利用時のIP秘匿・通信暗号化を月数百円で。", "cta_text": "MillenVPNで通信を保護する", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6", "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6", "cpa_jpy": 3000, "expected_cvr": 0.024}]};
     window.MONETIZATION_CONFIG = {"company_name": "TrendMiniGames Studio (時事ミニゲーム製作委員会)", "monthly_profit_target_jpy": 100000, "treasurer_status": {"payment_required_now": false, "payment_amount_jpy": 0, "payout_setup_required": false, "notes": "忍者AdMax（全自動枠＋320x50バナー枠）およびA8.net本番アフィリエイト案件3種（旬の厳選10銘柄・FaNeMa・MillenVPN）の全ゲーム組み込みが完了しました。現在100%本番収益化モードで稼働中です。"}, "ad_networks": {"ninja_admax": {"enabled": true, "name": "忍者AdMax (本番稼働中：全自動広告＋320x50バナー)", "signup_url": "https://www.ninja.co.jp/admax/", "admax_auto_id": "59519514442d60e1492d52de2c0f401b", "banner_320x50_id": "93752c4fffa6919b91e2a59f34ce4982", "banner_320x50_src": "https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982", "header_banner_tag_id": "93752c4fffa6919b91e2a59f34ce4982", "footer_banner_tag_id": "93752c4fffa6919b91e2a59f34ce4982", "interstitial_tag_id": "93752c4fffa6919b91e2a59f34ce4982", "estimated_rpm_jpy": 350}, "a8_net": {"enabled": true, "name": "A8.net (本番稼働中：厳選10銘柄・FaNeMa・MillenVPN)", "signup_url": "https://www.a8.net/", "media_id": "4BGJFR", "live_offers": {"stocks_10": {"title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】", "text_link_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I", "text_link_pixel": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I", "banner_320x50_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D", "banner_320x50_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1", "banner_320x50_pixel": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D", "banner_120x60_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP", "banner_120x60_img": "https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1", "banner_120x60_pixel": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TTTEP"}, "fanema": {"title": "アニメ・マンガ・ゲーム等のオリジナルグッズをお届け【FaNeMa】", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP", "banner_img": "https://www21.a8.net/svt/bgt?aid=261112167571&wid=001&eno=01&mid=s00000025309001005000&mc=1", "pixel": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP"}, "millenvpn": {"title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6", "pixel": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6"}}}}, "ab_testing": {"active_experiment": "result_cta_copy_v2_live", "variants": {"A": {"name": "恐怖・損失回避訴求 (Loss Aversion)", "badge_text": "【警告】知らないと損する現実の対策・情報源", "button_style": "urgent_red", "reward_button_text": "🔥 スポンサーPRを見てスコア1.5倍＆称号解放！"}, "B": {"name": "お得・報酬獲得訴求 (Gain & Reward)", "badge_text": "【プレイヤー限定】今チェックすべき厳選おすすめ情報", "button_style": "gold_shine", "reward_button_text": "🎁 PRをチェックしてボーナススコア＋150%獲得！"}}}, "pdca_rules": {"min_impressions_for_judgment": 50, "target_ad_ctr_percent": 3.5, "target_retry_rate_percent": 45.0, "auto_optimize_enabled": true}};
   </script>
   <script>
 /**
- * Rich Visual Assets, Parody Character Renderer, Live Stage Backgrounds & Buzz Cut-in System
- * 1. 実在ニュース・謝罪会見・バズりミームのパロディ人物＆アイテムを高精細ベクター描画
- * 2. 記者会見フラッシュ・東証アローズ電光掲示板・回転寿司レーン・SNS弾幕コメントの動的背景
- * 3. プレイ中にバズった名言・炎上発言が飛び出す「緊急速報カットイン」演出
+ * Rich Visual Assets, Fictional Satire Character Renderer, Live Stage Backgrounds & RPG Visual Effects
+ * ※登場するキャラクター・名称はすべて100%フィクションの風刺パロディであり、実在の人物・企業・商標とは一切関係ありません。
  */
 class RichVisualRenderer {
   constructor(canvas, theme) {
@@ -689,29 +693,29 @@ class RichVisualRenderer {
 
   initDanmaku() {
     const comments = this.theme.buzz_comments || [
-      '命の砂時計きたwww',
-      '2年前のイエラエ指摘放置は草',
-      'スライド係の社員かわいそうw',
-      'スーツのボタン留めろ会見w',
-      '店員がメルカリ横流しはアカン',
-      'なぜ庶民がAIの電気代払うのか',
-      '新NISA損切り民息してるかー？',
-      '桐谷さんチャリ爆走www',
-      'ガチでメロい尊い…',
-      '完全にドパガキの症状で草'
+      'AIに節電聞いたら俺の電気代上がったｗ',
+      'クマガー社長の命の砂時計ポエムきたwww',
+      'スライド戻さなくていい！（秒速キレ）',
+      'おいしくなって新登場（量20%減）は草',
+      '弁当の底上げがエベレスト級すぎるｗ',
+      '店員がフリマ横流しは資本主義のバグ',
+      'シン・ニーサ損切り民息してるかー？',
+      'キリタマ仙人のママチャリ爆走www',
+      'おすすめ欄アルゴリズムの晒し上げ怖すぎ',
+      '※この物語はフィクションです（迫真）'
     ];
     for (let i = 0; i < 9; i++) {
       this.danmaku.push({
         text: comments[i % comments.length],
         x: Math.random() * 400,
-        y: 65 + (i * 42) % 360,
-        speed: 0.9 + Math.random() * 1.4,
-        alpha: 0.18 + Math.random() * 0.18
+        y: 62 + (i * 42) % 350,
+        speed: 0.85 + Math.random() * 1.25,
+        alpha: 0.17 + Math.random() * 0.16
       });
     }
   }
 
-  triggerCutin(speaker, quote, avatarType = 'kumagai', badge = '🚨 緊急会見速報') {
+  triggerCutin(speaker, quote, avatarType = 'kumagaa_ceo', badge = '🚨 風刺スクープ速報') {
     this.cutin = {
       speaker,
       quote,
@@ -720,14 +724,13 @@ class RichVisualRenderer {
       life: 1.0,
       maxLife: 1.0
     };
-    this.shakeAmount = 6;
-    // Camera flash effect
+    this.shakeAmount = 7;
     for (let i = 0; i < 4; i++) {
       this.flashes.push({
         x: 40 + Math.random() * 320,
-        y: 60 + Math.random() * 360,
+        y: 60 + Math.random() * 320,
         radius: 50 + Math.random() * 80,
-        alpha: 0.75
+        alpha: 0.7
       });
     }
   }
@@ -736,7 +739,7 @@ class RichVisualRenderer {
     const list = this.theme.buzz_cutins || [];
     if (list.length === 0) return;
     const item = list[Math.floor(Math.random() * list.length)];
-    this.triggerCutin(item.speaker, item.quote, item.avatar || 'kumagai', item.badge || '🔥 バズり速報');
+    this.triggerCutin(item.speaker, item.quote, item.avatar || 'kumagaa_ceo', item.badge || '🔥 SNS万バズ風刺');
   }
 
   drawStageBackground(width, height) {
@@ -748,13 +751,12 @@ class RichVisualRenderer {
       const dx = (Math.random() - 0.5) * this.shakeAmount;
       const dy = (Math.random() - 0.5) * this.shakeAmount;
       ctx.translate(dx, dy);
-      this.shakeAmount *= 0.85;
+      this.shakeAmount *= 0.86;
     }
 
     const stageType = this.theme.stage_style || 'press_conference';
 
     if (stageType === 'press_conference') {
-      // 謝罪会見場（金屏風格子＋記者席シルエット＋カメラフラッシュ）
       const grad = ctx.createLinearGradient(0, 0, 0, height);
       grad.addColorStop(0, '#0f172a');
       grad.addColorStop(0.6, '#1e293b');
@@ -762,28 +764,23 @@ class RichVisualRenderer {
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, width, height);
 
-      // パネル背景の市松模様（記者会見バックパネル風）
       ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
       const size = 40;
       for (let r = 0; r < height / size; r++) {
         for (let c = 0; c < width / size; c++) {
-          if ((r + c) % 2 === 0) {
-            ctx.fillRect(c * size, r * size, size, size);
-          }
+          if ((r + c) % 2 === 0) ctx.fillRect(c * size, r * size, size, size);
         }
       }
 
-      // ランダム記者カメラフラッシュ
-      if (this.tick % 45 === 0) {
+      if (this.tick % 50 === 0) {
         this.flashes.push({
           x: 30 + Math.random() * (width - 60),
-          y: height - 40 - Math.random() * 80,
+          y: height - 50 - Math.random() * 120,
           radius: 70,
-          alpha: 0.55
+          alpha: 0.5
         });
       }
     } else if (stageType === 'stock_exchange') {
-      // 東証アローズ風（ローソク足グリッド＋回転株価ティッカー）
       const grad = ctx.createLinearGradient(0, 0, 0, height);
       grad.addColorStop(0, '#041410');
       grad.addColorStop(1, '#07221b');
@@ -799,7 +796,6 @@ class RichVisualRenderer {
         ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
       }
 
-      // 背景ローソク足アニメーション
       for (let i = 0; i < 10; i++) {
         const cx = 24 + i * 38;
         const wave = Math.sin((this.tick * 0.03) + i * 0.7) * 55;
@@ -810,14 +806,12 @@ class RichVisualRenderer {
         ctx.fillRect(cx - 1.5, cy - 36, 3, 72);
       }
     } else if (stageType === 'sushi_lane') {
-      // 回転寿司レーン＆フリマ出品風背景
       const grad = ctx.createLinearGradient(0, 0, 0, height);
       grad.addColorStop(0, '#2a1215');
       grad.addColorStop(1, '#14080a');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, width, height);
 
-      // 回転レーンベルト
       ctx.fillStyle = 'rgba(255, 215, 0, 0.08)';
       ctx.fillRect(0, 140, width, 28);
       ctx.fillRect(0, 310, width, 28);
@@ -828,7 +822,6 @@ class RichVisualRenderer {
         ctx.fillRect(width - x, 316, 36, 16);
       }
     } else {
-      // ネオンSNS＆ドパガキ2分割風ステージ
       const grad = ctx.createLinearGradient(0, 0, width, height);
       grad.addColorStop(0, '#1a0b2e');
       grad.addColorStop(0.5, '#2d114d');
@@ -836,7 +829,6 @@ class RichVisualRenderer {
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, width, height);
 
-      // 集中線・ネオンサークル
       ctx.strokeStyle = 'rgba(255, 64, 129, 0.1)';
       ctx.lineWidth = 2;
       const r = (this.tick * 1.2) % 240;
@@ -845,16 +837,14 @@ class RichVisualRenderer {
       ctx.stroke();
     }
 
-    // 流れるSNS弾幕コメント
     ctx.font = 'bold 12px "Hiragino Kaku Gothic ProN", sans-serif';
     for (const d of this.danmaku) {
       d.x -= d.speed;
-      if (d.x < -220) d.x = width + 20;
+      if (d.x < -250) d.x = width + 20;
       ctx.fillStyle = `rgba(255, 255, 255, ${d.alpha})`;
       ctx.fillText(d.text, d.x, d.y);
     }
 
-    // カメラフラッシュ発光描画
     for (let i = this.flashes.length - 1; i >= 0; i--) {
       const f = this.flashes[i];
       const radGrad = ctx.createRadialGradient(f.x, f.y, 2, f.x, f.y, f.radius);
@@ -872,19 +862,17 @@ class RichVisualRenderer {
   }
 
   /**
-   * キャラクター・パロディ人物のリッチベクター描画（立体メダル＋似顔絵パーツ＋ラベルリボン）
+   * キャラクター・架空風刺人物のリッチベクター描画
    */
   drawRichCharacter(x, y, radius, spec, isPreview = false) {
     const ctx = this.ctx;
     ctx.save();
     if (isPreview) ctx.globalAlpha = 0.85;
 
-    // 外周ドロップシャドウ＆オーラ
     ctx.shadowColor = 'rgba(0, 0, 0, 0.55)';
     ctx.shadowBlur = 8;
     ctx.shadowOffsetY = 3;
 
-    // ベース立体球体グラデーション
     const baseColor = spec.color || '#ff4081';
     const sphereGrad = ctx.createRadialGradient(
       x - radius * 0.3, y - radius * 0.3, radius * 0.1,
@@ -899,51 +887,46 @@ class RichVisualRenderer {
     ctx.fillStyle = sphereGrad;
     ctx.fill();
 
-    // メタリックゴールド/ネオン枠線
     ctx.shadowBlur = 0;
     ctx.shadowOffsetY = 0;
     ctx.lineWidth = radius >= 45 ? 3.5 : 2.2;
     ctx.strokeStyle = radius >= 55 ? '#ffd700' : 'rgba(255, 255, 255, 0.9)';
     ctx.stroke();
 
-    // パロディ人物イラストレイヤー（avatar属性がある場合、似顔絵ベクターパーツを重ねる）
     const avatar = spec.avatar || '';
-    if (avatar === 'kumagai_ceo' && radius >= 26) {
-      // クマガイ社長風：紺スーツ襟＋赤ネクタイ＋黒髪七三＋涙＋砂時計バッジ
+    if ((avatar === 'kumagaa_ceo' || avatar === 'kumagai_ceo') && radius >= 26) {
+      // 架空・クマガー社長風：ボタン全留めスーツ＋赤ネクタイ＋砂時計モチーフ
       ctx.fillStyle = '#0f172a';
       ctx.beginPath();
       ctx.arc(x, y + radius * 0.55, radius * 0.42, Math.PI, 0, false);
       ctx.fill();
-      ctx.fillStyle = '#e11d48'; // 赤ネクタイ＆チーフ
+      ctx.fillStyle = '#e11d48';
       ctx.fillRect(x - 3, y + radius * 0.25, 6, radius * 0.35);
-    } else if (avatar === 'kiritani_master' && radius >= 26) {
-      // 桐谷名人風：メガネフレーム＋自転車ヘルメット風アクセント
+    } else if ((avatar === 'kiritama_master' || avatar === 'kiritani_master') && radius >= 26) {
+      // 架空・キリタマ仙人風：メガネフレーム＋爆走チャリヘルメット風
       ctx.strokeStyle = '#ffd700';
       ctx.lineWidth = 2;
       ctx.strokeRect(x - radius * 0.42, y - radius * 0.22, radius * 0.35, radius * 0.22);
       ctx.strokeRect(x + radius * 0.07, y - radius * 0.22, radius * 0.35, radius * 0.22);
-    } else if (avatar === 'ueda_gov' && radius >= 26) {
-      // 植田総裁風：黒縁メガネ＋日銀バッジ
+    } else if ((avatar === 'uedaa_gov' || avatar === 'ueda_gov') && radius >= 26) {
+      // 架空・ウエダー魔導総裁風：黒縁メガネ
       ctx.strokeStyle = '#111';
       ctx.lineWidth = 2.5;
       ctx.strokeRect(x - radius * 0.42, y - radius * 0.2, radius * 0.36, radius * 0.22);
       ctx.strokeRect(x + radius * 0.06, y - radius * 0.2, radius * 0.36, radius * 0.22);
     }
 
-    // メイン絵文字/シンボル
     const fontSize = Math.max(15, Math.floor(radius * 0.88));
     ctx.font = `${fontSize}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(spec.emoji || '🔥', x, y - (radius >= 28 ? 3 : 0));
 
-    // 上部ハイライトグロス（ツヤ感）
     ctx.fillStyle = 'rgba(255, 255, 255, 0.28)';
     ctx.beginPath();
     ctx.ellipse(x - radius * 0.22, y - radius * 0.48, radius * 0.38, radius * 0.16, -0.3, 0, Math.PI * 2);
     ctx.fill();
 
-    // 名前リボンプレート（半径24以上）
     if (radius >= 24 && spec.name) {
       const label = spec.name.slice(0, 8);
       const pillW = Math.min(radius * 1.9, Math.max(48, label.length * 9.5));
@@ -967,8 +950,316 @@ class RichVisualRenderer {
   }
 
   /**
-   * 画面上部に飛び出す「週刊誌スクープ／謝罪会見テロップ風カットイン」描画
+   * RPGバトル用の巨大ボスキャラクター＆ギミック描画
    */
+  drawBossSprite(cx, cy, bossSpec, hpRatio, hurtTimer = 0) {
+    const ctx = this.ctx;
+    ctx.save();
+
+    const floatY = Math.sin(this.tick * 0.07) * 5;
+    const shakeX = hurtTimer > 0 ? (Math.random() - 0.5) * 14 : 0;
+    const x = cx + shakeX;
+    const y = cy + floatY;
+    const isPhase2 = hpRatio <= 0.5;
+    const visualType = bossSpec.visual_type || 'ai_server_god';
+
+    // 背後のオーラリング
+    const auraRadius = 56 + Math.sin(this.tick * 0.1) * 5;
+    const auraGrad = ctx.createRadialGradient(x, y, 10, x, y, auraRadius + 18);
+    auraGrad.addColorStop(0, isPhase2 ? 'rgba(255, 23, 68, 0.55)' : 'rgba(0, 229, 255, 0.4)');
+    auraGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = auraGrad;
+    ctx.beginPath();
+    ctx.arc(x, y, auraRadius + 18, 0, Math.PI * 2);
+    ctx.fill();
+
+    if (visualType === 'ai_server_god') {
+      // 超電力暴食AIデータセンター神「チャッピー9000」
+      // 左右の送電ケーブル（庶民の家から電気代を吸い上げる演出）
+      ctx.strokeStyle = isPhase2 ? '#ff1744' : '#ffd700';
+      ctx.lineWidth = 4;
+      for (const dir of [-1, 1]) {
+        ctx.beginPath();
+        ctx.moveTo(x + dir * 48, y);
+        ctx.quadraticCurveTo(x + dir * 110, y - 25 + Math.sin(this.tick * 0.15) * 12, x + dir * 155, y + 32);
+        ctx.stroke();
+
+        // 吸い上げられる電気代コイン粒
+        const p = (this.tick * 0.04) % 1;
+        const px = (x + dir * 155) * (1 - p) + (x + dir * 48) * p;
+        const py = (y + 32) * (1 - p) + y * p - Math.sin(p * Math.PI) * 18;
+        ctx.fillStyle = '#fde047';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('⚡¥', px, py);
+      }
+
+      // サーバーラック本体
+      ctx.fillStyle = '#0f172a';
+      ctx.strokeStyle = isPhase2 ? '#ff1744' : '#00e5ff';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.roundRect(x - 48, y - 46, 96, 92, 12);
+      ctx.fill();
+      ctx.stroke();
+
+      // モニター顔（笑顔で電力を爆食いするAI）
+      ctx.fillStyle = isPhase2 ? '#450a0a' : '#042f2e';
+      ctx.fillRect(x - 38, y - 36, 76, 46);
+      ctx.fillStyle = isPhase2 ? '#ff5252' : '#00e676';
+      ctx.font = 'bold 24px "Segoe UI Emoji", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(isPhase2 ? '😈⚡' : '😊⚡', x, y - 8);
+
+      // 冷却ファン回転＆消費電力メーター
+      ctx.fillStyle = '#ffd700';
+      ctx.font = 'bold 10px sans-serif';
+      ctx.fillText(isPhase2 ? '消費電力:原発5基分!!' : '消費電力:原発3基分', x, y + 26);
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 9px sans-serif';
+      ctx.fillText('託送料金：庶民へ自動転嫁中', x, y + 40);
+
+    } else if (visualType === 'kumagaa_ceo') {
+      // 架空・GN〇帝国クマガー社長（ボタン全留め＆命の砂時計＆スライド係）
+      // 背後に浮かぶ巨大「命の砂時計」
+      ctx.save();
+      ctx.translate(x - 78, y - 8);
+      ctx.rotate(Math.sin(this.tick * 0.05) * 0.25);
+      ctx.fillStyle = 'rgba(250, 204, 21, 0.22)';
+      ctx.strokeStyle = '#ffd700';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(-22, -28, 44, 56, 8);
+      ctx.fill();
+      ctx.stroke();
+      ctx.font = '26px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('⏳', 0, 8);
+      ctx.font = 'bold 8px sans-serif';
+      ctx.fillStyle = '#fde047';
+      ctx.fillText('命の砂時計', 0, 24);
+      ctx.restore();
+
+      // 右奥で震えるスライド操作係スタッフ
+      ctx.font = '20px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('😰💻', x + 82, y + 6);
+      ctx.font = 'bold 8px sans-serif';
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('スライド係', x + 82, y + 22);
+
+      // 会見演台＆社長アバター
+      this.drawRichCharacter(x, y - 6, 44, {
+        emoji: isPhase2 ? '🤬' : '🎙️',
+        name: 'クマガー社長',
+        color: isPhase2 ? '#dc2626' : '#1e3a8a',
+        avatar: 'kumagaa_ceo'
+      });
+
+      // ボタン全留めスーツ＆会見マイク群
+      ctx.fillStyle = '#1e293b';
+      ctx.strokeStyle = '#ffd700';
+      ctx.lineWidth = 2;
+      ctx.fillRect(x - 52, y + 28, 104, 24);
+      ctx.strokeRect(x - 52, y + 28, 104, 24);
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 9.5px sans-serif';
+      ctx.fillText('🎤 GN〇緊急謝罪会見（ボタン全留め）', x, y + 43);
+
+    } else if (visualType === 'shrink_demon') {
+      // ステルス値上げ魔王シュリンクス（エベレスト底上げ弁当容器＆20%縮小銃）
+      // エベレスト底上げ透明容器ドーム
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+      ctx.strokeStyle = '#f43f5e';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.roundRect(x - 58, y - 42, 116, 86, 16);
+      ctx.fill();
+      ctx.stroke();
+
+      // 底上げの巨大な空洞アーチ描画
+      ctx.fillStyle = 'rgba(244, 63, 94, 0.28)';
+      ctx.beginPath();
+      ctx.arc(x, y + 44, 46, Math.PI, 0, false);
+      ctx.fill();
+      ctx.strokeStyle = '#fde047';
+      ctx.stroke();
+
+      ctx.font = '34px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(isPhase2 ? '👹🍱' : '🦹‍♂️📉', x, y - 6);
+
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 9.5px sans-serif';
+      ctx.fillText('✨おいしくなって新登場(量20%減)✨', x, y + 24);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 8.5px sans-serif';
+      ctx.fillText('【容器の85%がプラスチック底上げ】', x, y + 38);
+
+    } else if (visualType === 'frenemy_queen') {
+      // マウント女子四天王・マウンティング麗奈
+      this.drawRichCharacter(x, y - 4, 45, {
+        emoji: isPhase2 ? '😈📸' : '💅😊',
+        name: 'マウント麗奈',
+        color: isPhase2 ? '#9333ea' : '#ec4899'
+      });
+      // 周囲を回る毒セリフオーブ
+      const orbAngle = this.tick * 0.05;
+      for (let i = 0; i < 2; i++) {
+        const ox = x + Math.cos(orbAngle + i * Math.PI) * 76;
+        const oy = y + Math.sin(orbAngle + i * Math.PI) * 26;
+        ctx.fillStyle = 'rgba(0,0,0,0.8)';
+        ctx.strokeStyle = '#f472b6';
+        ctx.beginPath();
+        ctx.roundRect(ox - 42, oy - 11, 84, 22, 8);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = '#fbcfe8';
+        ctx.font = 'bold 8.5px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(i === 0 ? '個性的だね(笑)' : '半目タグ付け♡', ox, oy + 3);
+      }
+    } else {
+      // SNSおすすめ欄アルゴリズム暴走神
+      this.drawRichCharacter(x, y - 4, 45, {
+        emoji: isPhase2 ? '👁️🔥' : '🤖🔥',
+        name: 'おすすめ欄神',
+        color: isPhase2 ? '#dc2626' : '#2563eb'
+      });
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 9.5px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('いいね3の身内ポストを1000万人に晒し上げ中', x, y + 48);
+    }
+
+    if (hurtTimer > 0) {
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+      ctx.beginPath();
+      ctx.arc(x, y, 52, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.restore();
+  }
+
+  /**
+   * RPGバトル中の攻撃・必殺技ビジュアルエフェクト描画
+   */
+  drawBattleEffect(width, height, effect) {
+    if (!effect || effect.timer <= 0) return;
+    const ctx = this.ctx;
+    const progress = 1 - (effect.timer / effect.maxTimer);
+    ctx.save();
+
+    const type = effect.type || 'lightning';
+
+    if (type === 'bill_lightning' || type === 'lightning') {
+      // 稲妻＋空から降ってくる高額電気代検針票スタンプ
+      ctx.strokeStyle = '#fde047';
+      ctx.lineWidth = 4;
+      for (let i = 0; i < 3; i++) {
+        const lx = 90 + i * 110 + (Math.random() - 0.5) * 20;
+        ctx.beginPath();
+        ctx.moveTo(lx, 40);
+        ctx.lineTo(lx - 18, 110);
+        ctx.lineTo(lx + 14, 150);
+        ctx.lineTo(lx - 10, 230);
+        ctx.stroke();
+      }
+      // 巨大検針票
+      const stampY = 70 + progress * 95;
+      ctx.fillStyle = 'rgba(220, 38, 38, 0.94)';
+      ctx.strokeStyle = '#fde047';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.roundRect(70, stampY, 260, 52, 8);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 13px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('⚡ 検針票：AI託送料金＋賦課金転嫁 ⚡', 200, stampY + 21);
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 15px sans-serif';
+      ctx.fillText(effect.bannerText || '今月の請求額：29,800円 (庶民負担)', 200, stampY + 42);
+
+    } else if (type === 'hallucination_beam' || type === 'laser') {
+      // 極太レーザービーム演出
+      const beamH = 26 + Math.sin(progress * Math.PI) * 24;
+      const grad = ctx.createLinearGradient(0, 130, width, 130);
+      grad.addColorStop(0, '#00e5ff');
+      grad.addColorStop(0.5, '#ffffff');
+      grad.addColorStop(1, '#ff4081');
+      ctx.fillStyle = grad;
+      ctx.fillRect(20, 135 - beamH / 2, width - 40, beamH);
+
+      ctx.fillStyle = '#111827';
+      ctx.font = 'bold 12px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(effect.bannerText || '🤖「お役に立てて嬉しいです😊（300kW消費）」', 200, 139);
+
+    } else if (type === 'sandglass_poem') {
+      // クマガー社長『命の砂時計』黄金回転カットイン
+      ctx.fillStyle = 'rgba(250, 204, 21, 0.22)';
+      ctx.beginPath();
+      ctx.arc(200, 140, 40 + progress * 60, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.font = '54px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('⏳✨', 200, 145);
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.fillText(effect.bannerText || '「人の一生は『命の砂時計』なのです…」', 200, 192);
+
+    } else if (type === 'shrink_beam') {
+      // ステルス値上げ『内容量20%縮小ビーム』
+      const scale = Math.max(0.35, 1.1 - progress * 0.75);
+      ctx.strokeStyle = '#c084fc';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.arc(200, 140, 65 * scale, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.font = `${Math.floor(48 * scale)}px sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.fillText('🍪🍱', 200, 148);
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 13px sans-serif';
+      ctx.fillText(effect.bannerText || '✨おいしくなって新登場（サイズ-20%縮小）✨', 200, 195);
+
+    } else if (type === 'sns_roast_strike' || type === 'player_crit') {
+      // プレイヤーの万バズ風刺ツッコミ大爆発
+      for (let i = 0; i < 6; i++) {
+        const angle = (i / 6) * Math.PI * 2 + progress * 3;
+        const rx = 200 + Math.cos(angle) * (25 + progress * 55);
+        const ry = 135 + Math.sin(angle) * (15 + progress * 35);
+        ctx.font = '24px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('🔥💥', rx, ry);
+      }
+      ctx.fillStyle = '#00e676';
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 3;
+      ctx.font = 'bold 15px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.strokeText(effect.bannerText || '📣 万バズ正論カウンター炸裂！！', 200, 192);
+      ctx.fillText(effect.bannerText || '📣 万バズ正論カウンター炸裂！！', 200, 192);
+
+    } else if (type === 'shield_heal') {
+      // 防御・回復バリア
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.arc(200, 155, 45 + Math.sin(progress * Math.PI) * 20, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(effect.bannerText || '🛡️ 庶民の生活防衛バリア発動！', 200, 195);
+    }
+
+    ctx.restore();
+  }
+
   drawCutinOverlay(width) {
     if (!this.cutin) return;
     const c = this.cutin;
@@ -978,7 +1269,6 @@ class RichVisualRenderer {
     const alpha = Math.min(1, c.life * 2.2);
     ctx.globalAlpha = alpha;
 
-    // ニュース速報テロップ枠
     const boxX = 10;
     const boxY = 46;
     const boxW = width - 20;
@@ -997,16 +1287,14 @@ class RichVisualRenderer {
     ctx.strokeStyle = '#ffd700';
     ctx.stroke();
 
-    // バッジ
     ctx.fillStyle = '#ffd700';
     ctx.font = 'bold 10px "Hiragino Kaku Gothic ProN", sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(`${c.badge} ｜ ${c.speaker}`, boxX + 12, boxY + 17);
 
-    // セリフ本文
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
-    ctx.fillText(`「${c.quote.slice(0, 25)}」`, boxX + 12, boxY + 39);
+    ctx.font = 'bold 12.5px "Hiragino Kaku Gothic ProN", sans-serif';
+    ctx.fillText(`「${c.quote.slice(0, 27)}」`, boxX + 12, boxY + 39);
 
     ctx.restore();
 
@@ -1557,7 +1845,7 @@ window.MiniGameMonetizationSDK = MiniGameMonetizationSDK;
   </script>
   <script>
 /**
- * Engine 4: Catch-Drop (60秒ハイスピード収集＆罠回避エンジン - Rich Parody Edition)
+ * Engine 4: Catch-Drop (東証大相場キャッチャー＆ウエダー総裁の利上げ雷撃レーザー回避エンジン - タイマー廃止・資産ライフ3制)
  */
 class CatcherGameEngine {
   constructor(canvas, theme, audio, sdk, callbacks) {
@@ -1574,7 +1862,7 @@ class CatcherGameEngine {
     this.canvas.height = this.height;
 
     this.rich = new window.RichVisualRenderer(this.canvas, this.theme);
-    this.playerSpec = theme.player || { emoji: '🔋', name: 'キャッチャー' };
+    this.playerSpec = theme.player || { emoji: '🚲', name: '優待チャリ仙人' };
     this.goodItems = theme.good_items || [];
     this.badItems = theme.bad_items || [];
 
@@ -1582,10 +1870,11 @@ class CatcherGameEngine {
     this.falling = [];
     this.popups = [];
     this.score = 0;
-    this.timeLeft = 60;
+    this.hp = 3;
+    this.caughtCount = 0;
+    this.laserWarning = null;
     this.isRunning = false;
     this.frameCount = 0;
-    this.timerInterval = null;
     this.animId = null;
 
     this.bindEvents();
@@ -1597,7 +1886,7 @@ class CatcherGameEngine {
     if (!guide) return;
     const goods = this.goodItems.map(g => `<span class="evo-chip">${g.emoji}${g.name}(+${g.score})</span>`).join(' ');
     const bads = this.badItems.map(b => `<span class="evo-chip" style="border-color:#ff5252">${b.emoji}${b.name}(${b.score})</span>`).join(' ');
-    guide.innerHTML = `<div style="margin-bottom:4px;"><strong style="color:#00e676">【獲得ターゲット】</strong> ${goods}</div><div><strong style="color:#ff5252">【炎上トラップ】</strong> ${bads}</div>`;
+    guide.innerHTML = `<div style="margin-bottom:4px;"><strong style="color:#00e676">【獲得ターゲット（25個獲得で相場制覇）】</strong> ${goods}</div><div><strong style="color:#ff5252">【暴落トラップ（3回被弾で退場）】</strong> ${bads}</div>`;
   }
 
   bindEvents() {
@@ -1631,22 +1920,16 @@ class CatcherGameEngine {
     this.falling = [];
     this.popups = [];
     this.score = 0;
-    this.timeLeft = 60;
+    this.hp = 3;
+    this.caughtCount = 0;
+    this.laserWarning = null;
     this.frameCount = 0;
     this.isRunning = true;
     this.startTime = Date.now();
 
     this.cb.onScoreChange(this.score);
-    this.cb.onTimeChange(this.timeLeft);
+    this.cb.onTimeChange('💰💰💰');
     this.rich.triggerRandomBuzzCutin();
-
-    if (this.timerInterval) clearInterval(this.timerInterval);
-    this.timerInterval = setInterval(() => {
-      if (!this.isRunning) return;
-      this.timeLeft--;
-      this.cb.onTimeChange(this.timeLeft);
-      if (this.timeLeft <= 0) this.finishGame();
-    }, 1000);
 
     const loop = () => {
       if (!this.isRunning) return;
@@ -1659,18 +1942,53 @@ class CatcherGameEngine {
 
   update() {
     this.frameCount++;
-    const isFever = this.timeLeft <= 15;
-    const spawnInterval = isFever ? 18 : 27;
+    const isFever = this.caughtCount >= 15;
+    const spawnInterval = isFever ? 19 : 26;
+
+    // 定期的にウエダー魔導総裁の「利上げ雷撃レーザー」予告＆発射
+    if (this.frameCount % 160 === 80) {
+      this.laserWarning = {
+        x: Math.max(50, Math.min(this.width - 50, this.playerX + (Math.random() - 0.5) * 60)),
+        timer: 55
+      };
+    }
+    if (this.laserWarning) {
+      this.laserWarning.timer--;
+      if (this.laserWarning.timer === 12) {
+        this.audio.playSE('bad');
+        this.rich.shakeAmount = 9;
+        if (Math.abs(this.playerX - this.laserWarning.x) < 38) {
+          this.hp--;
+          this.cb.onTimeChange(this.hp > 0 ? '💰'.repeat(this.hp) : '💀退場');
+          this.popups.push({
+            x: this.playerX,
+            y: this.height - 90,
+            text: '⚡利上げ砲被弾！ -500',
+            color: '#ff1744',
+            life: 1.0
+          });
+          this.score = Math.max(0, this.score - 500);
+          this.cb.onScoreChange(this.score);
+          if (this.hp <= 0) {
+            this.finishGame();
+            return;
+          }
+        }
+      }
+      if (this.laserWarning.timer <= 0) {
+        this.laserWarning = null;
+      }
+    }
 
     if (this.frameCount % spawnInterval === 0) {
-      const isBad = Math.random() < 0.3;
+      const isBad = Math.random() < 0.32;
       const pool = isBad ? this.badItems : this.goodItems;
       const spec = pool[Math.floor(Math.random() * pool.length)];
       if (spec) {
         this.falling.push({
           x: 32 + Math.random() * (this.width - 64),
           y: -25,
-          vy: (spec.speed || 3.5) * (isFever ? 1.25 : 1.0),
+          vy: (spec.speed || 3.5) * (isFever ? 1.22 : 1.0),
           isBad,
           spec
         });
@@ -1694,13 +2012,36 @@ class CatcherGameEngine {
           color: item.isBad ? '#ff5252' : '#69f0ae',
           life: 1.0
         });
-        if (item.isBad || item.spec.score >= 400) {
+
+        if (item.isBad) {
+          this.hp--;
+          this.cb.onTimeChange(this.hp > 0 ? '💰'.repeat(this.hp) : '💀退場');
           this.rich.triggerCutin(
             item.spec.name,
-            item.spec.quote || (item.isBad ? 'うわぁぁ！直撃ダメージ！！' : '神アイテム大量確保！！'),
-            'kumagai',
-            item.isBad ? '🚨 炎上被害発生' : '💰 大口獲得速報'
+            item.spec.quote || '暴落トラップ被弾！強制ロスカット危機！',
+            'uedaa_gov',
+            '🚨 暴落被弾速報'
           );
+          if (this.hp <= 0) {
+            this.finishGame();
+            return;
+          }
+        } else {
+          this.caughtCount++;
+          if (item.spec.score >= 400 || this.caughtCount % 5 === 0) {
+            this.rich.triggerCutin(
+              item.spec.name,
+              item.spec.quote || '急騰銘柄ガチホ成功！！',
+              'kiritama_master',
+              '💰 大口利確速報'
+            );
+          }
+          if (this.caughtCount >= 25) {
+            this.score += 2000;
+            this.cb.onScoreChange(this.score);
+            this.finishGame();
+            return;
+          }
         }
         this.falling.splice(i, 1);
       } else if (item.y > this.height + 35) {
@@ -1719,14 +2060,32 @@ class CatcherGameEngine {
     const ctx = this.ctx;
     this.rich.drawStageBackground(this.width, this.height);
 
-    if (this.timeLeft <= 15) {
+    // 利上げレーザー予告＆照射描画
+    if (this.laserWarning) {
+      const lw = this.laserWarning;
       ctx.save();
-      ctx.fillStyle = 'rgba(255, 215, 0, 0.14)';
-      ctx.fillRect(0, 0, this.width, this.height);
-      ctx.fillStyle = '#ffd700';
-      ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('⚡ ラスト15秒！大相場フィーバータイム突入！ ⚡', this.width / 2, 26);
+      if (lw.timer > 15) {
+        ctx.fillStyle = 'rgba(255, 23, 68, 0.22)';
+        ctx.fillRect(lw.x - 28, 0, 56, this.height);
+        ctx.strokeStyle = '#ff1744';
+        ctx.setLineDash([6, 4]);
+        ctx.strokeRect(lw.x - 28, 0, 56, this.height);
+        ctx.fillStyle = '#fde047';
+        ctx.font = 'bold 11px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('⚠️利上げ砲予告⚠️', lw.x, 32);
+      } else {
+        const beamGrad = ctx.createLinearGradient(lw.x - 30, 0, lw.x + 30, 0);
+        beamGrad.addColorStop(0, '#ff1744');
+        beamGrad.addColorStop(0.5, '#ffffff');
+        beamGrad.addColorStop(1, '#ff1744');
+        ctx.fillStyle = beamGrad;
+        ctx.fillRect(lw.x - 26, 0, 52, this.height);
+        ctx.fillStyle = '#fde047';
+        ctx.font = 'bold 13px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('⚡サプライズ利上げ砲！！⚡', lw.x, 120);
+      }
       ctx.restore();
     }
 
@@ -1744,7 +2103,7 @@ class CatcherGameEngine {
       emoji: this.playerSpec.emoji,
       name: this.playerSpec.name,
       color: '#f59e0b',
-      avatar: this.playerSpec.avatar || 'kiritani_master'
+      avatar: this.playerSpec.avatar || 'kiritama_master'
     });
 
     for (const p of this.popups) {
@@ -1766,7 +2125,6 @@ class CatcherGameEngine {
   finishGame() {
     if (!this.isRunning) return;
     this.isRunning = false;
-    if (this.timerInterval) clearInterval(this.timerInterval);
     if (this.animId) cancelAnimationFrame(this.animId);
     this.audio.playSE('gameover');
     const durationSec = Math.max(5, Math.round((Date.now() - this.startTime) / 1000));
@@ -1797,6 +2155,22 @@ window.CatcherGameEngine = CatcherGameEngine;
       window.gameAudio = audio;
       const sdk = new window.MiniGameMonetizationSDK(theme, config);
 
+      const copyBtn = document.getElementById('btnCopyReply');
+      const replyEl = document.getElementById('snsReplyText');
+      if (copyBtn && replyEl) {
+        copyBtn.addEventListener('click', () => {
+          const text = replyEl.textContent || '';
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text);
+          }
+          copyBtn.textContent = '✅ コピー完了！バズ投稿にリプしよう';
+          sdk.trackEvent('share_click', { platform: 'reply_copy' });
+          setTimeout(() => {
+            copyBtn.textContent = '📋 リプライ文＋URLをコピー';
+          }, 2500);
+        });
+      }
+
       const scoreEl = document.getElementById('hudScore');
       const timeEl = document.getElementById('hudTime');
       const bestEl = document.getElementById('hudBest');
@@ -1806,6 +2180,7 @@ window.CatcherGameEngine = CatcherGameEngine;
 
       const canvas = document.getElementById('gameCanvas');
       const engineMap = {
+        rpg_battle: window.RpgBattleGameEngine,
         suika: window.SuikaGameEngine,
         game2048: window.Game2048Engine,
         flappy: window.FlappyGameEngine,
@@ -1823,8 +2198,8 @@ window.CatcherGameEngine = CatcherGameEngine;
             bestEl.textContent = bestScore.toLocaleString();
           }
         },
-        onTimeChange: (sec) => {
-          timeEl.textContent = String(sec);
+        onTimeChange: (statusText) => {
+          timeEl.textContent = String(statusText);
         },
         onGameOver: (finalScore, durationSec) => {
           audio.stopBgm();

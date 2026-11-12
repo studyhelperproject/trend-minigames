@@ -1,5 +1,5 @@
 /**
- * Engine 3: Flappy-Dodge (1タップ障害物回避＆アイテム収集エンジン - Rich Parody Edition)
+ * Engine 3: Flappy-Dodge (1タップ障害物回避＆アイテム収集エンジン - タイマー廃止・3ライフ＆18ゲート突破制)
  */
 class FlappyGameEngine {
   constructor(canvas, theme, audio, sdk, callbacks) {
@@ -22,8 +22,9 @@ class FlappyGameEngine {
 
     this.isRunning = false;
     this.score = 0;
-    this.timeLeft = 60;
-    this.timerInterval = null;
+    this.hp = 3;
+    this.invincibleTimer = 0;
+    this.passedGates = 0;
     this.animId = null;
 
     this.bindEvents();
@@ -34,7 +35,7 @@ class FlappyGameEngine {
     const guide = document.getElementById('evolutionGuide');
     if (!guide) return;
     const bonusText = this.collectibles.map(c => `<span class="evo-chip">${c.emoji}${c.name}(+${c.score})</span>`).join(' ');
-    guide.innerHTML = `<div style="font-weight:900;color:#ffca28;margin-bottom:4px;">【バズり地雷回避ルール】</div><div>炎上柱をかわして進もう！ 獲得アイテム: ${bonusText}</div>`;
+    guide.innerHTML = `<div style="font-weight:900;color:#ffca28;margin-bottom:4px;">【バズり地雷回避ルール（時間制限なし・ライフ3制）】</div><div>炎上ゲートをかわして進もう！ 獲得アイテム: ${bonusText}</div>`;
   }
 
   bindEvents() {
@@ -42,7 +43,7 @@ class FlappyGameEngine {
       if (!this.isRunning) return;
       if (e && e.type === 'keydown' && e.code !== 'Space' && e.code !== 'ArrowUp') return;
       if (e && e.preventDefault) e.preventDefault();
-      this.bird.vy = -6.6;
+      this.bird.vy = -6.5;
       const quotes = this.playerSpec.jump_quotes || ['スルースキル!'];
       this.activeQuote = {
         text: quotes[Math.floor(Math.random() * quotes.length)],
@@ -62,22 +63,16 @@ class FlappyGameEngine {
     this.bonuses = [];
     this.frameCount = 0;
     this.score = 0;
-    this.timeLeft = 60;
+    this.hp = 3;
+    this.invincibleTimer = 0;
+    this.passedGates = 0;
     this.isRunning = true;
     this.activeQuote = null;
     this.startTime = Date.now();
 
     this.cb.onScoreChange(this.score);
-    this.cb.onTimeChange(this.timeLeft);
+    this.cb.onTimeChange('❤️❤️❤️');
     this.rich.triggerRandomBuzzCutin();
-
-    if (this.timerInterval) clearInterval(this.timerInterval);
-    this.timerInterval = setInterval(() => {
-      if (!this.isRunning) return;
-      this.timeLeft--;
-      this.cb.onTimeChange(this.timeLeft);
-      if (this.timeLeft <= 0) this.finishGame();
-    }, 1000);
 
     const loop = () => {
       if (!this.isRunning) return;
@@ -88,9 +83,29 @@ class FlappyGameEngine {
     this.animId = requestAnimationFrame(loop);
   }
 
+  takeDamage(reasonWord) {
+    if (this.invincibleTimer > 0) return;
+    this.hp--;
+    this.invincibleTimer = 55;
+    this.rich.shakeAmount = 12;
+    this.audio.playSE('bad');
+    this.cb.onTimeChange(this.hp > 0 ? '❤️'.repeat(this.hp) : '💀0');
+    this.rich.triggerCutin(
+      '直撃ダメージ！',
+      `『${reasonWord}』の罠に被弾！（残りメンタル ${this.hp}）`,
+      'fan',
+      '💥 被弾速報'
+    );
+    if (this.hp <= 0) {
+      this.finishGame();
+    }
+  }
+
   update() {
     this.frameCount++;
-    this.bird.vy += 0.33;
+    if (this.invincibleTimer > 0) this.invincibleTimer--;
+
+    this.bird.vy += 0.32;
     this.bird.y += this.bird.vy;
 
     if (this.bird.y - this.bird.radius < 0) {
@@ -98,12 +113,14 @@ class FlappyGameEngine {
       this.bird.vy = 0;
     }
     if (this.bird.y + this.bird.radius > this.height) {
-      this.finishGame();
+      this.bird.y = this.height - this.bird.radius - 10;
+      this.bird.vy = -5.5;
+      this.takeDamage('底なし沼落下');
       return;
     }
 
     if (this.frameCount % 88 === 1) {
-      const gap = 148;
+      const gap = 152;
       const topH = 60 + Math.random() * (this.height - gap - 125);
       const word = this.obstacleWords[Math.floor(Math.random() * this.obstacleWords.length)];
       this.pipes.push({
@@ -115,7 +132,7 @@ class FlappyGameEngine {
         passed: false
       });
 
-      if (Math.random() < 0.72) {
+      if (Math.random() < 0.78) {
         const spec = this.collectibles[Math.floor(Math.random() * this.collectibles.length)];
         this.bonuses.push({
           x: this.width + 42,
@@ -131,11 +148,18 @@ class FlappyGameEngine {
 
       if (!p.passed && p.x + p.w < this.bird.x) {
         p.passed = true;
-        this.score += 140;
+        this.passedGates++;
+        this.score += 150;
         this.cb.onScoreChange(this.score);
         this.audio.playSE('hit');
-        if (this.score % 420 === 0) {
+        if (this.passedGates % 3 === 0) {
           this.rich.triggerRandomBuzzCutin();
+        }
+        if (this.passedGates >= 18) {
+          this.score += 1500;
+          this.cb.onScoreChange(this.score);
+          this.finishGame();
+          return;
         }
       }
 
@@ -143,8 +167,7 @@ class FlappyGameEngine {
       const hitTop = this.bird.y - this.bird.radius + 5 < p.topH;
       const hitBottom = this.bird.y + this.bird.radius - 5 > p.bottomY;
       if (inX && (hitTop || hitBottom)) {
-        this.finishGame();
-        return;
+        this.takeDamage(p.word);
       }
     }
     this.pipes = this.pipes.filter(p => p.x + p.w > -20);
@@ -189,7 +212,6 @@ class FlappyGameEngine {
       ctx.fillRect(p.x, p.bottomY, p.w, this.height - p.bottomY);
       ctx.strokeRect(p.x, p.bottomY, p.w, this.height - p.bottomY);
 
-      // 炎上ワードプレート
       ctx.fillStyle = 'rgba(0,0,0,0.82)';
       ctx.fillRect(p.x - 6, Math.max(8, p.topH - 28), p.w + 12, 22);
       ctx.fillRect(p.x - 6, Math.min(this.height - 28, p.bottomY + 6), p.w + 12, 22);
@@ -209,11 +231,13 @@ class FlappyGameEngine {
       });
     }
 
-    this.rich.drawRichCharacter(this.bird.x, this.bird.y, this.bird.radius, {
-      emoji: this.playerSpec.emoji,
-      name: this.playerSpec.name,
-      color: this.playerSpec.color || '#f59e0b'
-    });
+    if (this.invincibleTimer % 4 < 2) {
+      this.rich.drawRichCharacter(this.bird.x, this.bird.y, this.bird.radius, {
+        emoji: this.playerSpec.emoji,
+        name: this.playerSpec.name,
+        color: this.playerSpec.color || '#f59e0b'
+      });
+    }
 
     if (this.activeQuote) {
       ctx.save();
@@ -238,7 +262,6 @@ class FlappyGameEngine {
   finishGame() {
     if (!this.isRunning) return;
     this.isRunning = false;
-    if (this.timerInterval) clearInterval(this.timerInterval);
     if (this.animId) cancelAnimationFrame(this.animId);
     this.audio.playSE('gameover');
     const durationSec = Math.max(5, Math.round((Date.now() - this.startTime) / 1000));

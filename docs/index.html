@@ -343,22 +343,26 @@
   <!-- Top Breaking News Ticker -->
   <div class="ticker-wrap">
     <div class="ticker-move">
-      🚨【緊急スクープ速報】GM〇グループ謝罪会見『命の砂時計』ポエム＆イエ〇エ2年前指摘放置がゲーム化！ ｜ 🍣 く〇寿司×ち〇かわ『店員メル〇リ横流し』コラボ中止事件を再現！ ｜ 📈 日経平均7万円乱高下で『新NISA損切り民』vs『桐谷さんチャリ爆走』！ ｜ ⚡『なぜ庶民がAIデータセンターの託送料金を払うのか』大炎上キャッチャー稼働中！
+      🚨【風刺ジョーク速報】暴食AI神『チャッピー9000』と電気代転嫁で戦うコマンドRPGが稼働開始！ ｜ 🎤 GN〇帝国・クマガー社長『命の砂時計』ポエム＆『スライド戻さなくていい！』謝罪会見バトルRPG！ ｜ 🍱『おいしくなって新登場（量20%減）』底上げ弁当魔王シュリンクス討伐RPG！ ｜ ⚠️ 当サイトの登場人物・団体・名称はすべて100%架空のフィクションであり実在のものとは一切関係ありません
     </div>
   </div>
 
   <header>
-    <div class="magazine-logo-badge">⚡ 週刊バズゲームス 2026 特別編集アーケード</div>
-    <h1>🎮 週刊時事ミニゲーム横丁</h1>
+    <div class="magazine-logo-badge">⚡ 週刊バズゲームス 2026 風刺ジョークアーケード</div>
+    <h1>🎮 週刊時事風刺ミニゲーム横丁</h1>
     <p class="hero-sub">
-      あの謝罪会見の『命の砂時計』ポエムも、店員メル〇リ横流し炎上も、新NISA損切り民も！<br />
-      今SNSでバズっている元ネタを60秒で体験できる超風刺ブラウザゲーム集（全12本・無料・音あり推奨）
+      『AIの電気代なぜ庶民負担？RPG』も『クマガー社長・命の砂時計会見RPG』も『底上げ弁当魔王RPG』も！<br />
+      SNSの万バズ皮肉・風刺ネタを約1分（時間制限なし）で遊べるジョークゲーム集（全12本・無料・音あり推奨）
     </p>
+    <div style="max-width:780px;margin:0 auto 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(250,204,21,0.35);border-radius:10px;padding:6px 12px;font-size:0.74rem;color:#cbd5e1;">
+      ⚠️ <strong>【免責事項】</strong> 当サイトのゲーム・ストーリー・登場人物（クマガー社長・キリタマ仙人・ウエダー魔導総裁等）・団体・名称はすべて世相を風刺した架空のフィクションであり、実在の人物・企業・商標とは一切関係ありません。各カードから<strong>関連バズ投稿へのリプライ用テキスト＋URL</strong>をワンタップでコピーできます。
+    </div>
     <div class="nav-bar">
-      <button class="filter-btn active" onclick="filterGames('all', this)">🔥 全スクープ (12本)</button>
-      <button class="filter-btn" onclick="filterGames('cyber', this)">🎤 謝罪会見・ハッカー</button>
-      <button class="filter-btn" onclick="filterGames('money', this)">📈 株・新NISA・電気代</button>
-      <button class="filter-btn" onclick="filterGames('trend', this)">🍣 推し活・SNS・名車</button>
+      <button class="filter-btn active" onclick="filterGames('all', this)">🔥 全風刺ゲーム (12本)</button>
+      <button class="filter-btn" onclick="filterGames('rpg', this)">⚔️ 風刺コマンドRPG (5本)</button>
+      <button class="filter-btn" onclick="filterGames('cyber', this)">🎤 会見・SNS・ハッカー</button>
+      <button class="filter-btn" onclick="filterGames('money', this)">📈 株・電気代・物価高</button>
+      <button class="filter-btn" onclick="filterGames('trend', this)">🍣 推し活・名車・アニメ</button>
       <a href="dashboard.html" class="filter-btn ceo">📊 CEO経営＆PDCA効果測定ダッシュボード</a>
     </div>
     <!-- 忍者AdMax 320x50 バナー広告 -->
@@ -413,303 +417,375 @@
 
     <div class="grid" id="gamesGrid">
 
-      <div class="game-card" data-group="cyber">
+      <div class="game-card" data-group="money" data-engine="rpg_battle">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #06111c, #0f2942, #7f1d1d);">
+          <div class="thumb-rays"></div>
+          <div class="thumb-top-row">
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">⚔️ 風刺コマンドRPG</span>
+          </div>
+          <div class="thumb-cast-row">
+            <div class="cast-avatar">🥶</div>
+            <div class="cast-avatar hero">🤖</div>
+            <div class="cast-avatar hero">⚡</div>
+            <div class="cast-avatar">💸</div>
+          </div>
+          <div class="thumb-quote-strip">🎤 暴食AIチャッピー「お役に立てて嬉しいです😊（なお送電網コストは庶民負担）」</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">🔥 電気代高騰×生成AI風刺RPG</div>
+          <h2 class="card-title">なぜ庶民がAIの電気代まで負担！？暴食AI神『チャッピー9000』討伐RPG</h2>
+          <p class="card-desc">AIに節電方法を聞いたら、その回答を生成する電力で俺の家の電気代がまた3円上がった件（1分完結コマンドRPG）</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="AIが賢くなるたび庶民の暖房が消える令和のバグ、ついにコマンドRPG化されてて草😂 『お役に立てて嬉しいです😊（電力300kW消費）』攻撃が理不尽すぎるｗ https://studyhelperproject.github.io/trend-minigames/games/winter-power-catcher/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">AIが賢くなるたび庶民の暖房が消える令和のバグ、ついにコマンドRPG化されてて草😂 『お役に立てて嬉しいです😊（電力300kW消費）』攻撃が理不尽すぎるｗ https://studyhelperproject.github.io/trend-minigames/games/winter-power-catcher/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#AIの電気代</span><span class="kw">#託送料金転嫁</span><span class="kw">#チャッピー9000</span><span class="kw">#フィクション風刺</span></div>
+          <a href="games/winter-power-catcher/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
+        </div>
+      </div>
+
+      <div class="game-card" data-group="cyber" data-engine="rpg_battle">
         <div class="card-thumb" style="background: linear-gradient(135deg, #090d16, #1e293b, #7f1d1d);">
           <div class="thumb-rays"></div>
           <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 GAME2048 60s</span>
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">⚔️ 風刺コマンドRPG</span>
           </div>
           <div class="thumb-cast-row">
-            <div class="cast-avatar">🔓</div>
-            <div class="cast-avatar hero">📄</div>
-            <div class="cast-avatar hero">💤</div>
+            <div class="cast-avatar">📸</div>
+            <div class="cast-avatar hero">🎙️</div>
+            <div class="cast-avatar hero">⏳</div>
+            <div class="cast-avatar">💢</div>
+          </div>
+          <div class="thumb-quote-strip">🎤 クマガー社長「人の一生は『命の砂時計』…あ、スライド戻さなくていい！」</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">🔥 謝罪会見×ポエム風刺RPG</div>
+          <h2 class="card-title">GN〇帝国80億円身代金要求！クマガー社長『命の砂時計』謝罪会見バトルRPG</h2>
+          <p class="card-desc">「スライド戻さなくていい！（激怒）」ボタン全留めスーツ＆ポエム朗読で記者団を煙に巻く伝説の会見RPG</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="ボタン全留めスーツで『命の砂時計』ポエム朗読＆『スライド戻さなくていい！』がコマンドRPGになってて腹筋崩壊した😂 セキュリティよりポエムの突破力が高すぎるｗ https://studyhelperproject.github.io/trend-minigames/games/ai-cyber-2048/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">ボタン全留めスーツで『命の砂時計』ポエム朗読＆『スライド戻さなくていい！』がコマンドRPGになってて腹筋崩壊した😂 セキュリティよりポエムの突破力が高すぎるｗ https://studyhelperproject.github.io/trend-minigames/games/ai-cyber-2048/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#命の砂時計</span><span class="kw">#クマガー社長</span><span class="kw">#スライド戻さなくていい</span><span class="kw">#フィクション会見</span></div>
+          <a href="games/ai-cyber-2048/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
+        </div>
+      </div>
+
+      <div class="game-card" data-group="money" data-engine="rpg_battle">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #2d0c16, #591628, #801f37);">
+          <div class="thumb-rays"></div>
+          <div class="thumb-top-row">
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">⚔️ 風刺コマンドRPG</span>
+          </div>
+          <div class="thumb-cast-row">
+            <div class="cast-avatar">🛒</div>
+            <div class="cast-avatar hero">👹</div>
+            <div class="cast-avatar hero">🍱</div>
             <div class="cast-avatar">📉</div>
           </div>
-          <div class="thumb-quote-strip">🎤 クマガイ代表「人間の『命の砂時計』は今この瞬間も落ちているのです…！」</div>
+          <div class="thumb-quote-strip">🎤 底上げ魔王「女性やシニアでも食べ切りやすいサイズ（-20%）にしました✨」</div>
         </div>
         <div class="card-body">
-          <div class="card-cat">🔥 2026年11月大炎上・謝罪会見スクープ</div>
-          <h2 class="card-title">GM〇グループ80億円身代金要求！クマガイ社長『命の砂時計』謝罪会見2048</h2>
-          <p class="card-desc">お名前デスクトップ2.6万件漏洩＆2年前のイエ〇エ指摘放置！ポエム独演会見を乗り切れ！</p>
-          <div class="scoop-context">【元ネタ時事解説】2026年11月、『お名前.com デスクトップクラウド』が不正アクセスを受け最大26,739件の情報漏洩＆顧客FX口座で勝手な損切り被害が発生。子会社イエラエから2年前に脆弱性を指摘されていたのに放置し2ヶ月半侵入に気づかなかった上、謝罪会見で代表が『命の砂時計』ポエムを語り、スライド不手際で社員を公開叱責・スーツの着こなしに言及してSNSで大バズりした事件を完全再現！</div>
-          <div class="kw-list"><span class="kw">#命の砂時計</span><span class="kw">#お名前VPS漏洩</span><span class="kw">#身代金80億円拒否</span><span class="kw">#イエラエ2年前指摘</span><span class="kw">#スライド叱責会見</span></div>
-          <a href="games/ai-cyber-2048/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
+          <div class="card-cat">🔥 物価高×ステルス値上げ風刺RPG</div>
+          <h2 class="card-title">『おいしくなって新登場（内容量20%減）』ステルス値上げ魔王シュリンクス討伐RPG</h2>
+          <p class="card-desc">容器の85%がプラスチック底上げ！毎年縮んで素粒子になりそうなビスケットと戦うスーパーマーケットRPG</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="『おいしくなって新登場（内容量20%減）』と『エベレスト級底上げ弁当容器』と戦うRPGがツッコミどころ満載すぎる😂 2030年にはお菓子が素粒子になる説好きｗ https://studyhelperproject.github.io/trend-minigames/games/inflation-whack/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">『おいしくなって新登場（内容量20%減）』と『エベレスト級底上げ弁当容器』と戦うRPGがツッコミどころ満載すぎる😂 2030年にはお菓子が素粒子になる説好きｗ https://studyhelperproject.github.io/trend-minigames/games/inflation-whack/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#ステルス値上げ</span><span class="kw">#おいしくなって新登場</span><span class="kw">#底上げ弁当</span><span class="kw">#素粒子ビスケット</span></div>
+          <a href="games/inflation-whack/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
         </div>
       </div>
 
-      <div class="game-card" data-group="trend">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #2a1215, #7f1d1d, #b91c1c);">
+      <div class="game-card" data-group="trend" data-engine="rpg_battle">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #2b102f, #5e1b4c, #9c2766);">
           <div class="thumb-rays"></div>
           <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 FLAPPY 60s</span>
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">⚔️ 風刺コマンドRPG</span>
           </div>
           <div class="thumb-cast-row">
-            <div class="cast-avatar">🐹</div>
-            <div class="cast-avatar hero">💎</div>
-            <div class="cast-avatar hero">🧸</div>
+            <div class="cast-avatar">💅</div>
+            <div class="cast-avatar hero">📸</div>
+            <div class="cast-avatar hero">🐍</div>
             <div class="cast-avatar">🔥</div>
           </div>
-          <div class="thumb-quote-strip">🎤 闇バイト店員「ビッくらポンのレア景品抜いてメル〇リ出品っとw」</div>
+          <div class="thumb-quote-strip">🎤 マウント麗奈「え〜その服すごく個性的だね♡ 私には絶対無理だわ〜（笑）」</div>
         </div>
         <div class="card-body">
-          <div class="card-cat">🔥 2026年推し活・内部不正転売大炎上</div>
-          <h2 class="card-title">く〇寿司店員メル〇リ横流し回避！ち〇かわ＆ランダム商法9割絶望フラッピー</h2>
-          <p class="card-desc">『く〇寿司の店員です』出品大炎上＆9割が嫌うブラインド缶バッジ地獄を飛び越えろ！</p>
-          <div class="scoop-context">【元ネタ時事解説】2026年9月、回転寿司コラボで『何度食べても目当てのフィギュアが当たらない』とSNSで騒動になり、メルカリに未流通コンプセットが大量出品＆出品者が『くら寿司の店員です』と自白し全面中止となった内部不正事件、および『推し活層の9割がランダム商法を嫌っている』調査バズを完全ゲーム化！</div>
-          <div class="kw-list"><span class="kw">#くら寿司ちいかわ中止</span><span class="kw">#店員メルカリ横流し</span><span class="kw">#ランダム商法9割嫌い</span><span class="kw">#FaNeMa</span><span class="kw">#ビッくらポン闇</span></div>
-          <a href="games/anime-goods-flappy/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
+          <div class="card-cat">🔥 SNS人間関係×風刺バトルRPG</div>
+          <h2 class="card-title">『その服個性的だね（笑）』マウント女子四天王・褒め殺しカフェ会戦RPG</h2>
+          <p class="card-desc">自分だけ加工MAX＆友達は半目の写真をストーリーズにタグ付けしてくる笑顔の処刑人を論破せよ！</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="『その服個性的だね（笑）』『自分だけ盛れてて友達が半目の写真をストーリーズに載せる』マウント女子と戦うRPGがリアルすぎて笑う😂 https://studyhelperproject.github.io/trend-minigames/games/frenemy-flappy/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">『その服個性的だね（笑）』『自分だけ盛れてて友達が半目の写真をストーリーズに載せる』マウント女子と戦うRPGがリアルすぎて笑う😂 https://studyhelperproject.github.io/trend-minigames/games/frenemy-flappy/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#個性的だね</span><span class="kw">#半目タグ付け</span><span class="kw">#マウント女子</span><span class="kw">#褒め殺しRPG</span></div>
+          <a href="games/frenemy-flappy/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
         </div>
       </div>
 
-      <div class="game-card" data-group="trend">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #2e1065, #be185d, #4f46e5);">
+      <div class="game-card" data-group="cyber" data-engine="rpg_battle">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #060b19, #172554, #7f1d1d);">
           <div class="thumb-rays"></div>
           <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 SUIKA 60s</span>
-          </div>
-          <div class="thumb-cast-row">
-            <div class="cast-avatar">⏩</div>
-            <div class="cast-avatar hero">🛁</div>
-            <div class="cast-avatar hero">🛹</div>
-            <div class="cast-avatar">🎸</div>
-          </div>
-          <div class="thumb-quote-strip">🎤 ドパガキ診断「イントロ5秒あったらスキップ！倍速視聴が止まらない！！」</div>
-        </div>
-        <div class="card-body">
-          <div class="card-cat">🔥 2026年流行語大賞ノミネート・Z世代ミーム</div>
-          <h2 class="card-title">ドパガキ脳汁2分割！ミセス『ライラック』転調＆メロいM!LK推し活スイカ</h2>
-          <p class="card-desc">風呂でもスマホ・映画は2倍速！2026流行語『ドパガキ』『メロい』完全再現パズル</p>
-          <div class="scoop-context">【元ネタ時事解説】ミセス『ライラック』のめまぐるしい楽曲展開からXでバズった『集中力がないZ世代（ドーパミン中毒のガキ＝ドパガキ）が再生止めないための工夫』という言説と、風呂・トイレでもスマホを手放せず画面を2分割して動画を見る『ドパガキの1日』ミーム、さらに10代流行語1位『メロい（M!LK等）』を完全融合！</div>
-          <div class="kw-list"><span class="kw">#ドパガキ</span><span class="kw">#メロい</span><span class="kw">#ライラック転調</span><span class="kw">#M!LK</span><span class="kw">#倍速視聴中毒</span></div>
-          <a href="games/dopagaki-suika/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
-        </div>
-      </div>
-
-      <div class="game-card" data-group="money">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #041410, #064e3b, #ca8a04);">
-          <div class="thumb-rays"></div>
-          <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 SUIKA 60s</span>
-          </div>
-          <div class="thumb-cast-row">
-            <div class="cast-avatar">😭</div>
-            <div class="cast-avatar hero">💸</div>
-            <div class="cast-avatar hero">🌐</div>
-            <div class="cast-avatar">🚲</div>
-          </div>
-          <div class="thumb-quote-strip">🎤 新NISA損切り民「うわぁぁ！急落が怖くて底値で全部狼狽売りしちゃった…！」</div>
-        </div>
-        <div class="card-body">
-          <div class="card-cat">🔥 2026年株式市場・新NISAバズ時事</div>
-          <h2 class="card-title">日経7万円乱高下！新NISA損切り民救出＆桐谷さんチャリ爆走テンバガースイカ</h2>
-          <p class="card-desc">『株高不況』と『植田総裁の利上げ砲』を乗り越え、優待チャリ名人＆10倍株を召喚せよ！</p>
-          <div class="scoop-context">【元ネタ時事解説】2026年に日経平均が6万〜7万円台へ到達する一方、実質賃金が追いつかない『株高不況』や、米中間選挙ショック・日銀植田総裁の追加利上げ観測でパニック売りする『新NISA損切り民』がXでトレンド入り！70代半ばでもママチャリで優待券を使い切る桐谷広人名人の投資哲学とともにゲーム化！</div>
-          <div class="kw-list"><span class="kw">#日経平均7万円</span><span class="kw">#新NISA損切り民</span><span class="kw">#桐谷さんチャリ</span><span class="kw">#植田総裁利上げ</span><span class="kw">#株高不況</span></div>
-          <a href="games/tenbagger-stock-suika/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
-        </div>
-      </div>
-
-      <div class="game-card" data-group="money">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #0f172a, #065f46, #b45309);">
-          <div class="thumb-rays"></div>
-          <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 CATCHER 60s</span>
-          </div>
-          <div class="thumb-cast-row">
-            <div class="cast-avatar">🛡️</div>
-            <div class="cast-avatar hero">☀️</div>
-            <div class="cast-avatar hero">🌱</div>
-            <div class="cast-avatar">💹</div>
-          </div>
-          <div class="thumb-quote-strip">🎤 SNSトレンド怒号「なぜ一般家庭が巨大IT企業のAIデータセンター送電費を肩代わりするのか！？」</div>
-        </div>
-        <div class="card-body">
-          <div class="card-cat">🔥 2026年秋冬・電気代託送料金大炎上</div>
-          <h2 class="card-title">なぜ庶民がAIの電気代まで負担！？託送料金転嫁＆補助金終了クライシス</h2>
-          <p class="card-desc">『電力会社は最高益なのにAIデータセンター送電費まで国民負担！？』大炎上ニュースを攻略せよ</p>
-          <div class="scoop-context">【元ネタ時事解説】生成AIデータセンター急増に伴う送配電網の増強費用（託送料金）が一般家庭の電気代に転嫁される見通しとなり、Xで『なぜ一般人がAI企業のインフラ代まで肩代わりさせられるのか』『電力大手は過去最高益なのに』と大炎上！さらに政府補助金終了による10月・11月連続値上げラッシュをゲーム化！</div>
-          <div class="kw-list"><span class="kw">#AI電力網託送料金</span><span class="kw">#なぜ庶民がAIの電気代負担</span><span class="kw">#電気ガス補助金終了</span><span class="kw">#再エネ賦課金</span><span class="kw">#10月11月連続値上げ</span></div>
-          <a href="games/winter-power-catcher/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
-        </div>
-      </div>
-
-      <div class="game-card" data-group="trend">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #2b1055, #be185d, #f59e0b);">
-          <div class="thumb-rays"></div>
-          <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 FLAPPY 60s</span>
-          </div>
-          <div class="thumb-cast-row">
-            <div class="cast-avatar">🐣</div>
-            <div class="cast-avatar hero">🛡️</div>
-            <div class="cast-avatar hero">✨</div>
-            <div class="cast-avatar">🔥</div>
-          </div>
-          <div class="thumb-quote-strip">🎤 フレネミー女子A「え〜その服すごい個性的！私には絶対着こなせないわ〜（笑）」</div>
-        </div>
-        <div class="card-body">
-          <div class="card-cat">🔥 2026年流行語『フレネミー』・SNS毒人間関係</div>
-          <h2 class="card-title">『その服個性的だね（笑）』フレネミー女子の褒め殺し＆半目ストーリー晒し脱出</h2>
-          <p class="card-desc">自分だけ加工した集合写真アップ＆裏アカ監視！2026流行語『フレネミー』の罠をかわして飛べ</p>
-          <div class="scoop-context">【元ネタ時事解説】2026年流行語『フレネミー（友達を装う敵）』でバズった具体例『褒めてるフリしてコンプレックスを刺す』『集合写真で自分だけ小顔加工して友達が半目の写真をストーリーに載せる』『鍵垢（裏アカ）でスクショ監視』というリアルすぎる体験談を完全ゲーム化！</div>
-          <div class="kw-list"><span class="kw">#フレネミー</span><span class="kw">#自分だけ加工して半目アップ</span><span class="kw">#褒め殺しマウント</span><span class="kw">#裏アカスクショ晒し</span><span class="kw">#同担拒否トラップ</span></div>
-          <a href="games/frenemy-flappy/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
-        </div>
-      </div>
-
-      <div class="game-card" data-group="cyber">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #000428, #004e92, #be123c);">
-          <div class="thumb-rays"></div>
-          <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 WHACK 60s</span>
-          </div>
-          <div class="thumb-cast-row">
-            <div class="cast-avatar">🕵️</div>
-            <div class="cast-avatar hero">💀</div>
-            <div class="cast-avatar hero">📡</div>
-            <div class="cast-avatar">🛡️</div>
-          </div>
-          <div class="thumb-quote-strip">🎤 通信大手ミヤカワ社長「次から次へとサイバー攻撃が来て、正直もう疲れ切っている…」</div>
-        </div>
-        <div class="card-body">
-          <div class="card-cat">🔥 2026年サイバー攻撃激化・危機管理時事</div>
-          <h2 class="card-title">お名前VPS侵入ハッカー＆『正直もう疲れ切っている』サイバー攻撃60秒連打撃退！</h2>
-          <p class="card-desc">2ヶ月半潜伏するVPS侵入犯・野良Wi-Fi盗聴魔・身代金要求ボットをタコ殴りにせよ！</p>
-          <div class="scoop-context">【元ネタ時事解説】2026年秋に相次いだ大手企業への不正アクセス事件（GMOお名前.com デスクトップクラウドへの2ヶ月半潜伏＆80億円要求、ソフトバンク決算での宮川社長『正直もう疲れ切っている』発言、パスワードを丸ごと抜くインフォスティーラー流行）をモチーフにした爽快撃退ゲーム！</div>
-          <div class="kw-list"><span class="kw">#お名前VPS侵入犯</span><span class="kw">#正直もう疲れ切っている</span><span class="kw">#インフォスティーラー</span><span class="kw">#MillenVPN</span><span class="kw">#身代金80億円ボット</span></div>
-          <a href="games/freewifi-hacker-whack/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
-        </div>
-      </div>
-
-      <div class="game-card" data-group="money">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #0f0c29, #064e3b, #1e1b4b);">
-          <div class="thumb-rays"></div>
-          <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 CATCHER 60s</span>
-          </div>
-          <div class="thumb-cast-row">
-            <div class="cast-avatar">💼</div>
-            <div class="cast-avatar hero">📈</div>
-            <div class="cast-avatar hero">💎</div>
-            <div class="cast-avatar">🚀</div>
-          </div>
-          <div class="thumb-quote-strip">🎤 日銀・植田総裁「データがオントラックであれば、金融緩和の度合いを調整していく…」</div>
-        </div>
-        <div class="card-body">
-          <div class="card-cat">🔥 2026年日経平均ボラティリティ＆金融政策時事</div>
-          <h2 class="card-title">植田総裁の利上げ砲をかわして急騰10銘柄を掴め！東証アローズ大相場キャッチャー</h2>
-          <p class="card-desc">米中間選挙ショック＆イナゴ天井掴みを避け、プロ厳選の『ストップ高銘柄』を60秒で集めろ！</p>
-          <div class="scoop-context">【元ネタ時事解説】2026年、日銀・植田総裁の12月利上げ観測や米中間選挙でのハイテク規制懸念から日経平均が1日で数千円乱高下！SNSの煽りに乗って高値ジャンピングキャッチする『イナゴ投資家』と、好決算・自社株買いの『厳選銘柄』を拾うプロの明暗を再現！</div>
-          <div class="kw-list"><span class="kw">#植田総裁会見</span><span class="kw">#米中間選挙ショック</span><span class="kw">#旬の厳選10銘柄</span><span class="kw">#イナゴタワー崩壊</span><span class="kw">#自社株買いサプライズ</span></div>
-          <a href="games/stock-surge-catcher/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
-        </div>
-      </div>
-
-      <div class="game-card" data-group="money">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #7f1d1d, #1f2937, #dc2626);">
-          <div class="thumb-rays"></div>
-          <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 WHACK 60s</span>
-          </div>
-          <div class="thumb-cast-row">
-            <div class="cast-avatar">🍪</div>
-            <div class="cast-avatar hero">📦</div>
-            <div class="cast-avatar hero">📈</div>
-            <div class="cast-avatar">🍱</div>
-          </div>
-          <div class="thumb-quote-strip">🎤 ステルス値上げ怪人「『おいしくなって新登場！』※なお内容量はこっそり20%減らしましたw」</div>
-        </div>
-        <div class="card-body">
-          <div class="card-cat">🔥 2026年物価高・ステルス値上げ炎上時事</div>
-          <h2 class="card-title">『おいしくなって新登場（内容量20%減）』ステルス値上げ怪人60秒連打バスター！</h2>
-          <p class="card-desc">弁当の上げ底・お菓子の個数減少・実質賃金マイナス！庶民を舐めるシュリンクフレーションを叩き潰せ</p>
-          <div class="scoop-context">【元ネタ時事解説】パッケージに『おいしくなって新登場！』『食べやすいサイズに！』と書きながらこっそり内容量を減らし値段を上げるステルス値上げ（シュリンクフレーション）や、コンビニ弁当の容器工夫、さらに『株は上がっているのに庶民の生活が苦しい株高不況』への怒りを爽快連打ゲーム化！</div>
-          <div class="kw-list"><span class="kw">#おいしくなって新登場(減量)</span><span class="kw">#セブン上げ底論争</span><span class="kw">#ステルス値上げ</span><span class="kw">#株高不況</span><span class="kw">#実質賃金</span></div>
-          <a href="games/inflation-whack/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
-        </div>
-      </div>
-
-      <div class="game-card" data-group="trend">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #141e30, #243b55, #991b1b);">
-          <div class="thumb-rays"></div>
-          <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 SUIKA 60s</span>
-          </div>
-          <div class="thumb-cast-row">
-            <div class="cast-avatar">🛞</div>
-            <div class="cast-avatar hero">🛵</div>
-            <div class="cast-avatar hero">🐞</div>
-            <div class="cast-avatar">🚕</div>
-          </div>
-          <div class="thumb-quote-strip">🎤 日本自動車殿堂2026「1965年発売『日野コンテッサ1300クーペ』を歴史遺産車に選定します！」</div>
-        </div>
-        <div class="card-body">
-          <div class="card-cat">🔥 2026年11月自動車殿堂ニュース・名車時事</div>
-          <h2 class="card-title">2026日本自動車殿堂入り！『日野コンテッサ1300クーペ』＆昭和名車レストア進化スイカ</h2>
-          <p class="card-desc">ミケロッティがデザインした1965年のリアエンジン名車が2026年『歴史遺産車』に選定！</p>
-          <div class="scoop-context">【元ネタ時事解説】2026年11月、特定非営利活動法人日本自動車殿堂（JAHFA）において、日野自動車が1965年に発売したリアエンジン・リアドライブ（RR）の名車『日野コンテッサ1300クーペ』（イタリアの巨匠ジョヴァンニ・ミケロッティ設計）が『歴史遺産車』に選定された最新ニュースを祝した名車進化ゲーム！</div>
-          <div class="kw-list"><span class="kw">#日野コンテッサ1300クーペ</span><span class="kw">#日本自動車殿堂2026</span><span class="kw">#歴史遺産車</span><span class="kw">#ミケロッティデザイン</span><span class="kw">#RR方式名車</span></div>
-          <a href="games/contessa-car-suika/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
-        </div>
-      </div>
-
-      <div class="game-card" data-group="trend">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #090d16, #311042, #991b1b);">
-          <div class="thumb-rays"></div>
-          <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 FLAPPY 60s</span>
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">⚔️ 風刺コマンドRPG</span>
           </div>
           <div class="thumb-cast-row">
             <div class="cast-avatar">🐦</div>
-            <div class="cast-avatar hero">🛡️</div>
-            <div class="cast-avatar hero">✨</div>
+            <div class="cast-avatar hero">👁️</div>
+            <div class="cast-avatar hero">🧟‍♂️</div>
             <div class="cast-avatar">🔥</div>
           </div>
-          <div class="thumb-quote-strip">🎤 XアルゴリズムAI「ツッコミどころのある過疎ポストを検知！全ユーザーのおすすめ欄へ強制配信します！」</div>
+          <div class="thumb-quote-strip">🎤 おすすめ欄神「フォロワー12人の独り言を、今すぐ全国1000万人に配信します♪」</div>
         </div>
         <div class="card-body">
-          <div class="card-cat">🔥 2026年11月SNSアルゴリズム大炎上時事</div>
-          <h2 class="card-title">Xおすすめ欄の闇！『いいね3』の一般人過疎ポストが突然晒し上げ放火されるアルゴリズム脱出</h2>
-          <p class="card-desc">フォロー外から引用RPで袋叩き！？2026年11月話題の『Xおすすめ欄放火仕様』をかわして飛べ！</p>
-          <div class="scoop-context">【元ネタ時事解説】2026年11月、『フォローもしてないしバズってもいない一般ユーザーの少しツッコミどころがあるだけの過疎ポストが、突然Xの「おすすめ」タイムラインに流れてきて全国から集団で袋叩き（放火）される構造が怖すぎる』という議論が大バズり！SNS時代のネット護身術とともにゲーム化！</div>
-          <div class="kw-list"><span class="kw">#Xおすすめ欄の闇</span><span class="kw">#過疎ポスト晒し上げ</span><span class="kw">#引用RP放火団</span><span class="kw">#インプレゾンビ</span><span class="kw">#MillenVPN</span></div>
-          <a href="games/x-algorithm-flappy/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
+          <div class="card-cat">🔥 SNSアルゴリズム×炎上風刺RPG</div>
+          <h2 class="card-title">短文SNS『ペケ』おすすめ欄の闇！いいね3の過疎ポスト晒し上げアルゴリズム神討伐RPG</h2>
+          <p class="card-desc">フォロワー12人の身内向け日常ボヤキが、突然1000万人に晒し上げられて主語デカ論争の燃料になる理不尽RPG</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="フォロワー12人の身内ポストがおすすめ欄アルゴリズムの気まぐれで1000万人に晒し上げられて放火される現象、そのままRPGになってて草😂 https://studyhelperproject.github.io/trend-minigames/games/x-algorithm-flappy/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">フォロワー12人の身内ポストがおすすめ欄アルゴリズムの気まぐれで1000万人に晒し上げられて放火される現象、そのままRPGになってて草😂 https://studyhelperproject.github.io/trend-minigames/games/x-algorithm-flappy/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#おすすめ欄の闇</span><span class="kw">#インプレゾンビ</span><span class="kw">#主語デカ引用</span><span class="kw">#アルゴリズム討伐</span></div>
+          <a href="games/x-algorithm-flappy/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
         </div>
       </div>
 
-      <div class="game-card" data-group="trend">
-        <div class="card-thumb" style="background: linear-gradient(135deg, #1e1b4b, #831843, #be123c);">
+      <div class="game-card" data-group="money" data-engine="suika">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #041b15, #0b3d2e, #14532d);">
           <div class="thumb-rays"></div>
           <div class="thumb-top-row">
-            <span class="scoop-pill">🚨 週刊時事スクープ</span>
-            <span class="engine-pill">🎮 SUIKA 60s</span>
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">🧩 合体進化パズル</span>
+          </div>
+          <div class="thumb-cast-row">
+            <div class="cast-avatar">😱</div>
+            <div class="cast-avatar hero">📱</div>
+            <div class="cast-avatar hero">🦉</div>
+            <div class="cast-avatar">🍱</div>
+          </div>
+          <div class="thumb-quote-strip">🎤 3日で損切り民「長期・積立・分散って聞いたのに3日マイナスだから全部売った！」</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">🔥 株・シン・ニーサ×風刺パズル</div>
+          <h2 class="card-title">ニッケイ7万乱高下！シン・ニーサ損切り民救出＆優待仙人キリタマ氏チャリ爆走スイカ</h2>
+          <p class="card-desc">国「貯蓄から投資へ！」→暴落後「投資は自己責任です（スンッ）」この温度差で風邪ひく相場パズル</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="国『貯蓄から投資へ！』→暴落後『投資は自己責任です（スンッ）』の温度差と、優待券のためにママチャリ爆走する仙人を合体させるスイカゲームで笑った😂 https://studyhelperproject.github.io/trend-minigames/games/tenbagger-stock-suika/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">国『貯蓄から投資へ！』→暴落後『投資は自己責任です（スンッ）』の温度差と、優待券のためにママチャリ爆走する仙人を合体させるスイカゲームで笑った😂 https://studyhelperproject.github.io/trend-minigames/games/tenbagger-stock-suika/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#シン・ニーサ損切り民</span><span class="kw">#キリタマ仙人</span><span class="kw">#自己責任スンッ</span><span class="kw">#テンバガー進化</span></div>
+          <a href="games/tenbagger-stock-suika/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
+        </div>
+      </div>
+
+      <div class="game-card" data-group="money" data-engine="catcher">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #061826, #0c2d48, #145374);">
+          <div class="thumb-rays"></div>
+          <div class="thumb-top-row">
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">⚡ 雷撃回避キャッチ</span>
+          </div>
+          <div class="thumb-cast-row">
+            <div class="cast-avatar">🚲</div>
+            <div class="cast-avatar hero">📈</div>
+            <div class="cast-avatar hero">💎</div>
+            <div class="cast-avatar">👑</div>
+          </div>
+          <div class="thumb-quote-strip">🎤 ウエダー魔導総裁「経済・物価情勢に応じて…利上げレーザー発射します⚡」</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">🔥 株式相場×雷撃回避アクション</div>
+          <h2 class="card-title">ウエダー魔導総裁の利上げ砲をかわして急騰10銘柄を掴め！証券アロー大相場キャッチャー</h2>
+          <p class="card-desc">空から降ってくる『利上げ雷撃レーザー』と『追証ロスカット爆弾』を避けて急騰株だけ集めろ！</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="総裁の『サプライズ利上げレーザー予告』をママチャリでかわしながら急騰株を拾うゲーム、相場の理不尽さがそのまま再現されてて草😂 https://studyhelperproject.github.io/trend-minigames/games/stock-surge-catcher/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">総裁の『サプライズ利上げレーザー予告』をママチャリでかわしながら急騰株を拾うゲーム、相場の理不尽さがそのまま再現されてて草😂 https://studyhelperproject.github.io/trend-minigames/games/stock-surge-catcher/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#ウエダー利上げ砲</span><span class="kw">#追証ロスカット</span><span class="kw">#急騰銘柄キャッチ</span><span class="kw">#大相場アクション</span></div>
+          <a href="games/stock-surge-catcher/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
+        </div>
+      </div>
+
+      <div class="game-card" data-group="trend" data-engine="flappy">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #2a081c, #4a153b, #1a0b2e);">
+          <div class="thumb-rays"></div>
+          <div class="thumb-top-row">
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">🕊️ 3ライフ回避</span>
+          </div>
+          <div class="thumb-cast-row">
+            <div class="cast-avatar">🍣</div>
+            <div class="cast-avatar hero">✨</div>
+            <div class="cast-avatar hero">🧸</div>
+            <div class="cast-avatar">🔥</div>
+          </div>
+          <div class="thumb-quote-strip">🎤 皿30枚投入オタク「なぜ俺が30皿食べて外れた景品が、未開封10個セットでメル狩りに出てるんだ！？」</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">🔥 推し活×転売横流し風刺アクション</div>
+          <h2 class="card-title">回転寿司『くろ寿司』店員メル狩り横流し回避！ちいヤバ＆ランダム商法9割絶望フラッピー</h2>
+          <p class="card-desc">大人が真顔でガチャ皿を30枚投入している裏で、バックヤードから段ボールごとフリマ出品される資本主義のバグ回避</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="寿司5皿で1回引けるガチャに大人が真顔で皿30枚投入してる裏で、店員がバックヤードから袋ごとフリマ出品してた事件の風刺ゲームが皮肉効きすぎてる😂 https://studyhelperproject.github.io/trend-minigames/games/anime-goods-flappy/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">寿司5皿で1回引けるガチャに大人が真顔で皿30枚投入してる裏で、店員がバックヤードから袋ごとフリマ出品してた事件の風刺ゲームが皮肉効きすぎてる😂 https://studyhelperproject.github.io/trend-minigames/games/anime-goods-flappy/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#店員フリマ横流し</span><span class="kw">#ちいヤバコラボ</span><span class="kw">#ランダム9割ハズレ</span><span class="kw">#公式受注が正義</span></div>
+          <a href="games/anime-goods-flappy/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
+        </div>
+      </div>
+
+      <div class="game-card" data-group="cyber" data-engine="whack">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #050811, #0f172a, #450a0a);">
+          <div class="thumb-rays"></div>
+          <div class="thumb-top-row">
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">🔨 25波防衛タップ</span>
+          </div>
+          <div class="thumb-cast-row">
+            <div class="cast-avatar">🕵️‍♂️</div>
+            <div class="cast-avatar hero">💀</div>
+            <div class="cast-avatar hero">🔓</div>
+            <div class="cast-avatar">🛡️</div>
+          </div>
+          <div class="thumb-quote-strip">🎤 潜伏ハッカー「夏からずっとサーバーの中に住んでたのに誰も気づかないんだもんｗ」</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">🔥 セキュリティ×反射神経撃退アクション</div>
+          <h2 class="card-title">おなまえサーバー侵入ハッカー＆『2ヶ月半放置ログ』サイバー攻撃25連撃退！</h2>
+          <p class="card-desc">パスワード「123456」の穴から湧き出るランサムウェア軍団を叩き潰せ！（ホワイトハッカーは叩くな！）</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="2ヶ月半ハッカーに侵入され続けたサーバーの穴を物理タップで塞ぐゲーム、味方のホワイトハッカーを叩くと減点される仕様が皮肉効きすぎてて草😂 https://studyhelperproject.github.io/trend-minigames/games/freewifi-hacker-whack/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">2ヶ月半ハッカーに侵入され続けたサーバーの穴を物理タップで塞ぐゲーム、味方のホワイトハッカーを叩くと減点される仕様が皮肉効きすぎてて草😂 https://studyhelperproject.github.io/trend-minigames/games/freewifi-hacker-whack/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#2ヶ月半侵入放置</span><span class="kw">#おなまえサーバー</span><span class="kw">#イエーラ防衛隊</span><span class="kw">#VPN自衛</span></div>
+          <a href="games/freewifi-hacker-whack/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
+        </div>
+      </div>
+
+      <div class="game-card" data-group="trend" data-engine="suika">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #1a0b2e, #3b0764, #831843);">
+          <div class="thumb-rays"></div>
+          <div class="thumb-top-row">
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">🧩 合体進化パズル</span>
+          </div>
+          <div class="thumb-cast-row">
+            <div class="cast-avatar">📱</div>
+            <div class="cast-avatar hero">⏩</div>
+            <div class="cast-avatar hero">🔪</div>
+            <div class="cast-avatar">🎸</div>
+          </div>
+          <div class="thumb-quote-strip">🎤 ドパガキ代表「バラードの間奏が5秒あるだけでスマホが壊れたかと思うｗ」</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">🔥 Z世代ミーム×ドーパミン風刺パズル</div>
+          <h2 class="card-title">ドパガキ脳汁2分割！青春バンド『ライラックック』転調＆メロい王子M!LKY推し活スイカ</h2>
+          <p class="card-desc">画面の半分で料理動画を流しながらじゃないと1分も集中できない現代人のドーパミン中毒パズル</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="イントロ3秒で曲飛ばして2倍速で動画見ながら別のゲームしちゃう現代人の『ドパガキ脳汁現象』がそのままスイカゲームになってて耳が痛い😂 https://studyhelperproject.github.io/trend-minigames/games/dopagaki-suika/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">イントロ3秒で曲飛ばして2倍速で動画見ながら別のゲームしちゃう現代人の『ドパガキ脳汁現象』がそのままスイカゲームになってて耳が痛い😂 https://studyhelperproject.github.io/trend-minigames/games/dopagaki-suika/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#ドパガキ脳汁</span><span class="kw">#倍速視聴中毒</span><span class="kw">#メロい王子</span><span class="kw">#推し活スイカ</span></div>
+          <a href="games/dopagaki-suika/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
+        </div>
+      </div>
+
+      <div class="game-card" data-group="trend" data-engine="suika">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #1c1917, #292524, #7c2d12);">
+          <div class="thumb-rays"></div>
+          <div class="thumb-top-row">
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">🧩 合体進化パズル</span>
+          </div>
+          <div class="thumb-cast-row">
+            <div class="cast-avatar">🔩</div>
+            <div class="cast-avatar hero">🔧</div>
+            <div class="cast-avatar hero">🌡️</div>
+            <div class="cast-avatar">🛵</div>
+          </div>
+          <div class="thumb-quote-strip">🎤 旧車レストア職人「部品が無い？なら鉄の塊から削り出して作ればいいんだよ！」</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">🔥 昭和レトロ名車×旧車あるある風刺</div>
+          <h2 class="card-title">2026レトロ名車殿堂入り！『ヒノ・コンテッサー1300』＆昭和名車レストア進化スイカ</h2>
+          <p class="card-desc">「旧車はロマン！」→「部品が地球上に存在しない＆夏の渋滞で水温計が天元突破」のリアル名車パズル</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="殿堂入りした昭和のリアエンジン名車『コンテッサー』を草むらの錆びた廃車からレストア進化させるスイカゲーム、旧車オーナーの哀愁ネタが細かすぎて笑う😂 https://studyhelperproject.github.io/trend-minigames/games/contessa-car-suika/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">殿堂入りした昭和のリアエンジン名車『コンテッサー』を草むらの錆びた廃車からレストア進化させるスイカゲーム、旧車オーナーの哀愁ネタが細かすぎて笑う😂 https://studyhelperproject.github.io/trend-minigames/games/contessa-car-suika/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#ヒノ・コンテッサー</span><span class="kw">#旧車レストア沼</span><span class="kw">#クーラー無し渋滞</span><span class="kw">#名車殿堂入り</span></div>
+          <a href="games/contessa-car-suika/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
+        </div>
+      </div>
+
+      <div class="game-card" data-group="trend" data-engine="suika">
+        <div class="card-thumb" style="background: linear-gradient(135deg, #1e1b4b, #4c1d95, #be185d);">
+          <div class="thumb-rays"></div>
+          <div class="thumb-top-row">
+            <span class="scoop-pill">🚨 風刺フィクション</span>
+            <span class="engine-pill">🧩 合体進化パズル</span>
           </div>
           <div class="thumb-cast-row">
             <div class="cast-avatar">📺</div>
-            <div class="cast-avatar hero">🎵</div>
-            <div class="cast-avatar hero">🗳️</div>
-            <div class="cast-avatar">🎀</div>
+            <div class="cast-avatar hero">🙇</div>
+            <div class="cast-avatar hero">👜</div>
+            <div class="cast-avatar">⛩️</div>
           </div>
-          <div class="thumb-quote-strip">🎤 11/12公式発表速報「『日本アニメトレンド大賞2026』12/26生放送決定！本日よりX投票開始！」</div>
+          <div class="thumb-quote-strip">🎤 制作進行デスク「原画がまだ上がってません！来週は『振り返り特番』で凌ぎます！！」</div>
         </div>
         <div class="card-body">
-          <div class="card-cat">🔥 2026年11月12日発表・アニメトレンド大賞速報</div>
-          <h2 class="card-title">11/12投票開始！『日本アニメトレンド大賞2026』覇権アニメ＆神グッズ進化スイカ</h2>
-          <p class="card-desc">ハライチ岩井＆上坂すみれ＆徳井青空MC就任で話題沸騰！今年の覇権アニメを合体召喚せよ</p>
-          <div class="scoop-context">【元ネタ時事解説】2026年11月12日に開催＆X投票開始が発表された国内最大級アニメアワード『日本アニメトレンド大賞2026』（12月26日ABEMA生放送、MC：ハライチ岩井勇気・上坂すみれ・徳井青空）！今年の覇権アニメ予想で盛り上がるタイムラインを即座にゲーム化！</div>
-          <div class="kw-list"><span class="kw">#日本アニメトレンド大賞2026</span><span class="kw">#ハライチ岩井</span><span class="kw">#上坂すみれ</span><span class="kw">#徳井青空</span><span class="kw">#FaNeMa</span></div>
-          <a href="games/anime-award-2026-suika/index.html" class="play-btn">▶ この時事ネタを1分体験プレイ！</a>
+          <div class="card-cat">🔥 アニメ総決算×推し活風刺パズル</div>
+          <h2 class="card-title">投票開始！『日本アニメ覇権トレンド大賞2026』神グッズ＆覇権アニメ進化スイカ</h2>
+          <p class="card-desc">「1話切り民」から「祭壇に同じ缶バッジ100個並べる痛バ職人」まで！年末アニメ総決算パズル</p>
+          <div class="scoop-context">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
+              <button type="button" data-reply="年末の『アニメトレンド大賞』投票バトルがスイカゲーム化されてる😂 『3話まで見ろおじさん』→『万策尽きた総集編』→『缶バッジ80個の5kg痛バ』の進化ルートが解像度高すぎるｗ https://studyhelperproject.github.io/trend-minigames/games/anime-award-2026-suika/" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
+            </div>
+            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">年末の『アニメトレンド大賞』投票バトルがスイカゲーム化されてる😂 『3話まで見ろおじさん』→『万策尽きた総集編』→『缶バッジ80個の5kg痛バ』の進化ルートが解像度高すぎるｗ https://studyhelperproject.github.io/trend-minigames/games/anime-award-2026-suika/</div>
+          </div>
+          <div class="kw-list"><span class="kw">#アニメトレンド大賞</span><span class="kw">#痛バ缶バッジ100個</span><span class="kw">#作画崩壊からの神回</span><span class="kw">#公式グッズ予約</span></div>
+          <a href="games/anime-award-2026-suika/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
         </div>
       </div>
     </div>
@@ -732,7 +808,7 @@
   </div>
 
   <footer>
-    <p>Weekly Buzz Games 2026 / TrendMiniGames Studio - Multi-Track Web Audio &amp; Satire Arcade Engine</p>
+    <p>Weekly Buzz Games 2026 / TrendMiniGames Studio - ※当サイトの全コンテンツ・登場キャラクター・名称は実在の人物・企業・商標とは一切関係ないフィクションです。</p>
   </footer>
 
   <script>
@@ -740,12 +816,24 @@
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       if (btn) btn.classList.add('active');
       document.querySelectorAll('.game-card').forEach(card => {
-        if (group === 'all' || card.getAttribute('data-group') === group) {
+        const g = card.getAttribute('data-group') || '';
+        const e = card.getAttribute('data-engine') || '';
+        if (group === 'all' || g === group || (group === 'rpg' && e === 'rpg_battle')) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
         }
       });
+    }
+
+    function copyCardReply(btn) {
+      const txt = btn.getAttribute('data-reply') || '';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt);
+      }
+      const orig = btn.textContent;
+      btn.textContent = '✅ コピー完了！SNSのバズ投稿へ返信しよう';
+      setTimeout(() => { btn.textContent = orig; }, 2200);
     }
   </script>
 </body>

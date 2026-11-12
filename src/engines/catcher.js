@@ -1,5 +1,5 @@
 /**
- * Engine 4: Catch-Drop (60秒ハイスピード収集＆罠回避エンジン - Rich Parody Edition)
+ * Engine 4: Catch-Drop (東証大相場キャッチャー＆ウエダー総裁の利上げ雷撃レーザー回避エンジン - タイマー廃止・資産ライフ3制)
  */
 class CatcherGameEngine {
   constructor(canvas, theme, audio, sdk, callbacks) {
@@ -16,7 +16,7 @@ class CatcherGameEngine {
     this.canvas.height = this.height;
 
     this.rich = new window.RichVisualRenderer(this.canvas, this.theme);
-    this.playerSpec = theme.player || { emoji: '🔋', name: 'キャッチャー' };
+    this.playerSpec = theme.player || { emoji: '🚲', name: '優待チャリ仙人' };
     this.goodItems = theme.good_items || [];
     this.badItems = theme.bad_items || [];
 
@@ -24,10 +24,11 @@ class CatcherGameEngine {
     this.falling = [];
     this.popups = [];
     this.score = 0;
-    this.timeLeft = 60;
+    this.hp = 3;
+    this.caughtCount = 0;
+    this.laserWarning = null;
     this.isRunning = false;
     this.frameCount = 0;
-    this.timerInterval = null;
     this.animId = null;
 
     this.bindEvents();
@@ -39,7 +40,7 @@ class CatcherGameEngine {
     if (!guide) return;
     const goods = this.goodItems.map(g => `<span class="evo-chip">${g.emoji}${g.name}(+${g.score})</span>`).join(' ');
     const bads = this.badItems.map(b => `<span class="evo-chip" style="border-color:#ff5252">${b.emoji}${b.name}(${b.score})</span>`).join(' ');
-    guide.innerHTML = `<div style="margin-bottom:4px;"><strong style="color:#00e676">【獲得ターゲット】</strong> ${goods}</div><div><strong style="color:#ff5252">【炎上トラップ】</strong> ${bads}</div>`;
+    guide.innerHTML = `<div style="margin-bottom:4px;"><strong style="color:#00e676">【獲得ターゲット（25個獲得で相場制覇）】</strong> ${goods}</div><div><strong style="color:#ff5252">【暴落トラップ（3回被弾で退場）】</strong> ${bads}</div>`;
   }
 
   bindEvents() {
@@ -73,22 +74,16 @@ class CatcherGameEngine {
     this.falling = [];
     this.popups = [];
     this.score = 0;
-    this.timeLeft = 60;
+    this.hp = 3;
+    this.caughtCount = 0;
+    this.laserWarning = null;
     this.frameCount = 0;
     this.isRunning = true;
     this.startTime = Date.now();
 
     this.cb.onScoreChange(this.score);
-    this.cb.onTimeChange(this.timeLeft);
+    this.cb.onTimeChange('💰💰💰');
     this.rich.triggerRandomBuzzCutin();
-
-    if (this.timerInterval) clearInterval(this.timerInterval);
-    this.timerInterval = setInterval(() => {
-      if (!this.isRunning) return;
-      this.timeLeft--;
-      this.cb.onTimeChange(this.timeLeft);
-      if (this.timeLeft <= 0) this.finishGame();
-    }, 1000);
 
     const loop = () => {
       if (!this.isRunning) return;
@@ -101,18 +96,53 @@ class CatcherGameEngine {
 
   update() {
     this.frameCount++;
-    const isFever = this.timeLeft <= 15;
-    const spawnInterval = isFever ? 18 : 27;
+    const isFever = this.caughtCount >= 15;
+    const spawnInterval = isFever ? 19 : 26;
+
+    // 定期的にウエダー魔導総裁の「利上げ雷撃レーザー」予告＆発射
+    if (this.frameCount % 160 === 80) {
+      this.laserWarning = {
+        x: Math.max(50, Math.min(this.width - 50, this.playerX + (Math.random() - 0.5) * 60)),
+        timer: 55
+      };
+    }
+    if (this.laserWarning) {
+      this.laserWarning.timer--;
+      if (this.laserWarning.timer === 12) {
+        this.audio.playSE('bad');
+        this.rich.shakeAmount = 9;
+        if (Math.abs(this.playerX - this.laserWarning.x) < 38) {
+          this.hp--;
+          this.cb.onTimeChange(this.hp > 0 ? '💰'.repeat(this.hp) : '💀退場');
+          this.popups.push({
+            x: this.playerX,
+            y: this.height - 90,
+            text: '⚡利上げ砲被弾！ -500',
+            color: '#ff1744',
+            life: 1.0
+          });
+          this.score = Math.max(0, this.score - 500);
+          this.cb.onScoreChange(this.score);
+          if (this.hp <= 0) {
+            this.finishGame();
+            return;
+          }
+        }
+      }
+      if (this.laserWarning.timer <= 0) {
+        this.laserWarning = null;
+      }
+    }
 
     if (this.frameCount % spawnInterval === 0) {
-      const isBad = Math.random() < 0.3;
+      const isBad = Math.random() < 0.32;
       const pool = isBad ? this.badItems : this.goodItems;
       const spec = pool[Math.floor(Math.random() * pool.length)];
       if (spec) {
         this.falling.push({
           x: 32 + Math.random() * (this.width - 64),
           y: -25,
-          vy: (spec.speed || 3.5) * (isFever ? 1.25 : 1.0),
+          vy: (spec.speed || 3.5) * (isFever ? 1.22 : 1.0),
           isBad,
           spec
         });
@@ -136,13 +166,36 @@ class CatcherGameEngine {
           color: item.isBad ? '#ff5252' : '#69f0ae',
           life: 1.0
         });
-        if (item.isBad || item.spec.score >= 400) {
+
+        if (item.isBad) {
+          this.hp--;
+          this.cb.onTimeChange(this.hp > 0 ? '💰'.repeat(this.hp) : '💀退場');
           this.rich.triggerCutin(
             item.spec.name,
-            item.spec.quote || (item.isBad ? 'うわぁぁ！直撃ダメージ！！' : '神アイテム大量確保！！'),
-            'kumagai',
-            item.isBad ? '🚨 炎上被害発生' : '💰 大口獲得速報'
+            item.spec.quote || '暴落トラップ被弾！強制ロスカット危機！',
+            'uedaa_gov',
+            '🚨 暴落被弾速報'
           );
+          if (this.hp <= 0) {
+            this.finishGame();
+            return;
+          }
+        } else {
+          this.caughtCount++;
+          if (item.spec.score >= 400 || this.caughtCount % 5 === 0) {
+            this.rich.triggerCutin(
+              item.spec.name,
+              item.spec.quote || '急騰銘柄ガチホ成功！！',
+              'kiritama_master',
+              '💰 大口利確速報'
+            );
+          }
+          if (this.caughtCount >= 25) {
+            this.score += 2000;
+            this.cb.onScoreChange(this.score);
+            this.finishGame();
+            return;
+          }
         }
         this.falling.splice(i, 1);
       } else if (item.y > this.height + 35) {
@@ -161,14 +214,32 @@ class CatcherGameEngine {
     const ctx = this.ctx;
     this.rich.drawStageBackground(this.width, this.height);
 
-    if (this.timeLeft <= 15) {
+    // 利上げレーザー予告＆照射描画
+    if (this.laserWarning) {
+      const lw = this.laserWarning;
       ctx.save();
-      ctx.fillStyle = 'rgba(255, 215, 0, 0.14)';
-      ctx.fillRect(0, 0, this.width, this.height);
-      ctx.fillStyle = '#ffd700';
-      ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('⚡ ラスト15秒！大相場フィーバータイム突入！ ⚡', this.width / 2, 26);
+      if (lw.timer > 15) {
+        ctx.fillStyle = 'rgba(255, 23, 68, 0.22)';
+        ctx.fillRect(lw.x - 28, 0, 56, this.height);
+        ctx.strokeStyle = '#ff1744';
+        ctx.setLineDash([6, 4]);
+        ctx.strokeRect(lw.x - 28, 0, 56, this.height);
+        ctx.fillStyle = '#fde047';
+        ctx.font = 'bold 11px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('⚠️利上げ砲予告⚠️', lw.x, 32);
+      } else {
+        const beamGrad = ctx.createLinearGradient(lw.x - 30, 0, lw.x + 30, 0);
+        beamGrad.addColorStop(0, '#ff1744');
+        beamGrad.addColorStop(0.5, '#ffffff');
+        beamGrad.addColorStop(1, '#ff1744');
+        ctx.fillStyle = beamGrad;
+        ctx.fillRect(lw.x - 26, 0, 52, this.height);
+        ctx.fillStyle = '#fde047';
+        ctx.font = 'bold 13px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('⚡サプライズ利上げ砲！！⚡', lw.x, 120);
+      }
       ctx.restore();
     }
 
@@ -186,7 +257,7 @@ class CatcherGameEngine {
       emoji: this.playerSpec.emoji,
       name: this.playerSpec.name,
       color: '#f59e0b',
-      avatar: this.playerSpec.avatar || 'kiritani_master'
+      avatar: this.playerSpec.avatar || 'kiritama_master'
     });
 
     for (const p of this.popups) {
@@ -208,7 +279,6 @@ class CatcherGameEngine {
   finishGame() {
     if (!this.isRunning) return;
     this.isRunning = false;
-    if (this.timerInterval) clearInterval(this.timerInterval);
     if (this.animId) cancelAnimationFrame(this.animId);
     this.audio.playSE('gameover');
     const durationSec = Math.max(5, Math.round((Date.now() - this.startTime) / 1000));

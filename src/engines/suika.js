@@ -1,5 +1,5 @@
 /**
- * Engine 1: Suika-Physics (落下＆合体物理パズルエンジン - Rich Parody Edition)
+ * Engine 1: Suika-Physics (落下＆合体物理パズルエンジン - タイマー廃止・最終進化＆デッドライン制)
  * 動的ステージ背景＋パロディ似顔絵ベクター描画＋バズり名言カットイン搭載
  */
 class SuikaGameEngine {
@@ -23,15 +23,16 @@ class SuikaGameEngine {
     this.floatingTexts = [];
 
     this.score = 0;
-    this.timeLeft = 60;
+    this.maxReachedLevel = 0;
     this.isRunning = false;
     this.dropX = this.width / 2;
     this.currentLevel = 0;
     this.nextLevel = 1;
     this.canDrop = true;
     this.deadLineY = 92;
-    this.timerInterval = null;
     this.animId = null;
+
+    this.finishBtnRect = { x: 8, y: 6, w: 132, h: 32 };
 
     this.bindEvents();
     this.renderEvolutionGuide();
@@ -41,10 +42,20 @@ class SuikaGameEngine {
     const guide = document.getElementById('evolutionGuide');
     if (!guide) return;
     const chain = this.items.map(it => `<span class="evo-chip">${it.emoji} ${it.name}</span>`).join(' <span style="color:#ffd700">▸</span> ');
-    guide.innerHTML = `<div style="font-weight:900;color:#ffd700;margin-bottom:4px;">【時事進化ルート】同じキャラをぶつけて最終形態を召喚せよ！</div><div>${chain}</div>`;
+    guide.innerHTML = `<div style="font-weight:900;color:#ffd700;margin-bottom:4px;">【風刺進化ルート（時間制限なし）】同じキャラを合体させて最終形態を召喚せよ！</div><div>${chain}</div>`;
   }
 
   bindEvents() {
+    const checkFinishBtn = (clientX, clientY) => {
+      const rect = this.canvas.getBoundingClientRect();
+      const scaleX = this.width / rect.width;
+      const scaleY = this.height / rect.height;
+      const x = (clientX - rect.left) * scaleX;
+      const y = (clientY - rect.top) * scaleY;
+      const b = this.finishBtnRect;
+      return (x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h);
+    };
+
     const updatePos = (clientX) => {
       const rect = this.canvas.getBoundingClientRect();
       const scaleX = this.width / rect.width;
@@ -60,13 +71,23 @@ class SuikaGameEngine {
 
     this.canvas.addEventListener('click', (e) => {
       if (!this.isRunning) return;
+      if (checkFinishBtn(e.clientX, e.clientY)) {
+        this.finishGame();
+        return;
+      }
       updatePos(e.clientX);
       this.dropBall();
     });
 
     this.canvas.addEventListener('touchstart', (e) => {
       if (!this.isRunning) return;
-      if (e.touches.length > 0) updatePos(e.touches[0].clientX);
+      if (e.touches.length > 0) {
+        if (checkFinishBtn(e.touches[0].clientX, e.touches[0].clientY)) {
+          this.finishGame();
+          return;
+        }
+        updatePos(e.touches[0].clientX);
+      }
     }, { passive: true });
 
     this.canvas.addEventListener('touchmove', (e) => {
@@ -85,7 +106,7 @@ class SuikaGameEngine {
     this.particles = [];
     this.floatingTexts = [];
     this.score = 0;
-    this.timeLeft = 60;
+    this.maxReachedLevel = 0;
     this.isRunning = true;
     this.canDrop = true;
     this.currentLevel = Math.floor(Math.random() * 3);
@@ -93,18 +114,8 @@ class SuikaGameEngine {
     this.startTime = Date.now();
 
     this.cb.onScoreChange(this.score);
-    this.cb.onTimeChange(this.timeLeft);
+    this.cb.onTimeChange(`Lv.1/${this.items.length}`);
     this.rich.triggerRandomBuzzCutin();
-
-    if (this.timerInterval) clearInterval(this.timerInterval);
-    this.timerInterval = setInterval(() => {
-      if (!this.isRunning) return;
-      this.timeLeft--;
-      this.cb.onTimeChange(this.timeLeft);
-      if (this.timeLeft <= 0) {
-        this.finishGame();
-      }
-    }, 1000);
 
     const loop = () => {
       if (!this.isRunning) return;
@@ -123,7 +134,7 @@ class SuikaGameEngine {
       x: this.dropX + (Math.random() - 0.5) * 2,
       y: 54,
       vx: 0,
-      vy: 1.8,
+      vy: 2.0,
       level: this.currentLevel,
       radius: spec.radius,
       bornAt: Date.now()
@@ -135,7 +146,7 @@ class SuikaGameEngine {
 
     setTimeout(() => {
       this.canDrop = true;
-    }, 320);
+    }, 290);
   }
 
   spawnParticles(x, y, color) {
@@ -209,8 +220,12 @@ class SuikaGameEngine {
                 bornAt: Date.now()
               });
 
-              const gained = nextSpec.score || (nextLv + 1) * 35;
+              const gained = nextSpec.score || (nextLv + 1) * 40;
               this.score += gained;
+              if (nextLv > this.maxReachedLevel) {
+                this.maxReachedLevel = nextLv;
+                this.cb.onTimeChange(`Lv.${this.maxReachedLevel + 1}/${this.items.length}`);
+              }
               this.cb.onScoreChange(this.score);
               this.audio.playSE('merge', nextLv);
               this.spawnParticles(mx, my, nextSpec.color);
@@ -223,11 +238,11 @@ class SuikaGameEngine {
                 life: 1.0
               });
 
-              if (nextLv >= 3) {
+              if (nextLv >= 2) {
                 this.rich.triggerCutin(
                   nextSpec.name,
                   quoteText,
-                  nextSpec.avatar || 'kumagai',
+                  nextSpec.avatar || 'kumagaa_ceo',
                   `🔥 Lv.${nextLv + 1} 進化達成！`
                 );
               }
@@ -294,7 +309,23 @@ class SuikaGameEngine {
     ctx.stroke();
     ctx.fillStyle = 'rgba(255, 23, 68, 0.85)';
     ctx.font = 'bold 10px sans-serif';
-    ctx.fillText('▲ 炎上デッドライン（超過で即謝罪会見）', 8, this.deadLineY - 5);
+    ctx.fillText('▲ 炎上デッドライン（超過で即結果判定）', 8, this.deadLineY - 5);
+    ctx.restore();
+
+    // 左上「結果判定へ」ボタン（タイマーなしでいつでもスコア確定可能）
+    const fb = this.finishBtnRect;
+    ctx.save();
+    ctx.fillStyle = 'rgba(225, 29, 72, 0.88)';
+    ctx.strokeStyle = '#fde047';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(fb.x, fb.y, fb.w, fb.h, 8);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 10.5px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('🏁 ここで結果発表へ', fb.x + fb.w / 2, fb.y + 20);
     ctx.restore();
 
     if (this.canDrop) {
@@ -359,7 +390,6 @@ class SuikaGameEngine {
   finishGame() {
     if (!this.isRunning) return;
     this.isRunning = false;
-    if (this.timerInterval) clearInterval(this.timerInterval);
     if (this.animId) cancelAnimationFrame(this.animId);
     this.audio.playSE('gameover');
     const durationSec = Math.max(5, Math.round((Date.now() - this.startTime) / 1000));

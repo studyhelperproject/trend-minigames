@@ -1,5 +1,5 @@
 /**
- * Engine 5: Whack-Tap (60秒高速反射タップ撃退エンジン - Rich Parody Edition)
+ * Engine 5: Whack-Tap (サーバー侵入ハッカー25波撃退エンジン - タイマー廃止・25撃退ウェーブ制)
  */
 class WhackGameEngine {
   constructor(canvas, theme, audio, sdk, callbacks) {
@@ -32,9 +32,9 @@ class WhackGameEngine {
     this.popups = [];
     this.combo = 0;
     this.score = 0;
-    this.timeLeft = 60;
+    this.defeatedCount = 0;
+    this.firewallHp = 5;
     this.isRunning = false;
-    this.timerInterval = null;
     this.animId = null;
 
     this.bindEvents();
@@ -45,7 +45,7 @@ class WhackGameEngine {
     const guide = document.getElementById('evolutionGuide');
     if (!guide) return;
     const info = this.targets.map(t => `<span class="evo-chip">${t.emoji}${t.name}(${t.score > 0 ? '+' : ''}${t.score})</span>`).join(' ');
-    guide.innerHTML = `<div style="font-weight:900;color:#ff5252;margin-bottom:4px;">【撃退ターゲット一覧】味方は叩くな！</div><div>${info}</div>`;
+    guide.innerHTML = `<div style="font-weight:900;color:#ff5252;margin-bottom:4px;">【撃退ターゲット一覧（25体撃退で完全防衛クリア！）】味方は叩くな！</div><div>${info}</div>`;
   }
 
   bindEvents() {
@@ -63,6 +63,7 @@ class WhackGameEngine {
           h.activeTarget = null;
           if (t.score > 0) {
             this.combo++;
+            this.defeatedCount++;
             const bonus = Math.round(t.score * (1 + Math.min(this.combo, 12) * 0.08));
             this.score += bonus;
             this.audio.playSE('hit');
@@ -73,26 +74,38 @@ class WhackGameEngine {
               color: '#ffd700',
               life: 1.0
             });
+            this.cb.onTimeChange(`撃退 ${this.defeatedCount}/25`);
             if (this.combo % 4 === 0 || t.score >= 400) {
               this.rich.triggerCutin(
                 t.name,
                 t.quote || `${t.name}を完全論破・撃退！！`,
-                t.avatar || 'kumagai',
+                t.avatar || 'kumagaa_ceo',
                 `🔥 ${this.combo} COMBO 撃退速報`
               );
             }
+            if (this.defeatedCount >= 25) {
+              this.score += 1800;
+              this.cb.onScoreChange(this.score);
+              this.finishGame();
+              return;
+            }
           } else {
             this.combo = 0;
+            this.firewallHp--;
             this.score = Math.max(0, this.score + t.score);
             this.audio.playSE('damage');
             this.popups.push({
               x: h.x,
               y: h.y - 28,
-              text: `💦 ${t.score} 誤爆炎上!`,
+              text: `💦 ${t.score} 味方誤爆!`,
               color: '#ff5252',
               life: 1.0
             });
-            this.rich.triggerCutin(t.name, t.quote || '味方を叩いてしまい大炎上！！', 'kumagai', '🚨 誤爆アクシデント');
+            this.rich.triggerCutin(t.name, t.quote || '味方のホワイトハッカーを叩いてしまい大炎上！！', 'kumagaa_ceo', '🚨 誤爆アクシデント');
+            if (this.firewallHp <= 0) {
+              this.finishGame();
+              return;
+            }
           }
           this.cb.onScoreChange(this.score);
           break;
@@ -114,21 +127,14 @@ class WhackGameEngine {
     this.popups = [];
     this.combo = 0;
     this.score = 0;
-    this.timeLeft = 60;
+    this.defeatedCount = 0;
+    this.firewallHp = 5;
     this.isRunning = true;
     this.startTime = Date.now();
 
     this.cb.onScoreChange(this.score);
-    this.cb.onTimeChange(this.timeLeft);
+    this.cb.onTimeChange('撃退 0/25');
     this.rich.triggerRandomBuzzCutin();
-
-    if (this.timerInterval) clearInterval(this.timerInterval);
-    this.timerInterval = setInterval(() => {
-      if (!this.isRunning) return;
-      this.timeLeft--;
-      this.cb.onTimeChange(this.timeLeft);
-      if (this.timeLeft <= 0) this.finishGame();
-    }, 1000);
 
     const loop = () => {
       if (!this.isRunning) return;
@@ -149,14 +155,14 @@ class WhackGameEngine {
       if (h.activeTarget) activeCount++;
     }
 
-    const maxSimultaneous = this.timeLeft <= 20 ? 4 : 3;
-    if (activeCount < maxSimultaneous && Math.random() < 0.15) {
+    const maxSimultaneous = this.defeatedCount >= 15 ? 4 : 3;
+    if (activeCount < maxSimultaneous && Math.random() < 0.16) {
       const freeHoles = this.holes.filter(h => !h.activeTarget);
       if (freeHoles.length > 0) {
         const hole = freeHoles[Math.floor(Math.random() * freeHoles.length)];
         const spec = this.targets[Math.floor(Math.random() * this.targets.length)];
         hole.activeTarget = spec;
-        hole.expiresAt = now + (spec.duration_ms || 880);
+        hole.expiresAt = now + (spec.duration_ms || 950);
       }
     }
 
@@ -186,7 +192,7 @@ class WhackGameEngine {
           emoji: h.activeTarget.emoji,
           name: h.activeTarget.name,
           color: isEnemy ? '#e11d48' : '#10b981',
-          avatar: h.activeTarget.avatar || (isEnemy ? 'kumagai_ceo' : 'kiritani_master')
+          avatar: h.activeTarget.avatar || (isEnemy ? 'kumagaa_ceo' : 'kiritama_master')
         });
       }
     }
@@ -210,7 +216,6 @@ class WhackGameEngine {
   finishGame() {
     if (!this.isRunning) return;
     this.isRunning = false;
-    if (this.timerInterval) clearInterval(this.timerInterval);
     if (this.animId) cancelAnimationFrame(this.animId);
     this.audio.playSE('gameover');
     const durationSec = Math.max(5, Math.round((Date.now() - this.startTime) / 1000));

@@ -1,8 +1,6 @@
 /**
- * Rich Visual Assets, Parody Character Renderer, Live Stage Backgrounds & Buzz Cut-in System
- * 1. 実在ニュース・謝罪会見・バズりミームのパロディ人物＆アイテムを高精細ベクター描画
- * 2. 記者会見フラッシュ・東証アローズ電光掲示板・回転寿司レーン・SNS弾幕コメントの動的背景
- * 3. プレイ中にバズった名言・炎上発言が飛び出す「緊急速報カットイン」演出
+ * Rich Visual Assets, Fictional Satire Character Renderer, Live Stage Backgrounds & RPG Visual Effects
+ * ※登場するキャラクター・名称はすべて100%フィクションの風刺パロディであり、実在の人物・企業・商標とは一切関係ありません。
  */
 class RichVisualRenderer {
   constructor(canvas, theme) {
@@ -20,29 +18,29 @@ class RichVisualRenderer {
 
   initDanmaku() {
     const comments = this.theme.buzz_comments || [
-      '命の砂時計きたwww',
-      '2年前のイエラエ指摘放置は草',
-      'スライド係の社員かわいそうw',
-      'スーツのボタン留めろ会見w',
-      '店員がメルカリ横流しはアカン',
-      'なぜ庶民がAIの電気代払うのか',
-      '新NISA損切り民息してるかー？',
-      '桐谷さんチャリ爆走www',
-      'ガチでメロい尊い…',
-      '完全にドパガキの症状で草'
+      'AIに節電聞いたら俺の電気代上がったｗ',
+      'クマガー社長の命の砂時計ポエムきたwww',
+      'スライド戻さなくていい！（秒速キレ）',
+      'おいしくなって新登場（量20%減）は草',
+      '弁当の底上げがエベレスト級すぎるｗ',
+      '店員がフリマ横流しは資本主義のバグ',
+      'シン・ニーサ損切り民息してるかー？',
+      'キリタマ仙人のママチャリ爆走www',
+      'おすすめ欄アルゴリズムの晒し上げ怖すぎ',
+      '※この物語はフィクションです（迫真）'
     ];
     for (let i = 0; i < 9; i++) {
       this.danmaku.push({
         text: comments[i % comments.length],
         x: Math.random() * 400,
-        y: 65 + (i * 42) % 360,
-        speed: 0.9 + Math.random() * 1.4,
-        alpha: 0.18 + Math.random() * 0.18
+        y: 62 + (i * 42) % 350,
+        speed: 0.85 + Math.random() * 1.25,
+        alpha: 0.17 + Math.random() * 0.16
       });
     }
   }
 
-  triggerCutin(speaker, quote, avatarType = 'kumagai', badge = '🚨 緊急会見速報') {
+  triggerCutin(speaker, quote, avatarType = 'kumagaa_ceo', badge = '🚨 風刺スクープ速報') {
     this.cutin = {
       speaker,
       quote,
@@ -51,14 +49,13 @@ class RichVisualRenderer {
       life: 1.0,
       maxLife: 1.0
     };
-    this.shakeAmount = 6;
-    // Camera flash effect
+    this.shakeAmount = 7;
     for (let i = 0; i < 4; i++) {
       this.flashes.push({
         x: 40 + Math.random() * 320,
-        y: 60 + Math.random() * 360,
+        y: 60 + Math.random() * 320,
         radius: 50 + Math.random() * 80,
-        alpha: 0.75
+        alpha: 0.7
       });
     }
   }
@@ -67,7 +64,7 @@ class RichVisualRenderer {
     const list = this.theme.buzz_cutins || [];
     if (list.length === 0) return;
     const item = list[Math.floor(Math.random() * list.length)];
-    this.triggerCutin(item.speaker, item.quote, item.avatar || 'kumagai', item.badge || '🔥 バズり速報');
+    this.triggerCutin(item.speaker, item.quote, item.avatar || 'kumagaa_ceo', item.badge || '🔥 SNS万バズ風刺');
   }
 
   drawStageBackground(width, height) {
@@ -79,13 +76,12 @@ class RichVisualRenderer {
       const dx = (Math.random() - 0.5) * this.shakeAmount;
       const dy = (Math.random() - 0.5) * this.shakeAmount;
       ctx.translate(dx, dy);
-      this.shakeAmount *= 0.85;
+      this.shakeAmount *= 0.86;
     }
 
     const stageType = this.theme.stage_style || 'press_conference';
 
     if (stageType === 'press_conference') {
-      // 謝罪会見場（金屏風格子＋記者席シルエット＋カメラフラッシュ）
       const grad = ctx.createLinearGradient(0, 0, 0, height);
       grad.addColorStop(0, '#0f172a');
       grad.addColorStop(0.6, '#1e293b');
@@ -93,28 +89,23 @@ class RichVisualRenderer {
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, width, height);
 
-      // パネル背景の市松模様（記者会見バックパネル風）
       ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
       const size = 40;
       for (let r = 0; r < height / size; r++) {
         for (let c = 0; c < width / size; c++) {
-          if ((r + c) % 2 === 0) {
-            ctx.fillRect(c * size, r * size, size, size);
-          }
+          if ((r + c) % 2 === 0) ctx.fillRect(c * size, r * size, size, size);
         }
       }
 
-      // ランダム記者カメラフラッシュ
-      if (this.tick % 45 === 0) {
+      if (this.tick % 50 === 0) {
         this.flashes.push({
           x: 30 + Math.random() * (width - 60),
-          y: height - 40 - Math.random() * 80,
+          y: height - 50 - Math.random() * 120,
           radius: 70,
-          alpha: 0.55
+          alpha: 0.5
         });
       }
     } else if (stageType === 'stock_exchange') {
-      // 東証アローズ風（ローソク足グリッド＋回転株価ティッカー）
       const grad = ctx.createLinearGradient(0, 0, 0, height);
       grad.addColorStop(0, '#041410');
       grad.addColorStop(1, '#07221b');
@@ -130,7 +121,6 @@ class RichVisualRenderer {
         ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
       }
 
-      // 背景ローソク足アニメーション
       for (let i = 0; i < 10; i++) {
         const cx = 24 + i * 38;
         const wave = Math.sin((this.tick * 0.03) + i * 0.7) * 55;
@@ -141,14 +131,12 @@ class RichVisualRenderer {
         ctx.fillRect(cx - 1.5, cy - 36, 3, 72);
       }
     } else if (stageType === 'sushi_lane') {
-      // 回転寿司レーン＆フリマ出品風背景
       const grad = ctx.createLinearGradient(0, 0, 0, height);
       grad.addColorStop(0, '#2a1215');
       grad.addColorStop(1, '#14080a');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, width, height);
 
-      // 回転レーンベルト
       ctx.fillStyle = 'rgba(255, 215, 0, 0.08)';
       ctx.fillRect(0, 140, width, 28);
       ctx.fillRect(0, 310, width, 28);
@@ -159,7 +147,6 @@ class RichVisualRenderer {
         ctx.fillRect(width - x, 316, 36, 16);
       }
     } else {
-      // ネオンSNS＆ドパガキ2分割風ステージ
       const grad = ctx.createLinearGradient(0, 0, width, height);
       grad.addColorStop(0, '#1a0b2e');
       grad.addColorStop(0.5, '#2d114d');
@@ -167,7 +154,6 @@ class RichVisualRenderer {
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, width, height);
 
-      // 集中線・ネオンサークル
       ctx.strokeStyle = 'rgba(255, 64, 129, 0.1)';
       ctx.lineWidth = 2;
       const r = (this.tick * 1.2) % 240;
@@ -176,16 +162,14 @@ class RichVisualRenderer {
       ctx.stroke();
     }
 
-    // 流れるSNS弾幕コメント
     ctx.font = 'bold 12px "Hiragino Kaku Gothic ProN", sans-serif';
     for (const d of this.danmaku) {
       d.x -= d.speed;
-      if (d.x < -220) d.x = width + 20;
+      if (d.x < -250) d.x = width + 20;
       ctx.fillStyle = `rgba(255, 255, 255, ${d.alpha})`;
       ctx.fillText(d.text, d.x, d.y);
     }
 
-    // カメラフラッシュ発光描画
     for (let i = this.flashes.length - 1; i >= 0; i--) {
       const f = this.flashes[i];
       const radGrad = ctx.createRadialGradient(f.x, f.y, 2, f.x, f.y, f.radius);
@@ -203,19 +187,17 @@ class RichVisualRenderer {
   }
 
   /**
-   * キャラクター・パロディ人物のリッチベクター描画（立体メダル＋似顔絵パーツ＋ラベルリボン）
+   * キャラクター・架空風刺人物のリッチベクター描画
    */
   drawRichCharacter(x, y, radius, spec, isPreview = false) {
     const ctx = this.ctx;
     ctx.save();
     if (isPreview) ctx.globalAlpha = 0.85;
 
-    // 外周ドロップシャドウ＆オーラ
     ctx.shadowColor = 'rgba(0, 0, 0, 0.55)';
     ctx.shadowBlur = 8;
     ctx.shadowOffsetY = 3;
 
-    // ベース立体球体グラデーション
     const baseColor = spec.color || '#ff4081';
     const sphereGrad = ctx.createRadialGradient(
       x - radius * 0.3, y - radius * 0.3, radius * 0.1,
@@ -230,51 +212,46 @@ class RichVisualRenderer {
     ctx.fillStyle = sphereGrad;
     ctx.fill();
 
-    // メタリックゴールド/ネオン枠線
     ctx.shadowBlur = 0;
     ctx.shadowOffsetY = 0;
     ctx.lineWidth = radius >= 45 ? 3.5 : 2.2;
     ctx.strokeStyle = radius >= 55 ? '#ffd700' : 'rgba(255, 255, 255, 0.9)';
     ctx.stroke();
 
-    // パロディ人物イラストレイヤー（avatar属性がある場合、似顔絵ベクターパーツを重ねる）
     const avatar = spec.avatar || '';
-    if (avatar === 'kumagai_ceo' && radius >= 26) {
-      // クマガイ社長風：紺スーツ襟＋赤ネクタイ＋黒髪七三＋涙＋砂時計バッジ
+    if ((avatar === 'kumagaa_ceo' || avatar === 'kumagai_ceo') && radius >= 26) {
+      // 架空・クマガー社長風：ボタン全留めスーツ＋赤ネクタイ＋砂時計モチーフ
       ctx.fillStyle = '#0f172a';
       ctx.beginPath();
       ctx.arc(x, y + radius * 0.55, radius * 0.42, Math.PI, 0, false);
       ctx.fill();
-      ctx.fillStyle = '#e11d48'; // 赤ネクタイ＆チーフ
+      ctx.fillStyle = '#e11d48';
       ctx.fillRect(x - 3, y + radius * 0.25, 6, radius * 0.35);
-    } else if (avatar === 'kiritani_master' && radius >= 26) {
-      // 桐谷名人風：メガネフレーム＋自転車ヘルメット風アクセント
+    } else if ((avatar === 'kiritama_master' || avatar === 'kiritani_master') && radius >= 26) {
+      // 架空・キリタマ仙人風：メガネフレーム＋爆走チャリヘルメット風
       ctx.strokeStyle = '#ffd700';
       ctx.lineWidth = 2;
       ctx.strokeRect(x - radius * 0.42, y - radius * 0.22, radius * 0.35, radius * 0.22);
       ctx.strokeRect(x + radius * 0.07, y - radius * 0.22, radius * 0.35, radius * 0.22);
-    } else if (avatar === 'ueda_gov' && radius >= 26) {
-      // 植田総裁風：黒縁メガネ＋日銀バッジ
+    } else if ((avatar === 'uedaa_gov' || avatar === 'ueda_gov') && radius >= 26) {
+      // 架空・ウエダー魔導総裁風：黒縁メガネ
       ctx.strokeStyle = '#111';
       ctx.lineWidth = 2.5;
       ctx.strokeRect(x - radius * 0.42, y - radius * 0.2, radius * 0.36, radius * 0.22);
       ctx.strokeRect(x + radius * 0.06, y - radius * 0.2, radius * 0.36, radius * 0.22);
     }
 
-    // メイン絵文字/シンボル
     const fontSize = Math.max(15, Math.floor(radius * 0.88));
     ctx.font = `${fontSize}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(spec.emoji || '🔥', x, y - (radius >= 28 ? 3 : 0));
 
-    // 上部ハイライトグロス（ツヤ感）
     ctx.fillStyle = 'rgba(255, 255, 255, 0.28)';
     ctx.beginPath();
     ctx.ellipse(x - radius * 0.22, y - radius * 0.48, radius * 0.38, radius * 0.16, -0.3, 0, Math.PI * 2);
     ctx.fill();
 
-    // 名前リボンプレート（半径24以上）
     if (radius >= 24 && spec.name) {
       const label = spec.name.slice(0, 8);
       const pillW = Math.min(radius * 1.9, Math.max(48, label.length * 9.5));
@@ -298,8 +275,316 @@ class RichVisualRenderer {
   }
 
   /**
-   * 画面上部に飛び出す「週刊誌スクープ／謝罪会見テロップ風カットイン」描画
+   * RPGバトル用の巨大ボスキャラクター＆ギミック描画
    */
+  drawBossSprite(cx, cy, bossSpec, hpRatio, hurtTimer = 0) {
+    const ctx = this.ctx;
+    ctx.save();
+
+    const floatY = Math.sin(this.tick * 0.07) * 5;
+    const shakeX = hurtTimer > 0 ? (Math.random() - 0.5) * 14 : 0;
+    const x = cx + shakeX;
+    const y = cy + floatY;
+    const isPhase2 = hpRatio <= 0.5;
+    const visualType = bossSpec.visual_type || 'ai_server_god';
+
+    // 背後のオーラリング
+    const auraRadius = 56 + Math.sin(this.tick * 0.1) * 5;
+    const auraGrad = ctx.createRadialGradient(x, y, 10, x, y, auraRadius + 18);
+    auraGrad.addColorStop(0, isPhase2 ? 'rgba(255, 23, 68, 0.55)' : 'rgba(0, 229, 255, 0.4)');
+    auraGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = auraGrad;
+    ctx.beginPath();
+    ctx.arc(x, y, auraRadius + 18, 0, Math.PI * 2);
+    ctx.fill();
+
+    if (visualType === 'ai_server_god') {
+      // 超電力暴食AIデータセンター神「チャッピー9000」
+      // 左右の送電ケーブル（庶民の家から電気代を吸い上げる演出）
+      ctx.strokeStyle = isPhase2 ? '#ff1744' : '#ffd700';
+      ctx.lineWidth = 4;
+      for (const dir of [-1, 1]) {
+        ctx.beginPath();
+        ctx.moveTo(x + dir * 48, y);
+        ctx.quadraticCurveTo(x + dir * 110, y - 25 + Math.sin(this.tick * 0.15) * 12, x + dir * 155, y + 32);
+        ctx.stroke();
+
+        // 吸い上げられる電気代コイン粒
+        const p = (this.tick * 0.04) % 1;
+        const px = (x + dir * 155) * (1 - p) + (x + dir * 48) * p;
+        const py = (y + 32) * (1 - p) + y * p - Math.sin(p * Math.PI) * 18;
+        ctx.fillStyle = '#fde047';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('⚡¥', px, py);
+      }
+
+      // サーバーラック本体
+      ctx.fillStyle = '#0f172a';
+      ctx.strokeStyle = isPhase2 ? '#ff1744' : '#00e5ff';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.roundRect(x - 48, y - 46, 96, 92, 12);
+      ctx.fill();
+      ctx.stroke();
+
+      // モニター顔（笑顔で電力を爆食いするAI）
+      ctx.fillStyle = isPhase2 ? '#450a0a' : '#042f2e';
+      ctx.fillRect(x - 38, y - 36, 76, 46);
+      ctx.fillStyle = isPhase2 ? '#ff5252' : '#00e676';
+      ctx.font = 'bold 24px "Segoe UI Emoji", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(isPhase2 ? '😈⚡' : '😊⚡', x, y - 8);
+
+      // 冷却ファン回転＆消費電力メーター
+      ctx.fillStyle = '#ffd700';
+      ctx.font = 'bold 10px sans-serif';
+      ctx.fillText(isPhase2 ? '消費電力:原発5基分!!' : '消費電力:原発3基分', x, y + 26);
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 9px sans-serif';
+      ctx.fillText('託送料金：庶民へ自動転嫁中', x, y + 40);
+
+    } else if (visualType === 'kumagaa_ceo') {
+      // 架空・GN〇帝国クマガー社長（ボタン全留め＆命の砂時計＆スライド係）
+      // 背後に浮かぶ巨大「命の砂時計」
+      ctx.save();
+      ctx.translate(x - 78, y - 8);
+      ctx.rotate(Math.sin(this.tick * 0.05) * 0.25);
+      ctx.fillStyle = 'rgba(250, 204, 21, 0.22)';
+      ctx.strokeStyle = '#ffd700';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(-22, -28, 44, 56, 8);
+      ctx.fill();
+      ctx.stroke();
+      ctx.font = '26px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('⏳', 0, 8);
+      ctx.font = 'bold 8px sans-serif';
+      ctx.fillStyle = '#fde047';
+      ctx.fillText('命の砂時計', 0, 24);
+      ctx.restore();
+
+      // 右奥で震えるスライド操作係スタッフ
+      ctx.font = '20px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('😰💻', x + 82, y + 6);
+      ctx.font = 'bold 8px sans-serif';
+      ctx.fillStyle = '#94a3b8';
+      ctx.fillText('スライド係', x + 82, y + 22);
+
+      // 会見演台＆社長アバター
+      this.drawRichCharacter(x, y - 6, 44, {
+        emoji: isPhase2 ? '🤬' : '🎙️',
+        name: 'クマガー社長',
+        color: isPhase2 ? '#dc2626' : '#1e3a8a',
+        avatar: 'kumagaa_ceo'
+      });
+
+      // ボタン全留めスーツ＆会見マイク群
+      ctx.fillStyle = '#1e293b';
+      ctx.strokeStyle = '#ffd700';
+      ctx.lineWidth = 2;
+      ctx.fillRect(x - 52, y + 28, 104, 24);
+      ctx.strokeRect(x - 52, y + 28, 104, 24);
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 9.5px sans-serif';
+      ctx.fillText('🎤 GN〇緊急謝罪会見（ボタン全留め）', x, y + 43);
+
+    } else if (visualType === 'shrink_demon') {
+      // ステルス値上げ魔王シュリンクス（エベレスト底上げ弁当容器＆20%縮小銃）
+      // エベレスト底上げ透明容器ドーム
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+      ctx.strokeStyle = '#f43f5e';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.roundRect(x - 58, y - 42, 116, 86, 16);
+      ctx.fill();
+      ctx.stroke();
+
+      // 底上げの巨大な空洞アーチ描画
+      ctx.fillStyle = 'rgba(244, 63, 94, 0.28)';
+      ctx.beginPath();
+      ctx.arc(x, y + 44, 46, Math.PI, 0, false);
+      ctx.fill();
+      ctx.strokeStyle = '#fde047';
+      ctx.stroke();
+
+      ctx.font = '34px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(isPhase2 ? '👹🍱' : '🦹‍♂️📉', x, y - 6);
+
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 9.5px sans-serif';
+      ctx.fillText('✨おいしくなって新登場(量20%減)✨', x, y + 24);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 8.5px sans-serif';
+      ctx.fillText('【容器の85%がプラスチック底上げ】', x, y + 38);
+
+    } else if (visualType === 'frenemy_queen') {
+      // マウント女子四天王・マウンティング麗奈
+      this.drawRichCharacter(x, y - 4, 45, {
+        emoji: isPhase2 ? '😈📸' : '💅😊',
+        name: 'マウント麗奈',
+        color: isPhase2 ? '#9333ea' : '#ec4899'
+      });
+      // 周囲を回る毒セリフオーブ
+      const orbAngle = this.tick * 0.05;
+      for (let i = 0; i < 2; i++) {
+        const ox = x + Math.cos(orbAngle + i * Math.PI) * 76;
+        const oy = y + Math.sin(orbAngle + i * Math.PI) * 26;
+        ctx.fillStyle = 'rgba(0,0,0,0.8)';
+        ctx.strokeStyle = '#f472b6';
+        ctx.beginPath();
+        ctx.roundRect(ox - 42, oy - 11, 84, 22, 8);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = '#fbcfe8';
+        ctx.font = 'bold 8.5px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(i === 0 ? '個性的だね(笑)' : '半目タグ付け♡', ox, oy + 3);
+      }
+    } else {
+      // SNSおすすめ欄アルゴリズム暴走神
+      this.drawRichCharacter(x, y - 4, 45, {
+        emoji: isPhase2 ? '👁️🔥' : '🤖🔥',
+        name: 'おすすめ欄神',
+        color: isPhase2 ? '#dc2626' : '#2563eb'
+      });
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 9.5px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('いいね3の身内ポストを1000万人に晒し上げ中', x, y + 48);
+    }
+
+    if (hurtTimer > 0) {
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+      ctx.beginPath();
+      ctx.arc(x, y, 52, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.restore();
+  }
+
+  /**
+   * RPGバトル中の攻撃・必殺技ビジュアルエフェクト描画
+   */
+  drawBattleEffect(width, height, effect) {
+    if (!effect || effect.timer <= 0) return;
+    const ctx = this.ctx;
+    const progress = 1 - (effect.timer / effect.maxTimer);
+    ctx.save();
+
+    const type = effect.type || 'lightning';
+
+    if (type === 'bill_lightning' || type === 'lightning') {
+      // 稲妻＋空から降ってくる高額電気代検針票スタンプ
+      ctx.strokeStyle = '#fde047';
+      ctx.lineWidth = 4;
+      for (let i = 0; i < 3; i++) {
+        const lx = 90 + i * 110 + (Math.random() - 0.5) * 20;
+        ctx.beginPath();
+        ctx.moveTo(lx, 40);
+        ctx.lineTo(lx - 18, 110);
+        ctx.lineTo(lx + 14, 150);
+        ctx.lineTo(lx - 10, 230);
+        ctx.stroke();
+      }
+      // 巨大検針票
+      const stampY = 70 + progress * 95;
+      ctx.fillStyle = 'rgba(220, 38, 38, 0.94)';
+      ctx.strokeStyle = '#fde047';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.roundRect(70, stampY, 260, 52, 8);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 13px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('⚡ 検針票：AI託送料金＋賦課金転嫁 ⚡', 200, stampY + 21);
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 15px sans-serif';
+      ctx.fillText(effect.bannerText || '今月の請求額：29,800円 (庶民負担)', 200, stampY + 42);
+
+    } else if (type === 'hallucination_beam' || type === 'laser') {
+      // 極太レーザービーム演出
+      const beamH = 26 + Math.sin(progress * Math.PI) * 24;
+      const grad = ctx.createLinearGradient(0, 130, width, 130);
+      grad.addColorStop(0, '#00e5ff');
+      grad.addColorStop(0.5, '#ffffff');
+      grad.addColorStop(1, '#ff4081');
+      ctx.fillStyle = grad;
+      ctx.fillRect(20, 135 - beamH / 2, width - 40, beamH);
+
+      ctx.fillStyle = '#111827';
+      ctx.font = 'bold 12px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(effect.bannerText || '🤖「お役に立てて嬉しいです😊（300kW消費）」', 200, 139);
+
+    } else if (type === 'sandglass_poem') {
+      // クマガー社長『命の砂時計』黄金回転カットイン
+      ctx.fillStyle = 'rgba(250, 204, 21, 0.22)';
+      ctx.beginPath();
+      ctx.arc(200, 140, 40 + progress * 60, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.font = '54px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('⏳✨', 200, 145);
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.fillText(effect.bannerText || '「人の一生は『命の砂時計』なのです…」', 200, 192);
+
+    } else if (type === 'shrink_beam') {
+      // ステルス値上げ『内容量20%縮小ビーム』
+      const scale = Math.max(0.35, 1.1 - progress * 0.75);
+      ctx.strokeStyle = '#c084fc';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.arc(200, 140, 65 * scale, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.font = `${Math.floor(48 * scale)}px sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.fillText('🍪🍱', 200, 148);
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 13px sans-serif';
+      ctx.fillText(effect.bannerText || '✨おいしくなって新登場（サイズ-20%縮小）✨', 200, 195);
+
+    } else if (type === 'sns_roast_strike' || type === 'player_crit') {
+      // プレイヤーの万バズ風刺ツッコミ大爆発
+      for (let i = 0; i < 6; i++) {
+        const angle = (i / 6) * Math.PI * 2 + progress * 3;
+        const rx = 200 + Math.cos(angle) * (25 + progress * 55);
+        const ry = 135 + Math.sin(angle) * (15 + progress * 35);
+        ctx.font = '24px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('🔥💥', rx, ry);
+      }
+      ctx.fillStyle = '#00e676';
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 3;
+      ctx.font = 'bold 15px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.strokeText(effect.bannerText || '📣 万バズ正論カウンター炸裂！！', 200, 192);
+      ctx.fillText(effect.bannerText || '📣 万バズ正論カウンター炸裂！！', 200, 192);
+
+    } else if (type === 'shield_heal') {
+      // 防御・回復バリア
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.arc(200, 155, 45 + Math.sin(progress * Math.PI) * 20, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(effect.bannerText || '🛡️ 庶民の生活防衛バリア発動！', 200, 195);
+    }
+
+    ctx.restore();
+  }
+
   drawCutinOverlay(width) {
     if (!this.cutin) return;
     const c = this.cutin;
@@ -309,7 +594,6 @@ class RichVisualRenderer {
     const alpha = Math.min(1, c.life * 2.2);
     ctx.globalAlpha = alpha;
 
-    // ニュース速報テロップ枠
     const boxX = 10;
     const boxY = 46;
     const boxW = width - 20;
@@ -328,16 +612,14 @@ class RichVisualRenderer {
     ctx.strokeStyle = '#ffd700';
     ctx.stroke();
 
-    // バッジ
     ctx.fillStyle = '#ffd700';
     ctx.font = 'bold 10px "Hiragino Kaku Gothic ProN", sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(`${c.badge} ｜ ${c.speaker}`, boxX + 12, boxY + 17);
 
-    // セリフ本文
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
-    ctx.fillText(`「${c.quote.slice(0, 25)}」`, boxX + 12, boxY + 39);
+    ctx.font = 'bold 12.5px "Hiragino Kaku Gothic ProN", sans-serif';
+    ctx.fillText(`「${c.quote.slice(0, 27)}」`, boxX + 12, boxY + 39);
 
     ctx.restore();
 
