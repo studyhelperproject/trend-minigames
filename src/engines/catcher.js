@@ -1,6 +1,5 @@
 /**
- * Engine 4: Catch-Drop (60秒ハイスピード収集＆罠回避エンジン)
- * 参照OSS: HTML5 Canvas Arcade Catcher (MIT/CC0)
+ * Engine 4: Catch-Drop (60秒ハイスピード収集＆罠回避エンジン - Rich Parody Edition)
  */
 class CatcherGameEngine {
   constructor(canvas, theme, audio, sdk, callbacks) {
@@ -16,6 +15,7 @@ class CatcherGameEngine {
     this.canvas.width = this.width;
     this.canvas.height = this.height;
 
+    this.rich = new window.RichVisualRenderer(this.canvas, this.theme);
     this.playerSpec = theme.player || { emoji: '🔋', name: 'キャッチャー' };
     this.goodItems = theme.good_items || [];
     this.badItems = theme.bad_items || [];
@@ -37,16 +37,16 @@ class CatcherGameEngine {
   renderEvolutionGuide() {
     const guide = document.getElementById('evolutionGuide');
     if (!guide) return;
-    const goods = this.goodItems.map(g => `${g.emoji}+${g.score}`).join(' ');
-    const bads = this.badItems.map(b => `${b.emoji}${b.score}`).join(' ');
-    guide.innerHTML = `<strong>【獲得】</strong> ${goods} ｜ <strong>【危険】</strong> ${bads}`;
+    const goods = this.goodItems.map(g => `<span class="evo-chip">${g.emoji}${g.name}(+${g.score})</span>`).join(' ');
+    const bads = this.badItems.map(b => `<span class="evo-chip" style="border-color:#ff5252">${b.emoji}${b.name}(${b.score})</span>`).join(' ');
+    guide.innerHTML = `<div style="margin-bottom:4px;"><strong style="color:#00e676">【獲得ターゲット】</strong> ${goods}</div><div><strong style="color:#ff5252">【炎上トラップ】</strong> ${bads}</div>`;
   }
 
   bindEvents() {
     const movePlayer = (clientX) => {
       const rect = this.canvas.getBoundingClientRect();
       const x = (clientX - rect.left) * (this.width / rect.width);
-      this.playerX = Math.max(36, Math.min(this.width - 36, x));
+      this.playerX = Math.max(40, Math.min(this.width - 40, x));
     };
 
     this.canvas.addEventListener('mousemove', (e) => {
@@ -62,9 +62,9 @@ class CatcherGameEngine {
     window.addEventListener('keydown', (e) => {
       if (!this.isRunning) return;
       if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
-        this.playerX = Math.max(36, this.playerX - 28);
+        this.playerX = Math.max(40, this.playerX - 28);
       } else if (e.code === 'ArrowRight' || e.code === 'KeyD') {
-        this.playerX = Math.min(this.width - 36, this.playerX + 28);
+        this.playerX = Math.min(this.width - 40, this.playerX + 28);
       }
     });
   }
@@ -80,6 +80,7 @@ class CatcherGameEngine {
 
     this.cb.onScoreChange(this.score);
     this.cb.onTimeChange(this.timeLeft);
+    this.rich.triggerRandomBuzzCutin();
 
     if (this.timerInterval) clearInterval(this.timerInterval);
     this.timerInterval = setInterval(() => {
@@ -101,16 +102,16 @@ class CatcherGameEngine {
   update() {
     this.frameCount++;
     const isFever = this.timeLeft <= 15;
-    const spawnInterval = isFever ? 18 : 28;
+    const spawnInterval = isFever ? 18 : 27;
 
     if (this.frameCount % spawnInterval === 0) {
-      const isBad = Math.random() < 0.28;
+      const isBad = Math.random() < 0.3;
       const pool = isBad ? this.badItems : this.goodItems;
       const spec = pool[Math.floor(Math.random() * pool.length)];
       if (spec) {
         this.falling.push({
-          x: 28 + Math.random() * (this.width - 56),
-          y: -20,
+          x: 32 + Math.random() * (this.width - 64),
+          y: -25,
           vy: (spec.speed || 3.5) * (isFever ? 1.25 : 1.0),
           isBad,
           spec
@@ -118,92 +119,90 @@ class CatcherGameEngine {
       }
     }
 
-    const catcherY = this.height - 48;
+    const catcherY = this.height - 52;
     for (let i = this.falling.length - 1; i >= 0; i--) {
       const item = this.falling[i];
       item.y += item.vy;
 
       const dist = Math.hypot(item.x - this.playerX, item.y - catcherY);
-      if (dist < 38) {
+      if (dist < 42) {
         this.score = Math.max(0, this.score + item.spec.score);
         this.cb.onScoreChange(this.score);
         this.audio.playSE(item.isBad ? 'damage' : 'hit');
         this.popups.push({
           x: item.x,
-          y: catcherY - 20,
-          text: `${item.spec.score > 0 ? '+' : ''}${item.spec.score}`,
+          y: catcherY - 24,
+          text: `${item.spec.name} ${item.spec.score > 0 ? '+' : ''}${item.spec.score}`,
           color: item.isBad ? '#ff5252' : '#69f0ae',
           life: 1.0
         });
+        if (item.isBad || item.spec.score >= 400) {
+          this.rich.triggerCutin(
+            item.spec.name,
+            item.spec.quote || (item.isBad ? 'うわぁぁ！直撃ダメージ！！' : '神アイテム大量確保！！'),
+            'kumagai',
+            item.isBad ? '🚨 炎上被害発生' : '💰 大口獲得速報'
+          );
+        }
         this.falling.splice(i, 1);
-      } else if (item.y > this.height + 30) {
+      } else if (item.y > this.height + 35) {
         this.falling.splice(i, 1);
       }
     }
 
     this.popups.forEach(p => {
       p.y -= 1.3;
-      p.life -= 0.04;
+      p.life -= 0.035;
     });
     this.popups = this.popups.filter(p => p.life > 0);
   }
 
   draw() {
     const ctx = this.ctx;
-    ctx.clearRect(0, 0, this.width, this.height);
+    this.rich.drawStageBackground(this.width, this.height);
 
     if (this.timeLeft <= 15) {
       ctx.save();
       ctx.fillStyle = 'rgba(255, 215, 0, 0.14)';
       ctx.fillRect(0, 0, this.width, this.height);
       ctx.fillStyle = '#ffd700';
-      ctx.font = 'bold 14px sans-serif';
+      ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('⚡ FEVER TIME! 落下スピード＆出現率UP! ⚡', this.width / 2, 26);
+      ctx.fillText('⚡ ラスト15秒！大相場フィーバータイム突入！ ⚡', this.width / 2, 26);
       ctx.restore();
     }
 
-    // Draw falling items
     for (const item of this.falling) {
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(item.x, item.y, 20, 0, Math.PI * 2);
-      ctx.fillStyle = item.isBad ? 'rgba(244, 67, 54, 0.35)' : 'rgba(0, 230, 118, 0.25)';
-      ctx.fill();
-      ctx.font = '25px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(item.spec.emoji, item.x, item.y);
-      ctx.restore();
+      this.rich.drawRichCharacter(item.x, item.y, 26, {
+        emoji: item.spec.emoji,
+        name: item.spec.name,
+        color: item.isBad ? '#ef4444' : '#10b981',
+        avatar: item.spec.avatar
+      });
     }
 
-    // Draw player basket
-    const catcherY = this.height - 48;
-    ctx.save();
-    ctx.fillStyle = '#00e676';
-    ctx.beginPath();
-    ctx.roundRect(this.playerX - 36, catcherY - 18, 72, 36, 12);
-    ctx.fill();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#fff';
-    ctx.stroke();
+    const catcherY = this.height - 52;
+    this.rich.drawRichCharacter(this.playerX, catcherY, 34, {
+      emoji: this.playerSpec.emoji,
+      name: this.playerSpec.name,
+      color: '#f59e0b',
+      avatar: this.playerSpec.avatar || 'kiritani_master'
+    });
 
-    ctx.font = '24px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(this.playerSpec.emoji, this.playerX, catcherY);
-    ctx.restore();
-
-    // Draw popups
     for (const p of this.popups) {
       ctx.save();
       ctx.globalAlpha = Math.max(0, p.life);
       ctx.fillStyle = p.color;
-      ctx.font = 'bold 16px sans-serif';
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 3;
+      ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
       ctx.textAlign = 'center';
+      ctx.strokeText(p.text, p.x, p.y);
       ctx.fillText(p.text, p.x, p.y);
       ctx.restore();
     }
+
+    this.rich.drawCutinOverlay(this.width);
   }
 
   finishGame() {

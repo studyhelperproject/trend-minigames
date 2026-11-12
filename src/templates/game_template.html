@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>{{TITLE}} | 1分時事ミニゲーム</title>
+  <title>{{TITLE}} | 週刊時事ミニゲームアーケード</title>
   <meta name="description" content="{{SUBTITLE}} - {{STORY_INTRO}}" />
-  <meta property="og:title" content="{{TITLE}} | 1分時事ミニゲーム" />
+  <meta property="og:title" content="{{TITLE}} | 週刊時事ミニゲームアーケード" />
   <meta property="og:description" content="{{SUBTITLE}}" />
   <meta property="og:type" content="website" />
   <!-- 忍者AdMax 全自動広告タグ -->
@@ -15,9 +15,16 @@
   </style>
 </head>
 <body>
+  <!-- Live Breaking News Ticker -->
+  <div class="news-ticker-bar">
+    <div class="news-ticker-track">
+      🚨【緊急スクープ速報】{{TITLE}} が現在バズり中！ ｜ {{BUZZ_NEWS_CONTEXT}} ｜ 🎵 4トラック・チップチューンシンセBGM＆記者会見カットイン演出稼働中！
+    </div>
+  </div>
+
   <!-- Top Navigation -->
   <div class="top-bar">
-    <a href="../../index.html" class="portal-link">🏠 時事ゲーム一覧(10本)</a>
+    <a href="../../index.html" class="portal-link">⚡ 時事ゲームアーケード一覧(10本)</a>
     <div class="top-controls">
       <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
       <a href="../../dashboard.html" class="btn-icon" style="text-decoration:none;">📊 CEO効果測定</a>
@@ -42,9 +49,9 @@
     </div>
 
     <div class="hud-bar">
-      <div class="hud-item">SCORE:<span id="hudScore" class="val">0</span></div>
-      <div class="hud-item">TIME:<span id="hudTime" class="val">60</span>s</div>
-      <div class="hud-item">BEST:<span id="hudBest" class="val">0</span></div>
+      <div class="hud-item">SCORE<span id="hudScore" class="val">0</span></div>
+      <div class="hud-item">TIME LEFT<span id="hudTime" class="val">60</span></div>
+      <div class="hud-item">HIGH SCORE<span id="hudBest" class="val">0</span></div>
     </div>
 
     <div class="stage-container">
@@ -52,20 +59,24 @@
     </div>
 
     <div id="evolutionGuide" class="evolution-guide"></div>
+
+    <!-- 元ネタ時事ニュース解説ボックス -->
+    <div class="news-context-box">
+      <strong style="color:#ffd700;">📰 なぜバズっている？元ネタ時事ニュース解説</strong><br />
+      {{BUZZ_NEWS_CONTEXT}}
+    </div>
   </div>
 
   <!-- Footer Ad Slot (A8.net Official Banner + Text Link) -->
   <a id="bottomAdBanner" class="ad-banner-slot" href="#pr"></a>
 
   <div style="width:100%;max-width:520px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;padding:8px 10px 24px;">
-    <!-- A8 素材ID007 (320x50) -->
     <div>
       <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D" rel="nofollow" target="_blank">
         <img border="0" width="320" height="50" alt="旬の厳選10銘柄" src="https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1" style="border-radius:6px;display:block;">
       </a>
       <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D" alt="">
     </div>
-    <!-- A8 通常広告 (120x60) -->
     <div>
       <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP" rel="nofollow" target="_blank">
         <img border="0" width="120" height="60" alt="旬の厳選10銘柄" src="https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1" style="border-radius:6px;display:block;">
@@ -80,14 +91,17 @@
       <span class="trend-tag">{{TREND_CATEGORY}}</span>
       <h2 class="modal-title">{{TITLE}}</h2>
       <div class="story-box">
-        <strong>【ストーリー】</strong><br />
+        <strong style="color:#ffd700;">【事件・ストーリー背景】</strong><br />
         {{STORY_INTRO}}
       </div>
+      <div class="story-box" style="border-color:rgba(255,215,0,0.35);background:rgba(255,215,0,0.06);font-size:0.78rem;">
+        {{BUZZ_NEWS_CONTEXT}}
+      </div>
       <div class="controls-box">
-        <strong>🎮 操作方法（約1分で完結！）</strong><br />
+        <strong>🎮 操作方法（60秒完結・バズり名言カットイン搭載！）</strong><br />
         {{CONTROLS_HINT}}
       </div>
-      <button id="btnStartGame" class="btn-primary">▶ ゲームスタート！（BGM再生）</button>
+      <button id="btnStartGame" class="btn-primary">▶ 実況ゲームスタート！（マルチトラックBGM再生）</button>
       <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.12);font-size:0.76rem;">
         <span style="background:#ffab00;color:#111;font-weight:800;padding:1px 6px;border-radius:4px;margin-right:4px;">PR</span>
         <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I" rel="nofollow" target="_blank" style="color:#ffd700;font-weight:700;">あなたの株式投資が一変するかもしれない情報源</a>
@@ -102,17 +116,17 @@
   <!-- GameOver & Monetization Result Modal -->
   <div id="resultModal" class="modal-overlay hidden">
     <div class="modal-card">
-      <h2 class="modal-title">⏱️ タイムアップ＆結果発表！</h2>
+      <h2 class="modal-title">🚨 60秒終了！緊急会見・判定結果</h2>
       <div class="result-score-box">
-        <div style="font-size:0.8rem; color:#cfd8dc;">獲得スコア</div>
+        <div style="font-size:0.8rem; color:#cfd8dc;">最終獲得スコア</div>
         <div id="resultScoreNum" class="result-score-num">0</div>
         <div id="resultRankTitle" class="result-rank-badge">称号：判定中</div>
-        <p id="resultRankComment" style="font-size:0.82rem; color:#eceff1; margin-top:6px;"></p>
+        <p id="resultRankComment" style="font-size:0.83rem; color:#eceff1; margin-top:6px; line-height:1.5;"></p>
       </div>
 
       <!-- Reward Ad Boost Button -->
       <button id="btnRewardBoost" class="btn-reward">
-        🔥 スポンサーPRを見てスコア1.5倍＆称号解放！
+        🔥 スポンサーPRを見てスコア1.5倍＆特別称号解放！
       </button>
 
       <!-- Retry & Share Buttons -->
@@ -132,6 +146,9 @@
     window.MONETIZATION_CONFIG = {{MONETIZATION_JSON}};
   </script>
   <script>
+{{INLINE_RICH_ASSETS_JS}}
+  </script>
+  <script>
 {{INLINE_AUDIO_JS}}
   </script>
   <script>
@@ -147,12 +164,12 @@
 
       const root = document.documentElement;
       if (theme.background) {
-        const g = theme.background.gradient || ['#141e30', '#243b55', '#c94b4b'];
+        const g = theme.background.gradient || ['#090d16', '#1e293b', '#7f1d1d'];
         root.style.setProperty('--bg-grad-1', g[0]);
         root.style.setProperty('--bg-grad-2', g[1] || g[0]);
         root.style.setProperty('--bg-grad-3', g[2] || g[1]);
-        root.style.setProperty('--board-bg', theme.background.board_bg || 'rgba(20,25,40,0.94)');
-        root.style.setProperty('--border-color', theme.background.border_color || '#ff4081');
+        root.style.setProperty('--board-bg', theme.background.board_bg || 'rgba(12,18,32,0.96)');
+        root.style.setProperty('--border-color', theme.background.border_color || '#ffd700');
         root.style.setProperty('--accent-color', theme.background.accent_color || '#ff4081');
       }
 

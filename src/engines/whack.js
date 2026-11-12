@@ -1,6 +1,5 @@
 /**
- * Engine 5: Whack-Tap (60秒高速反射タップ撃退エンジン)
- * 参照OSS: wesbos/JavaScript30 Whack A Mole (MIT)
+ * Engine 5: Whack-Tap (60秒高速反射タップ撃退エンジン - Rich Parody Edition)
  */
 class WhackGameEngine {
   constructor(canvas, theme, audio, sdk, callbacks) {
@@ -12,17 +11,18 @@ class WhackGameEngine {
     this.cb = callbacks;
 
     this.width = 400;
-    this.height = 440;
+    this.height = 460;
     this.canvas.width = this.width;
     this.canvas.height = this.height;
 
+    this.rich = new window.RichVisualRenderer(this.canvas, this.theme);
     this.targets = theme.targets || [];
     this.holes = [];
     for (let r = 0; r < 3; r++) {
       for (let c = 0; c < 3; c++) {
         this.holes.push({
           x: 72 + c * 128,
-          y: 95 + r * 125,
+          y: 115 + r * 122,
           activeTarget: null,
           expiresAt: 0
         });
@@ -44,8 +44,8 @@ class WhackGameEngine {
   renderEvolutionGuide() {
     const guide = document.getElementById('evolutionGuide');
     if (!guide) return;
-    const info = this.targets.map(t => `${t.emoji}${t.name.slice(0, 6)}(${t.score > 0 ? '+' : ''}${t.score})`).join(' / ');
-    guide.innerHTML = `<strong>【撃退ターゲット】</strong> ${info}`;
+    const info = this.targets.map(t => `<span class="evo-chip">${t.emoji}${t.name}(${t.score > 0 ? '+' : ''}${t.score})</span>`).join(' ');
+    guide.innerHTML = `<div style="font-weight:900;color:#ff5252;margin-bottom:4px;">【撃退ターゲット一覧】味方は叩くな！</div><div>${info}</div>`;
   }
 
   bindEvents() {
@@ -58,32 +58,41 @@ class WhackGameEngine {
       for (const h of this.holes) {
         if (!h.activeTarget) continue;
         const dist = Math.hypot(x - h.x, y - h.y);
-        if (dist <= 48) {
+        if (dist <= 50) {
           const t = h.activeTarget;
           h.activeTarget = null;
           if (t.score > 0) {
             this.combo++;
-            const bonus = Math.round(t.score * (1 + Math.min(this.combo, 10) * 0.08));
+            const bonus = Math.round(t.score * (1 + Math.min(this.combo, 12) * 0.08));
             this.score += bonus;
             this.audio.playSE('hit');
             this.popups.push({
               x: h.x,
-              y: h.y - 25,
-              text: `💥 +${bonus} (${this.combo}Combo!)`,
+              y: h.y - 28,
+              text: `💥 +${bonus} (${this.combo}連撃!)`,
               color: '#ffd700',
               life: 1.0
             });
+            if (this.combo % 4 === 0 || t.score >= 400) {
+              this.rich.triggerCutin(
+                t.name,
+                t.quote || `${t.name}を完全論破・撃退！！`,
+                t.avatar || 'kumagai',
+                `🔥 ${this.combo} COMBO 撃退速報`
+              );
+            }
           } else {
             this.combo = 0;
             this.score = Math.max(0, this.score + t.score);
             this.audio.playSE('damage');
             this.popups.push({
               x: h.x,
-              y: h.y - 25,
-              text: `💦 ${t.score} 誤爆!`,
+              y: h.y - 28,
+              text: `💦 ${t.score} 誤爆炎上!`,
               color: '#ff5252',
               life: 1.0
             });
+            this.rich.triggerCutin(t.name, t.quote || '味方を叩いてしまい大炎上！！', 'kumagai', '🚨 誤爆アクシデント');
           }
           this.cb.onScoreChange(this.score);
           break;
@@ -111,6 +120,7 @@ class WhackGameEngine {
 
     this.cb.onScoreChange(this.score);
     this.cb.onTimeChange(this.timeLeft);
+    this.rich.triggerRandomBuzzCutin();
 
     if (this.timerInterval) clearInterval(this.timerInterval);
     this.timerInterval = setInterval(() => {
@@ -140,55 +150,44 @@ class WhackGameEngine {
     }
 
     const maxSimultaneous = this.timeLeft <= 20 ? 4 : 3;
-    if (activeCount < maxSimultaneous && Math.random() < 0.14) {
+    if (activeCount < maxSimultaneous && Math.random() < 0.15) {
       const freeHoles = this.holes.filter(h => !h.activeTarget);
       if (freeHoles.length > 0) {
         const hole = freeHoles[Math.floor(Math.random() * freeHoles.length)];
         const spec = this.targets[Math.floor(Math.random() * this.targets.length)];
         hole.activeTarget = spec;
-        hole.expiresAt = now + (spec.duration_ms || 850);
+        hole.expiresAt = now + (spec.duration_ms || 880);
       }
     }
 
     this.popups.forEach(p => {
-      p.y -= 1.2;
-      p.life -= 0.04;
+      p.y -= 1.3;
+      p.life -= 0.038;
     });
     this.popups = this.popups.filter(p => p.life > 0);
   }
 
   draw() {
     const ctx = this.ctx;
-    ctx.clearRect(0, 0, this.width, this.height);
+    this.rich.drawStageBackground(this.width, this.height);
 
     for (const h of this.holes) {
-      // Hole shadow
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.72)';
       ctx.beginPath();
-      ctx.ellipse(h.x, h.y + 18, 44, 18, 0, 0, Math.PI * 2);
+      ctx.ellipse(h.x, h.y + 22, 46, 18, 0, 0, Math.PI * 2);
       ctx.fill();
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.22)';
+      ctx.strokeStyle = 'rgba(255, 215, 0, 0.35)';
       ctx.lineWidth = 2;
       ctx.stroke();
 
       if (h.activeTarget) {
         const isEnemy = h.activeTarget.score > 0;
-        ctx.fillStyle = isEnemy ? 'rgba(255, 82, 82, 0.85)' : 'rgba(0, 230, 118, 0.85)';
-        ctx.beginPath();
-        ctx.arc(h.x, h.y - 4, 34, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.strokeStyle = '#fff';
-        ctx.lineWidth = 2.5;
-        ctx.stroke();
-
-        ctx.font = '32px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(h.activeTarget.emoji, h.x, h.y - 6);
-
-        ctx.font = 'bold 10px sans-serif';
-        ctx.fillStyle = '#fff';
-        ctx.fillText(h.activeTarget.name.slice(0, 6), h.x, h.y + 22);
+        this.rich.drawRichCharacter(h.x, h.y - 4, 38, {
+          emoji: h.activeTarget.emoji,
+          name: h.activeTarget.name,
+          color: isEnemy ? '#e11d48' : '#10b981',
+          avatar: h.activeTarget.avatar || (isEnemy ? 'kumagai_ceo' : 'kiritani_master')
+        });
       }
     }
 
@@ -196,11 +195,16 @@ class WhackGameEngine {
       ctx.save();
       ctx.globalAlpha = Math.max(0, p.life);
       ctx.fillStyle = p.color;
-      ctx.font = 'bold 14px sans-serif';
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 3;
+      ctx.font = 'bold 14px "Hiragino Kaku Gothic ProN", sans-serif';
       ctx.textAlign = 'center';
+      ctx.strokeText(p.text, p.x, p.y);
       ctx.fillText(p.text, p.x, p.y);
       ctx.restore();
     }
+
+    this.rich.drawCutinOverlay(this.width);
   }
 
   finishGame() {

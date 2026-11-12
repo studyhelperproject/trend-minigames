@@ -2,129 +2,493 @@
   "updated_at": "2026-11-12",
   "themes": [
     {
-      "slug": "dopagaki-suika",
-      "title": "ドパガキ進化論！メロい推し活スイカ",
-      "subtitle": "2026流行語『ドパガキ』『メロい』完全ゲーム化！1分で脳汁MAX合体パズル",
-      "engine": "suika",
-      "trend_category": "Z世代トレンド・推し活2026",
+      "slug": "ai-cyber-2048",
+      "title": "GM〇グループ80億円身代金要求！クマガイ社長『命の砂時計』謝罪会見2048",
+      "subtitle": "お名前デスクトップ2.6万件漏洩＆2年前のイエ〇エ指摘放置！ポエム独演会見を乗り切れ！",
+      "engine": "game2048",
+      "stage_style": "press_conference",
+      "trend_category": "2026年11月大炎上・謝罪会見スクープ",
       "trend_keywords": [
-        "ドパガキ",
-        "メロい",
-        "アニメグッズ",
-        "推し活",
-        "ちいかわ"
+        "命の砂時計",
+        "お名前VPS漏洩",
+        "身代金80億円拒否",
+        "イエラエ2年前指摘",
+        "スライド叱責会見"
       ],
-      "story_intro": "ショート動画と推し活でドーパミン全開の『ドパガキ』部屋へようこそ！上から落ちてくるトレンド＆推し活アイテムをぶつけて合体させ、最終形態『神推し脳汁MAX』を召喚しよう！箱から溢れたら即ゲームオーバー！",
-      "controls_hint": "マウス移動（または左右タップ）で位置を決め、クリック/タップで落下！同じアイテムをぶつけて進化させよう！",
-      "bgm_preset": "upbeat_pop",
+      "buzz_news_context": "【元ネタ時事解説】2026年11月、『お名前.com デスクトップクラウド』が不正アクセスを受け最大26,739件の情報漏洩＆顧客FX口座で勝手な損切り被害が発生。子会社イエラエから2年前に脆弱性を指摘されていたのに放置し2ヶ月半侵入に気づかなかった上、謝罪会見で代表が『命の砂時計』ポエムを語り、スライド不手際で社員を公開叱責・スーツの着こなしに言及してSNSで大バズりした事件を完全再現！",
+      "story_intro": "2026年11月2日、緊急謝罪会見が開幕！『お名前VPS』から2万6739件が漏洩し、ハッカーからは暗号資産で80億円（5,000万ドル）の身代金要求！しかも子会社『イエ〇エ』から2年前に脆弱性を指摘されていた事実が発覚！60秒以内に会見タイルを合体させ、クマガイ代表の『命の砂時計ポエム』から『能動的サイバー防御（2048）』へ進化させよ！",
+      "controls_hint": "矢印キー（または画面スワイプ/下部ボタン）で会見カードをスライド合体！高ランク合体でクマガイ社長の名言カットインが発動！",
+      "bgm_preset": "cyber_tension",
+      "buzz_comments": [
+        "命の砂時計ポエムきたwww",
+        "2年前のイエラエの指摘なぜ放置したw",
+        "おいスライドがズレてるぞ！！",
+        "謝罪会見でスーツのボタン説教は草",
+        "FX自動売買勝手に損切りされた客かわいそう",
+        "身代金80億円ビタ一文払わないのは強気",
+        "2ヶ月半侵入に気づかないガバナンスw"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "クマガイ代表",
+          "quote": "人間の『命の砂時計』は今この瞬間も落ちているのです…！",
+          "badge": "🎤 ポエム独演会"
+        },
+        {
+          "speaker": "クマガイ代表",
+          "quote": "おい君！さっきからスライドが1枚ズレてるぞ！！",
+          "badge": "💢 会見中社員叱責"
+        },
+        {
+          "speaker": "イエ〇エ調査班",
+          "quote": "あの…その脆弱性、2年前に報告書で指摘しましたよね？",
+          "badge": "📄 内部指摘放置発覚"
+        },
+        {
+          "speaker": "クマガイ代表",
+          "quote": "ハッカーからの身代金80億円はビタ一文たりとも払わん！",
+          "badge": "💰 5000万ドル要求拒否"
+        }
+      ],
       "background": {
         "gradient": [
-          "#ff9a9e",
-          "#fecfef",
-          "#a18cd1"
+          "#090d16",
+          "#1e293b",
+          "#7f1d1d"
         ],
-        "board_bg": "rgba(255, 245, 252, 0.94)",
-        "border_color": "#ff4081",
-        "particle_emoji": "💖",
-        "accent_color": "#ff4081"
+        "board_bg": "rgba(10, 18, 32, 0.95)",
+        "border_color": "#ffd700",
+        "particle_emoji": "⏳",
+        "accent_color": "#ef4444"
       },
       "items": [
         {
-          "level": 0,
-          "emoji": "📱",
-          "name": "倍速ショート動画",
-          "radius": 18,
-          "color": "#ff80ab",
-          "score": 10
+          "value": 2,
+          "emoji": "🔓",
+          "name": "お名前VPS侵入",
+          "color": "#334155",
+          "text_color": "#ffffff",
+          "quote": "管理者アカウントが抜かれたぞ！"
         },
         {
-          "level": 1,
-          "emoji": "🍬",
-          "name": "地球グミ",
-          "radius": 24,
-          "color": "#ea80fc",
-          "score": 25
+          "value": 4,
+          "emoji": "📄",
+          "name": "2年前イエラエ指摘",
+          "color": "#475569",
+          "text_color": "#ffffff",
+          "quote": "2年前の脆弱性レポートが引き出しから発見！"
         },
         {
-          "level": 2,
-          "emoji": "🧋",
-          "name": "ご褒美ラテ",
-          "radius": 31,
-          "color": "#b388ff",
-          "score": 50
+          "value": 8,
+          "emoji": "💤",
+          "name": "2ヶ月半未検知",
+          "color": "#0369a1",
+          "text_color": "#ffffff",
+          "quote": "8月から2ヶ月半誰も気づきませんでした！"
         },
         {
-          "level": 3,
-          "emoji": "🎀",
-          "name": "参戦うちわ",
-          "radius": 38,
-          "color": "#8c9eff",
-          "score": 90
+          "value": 16,
+          "emoji": "📉",
+          "name": "FX口座勝手損切り",
+          "color": "#0284c7",
+          "text_color": "#ffffff",
+          "quote": "顧客のFX自動売買がハッカーに操作された！"
         },
         {
-          "level": 4,
-          "emoji": "🐹",
-          "name": "限定ぬいくん",
-          "radius": 46,
-          "color": "#82b1ff",
-          "score": 150
+          "value": 32,
+          "emoji": "👔",
+          "name": "スーツ着こなし説教",
+          "color": "#0d9488",
+          "text_color": "#ffffff",
+          "quote": "会見場ではスーツのボタンを留めなさい！"
         },
         {
-          "level": 5,
-          "emoji": "💎",
-          "name": "爆光ペンライト",
-          "radius": 55,
-          "color": "#80d8ff",
-          "score": 240
+          "value": 64,
+          "emoji": "📊",
+          "name": "スライド社員公開叱責",
+          "color": "#d97706",
+          "text_color": "#ffffff",
+          "quote": "おい！スライドのページがズレてるぞ！"
         },
         {
-          "level": 6,
-          "emoji": "✨",
-          "name": "神作画アクスタ",
-          "radius": 65,
-          "color": "#a7ffeb",
-          "score": 380
+          "value": 128,
+          "emoji": "💰",
+          "name": "身代金80億円拒否",
+          "color": "#ea580c",
+          "text_color": "#ffffff",
+          "quote": "5000万ドルの身代金要求は断固拒否する！"
         },
         {
-          "level": 7,
-          "emoji": "🕺",
-          "name": "メロい王子様",
-          "radius": 76,
-          "color": "#ffd180",
-          "score": 600
+          "value": 256,
+          "emoji": "⏳",
+          "name": "命の砂時計ポエム",
+          "color": "#dc2626",
+          "text_color": "#ffffff",
+          "quote": "私の『命の砂時計』の話を聞いてください…"
         },
         {
-          "level": 8,
-          "emoji": "👑",
-          "name": "アリーナ最前列神席",
-          "radius": 88,
-          "color": "#ff9e80",
-          "score": 1000
+          "value": 512,
+          "emoji": "😭",
+          "name": "涙の11月2日独演会",
+          "color": "#be123c",
+          "text_color": "#ffffff",
+          "quote": "お客様をお守りできず誠に申し訳ありません！"
         },
         {
-          "level": 9,
-          "emoji": "🌈",
-          "name": "脳汁ドーパミンMAX",
-          "radius": 102,
-          "color": "#ff4081",
-          "score": 2000
+          "value": 1024,
+          "emoji": "✂️",
+          "name": "役員報酬30%減額",
+          "color": "#9333ea",
+          "text_color": "#ffffff",
+          "quote": "経営責任を取り3ヶ月間報酬30%カット！"
+        },
+        {
+          "value": 2048,
+          "emoji": "🛡️",
+          "name": "能動的サイバー防御",
+          "color": "#ca8a04",
+          "text_color": "#ffffff",
+          "quote": "政府よ！今こそ能動的サイバー防御の発動を！"
         }
       ],
       "ranks": [
         {
           "min_score": 0,
-          "title": "スマホ見すぎ予備軍",
-          "comment": "まだまだドーパミンが足りてない！もう1回落としてメロい領域へ！"
+          "title": "2年間脆弱性放置ガバナンス級",
+          "comment": "子会社のセキュリティ指摘を放置してハッカーに突破されました！あなたのスマホ・PCも『MillenVPN』で今すぐ暗号化を！"
+        },
+        {
+          "min_score": 1200,
+          "title": "命の砂時計ポエマー社長級",
+          "comment": "会見での独演会はSNSで大バズり！しかしポエムでは通信は守れません。VPNで現実の通信を鉄壁ガードしましょう！"
+        },
+        {
+          "min_score": 3000,
+          "title": "能動的サイバー防衛最高司令官",
+          "comment": "80億円の身代金要求を跳ね返し完全防衛達成！イエ〇エも驚く超一流の危機管理能力です！"
+        }
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_millenvpn_main",
+          "network": "A8.net 緊急セキュリティ対策枠",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "大手企業でも2ヶ月半侵入に気づけない時代！個人のスマホ・PC・FX取引通信は国産『MillenVPN』で今すぐ暗号化防衛。",
+          "cta_text": "MillenVPNで今すぐ通信を保護する (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3500,
+          "expected_cvr": 0.025,
+          "tag": "ハッキング・情報漏洩対策"
+        },
+        {
+          "offer_id": "a8_stocks10_sub",
+          "network": "A8.net 投資情報プログラム",
+          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
+          "description": "サイバー防衛・国策AI関連株など、プロが徹底調査した高騰期待の厳選10銘柄レポート！",
+          "cta_text": "旬の厳選10銘柄を無料でチェック (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "banner_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1",
+          "cpa_jpy": 4000,
+          "expected_cvr": 0.02,
+          "tag": "国策サイバー・注目株"
+        }
+      ]
+    },
+    {
+      "slug": "anime-goods-flappy",
+      "title": "く〇寿司店員メル〇リ横流し回避！ち〇かわ＆ランダム商法9割絶望フラッピー",
+      "subtitle": "『く〇寿司の店員です』出品大炎上＆9割が嫌うブラインド缶バッジ地獄を飛び越えろ！",
+      "engine": "flappy",
+      "stage_style": "sushi_lane",
+      "trend_category": "2026年推し活・内部不正転売大炎上",
+      "trend_keywords": [
+        "くら寿司ちいかわ中止",
+        "店員メルカリ横流し",
+        "ランダム商法9割嫌い",
+        "FaNeMa",
+        "ビッくらポン闇"
+      ],
+      "buzz_news_context": "【元ネタ時事解説】2026年9月、回転寿司コラボで『何度食べても目当てのフィギュアが当たらない』とSNSで騒動になり、メルカリに未流通コンプセットが大量出品＆出品者が『くら寿司の店員です』と自白し全面中止となった内部不正事件、および『推し活層の9割がランダム商法を嫌っている』調査バズを完全ゲーム化！",
+      "story_intro": "お寿司を30皿食べても『ビッくらポン』が全く当たらない…と思ったら、裏でバイト店員が景品を抜き取って『く〇寿司の店員です』とメル〇リに大量横流し出品していた！？さらに『ファン9割が嫌うブラインド銀袋被り沼』が立ちふさがる！ジャンプで闇転売をかわし、安心の公式EC【FaNeMa】で推しグッズを確保せよ！",
+      "controls_hint": "画面クリック/タップ（またはスペースキー）でジャンプ！『店員横流し』『ランダム銀袋沼』の柱を避けて公式グッズを集めよう！",
+      "bgm_preset": "retro_8bit",
+      "buzz_comments": [
+        "『くら寿司の店員です』自白出品は草",
+        "どうりで30皿食べてもちいかわ出ないわけだw",
+        "コラボ全面中止は前代未聞すぎる",
+        "ランダム商法9割嫌いアンケート結果その通り",
+        "ブラインド缶バッジで推し以外10連続出た…",
+        "最初から公式通販FaNeMaで確定買い一択！"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "闇バイト店員",
+          "quote": "ビッくらポンのレア景品抜いてメル〇リ出品っとw",
+          "badge": "🍣 内部不正横流し発覚"
+        },
+        {
+          "speaker": "運営お詫び発表",
+          "quote": "従業員による不正行為が判明したためコラボ全面中止します",
+          "badge": "🚨 キャンペーン全面中止"
+        },
+        {
+          "speaker": "推し活調査2026",
+          "quote": "ファンの91%が『中身が選べないランダム商法は大嫌い』と回答！",
+          "badge": "📊 ランダム商法限界説"
+        }
+      ],
+      "background": {
+        "gradient": [
+          "#2a1215",
+          "#7f1d1d",
+          "#b91c1c"
+        ],
+        "board_bg": "rgba(32, 12, 18, 0.95)",
+        "border_color": "#ff80ab",
+        "particle_emoji": "🍣",
+        "accent_color": "#ff4081"
+      },
+      "player": {
+        "emoji": "🐹",
+        "name": "純粋なち〇かわ推し",
+        "color": "#f472b6",
+        "jump_quotes": [
+          "公式で買う！",
+          "横流し許さん！",
+          "ランダム反対！",
+          "ち〇かわ尊い！",
+          "確定枠最高！"
+        ]
+      },
+      "obstacles": [
+        "店員メルカリ横流し",
+        "5皿に1回ハズレ闇",
+        "ランダム商法9割嫌",
+        "ブラインド銀袋被り",
+        "TGS関係者転売品"
+      ],
+      "collectibles": [
+        {
+          "emoji": "💎",
+          "name": "FaNeMa公式確定アクスタ",
+          "score": 200,
+          "quote": "横流しゼロ！公式通販で推しを確定確保！"
+        },
+        {
+          "emoji": "🧸",
+          "name": "公式受注生産ぬいくん",
+          "score": 300,
+          "quote": "転売ヤーから買わずに公式受注でコンプ達成！"
+        }
+      ],
+      "ranks": [
+        {
+          "min_score": 0,
+          "title": "30皿食べてハズレ絶望民",
+          "comment": "店員に裏で抜かれたガチャを回し続けてお腹が限界です！グッズは公式EC『FaNeMa』で確実に手に入れましょう！"
+        },
+        {
+          "min_score": 700,
+          "title": "ランダム商法卒業マイスター",
+          "comment": "ブラインド銀袋の沼と転売ヤーを華麗にスルー！賢い公式通販ルートをマスターしています！"
+        },
+        {
+          "min_score": 1600,
+          "title": "転売ヤー完全撲滅の聖地守護神",
+          "comment": "内部不正も高額転売もすべて論破！公式オリジナルグッズで最高の推し祭壇が完成しました！"
+        }
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_fanema_flappy_main",
+          "network": "A8.net 公式アニメ・ゲームグッズ枠",
+          "title": "アニメ・マンガ・ゲーム等のオリジナルグッズを皆様にお届けします！【FaNeMa】",
+          "description": "転売ヤーや横流し品に騙されない！システムサービス公式EC『FaNeMa』なら限定描き下ろしグッズ・ぬいぐるみが確実に買える！",
+          "cta_text": "【FaNeMa】公式オンラインショップを見る (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "banner_img": "https://www21.a8.net/svt/bgt?aid=261112167571&wid=001&eno=01&mid=s00000025309001005000&mc=1",
+          "cpa_jpy": 1500,
+          "expected_cvr": 0.036,
+          "tag": "横流しなし・安心の公式通販"
+        },
+        {
+          "offer_id": "a8_millenvpn_anime",
+          "network": "A8.net 動画・通信保護枠",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "アニメ配信視聴やチケット先行抽選の通信を快適＆安全に保護する国産VPN！",
+          "cta_text": "MillenVPNの詳細を見る (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3500,
+          "expected_cvr": 0.018,
+          "tag": "推し活通信セキュリティ"
+        }
+      ]
+    },
+    {
+      "slug": "dopagaki-suika",
+      "title": "ドパガキ脳汁2分割！ミセス『ライラック』転調＆メロいM!LK推し活スイカ",
+      "subtitle": "風呂でもスマホ・映画は2倍速！2026流行語『ドパガキ』『メロい』完全再現パズル",
+      "engine": "suika",
+      "stage_style": "neon_sns",
+      "trend_category": "2026年流行語大賞ノミネート・Z世代ミーム",
+      "trend_keywords": [
+        "ドパガキ",
+        "メロい",
+        "ライラック転調",
+        "M!LK",
+        "倍速視聴中毒"
+      ],
+      "buzz_news_context": "【元ネタ時事解説】ミセス『ライラック』のめまぐるしい楽曲展開からXでバズった『集中力がないZ世代（ドーパミン中毒のガキ＝ドパガキ）が再生止めないための工夫』という言説と、風呂・トイレでもスマホを手放せず画面を2分割して動画を見る『ドパガキの1日』ミーム、さらに10代流行語1位『メロい（M!LK等）』を完全融合！",
+      "story_intro": "映画は10秒スキップ＆2倍速！画面の上半分でショート動画、下半分でサブウェイサーファーズを流さないと3秒で飽きる『ドパガキ（ドーパミン中毒のガキ）』脳内ルームへようこそ！次々落ちてくる刺激アイテムを合体させ、ミセス級の超転調から『M!LK級の超絶メロい王子様』、そして『脳汁ドーパミンMAX』へ進化させよ！",
+      "controls_hint": "マウス移動（または左右タップ）で位置を決め、クリック/タップで落下！3秒以内に落としてドーパミンを出し続けろ！",
+      "bgm_preset": "upbeat_pop",
+      "buzz_comments": [
+        "映画を普通速度で見られないの完全にドパガキw",
+        "風呂にもトイレにもスマホ持ち込むの私だ…",
+        "ライラックの転調で脳汁ドバドバ出るwww",
+        "M!LKの曲終わりの表情ガチでメロい！！",
+        "下半分にサブウェイサーファーズ流してくれw",
+        "宿題5分やってショート動画2時間見ちゃった"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "ドパガキ診断",
+          "quote": "イントロ5秒あったらスキップ！倍速視聴が止まらない！！",
+          "badge": "🧠 ドーパミン中毒発症"
+        },
+        {
+          "speaker": "音楽評論ポスト",
+          "quote": "3秒ごとに転調しないとドパガキが再生止めちゃう時代！",
+          "badge": "🎸 ライラック転調理論"
+        },
+        {
+          "speaker": "10代女子トレンド",
+          "quote": "さっきのM!LKの仕草、ガチでメロすぎて脳が溶けた…💖",
+          "badge": "👑 流行語1位『メロい』"
+        }
+      ],
+      "background": {
+        "gradient": [
+          "#2e1065",
+          "#be185d",
+          "#4f46e5"
+        ],
+        "board_bg": "rgba(24, 12, 42, 0.94)",
+        "border_color": "#ff4081",
+        "particle_emoji": "🧠",
+        "accent_color": "#ff4081"
+      },
+      "items": [
+        {
+          "level": 0,
+          "emoji": "⏩",
+          "name": "2倍速ショート動画",
+          "radius": 18,
+          "color": "#f472b6",
+          "score": 10,
+          "quote": "等倍速なんて遅すぎて待てない！"
+        },
+        {
+          "level": 1,
+          "emoji": "🛁",
+          "name": "風呂ジップロックスマホ",
+          "radius": 24,
+          "color": "#c084fc",
+          "score": 25,
+          "quote": "お風呂でもトイレでもスマホ手放せない！"
+        },
+        {
+          "level": 2,
+          "emoji": "🛹",
+          "name": "下画面ランゲーム映像",
+          "radius": 31,
+          "color": "#818cf8",
+          "score": 50,
+          "quote": "上下2分割画面でドーパミン倍増！"
+        },
+        {
+          "level": 3,
+          "emoji": "🎸",
+          "name": "3秒ごと超転調リフ",
+          "radius": 38,
+          "color": "#38bdf8",
+          "score": 90,
+          "quote": "ライラック級の超展開で離脱阻止！"
+        },
+        {
+          "level": 4,
+          "emoji": "🐹",
+          "name": "映画化ち〇かわぬいくん",
+          "radius": 46,
+          "color": "#34d399",
+          "score": 150,
+          "quote": "ち〇かわ映画＆限定グッズで癒やし補充！"
+        },
+        {
+          "level": 5,
+          "emoji": "💎",
+          "name": "EBiDAN爆光ペンラ",
+          "radius": 55,
+          "color": "#facc15",
+          "score": 240,
+          "quote": "ライブ会場でペンライト8本持ち！"
+        },
+        {
+          "level": 6,
+          "emoji": "✨",
+          "name": "FaNeMa限定神アクスタ",
+          "radius": 65,
+          "color": "#fb923c",
+          "score": 380,
+          "quote": "公式描き下ろしアクスタが尊すぎる！"
+        },
+        {
+          "level": 7,
+          "emoji": "🕺",
+          "name": "M!LK級メロい王子様",
+          "radius": 76,
+          "color": "#f43f5e",
+          "score": 600,
+          "quote": "あの曲終わりの表情、ガチでメロい！！"
+        },
+        {
+          "level": 8,
+          "emoji": "👑",
+          "name": "アリーナ最前列確定神席",
+          "radius": 88,
+          "color": "#a855f7",
+          "score": 1000,
+          "quote": "ファンサ確定で心臓が止まりそう！！"
+        },
+        {
+          "level": 9,
+          "emoji": "🌈",
+          "name": "ドパガキ脳汁オーバーフロー",
+          "radius": 102,
+          "color": "#ec4899",
+          "score": 2000,
+          "quote": "2026年流行語大賞コンプリート！！"
+        }
+      ],
+      "ranks": [
+        {
+          "min_score": 0,
+          "title": "集中力3秒の初期ドパガキ",
+          "comment": "途中でショート動画を開きそうになりましたね！もう1回プレイして脳汁を解放しましょう！"
         },
         {
           "min_score": 800,
-          "title": "一人前のドパガキ",
-          "comment": "いい感じに脳汁が出てきました！推しの尊さで目が冴えるレベル！"
+          "title": "完全覚醒ドパガキ＆メロい伝道師",
+          "comment": "2倍速と転調の波を乗りこなす現代っ子！推しのメロいグッズチェックも忘れずに！"
         },
         {
           "min_score": 2000,
-          "title": "超絶メロい推し活覇王",
-          "comment": "圧倒的ドーパミン制御力！今年の流行語大賞はあなたのものです！"
+          "title": "2026年流行語グランドチャンピオン",
+          "comment": "ドパガキもメロいも完全制覇！圧倒的なトレンド感度と反射神経です！"
         }
       ],
       "affiliate_offers": [
@@ -132,368 +496,339 @@
           "offer_id": "a8_fanema_goods",
           "network": "A8.net 公式パートナー",
           "title": "アニメ・マンガ・ゲーム等のオリジナルグッズを皆様にお届けします！【FaNeMa】",
-          "description": "ここでしか買えない限定描き下ろしアクスタ・ぬいぐるみ・推し活グッズが満載！",
+          "description": "ガチでメロい限定描き下ろしアクスタ・ぬいぐるみ・推し活グッズが公式通販で手に入る！",
           "cta_text": "FaNeMa公式ストアで限定グッズを見る (PR)",
           "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
           "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
           "banner_img": "https://www21.a8.net/svt/bgt?aid=261112167571&wid=001&eno=01&mid=s00000025309001005000&mc=1",
           "cpa_jpy": 1500,
-          "expected_cvr": 0.025,
-          "tag": "推し活・限定グッズ"
+          "expected_cvr": 0.028,
+          "tag": "メロい推し活・公式グッズ"
         },
         {
           "offer_id": "a8_millenvpn_sec",
           "network": "A8.net 公式プログラム",
           "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
-          "description": "カフェのフリーWi-Fiでの動画視聴や推し活遠征時のスマホ通信を強力暗号化！",
+          "description": "外出先フリーWi-Fiでのショート動画視聴や推し活遠征時のスマホ通信を安全暗号化！",
           "cta_text": "MillenVPN公式サイトを見る (PR)",
           "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
           "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
           "cpa_jpy": 3500,
-          "expected_cvr": 0.018,
-          "tag": "スマホ通信保護"
+          "expected_cvr": 0.019,
+          "tag": "動画視聴＆通信保護"
         }
       ]
     },
     {
-      "slug": "ai-cyber-2048",
-      "title": "AIハッカー迎撃！サイバー防衛2048",
-      "subtitle": "2026年急増するAIサイバー攻撃を60秒で撃退せよ！高速スライド防衛パズル",
-      "engine": "game2048",
-      "trend_category": "IT・セキュリティ時事2026",
+      "slug": "tenbagger-stock-suika",
+      "title": "日経7万円乱高下！新NISA損切り民救出＆桐谷さんチャリ爆走テンバガースイカ",
+      "subtitle": "『株高不況』と『植田総裁の利上げ砲』を乗り越え、優待チャリ名人＆10倍株を召喚せよ！",
+      "engine": "suika",
+      "stage_style": "stock_exchange",
+      "trend_category": "2026年株式市場・新NISAバズ時事",
       "trend_keywords": [
-        "AIサイバー攻撃",
-        "MillenVPN",
-        "情報漏洩対策",
-        "セキュリティ",
-        "通信暗号化"
+        "日経平均7万円",
+        "新NISA損切り民",
+        "桐谷さんチャリ",
+        "植田総裁利上げ",
+        "株高不況"
       ],
-      "story_intro": "2026年、巧妙化した自律型AIハッカー集団がスマホ・PCの通信網に総攻撃を開始！60秒以内にセキュリティタイルをスライド合体させてVPN＆防衛レベルを引き上げ、最強の『量子暗号イージス（2048）』を構築せよ！",
-      "controls_hint": "矢印キー（または画面スワイプ/下部ボタン）でタイルを移動！同じ防衛システムが重なると進化！制限時間60秒！",
-      "bgm_preset": "cyber_tension",
+      "buzz_news_context": "【元ネタ時事解説】2026年に日経平均が6万〜7万円台へ到達する一方、実質賃金が追いつかない『株高不況』や、米中間選挙ショック・日銀植田総裁の追加利上げ観測でパニック売りする『新NISA損切り民』がXでトレンド入り！70代半ばでもママチャリで優待券を使い切る桐谷広人名人の投資哲学とともにゲーム化！",
+      "story_intro": "2026年、日経平均7万円タッチからの急落ボラティリティでSNSには『新NISA損切り民』の悲鳴がこだまする！しかも株価はバブルなのに庶民の生活は苦しい『株高不況』！上から落ちてくる銘柄を合体させ、ママチャリで疾走する『桐谷名人』や『植田総裁のタカ派利上げ』を経て、プロ厳選の『テンバガー（10倍株）億り人』へ進化させよ！",
+      "controls_hint": "マウス移動（または左右タップ）で投資ポジションを決め、クリック/タップでエントリー！同じランクの株を合体させよう！",
+      "bgm_preset": "upbeat_pop",
+      "buzz_comments": [
+        "天井でオルカン買って昨日損切りした…（新NISA損切り民）",
+        "日経平均7万円なのに俺の給料上がらない『株高不況』つらい",
+        "桐谷さん70代半ばでもママチャリ爆走してて元気すぎるw",
+        "植田総裁の会見一言で先物が1500円動いたぞ！！",
+        "結局プロが絞った国策・半導体10銘柄握ってる奴が勝つ"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "新NISA損切り民",
+          "quote": "うわぁぁ！急落が怖くて底値で全部狼狽売りしちゃった…！",
+          "badge": "📉 損切り民の悲鳴"
+        },
+        {
+          "speaker": "優待名人・桐谷さん",
+          "quote": "暴落時こそ慌てず騒がず、自転車を漕いで優待券を使うのです！",
+          "badge": "🚲 ママチャリ爆走哲学"
+        },
+        {
+          "speaker": "日銀・植田総裁",
+          "quote": "経済・物価の見通しが実現していけば、引き続き政策金利を引き上げ…",
+          "badge": "🦅 タカ派利上げ砲発動"
+        }
+      ],
       "background": {
         "gradient": [
-          "#0f2027",
-          "#203a43",
-          "#2c5364"
+          "#041410",
+          "#064e3b",
+          "#ca8a04"
         ],
-        "board_bg": "rgba(12, 25, 38, 0.95)",
-        "border_color": "#00e5ff",
-        "particle_emoji": "🛡️",
-        "accent_color": "#00e5ff"
+        "board_bg": "rgba(6, 26, 20, 0.95)",
+        "border_color": "#ffd700",
+        "particle_emoji": "📈",
+        "accent_color": "#10b981"
       },
       "items": [
         {
-          "value": 2,
-          "emoji": "🔓",
-          "name": "初期パス1234",
-          "color": "#37474f",
-          "text_color": "#ffffff"
+          "level": 0,
+          "emoji": "😭",
+          "name": "新NISA損切り民",
+          "radius": 18,
+          "color": "#64748b",
+          "score": 15,
+          "quote": "含み損に耐えられず底値でポチッ…"
         },
         {
-          "value": 4,
-          "emoji": "📧",
-          "name": "迷惑メールフィルタ",
-          "color": "#455a64",
-          "text_color": "#ffffff"
+          "level": 1,
+          "emoji": "💸",
+          "name": "実感なき株高不況",
+          "radius": 24,
+          "color": "#475569",
+          "score": 35,
+          "quote": "株は高いのにスーパーの物価が高すぎる！"
         },
         {
-          "value": 8,
-          "emoji": "🔑",
-          "name": "二要素認証",
-          "color": "#00838f",
-          "text_color": "#ffffff"
-        },
-        {
-          "value": 16,
-          "emoji": "🛡️",
-          "name": "国産VPN暗号化",
-          "color": "#00acc1",
-          "text_color": "#ffffff"
-        },
-        {
-          "value": 32,
-          "emoji": "🕵️",
-          "name": "ホワイトハッカー",
-          "color": "#00bfa5",
-          "text_color": "#00251a"
-        },
-        {
-          "value": 64,
-          "emoji": "🤖",
-          "name": "防衛AIエンジン",
-          "color": "#1de9b6",
-          "text_color": "#00251a"
-        },
-        {
-          "value": 128,
-          "emoji": "🧬",
-          "name": "生体パスキー",
-          "color": "#76ff03",
-          "text_color": "#1b5e20"
-        },
-        {
-          "value": 256,
-          "emoji": "🛰️",
-          "name": "衛星VPN通信",
-          "color": "#ffd600",
-          "text_color": "#212121"
-        },
-        {
-          "value": 512,
-          "emoji": "🏰",
-          "name": "ゼロトラスト要塞",
-          "color": "#ff9100",
-          "text_color": "#212121"
-        },
-        {
-          "value": 1024,
-          "emoji": "⚡",
-          "name": "量子暗号シールド",
-          "color": "#ff3d00",
-          "text_color": "#ffffff"
-        },
-        {
-          "value": 2048,
+          "level": 2,
           "emoji": "🌐",
-          "name": "サイバー防衛大臣",
-          "color": "#d500f9",
-          "text_color": "#ffffff"
+          "name": "オルカン積立ガチホ勢",
+          "radius": 31,
+          "color": "#0284c7",
+          "score": 70,
+          "quote": "気絶して20年放置が最強の戦略！"
+        },
+        {
+          "level": 3,
+          "emoji": "🚲",
+          "name": "チャリ爆走・桐谷名人",
+          "radius": 38,
+          "color": "#16a34a",
+          "score": 120,
+          "avatar": "kiritani_master",
+          "quote": "今日中に映画と食事の優待券を使い切らねば！"
+        },
+        {
+          "level": 4,
+          "emoji": "🦅",
+          "name": "タカ派・植田総裁会見",
+          "radius": 46,
+          "color": "#2563eb",
+          "score": 200,
+          "avatar": "ueda_gov",
+          "quote": "『金利のある世界』へ追加利上げを示唆！"
+        },
+        {
+          "level": 5,
+          "emoji": "🏦",
+          "name": "金利上昇メガバンク株",
+          "radius": 55,
+          "color": "#7c3aed",
+          "score": 320,
+          "quote": "利上げ局面で銀行セクターに資金集中！"
+        },
+        {
+          "level": 6,
+          "emoji": "🤖",
+          "name": "国策AI・半導体主力株",
+          "radius": 65,
+          "color": "#db2777",
+          "score": 500,
+          "quote": "データセンター需要爆発でストップ高！"
+        },
+        {
+          "level": 7,
+          "emoji": "🔥",
+          "name": "プロ厳選の旬の10銘柄",
+          "radius": 76,
+          "color": "#ea580c",
+          "score": 800,
+          "quote": "高騰期待の厳選10銘柄が火を噴いた！"
+        },
+        {
+          "level": 8,
+          "emoji": "💎",
+          "name": "日経7万円突破テンバガー",
+          "radius": 88,
+          "color": "#d97706",
+          "score": 1300,
+          "quote": "株価10倍達成！資産が一気に桁違い！"
+        },
+        {
+          "level": 9,
+          "emoji": "👑",
+          "name": "配当＆優待生活・億り人",
+          "radius": 102,
+          "color": "#eab308",
+          "score": 2500,
+          "quote": "株高不況を完全克服！伝説の億り人誕生！"
         }
       ],
       "ranks": [
         {
           "min_score": 0,
-          "title": "通信丸見え危険状態",
-          "comment": "AIハッカーに通信を傍受されました！現実のスマホ・PCもVPNで今すぐ暗号化対策を！"
+          "title": "狼狽売りの新NISA損切り民",
+          "comment": "SNSの煽りに乗せられて高値掴み＆底値損切りしてしまいました！まずはプロが絞り込んだ『旬の厳選10銘柄』で基礎を固めましょう！"
         },
         {
-          "min_score": 1200,
-          "title": "情報セキュリティ主任",
-          "comment": "なかなかの防衛手腕！しかし外出先フリーWi-Fiの盗聴にはMillenVPNが必須です！"
+          "min_score": 1000,
+          "title": "桐谷さん直伝・優待＆成長株ハンター",
+          "comment": "植田総裁の利上げ局面でも動じない握力！次なる急騰期待10銘柄を仕込む絶好機です！"
         },
         {
-          "min_score": 3000,
-          "title": "国家級ホワイトハッカー",
-          "comment": "完璧なサイバー防衛網を構築！AIハッカーも尻尾を巻いて退散しました！"
+          "min_score": 2400,
+          "title": "日経7万円時代を制すテンバガー億り人",
+          "comment": "株高不況をものともせず莫大なキャピタルゲインを達成！ウォール街もひれ伏すカリスマ投資家です！"
         }
       ],
       "affiliate_offers": [
         {
-          "offer_id": "a8_millenvpn_main",
-          "network": "A8.net 高単価セキュリティ枠",
-          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
-          "description": "日本の法令に準拠した安心の国産VPN！ワンタップでスマホ・PCの通信を暗号化しハッカーの盗聴を完全遮断。",
-          "cta_text": "MillenVPNで今すぐ通信を保護する (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
-          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
-          "cpa_jpy": 3500,
-          "expected_cvr": 0.022,
-          "tag": "セキュリティ必須・国産VPN"
-        },
-        {
-          "offer_id": "a8_stocks10_sub",
-          "network": "A8.net 投資情報プログラム",
+          "offer_id": "a8_stocks10_suika_main",
+          "network": "A8.net 投資特化プログラム",
           "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
-          "description": "AI・サイバーセキュリティ関連株も注目！あなたの株式投資が一変するかもしれない情報源。",
-          "cta_text": "旬の厳選10銘柄を無料でチェック (PR)",
+          "description": "『新NISA損切り民』にならないために！日経平均乱高下の中でプロが厳選した高騰期待10銘柄レポート。",
+          "cta_text": "【無料】旬の厳選10銘柄を今すぐ受け取る (PR)",
           "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
           "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
           "banner_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1",
           "cpa_jpy": 4000,
-          "expected_cvr": 0.018,
-          "tag": "AI・注目株レポート"
-        }
-      ]
-    },
-    {
-      "slug": "frenemy-flappy",
-      "title": "フレネミー回避！SNS裏アカ脱出フラッピー",
-      "subtitle": "笑顔の裏でマウンティング！？話題の『フレネミー』と裏アカ特定班をかわして飛べ！",
-      "engine": "flappy",
-      "trend_category": "SNS・ネット護身トレンド2026",
-      "trend_keywords": [
-        "フレネミー",
-        "裏アカ",
-        "SNS疲れ",
-        "IP特定対策",
-        "推し活"
-      ],
-      "story_intro": "仲良いフリして裏で足を引っ張る『フレネミー』や、SNSの『裏アカ特定班』『怪しいDM』の罠！ワンタップで華麗にジャンプして、平和なメンタルと安全なタイムラインを守り抜け！",
-      "controls_hint": "画面クリック/タップ（またはスペースキー）でジャンプ！迫りくるSNSの地雷ワードの隙間をくぐり抜けよう！",
-      "bgm_preset": "retro_8bit",
-      "background": {
-        "gradient": [
-          "#2b1055",
-          "#7597de",
-          "#f8b500"
-        ],
-        "board_bg": "rgba(32, 18, 65, 0.94)",
-        "border_color": "#ffca28",
-        "particle_emoji": "💬",
-        "accent_color": "#ffca28"
-      },
-      "player": {
-        "emoji": "🐣",
-        "name": "平和なアカウント",
-        "jump_quotes": [
-          "既読スルー！",
-          "ミュート！",
-          "VPN接続！",
-          "関わらない！",
-          "スルースキル！"
-        ]
-      },
-      "obstacles": [
-        "フレネミーの罠",
-        "裏アカ特定班",
-        "さりげないマウント",
-        "IPアドレス流出",
-        "匂わせストーリー",
-        "グループLINE地獄"
-      ],
-      "collectibles": [
-        {
-          "emoji": "🍵",
-          "name": "デジタルデトックス茶",
-          "score": 150
+          "expected_cvr": 0.034,
+          "tag": "損切り民脱出・厳選10銘柄"
         },
         {
-          "emoji": "🛡️",
-          "name": "VPN匿名バリア",
-          "score": 250
-        }
-      ],
-      "ranks": [
-        {
-          "min_score": 0,
-          "title": "SNSお人好しカモ認定",
-          "comment": "フレネミーと特定班の罠に引っかかっています！ネットのプライバシー保護を強化しましょう！"
-        },
-        {
-          "min_score": 600,
-          "title": "スルースキル検定2級",
-          "comment": "華麗な回避術！無駄な人間関係ストレスを寄せ付けないメンタルが育っています！"
-        },
-        {
-          "min_score": 1500,
-          "title": "絶対平穏メンタル仙人",
-          "comment": "どんなフレネミーも裏アカ特定班も完全無力化！あなたのタイムラインは世界一平和です！"
-        }
-      ],
-      "affiliate_offers": [
-        {
-          "offer_id": "a8_millenvpn_sns",
-          "network": "A8.net プライバシー保護枠",
-          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
-          "description": "IPアドレスを隠して身バレ・特定・通信覗き見を防止！SNS時代の必須セキュリティ対策。",
-          "cta_text": "MillenVPNでプライバシーを守る (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
-          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
-          "cpa_jpy": 3500,
-          "expected_cvr": 0.02,
-          "tag": "身バレ・特定防止"
-        },
-        {
-          "offer_id": "a8_fanema_sns",
-          "network": "A8.net エンタメ公式枠",
-          "title": "リアルな人間関係に疲れたら二次元＆推し活へ！【FaNeMa】公式オリジナルグッズ",
-          "description": "アニメ・マンガ・ゲームの公式限定グッズで癒やしの空間を作ろう！",
-          "cta_text": "FaNeMaで最新アニメ・ゲームグッズを見る (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
-          "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
-          "cpa_jpy": 1500,
-          "expected_cvr": 0.024,
-          "tag": "癒やしの推し活"
+          "offer_id": "a8_stocks10_suika_sub",
+          "network": "A8.net 特別バナー枠",
+          "title": "あなたの株式投資が一変するかもしれない情報源【旬の厳選10銘柄】",
+          "description": "植田総裁の利上げ局面や国策テーマで輝く銘柄はどれか？プロの分析を今すぐチェック。",
+          "cta_text": "公式サイトで厳選10銘柄を確認する (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D",
+          "cpa_jpy": 4000,
+          "expected_cvr": 0.029,
+          "tag": "高騰期待株レポート"
         }
       ]
     },
     {
       "slug": "winter-power-catcher",
-      "title": "冬の電力クライシス！節電＆GXキャッチパニック",
-      "subtitle": "今冬の電気代高騰＆インフレを乗り切れ！60秒エネルギー＆高騰資産収集ゲーム",
+      "title": "なぜ庶民がAIの電気代まで負担！？託送料金転嫁＆補助金終了クライシス",
+      "subtitle": "『電力会社は最高益なのにAIデータセンター送電費まで国民負担！？』大炎上ニュースを攻略せよ",
       "engine": "catcher",
-      "trend_category": "経済・エネルギー・投資時事2026",
+      "stage_style": "stock_exchange",
+      "trend_category": "2026年秋冬・電気代託送料金大炎上",
       "trend_keywords": [
-        "冬の電力需給",
-        "GX関連株",
-        "電気代高騰",
-        "J-クレジット",
-        "株式投資"
+        "AI電力網託送料金",
+        "なぜ庶民がAIの電気代負担",
+        "電気ガス補助金終了",
+        "再エネ賦課金",
+        "10月11月連続値上げ"
       ],
-      "story_intro": "2026年冬、寒波到来で電力需給が大ピンチ＆光熱費高騰！上から降ってくる『太陽光・蓄電池・GXクレジット』をキャッチして資産を増やし、『電気代値上げ請求書』を避けまくろう！",
-      "controls_hint": "マウス移動（または左右キー/画面ドラッグ）でバスケットを操作！エコ電力＆資産アイテムを集めよう！",
+      "buzz_news_context": "【元ネタ時事解説】生成AIデータセンター急増に伴う送配電網の増強費用（託送料金）が一般家庭の電気代に転嫁される見通しとなり、Xで『なぜ一般人がAI企業のインフラ代まで肩代わりさせられるのか』『電力大手は過去最高益なのに』と大炎上！さらに政府補助金終了による10月・11月連続値上げラッシュをゲーム化！",
+      "story_intro": "2026年11月、政府の電気・ガス補助金が終了して請求書が爆上がり！さらに『生成AIデータセンター用の送電網コスト（託送料金）まで一般家庭の電気代に上乗せする』というニュースでSNSは大炎上！上から降ってくる『AI託送料金転嫁』『再エネ賦課金』『11月値上げ通知』を避けながら、『自家発電＆高騰エネルギー株』をキャッチして家計を防衛せよ！",
+      "controls_hint": "マウス移動（または左右キー/画面ドラッグ）で家計防衛バスケットを操作！不当な負担増請求書を避けて資産アイテムを集めよう！",
       "bgm_preset": "panic_rush",
+      "buzz_comments": [
+        "なんで庶民がAIデータセンターの送電網代まで払うんだよw",
+        "電力会社過去最高益なのに10月11月連続値上げは鬼畜",
+        "再エネ賦課金＋託送料金値上げのダブルパンチえぐい",
+        "電気代払うために電力株・インフラ株で配当もらうしかない",
+        "補助金終了した途端に冬の請求書がホラーすぎる"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "SNSトレンド怒号",
+          "quote": "なぜ一般家庭が巨大IT企業のAIデータセンター送電費を肩代わりするのか！？",
+          "badge": "🔥 託送料金転嫁が大炎上"
+        },
+        {
+          "speaker": "11月検針票ショック",
+          "quote": "政府補助金終了＋燃料費調整で今月の電気代がまた数千円アップ！！",
+          "badge": "💸 10・11月連続値上げ"
+        },
+        {
+          "speaker": "逆転の発想",
+          "quote": "光熱費で抜かれるなら、成長するインフラ・AI関連株で取り返せ！",
+          "badge": "📈 攻めの家計防衛"
+        }
+      ],
       "background": {
         "gradient": [
-          "#1a2a6c",
-          "#11998e",
-          "#38ef7d"
+          "#0f172a",
+          "#065f46",
+          "#b45309"
         ],
-        "board_bg": "rgba(15, 34, 48, 0.94)",
+        "board_bg": "rgba(12, 28, 36, 0.94)",
         "border_color": "#38ef7d",
         "particle_emoji": "⚡",
         "accent_color": "#38ef7d"
       },
       "player": {
-        "emoji": "🔋",
-        "name": "超急速蓄電ポット"
+        "emoji": "🛡️",
+        "name": "庶民の家計防衛盾"
       },
       "good_items": [
         {
           "emoji": "☀️",
-          "name": "太陽光パネル発電",
-          "score": 120,
-          "speed": 3.2
+          "name": "自家消費ソーラー",
+          "score": 130,
+          "speed": 3.3,
+          "quote": "託送料金ゼロの自家発電で電気代カット！"
         },
         {
           "emoji": "🌱",
-          "name": "GX・J-クレジット",
-          "score": 200,
-          "speed": 3.8
+          "name": "GX・J-クレジット還付",
+          "score": 220,
+          "speed": 3.9,
+          "quote": "省エネ＆GX還元ポイントを獲得！"
         },
         {
-          "emoji": "🚢",
-          "name": "安定確保LNG船",
-          "score": 320,
-          "speed": 4.5
+          "emoji": "💹",
+          "name": "電力・インフラ高配当株",
+          "score": 350,
+          "speed": 4.5,
+          "quote": "値上げする側の株を持って配当で回収！"
         },
         {
-          "emoji": "💎",
-          "name": "次世代エネルギー株",
-          "score": 550,
-          "speed": 5.5
+          "emoji": "👑",
+          "name": "AIデータセンター本命株",
+          "score": 580,
+          "speed": 5.5,
+          "quote": "AI電力需要の恩恵を受ける厳選銘柄で爆益！"
         }
       ],
       "bad_items": [
         {
-          "emoji": "💸",
-          "name": "電気代値上げ請求書",
-          "score": -250,
-          "speed": 4.0
+          "emoji": "🤖",
+          "name": "AI送電網・託送料金転嫁",
+          "score": -280,
+          "speed": 4.2,
+          "quote": "なぜ庶民がAIのインフラ代まで負担！？(-280)"
         },
         {
-          "emoji": "🥶",
-          "name": "大寒波ピーク負荷",
-          "score": -350,
-          "speed": 4.8
+          "emoji": "🧾",
+          "name": "再エネ賦課金＆補助金終了",
+          "score": -360,
+          "speed": 4.9,
+          "quote": "10月・11月連続値上げ請求書が直撃！(-360)"
         }
       ],
       "ranks": [
         {
           "min_score": 0,
-          "title": "光熱費インフレ直撃世帯",
-          "comment": "このままでは冬の出費で家計が凍りつきます！節約だけでなく『旬の銘柄投資』で攻めの資産防衛を！"
+          "title": "AI託送料金＆再エネ賦課金カモ世帯",
+          "comment": "言われるがままに値上げ分の電気代を払わされています！インフラ・AI相場の波に乗る『旬の厳選10銘柄』で逆襲しましょう！"
         },
         {
           "min_score": 1500,
-          "title": "スマート節電＆投資マイスター",
-          "comment": "見事なエネルギー＆資産管理！成長セクターの波に乗って冬を黒字で乗り切れます！"
+          "title": "託送料金論破のスマート防衛家",
+          "comment": "不当なコスト転嫁を華麗に回避！さらに株式投資のリターンを組み合わせれば冬の光熱費も怖くありません！"
         },
         {
           "min_score": 3200,
-          "title": "日本のGXエネルギー長官",
-          "comment": "今冬の電力需給も資産運用も完全黒字化！圧倒的な先見性です！"
+          "title": "AI電力時代を食い尽くす資産覇王",
+          "comment": "値上げラッシュを完全に利益へ転換！電力需要爆発を味方につけた最強の家計ディフェンスです！"
         }
       ],
       "affiliate_offers": [
@@ -501,130 +836,21 @@
           "offer_id": "a8_stocks10_energy",
           "network": "A8.net 高単価マネー枠",
           "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
-          "description": "エネルギー・GX・国策テーマ株の波に乗る！あなたの株式投資が一変するかもしれない情報源。",
+          "description": "AIデータセンター電力需要・GX・国策インフラ株の波に乗る！電気代値上げ分を投資で取り返すための厳選10銘柄。",
           "cta_text": "プロが選んだ『旬の厳選10銘柄』を見る (PR)",
           "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D",
           "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D",
           "banner_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1",
           "cpa_jpy": 4000,
-          "expected_cvr": 0.021,
-          "tag": "光熱費高騰を投資で回収"
+          "expected_cvr": 0.024,
+          "tag": "AI電力需要・厳選10銘柄"
         },
         {
           "offer_id": "a8_millenvpn_energy",
           "network": "A8.net セキュリティ枠",
           "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
-          "description": "ネットバンキングや証券口座へのログイン通信を強力暗号化して資産を守る！",
+          "description": "ネットバンキングや証券口座へのログイン通信を強力暗号化して大切な資産を守る！",
           "cta_text": "MillenVPNの詳細をチェック (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
-          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
-          "cpa_jpy": 3500,
-          "expected_cvr": 0.016,
-          "tag": "証券・銀行通信の保護"
-        }
-      ]
-    },
-    {
-      "slug": "inflation-whack",
-      "title": "物価高騰バスターズ！値上げラッシュ60秒撃退",
-      "subtitle": "止まらない値上げモンスターを連打でぶっ飛ばせ！インフレ時代の資産防衛タップゲーム",
-      "engine": "whack",
-      "trend_category": "マネー・物価高・株式投資2026",
-      "trend_keywords": [
-        "物価高",
-        "ステルス値上げ",
-        "高騰期待銘柄",
-        "資産防衛",
-        "株式投資"
-      ],
-      "story_intro": "スーパーに行けばあれもこれも値上げ＆ステルス値上げ！次々と穴から飛び出す『値上げモンスター』を60秒間タップ連打で撃退せよ！インフレに負けない資産防衛力を証明するのだ！",
-      "controls_hint": "穴から飛び出す『値上げ怪人・インフレ魔王』を素早くクリック/タップ！『半額弁当🍱』と『配当金袋💰』は叩くな！",
-      "bgm_preset": "upbeat_pop",
-      "background": {
-        "gradient": [
-          "#870000",
-          "#190a05",
-          "#ff6e7f"
-        ],
-        "board_bg": "rgba(42, 16, 16, 0.95)",
-        "border_color": "#ff5252",
-        "particle_emoji": "💥",
-        "accent_color": "#ff5252"
-      },
-      "targets": [
-        {
-          "type": "enemy",
-          "emoji": "👹",
-          "name": "ステルス値上げ怪人",
-          "score": 150,
-          "duration_ms": 950
-        },
-        {
-          "type": "enemy",
-          "emoji": "📈",
-          "name": "インフレ大魔王",
-          "score": 280,
-          "duration_ms": 800
-        },
-        {
-          "type": "enemy",
-          "emoji": "👑",
-          "name": "超高級タマゴ男爵",
-          "score": 450,
-          "duration_ms": 650
-        },
-        {
-          "type": "friend",
-          "emoji": "🍱",
-          "name": "神の半額シール弁当(叩くな!)",
-          "score": -250,
-          "duration_ms": 900
-        },
-        {
-          "type": "friend",
-          "emoji": "💰",
-          "name": "急騰株の配当金袋(叩くな!)",
-          "score": -300,
-          "duration_ms": 850
-        }
-      ],
-      "ranks": [
-        {
-          "min_score": 0,
-          "title": "インフレ直撃ダメージ家計",
-          "comment": "値上げラッシュに押し込まれています！預金だけでは目減りする時代、高騰期待株の情報収集を始めましょう！"
-        },
-        {
-          "min_score": 1600,
-          "title": "やりくり上手の節約ハンター",
-          "comment": "素早い判断力でステルス値上げを撃退！次は株式投資でインフレ率以上のリターンを狙いましょう！"
-        },
-        {
-          "min_score": 3200,
-          "title": "インフレ完全論破の資産防衛王",
-          "comment": "圧巻の連打力！どんな物価高騰も跳ね返す最強のマネーリテラシーです！"
-        }
-      ],
-      "affiliate_offers": [
-        {
-          "offer_id": "a8_stocks10_inflation",
-          "network": "A8.net 資産防衛プログラム",
-          "title": "あなたの株式投資が一変するかもしれない情報源【旬の厳選10銘柄】",
-          "description": "物価高に負けない資産形成！株式投資のプロが高騰期待銘柄を徹底絞り込み。",
-          "cta_text": "【旬の厳選10銘柄】を今すぐチェック (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
-          "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
-          "banner_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1",
-          "cpa_jpy": 4000,
-          "expected_cvr": 0.024,
-          "tag": "インフレ対策・厳選10銘柄"
-        },
-        {
-          "offer_id": "a8_millenvpn_inflation",
-          "network": "A8.net セキュリティ枠",
-          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
-          "description": "コスパ最強の国産VPNでスマホ・PCの通信と大切な資産アカウントを安全保護！",
-          "cta_text": "MillenVPN公式サイトへ (PR)",
           "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
           "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
           "cpa_jpy": 3500,
@@ -634,554 +860,184 @@
       ]
     },
     {
-      "slug": "contessa-car-suika",
-      "title": "伝説の名車復活！日野コンテッサ＆日本車進化スイカ",
-      "subtitle": "2026年『日野コンテッサ1300クーペ』自動車殿堂・歴史遺産車選定記念パズル！",
-      "engine": "suika",
-      "trend_category": "クルマ・産業・コレクター時事2026",
-      "trend_keywords": [
-        "日野コンテッサ1300クーペ",
-        "日本自動車殿堂",
-        "歴史遺産車",
-        "自動車関連株",
-        "コレクター"
-      ],
-      "story_intro": "1965年誕生の美しき名車『日野コンテッサ1300クーペ』が2026年日本自動車殿堂の歴史遺産車に選定！昭和・平成・令和を彩る日本の名車マシンを合体させ、伝説のコンテッサ＆未来の殿堂入りマシンへ進化させよう！",
-      "controls_hint": "マウス移動（またはタップ）でガレージ内の位置を決めてドロップ！同じランクのマシンを合体させて名車を進化させよう！",
-      "bgm_preset": "chill_melody",
-      "background": {
-        "gradient": [
-          "#141e30",
-          "#243b55",
-          "#c94b4b"
-        ],
-        "board_bg": "rgba(25, 32, 48, 0.95)",
-        "border_color": "#ffab00",
-        "particle_emoji": "🏆",
-        "accent_color": "#ffab00"
-      },
-      "items": [
-        {
-          "level": 0,
-          "emoji": "🛞",
-          "name": "ホワイトリボンタイヤ",
-          "radius": 18,
-          "color": "#78909c",
-          "score": 10
-        },
-        {
-          "level": 1,
-          "emoji": "🛵",
-          "name": "昭和スーパーカブ",
-          "radius": 24,
-          "color": "#4db6ac",
-          "score": 25
-        },
-        {
-          "level": 2,
-          "emoji": "🐞",
-          "name": "てんとう虫360",
-          "radius": 31,
-          "color": "#dce775",
-          "score": 50
-        },
-        {
-          "level": 3,
-          "emoji": "🚕",
-          "name": "純国産初代クラウン",
-          "radius": 38,
-          "color": "#ffd54f",
-          "score": 90
-        },
-        {
-          "level": 4,
-          "emoji": "🏆",
-          "name": "日野コンテッサ1300クーペ",
-          "radius": 47,
-          "color": "#ff7043",
-          "score": 180
-        },
-        {
-          "level": 5,
-          "emoji": "🏎️",
-          "name": "幻の2000GT",
-          "radius": 56,
-          "color": "#ef5350",
-          "score": 300
-        },
-        {
-          "level": 6,
-          "emoji": "🚗",
-          "name": "伝説のハコスカGT-R",
-          "radius": 66,
-          "color": "#ab47bc",
-          "score": 450
-        },
-        {
-          "level": 7,
-          "emoji": "🔥",
-          "name": "ロータリーRX-7",
-          "radius": 76,
-          "color": "#5c6bc0",
-          "score": 700
-        },
-        {
-          "level": 8,
-          "emoji": "⚡",
-          "name": "令和ハイパーEVスポーツ",
-          "radius": 88,
-          "color": "#29b6f6",
-          "score": 1100
-        },
-        {
-          "level": 9,
-          "emoji": "👑",
-          "name": "日本自動車殿堂レジェンド",
-          "radius": 102,
-          "color": "#ffab00",
-          "score": 2200
-        }
-      ],
-      "ranks": [
-        {
-          "min_score": 0,
-          "title": "サンデードライバー見習い",
-          "comment": "ガレージが満車になってしまいました！まずは日野コンテッサの召喚を目指そう！"
-        },
-        {
-          "min_score": 900,
-          "title": "クラシックカー名伯楽",
-          "comment": "日野コンテッサ1300クーペのイタリアンデザインも喜ぶ名車コレクションです！"
-        },
-        {
-          "min_score": 2200,
-          "title": "日本自動車殿堂・名誉オーナー",
-          "comment": "昭和から令和まで日本の自動車史を完全制覇！伝説のグランドマスター誕生！"
-        }
-      ],
-      "affiliate_offers": [
-        {
-          "offer_id": "a8_stocks10_car",
-          "network": "A8.net 注目銘柄プログラム",
-          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
-          "description": "日本のモノづくり・次世代モビリティ・半導体関連など、プロが厳選した高騰期待10銘柄を公開！",
-          "cta_text": "【旬の厳選10銘柄】詳細を見る (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP",
-          "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TTTEP",
-          "banner_img": "https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1",
-          "cpa_jpy": 4000,
-          "expected_cvr": 0.02,
-          "tag": "名車オーナー・投資家向け"
-        },
-        {
-          "offer_id": "a8_fanema_car",
-          "network": "A8.net コレクターズ枠",
-          "title": "アニメ・マンガ・ゲーム等のオリジナルグッズを皆様にお届けします！【FaNeMa】",
-          "description": "コレクター魂をくすぐる精巧なオリジナルグッズ・限定アイテム多数ラインナップ！",
-          "cta_text": "FaNeMa公式ショップを見る (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
-          "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
-          "cpa_jpy": 1500,
-          "expected_cvr": 0.022,
-          "tag": "コレクター限定グッズ"
-        }
-      ]
-    },
-    {
-      "slug": "tenbagger-stock-suika",
-      "title": "新NISA＆日経バブル！テンバガー株進化スイカ",
-      "subtitle": "小銭株から合体させて株価10倍『テンバガー銘柄』＆『億り人』を召喚せよ！",
-      "engine": "suika",
-      "trend_category": "株式投資・マネートレンド2026",
-      "trend_keywords": [
-        "旬の厳選10銘柄",
-        "テンバガー株",
-        "新NISA",
-        "高騰期待銘柄",
-        "億り人"
-      ],
-      "story_intro": "2026年の株式市場はテーマ株の大相場！上から落ちてくる注目銘柄をぶつけて合体進化させ、高配当株・半導体株・AI主導株を経て、夢の『テンバガー（株価10倍）銘柄』を達成しよう！",
-      "controls_hint": "マウス移動（または左右タップ）で投資ポジションを決め、クリック/タップでエントリー！同じランクの株を合体させよう！",
-      "bgm_preset": "upbeat_pop",
-      "background": {
-        "gradient": [
-          "#134e5e",
-          "#71b280",
-          "#f7971e"
-        ],
-        "board_bg": "rgba(14, 32, 28, 0.95)",
-        "border_color": "#ffd700",
-        "particle_emoji": "📈",
-        "accent_color": "#ffd700"
-      },
-      "items": [
-        {
-          "level": 0,
-          "emoji": "🪙",
-          "name": "単元未満ミニ株",
-          "radius": 18,
-          "color": "#90a4ae",
-          "score": 15
-        },
-        {
-          "level": 1,
-          "emoji": "🌱",
-          "name": "新NISAつみたて",
-          "radius": 24,
-          "color": "#66bb6a",
-          "score": 35
-        },
-        {
-          "level": 2,
-          "emoji": "🎁",
-          "name": "桐谷さん優待株",
-          "radius": 31,
-          "color": "#26a69a",
-          "score": 70
-        },
-        {
-          "level": 3,
-          "emoji": "💰",
-          "name": "累進高配当株",
-          "radius": 38,
-          "color": "#29b6f6",
-          "score": 120
-        },
-        {
-          "level": 4,
-          "emoji": "🔋",
-          "name": "国策GXエネルギー株",
-          "radius": 46,
-          "color": "#7e57c2",
-          "score": 200
-        },
-        {
-          "level": 5,
-          "emoji": "🤖",
-          "name": "次世代AI半導体株",
-          "radius": 55,
-          "color": "#ab47bc",
-          "score": 320
-        },
-        {
-          "level": 6,
-          "emoji": "🚀",
-          "name": "ストップ高連発銘柄",
-          "radius": 65,
-          "color": "#ec407a",
-          "score": 500
-        },
-        {
-          "level": 7,
-          "emoji": "🔥",
-          "name": "プロ厳選の急騰期待株",
-          "radius": 76,
-          "color": "#ff7043",
-          "score": 800
-        },
-        {
-          "level": 8,
-          "emoji": "💎",
-          "name": "伝説のテンバガー10倍株",
-          "radius": 88,
-          "color": "#ffa726",
-          "score": 1300
-        },
-        {
-          "level": 9,
-          "emoji": "👑",
-          "name": "配当生活・億り人達成",
-          "radius": 102,
-          "color": "#ffd700",
-          "score": 2500
-        }
-      ],
-      "ranks": [
-        {
-          "min_score": 0,
-          "title": "高値掴み塩漬けトレーダー",
-          "comment": "雰囲気で売買して天井で掴んでしまいました！まずはプロが絞り込んだ『旬の厳選10銘柄』を研究しましょう！"
-        },
-        {
-          "min_score": 1000,
-          "title": "敏腕スイング投資家",
-          "comment": "確かな相場観で利益を積み上げています！次なる急騰テーマ株を仕込む絶好のタイミングです！"
-        },
-        {
-          "min_score": 2400,
-          "title": "伝説のテンバガー億り人",
-          "comment": "圧倒的なポートフォリオ構築力！市場を牽引するカリスマ投資家の誕生です！"
-        }
-      ],
-      "affiliate_offers": [
-        {
-          "offer_id": "a8_stocks10_suika_main",
-          "network": "A8.net 投資特化プログラム",
-          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
-          "description": "どの銘柄を買うべきか迷っている方へ！あなたの株式投資が一変するかもしれないプロの厳選10銘柄レポート。",
-          "cta_text": "【無料】旬の厳選10銘柄を今すぐ受け取る (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
-          "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
-          "banner_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1",
-          "cpa_jpy": 4000,
-          "expected_cvr": 0.032,
-          "tag": "プレイヤー人気No.1"
-        },
-        {
-          "offer_id": "a8_stocks10_suika_sub",
-          "network": "A8.net 特別バナー枠",
-          "title": "あなたの株式投資が一変するかもしれない情報源【旬の厳選10銘柄】",
-          "description": "高騰期待の注目テーマ株をプロが徹底分析！今すぐチェックして次の相場に備えよう。",
-          "cta_text": "公式サイトで厳選10銘柄を確認する (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D",
-          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D",
-          "cpa_jpy": 4000,
-          "expected_cvr": 0.028,
-          "tag": "高騰期待株特集"
-        }
-      ]
-    },
-    {
-      "slug": "stock-surge-catcher",
-      "title": "暴落回避！急騰10銘柄キャッチ＆狼狽売りサバイバル",
-      "subtitle": "ストップ安爆弾を避けながらプロ厳選の『急騰期待株』を60秒で掴み取れ！",
-      "engine": "catcher",
-      "trend_category": "株式相場・デイトレ時事2026",
-      "trend_keywords": [
-        "高騰期待銘柄",
-        "ストップ高",
-        "決算サプライズ",
-        "旬の厳選10銘柄",
-        "利確"
-      ],
-      "story_intro": "乱高下する2026年のマーケット！上から降ってくる『好決算サプライズ株』『自社株買い発表』『高騰期待の厳選銘柄』をポートフォリオ（カゴ）でキャッチし、『悪材料ストップ安』『狼狽売りトラップ』を華麗に回避せよ！",
-      "controls_hint": "マウス移動（または左右キー/スワイプ）で証券バスケットを操作！急騰株だけを狙い撃ちしよう！",
-      "bgm_preset": "panic_rush",
-      "background": {
-        "gradient": [
-          "#0f0c29",
-          "#302b63",
-          "#24243e"
-        ],
-        "board_bg": "rgba(16, 18, 42, 0.95)",
-        "border_color": "#00e676",
-        "particle_emoji": "💹",
-        "accent_color": "#00e676"
-      },
-      "player": {
-        "emoji": "💼",
-        "name": "最強ポートフォリオ"
-      },
-      "good_items": [
-        {
-          "emoji": "📈",
-          "name": "好決算サプライズ株",
-          "score": 150,
-          "speed": 3.4
-        },
-        {
-          "emoji": "💎",
-          "name": "増配＆自社株買い銘柄",
-          "score": 250,
-          "speed": 4.0
-        },
-        {
-          "emoji": "🚀",
-          "name": "ストップ高急騰銘柄",
-          "score": 400,
-          "speed": 4.8
-        },
-        {
-          "emoji": "👑",
-          "name": "プロ厳選の旬の10銘柄",
-          "score": 650,
-          "speed": 5.6
-        }
-      ],
-      "bad_items": [
-        {
-          "emoji": "📉",
-          "name": "下方修正ナイアガラ",
-          "score": -280,
-          "speed": 4.2
-        },
-        {
-          "emoji": "💣",
-          "name": "イナゴ天井ジャンピングキャッチ",
-          "score": -380,
-          "speed": 5.0
-        }
-      ],
-      "ranks": [
-        {
-          "min_score": 0,
-          "title": "イナゴタワー被害者の会",
-          "comment": "SNSの噂に飛びついて暴落に巻き込まれました！プロの目利きによる『旬の厳選10銘柄』で勝率を上げましょう！"
-        },
-        {
-          "min_score": 1600,
-          "title": "常勝チャートハンター",
-          "comment": "悪材料をかわして急騰株だけを的確にキャッチ！さらに精度を高めるプロの情報源も必見です！"
-        },
-        {
-          "min_score": 3400,
-          "title": "ウォール街も驚く相場師",
-          "comment": "神がかり的なエントリーと暴落回避！今年の相場はあなたの独壇場です！"
-        }
-      ],
-      "affiliate_offers": [
-        {
-          "offer_id": "a8_stocks10_catcher_main",
-          "network": "A8.net 株式投資プログラム",
-          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
-          "description": "イナゴ投資はもう卒業！プロのアナリストが徹底調査して選び抜いた高騰期待の10銘柄を公開中。",
-          "cta_text": "【旬の厳選10銘柄】を今すぐチェック (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D",
-          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D",
-          "banner_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1",
-          "cpa_jpy": 4000,
-          "expected_cvr": 0.03,
-          "tag": "急騰期待株・厳選レポート"
-        },
-        {
-          "offer_id": "a8_millenvpn_trader",
-          "network": "A8.net セキュリティ枠",
-          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
-          "description": "外出先での株価チェックや証券アプリ通信を暗号化し、乗っ取り・不正アクセスを防止！",
-          "cta_text": "MillenVPNで取引環境を守る (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
-          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
-          "cpa_jpy": 3500,
-          "expected_cvr": 0.018,
-          "tag": "投資家の通信セキュリティ"
-        }
-      ]
-    },
-    {
-      "slug": "anime-goods-flappy",
-      "title": "転売ヤー回避！神アニメ限定グッズ争奪フラッピー",
-      "subtitle": "高額転売の罠や売り切れの壁をかわして、公式オリジナルグッズをコンプリートせよ！",
+      "slug": "frenemy-flappy",
+      "title": "『その服個性的だね（笑）』フレネミー女子の褒め殺し＆半目ストーリー晒し脱出",
+      "subtitle": "自分だけ加工した集合写真アップ＆裏アカ監視！2026流行語『フレネミー』の罠をかわして飛べ",
       "engine": "flappy",
-      "trend_category": "アニメ・マンガ・ゲーム時事2026",
+      "stage_style": "neon_sns",
+      "trend_category": "2026年流行語『フレネミー』・SNS毒人間関係",
       "trend_keywords": [
-        "FaNeMa",
-        "アニメグッズ",
-        "推し活祭壇",
-        "限定アクスタ",
-        "転売ヤー回避"
+        "フレネミー",
+        "自分だけ加工して半目アップ",
+        "褒め殺しマウント",
+        "裏アカスクショ晒し",
+        "同担拒否トラップ"
       ],
-      "story_intro": "大人気アニメ・マンガ・ゲームの限定グッズ発売日！立ちふさがる『高額転売ヤー』『サーバー落ち』『ランダム被り沼』の障害物をジャンプでかわし、公式ショップで推しのオリジナルグッズを無事に確保せよ！",
-      "controls_hint": "画面クリック/タップ（またはスペースキー）でジャンプ！障害物を避けながら限定アクスタ＆ぬいぐるみを集めよう！",
+      "buzz_news_context": "【元ネタ時事解説】2026年流行語『フレネミー（友達を装う敵）』でバズった具体例『褒めてるフリしてコンプレックスを刺す』『集合写真で自分だけ小顔加工して友達が半目の写真をストーリーに載せる』『鍵垢（裏アカ）でスクショ監視』というリアルすぎる体験談を完全ゲーム化！",
+      "story_intro": "表では『え〜可愛い！個性的で私には絶対着こなせない（笑）』と笑顔で近づき、裏では『自分が盛れてて友達が半目の集合写真』をインスタストーリーに載せる恐怖の『フレネミー女子』！さらに鍵垢（裏アカ）でのスクショ晒しや同担拒否の地雷網が迫る！ワンタップで華麗にスルーして平穏なメンタルを守り抜け！",
+      "controls_hint": "画面クリック/タップ（またはスペースキー）でジャンプ！フレネミーの毒セリフ柱をかわして進もう！",
       "bgm_preset": "retro_8bit",
+      "buzz_comments": [
+        "自分だけ小顔加工して私だけ半目の写真載せるのガチでフレネミーw",
+        "『すっぴん風で可愛いね！』って絶対バカにしてるやつ",
+        "裏アカでストーリー閲覧履歴チェックしてるの怖すぎ",
+        "推し活界隈のフレネミー女子、同担だとわかった瞬間態度変わるw",
+        "二次元と公式グッズだけが私を裏切らない…"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "フレネミー女子A",
+          "quote": "え〜その服すごい個性的！私には絶対着こなせないわ〜（笑）",
+          "badge": "🐍 褒め殺しチクり攻撃"
+        },
+        {
+          "speaker": "フレネミー女子B",
+          "quote": "昨日の集合写真ストーリー載せたよ！（※自分だけ加工＆友達は半目）",
+          "badge": "📸 半目ストーリーテロ"
+        },
+        {
+          "speaker": "鍵垢パトロール班",
+          "quote": "あいつまた匂わせ投稿してるw スクショして裏グルに共有っと",
+          "badge": "🕵️ 裏アカ監視網"
+        }
+      ],
       "background": {
         "gradient": [
-          "#ff0844",
-          "#ffb199",
-          "#7b4397"
+          "#2b1055",
+          "#be185d",
+          "#f59e0b"
         ],
-        "board_bg": "rgba(40, 14, 36, 0.94)",
-        "border_color": "#ff80ab",
-        "particle_emoji": "✨",
-        "accent_color": "#ff80ab"
+        "board_bg": "rgba(32, 14, 54, 0.94)",
+        "border_color": "#ffca28",
+        "particle_emoji": "🐍",
+        "accent_color": "#ffca28"
       },
       "player": {
-        "emoji": "🦄",
-        "name": "公式グッズ求道者",
+        "emoji": "🐣",
+        "name": "平穏メンタル垢",
+        "color": "#38bdf8",
         "jump_quotes": [
-          "公式で買う！",
-          "尊い…！",
-          "祭壇完成！",
-          "保存用も確保！",
-          "神作画！"
+          "ミュート！",
+          "ストーリー非表示！",
+          "半目写真消せ！",
+          "スルースキル！",
+          "二次元最高！"
         ]
       },
       "obstacles": [
-        "悪質転売ヤー",
-        "ブラインド被り沼",
-        "予約締め切り忘れ",
-        "非公式海賊版",
-        "送料トラップ"
+        "自分だけ小顔加工",
+        "友達半目ストーリー",
+        "個性的な服だね(笑)",
+        "裏アカスクショ監視",
+        "彼氏スペック探り",
+        "推し被りマウント"
       ],
       "collectibles": [
         {
-          "emoji": "💎",
-          "name": "限定描き下ろしアクスタ",
-          "score": 180
+          "emoji": "🛡️",
+          "name": "MillenVPN身バレ防止盾",
+          "score": 180,
+          "quote": "IPアドレス完全秘匿で裏アカ特定班をシャットアウト！"
         },
         {
-          "emoji": "🧸",
-          "name": "受注生産ぬいぐるみ",
-          "score": 280
+          "emoji": "✨",
+          "name": "FaNeMa癒やしの推しグッズ",
+          "score": 260,
+          "quote": "ドロドロ人間関係から離れて純粋な推し活でメンタル全回復！"
         }
       ],
       "ranks": [
         {
           "min_score": 0,
-          "title": "予約期間終了の悲劇",
-          "comment": "うっかり買い逃してしまいました！公式ECサイト『FaNeMa』をブックマークして確実に入手しましょう！"
+          "title": "半目集合写真の犠牲者",
+          "comment": "フレネミー女子の『褒め殺し』と『無加工ストーリー晒し』の餌食になっています！今すぐミュート＆セキュリティ対策を！"
         },
         {
-          "min_score": 700,
-          "title": "公式グッズ収集マイスター",
-          "comment": "転売ヤーに1円も渡さず公式ルートで推しのグッズを見事確保！素晴らしい推し活の鑑です！"
+          "min_score": 600,
+          "title": "フレネミー完全判別マイスター",
+          "comment": "笑顔の裏のマウンティングを0.1秒で見抜く動体視力！無駄な女子会ストレスを寄せ付けません！"
         },
         {
-          "min_score": 1600,
-          "title": "神の推し祭壇クリエイター",
-          "comment": "観賞用・保存用・布教用まで完全コンプリート！推しの輝きで部屋が満たされました！"
+          "min_score": 1500,
+          "title": "絶対不可侵のメンタル仙人",
+          "comment": "どんなフレネミーも裏アカ特定班も完全無力化！あなたのタイムラインと推し活部屋は世界一平和です！"
         }
       ],
       "affiliate_offers": [
         {
-          "offer_id": "a8_fanema_flappy_main",
-          "network": "A8.net 公式アニメ・ゲームグッズ枠",
-          "title": "【注目特典】アニメ・マンガ・ゲーム等のオリジナルグッズを皆様にお届けします！【FaNeMa】",
-          "description": "システムサービス公式ECショップ！話題作のオリジナルグッズ・限定アイテムを安心の公式通販でお届け。",
-          "cta_text": "【FaNeMa】公式オンラインショップを見る (PR)",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
-          "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
-          "banner_img": "https://www21.a8.net/svt/bgt?aid=261112167571&wid=001&eno=01&mid=s00000025309001005000&mc=1",
-          "cpa_jpy": 1500,
-          "expected_cvr": 0.035,
-          "tag": "公式オリジナルグッズ通販"
-        },
-        {
-          "offer_id": "a8_millenvpn_anime",
-          "network": "A8.net 動画・通信保護枠",
-          "title": "【注目特典】MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
-          "description": "アニメ配信視聴やゲーム通信を快適＆安全に！世界中に接続できる安心の国産VPNサービス。",
-          "cta_text": "MillenVPNの詳細を見る (PR)",
+          "offer_id": "a8_millenvpn_sns",
+          "network": "A8.net プライバシー保護枠",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "IPアドレスを隠してSNSの身バレ・裏アカ特定・通信覗き見を防止！ネット護身の必須アプリ。",
+          "cta_text": "MillenVPNでプライバシーを守る (PR)",
           "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
           "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
           "cpa_jpy": 3500,
-          "expected_cvr": 0.0184,
-          "tag": "配信視聴＆セキュリティ"
+          "expected_cvr": 0.022,
+          "tag": "身バレ・裏アカ特定防止"
+        },
+        {
+          "offer_id": "a8_fanema_sns",
+          "network": "A8.net エンタメ公式枠",
+          "title": "リアルな人間関係に疲れたら二次元＆推し活へ！【FaNeMa】公式オリジナルグッズ",
+          "description": "推しは絶対に裏切らない！アニメ・マンガ・ゲームの公式限定グッズで最高の癒やし空間を作ろう。",
+          "cta_text": "FaNeMaで最新アニメ・ゲームグッズを見る (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "cpa_jpy": 1500,
+          "expected_cvr": 0.026,
+          "tag": "推しは裏切らない"
         }
       ]
     },
     {
       "slug": "freewifi-hacker-whack",
-      "title": "フリーWi-Fi盗聴バスター！覗き見ハッカー60秒撃退",
-      "subtitle": "カフェやホテルの危険な野良Wi-Fiに潜む盗聴ハッカーを連打でぶっ飛ばせ！",
+      "title": "お名前VPS侵入ハッカー＆『正直もう疲れ切っている』サイバー攻撃60秒連打撃退！",
+      "subtitle": "2ヶ月半潜伏するVPS侵入犯・野良Wi-Fi盗聴魔・身代金要求ボットをタコ殴りにせよ！",
       "engine": "whack",
-      "trend_category": "スマホ防犯・VPN時事2026",
+      "stage_style": "press_conference",
+      "trend_category": "2026年サイバー攻撃激化・危機管理時事",
       "trend_keywords": [
-        "フリーWi-Fi危険",
+        "お名前VPS侵入犯",
+        "正直もう疲れ切っている",
+        "インフォスティーラー",
         "MillenVPN",
-        "通信盗聴対策",
-        "パスワード流出",
-        "スマホセキュリティ"
+        "身代金80億円ボット"
       ],
-      "story_intro": "カフェや空港、ホテルの『鍵なしフリーWi-Fi』には通信を丸ごと覗き見するハッカーが潜んでいる！次々とアクセスポイントから顔を出す『盗聴スニッファー』『偽Wi-Fi怪人』を60秒間タップ連打で撃退せよ！",
-      "controls_hint": "穴から飛び出す『盗聴ハッカー・偽Wi-Fi怪人』を素早くタップ撃退！『VPN暗号化シールド🛡️』は味方なので叩くな！",
+      "buzz_news_context": "【元ネタ時事解説】2026年秋に相次いだ大手企業への不正アクセス事件（GMOお名前.com デスクトップクラウドへの2ヶ月半潜伏＆80億円要求、ソフトバンク決算での宮川社長『正直もう疲れ切っている』発言、パスワードを丸ごと抜くインフォスティーラー流行）をモチーフにした爽快撃退ゲーム！",
+      "story_intro": "2026年、日本のサーバーと街中のフリーWi-Fiにハッカー集団が大増殖！大企業の社長も会見で『正直もう疲れ切っている…』と漏らすほどの総攻撃！2ヶ月半こっそり潜伏する『VPS侵入スニッファー』や『80億円身代金ランサム怪人』を60秒間タップ連打で叩き潰せ！ただし『MillenVPN暗号化シールド🛡️』は味方なので誤爆厳禁！",
+      "controls_hint": "穴から飛び出す『VPS侵入ハッカー・身代金ボット』を素早くタップ！『MillenVPN盾🛡️』と『イエ〇エ診断書🔐』は叩くな！",
       "bgm_preset": "cyber_tension",
+      "buzz_comments": [
+        "ミヤカワ社長の『正直もう疲れ切っている』がリアルすぎるw",
+        "2ヶ月半もVPSに潜伏されてたとかホラーだろ",
+        "インフォスティーラーでブラウザ保存パスワード抜かれるの怖い",
+        "カフェの鍵なしフリーWi-Fi繋いでる奴は今すぐVPN入れろ"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "通信大手ミヤカワ社長",
+          "quote": "次から次へとサイバー攻撃が来て、正直もう疲れ切っている…",
+          "badge": "😮‍💨 決算会見の本音ポロリ"
+        },
+        {
+          "speaker": "潜伏ハッカー集団",
+          "quote": "2ヶ月半誰にも気づかれずVPSの管理者権限いただいたぜw",
+          "badge": "🕵️ ステルス侵入警報"
+        },
+        {
+          "speaker": "セキュリティ防衛隊",
+          "quote": "通信をMillenVPNで暗号化完了！盗聴パケットを完全遮断！",
+          "badge": "🛡️ 国産VPN防衛発動"
+        }
+      ],
       "background": {
         "gradient": [
           "#000428",
           "#004e92",
-          "#00c6ff"
+          "#be123c"
         ],
-        "board_bg": "rgba(8, 22, 48, 0.95)",
+        "board_bg": "rgba(8, 20, 44, 0.95)",
         "border_color": "#00e5ff",
         "particle_emoji": "🔒",
         "accent_color": "#00e5ff"
@@ -1190,54 +1046,59 @@
         {
           "type": "enemy",
           "emoji": "🕵️",
-          "name": "Wi-Fi覗き見スニッファー",
-          "score": 160,
-          "duration_ms": 920
-        },
-        {
-          "type": "enemy",
-          "emoji": "📡",
-          "name": "偽アクセスポイント罠",
-          "score": 290,
-          "duration_ms": 780
+          "name": "2ヶ月半潜伏スニッファー",
+          "score": 170,
+          "duration_ms": 900,
+          "quote": "8月からずっとサーバーの中にいたのにバレた！"
         },
         {
           "type": "enemy",
           "emoji": "💀",
-          "name": "クレカ番号泥棒ボット",
+          "name": "80億円身代金ランサム魔",
+          "score": 300,
+          "duration_ms": 780,
+          "quote": "5000万ドルビットコインで払えーっ！グハッ！"
+        },
+        {
+          "type": "enemy",
+          "emoji": "📡",
+          "name": "カフェ野良Wi-Fi盗聴器",
           "score": 460,
-          "duration_ms": 640
+          "duration_ms": 640,
+          "quote": "無料Wi-Fiのパスワード平文通信いただき…ぎゃあ！"
         },
         {
           "type": "friend",
           "emoji": "🛡️",
           "name": "MillenVPN暗号化盾(叩くな!)",
           "score": -260,
-          "duration_ms": 880
+          "duration_ms": 880,
+          "quote": "味方のVPNシールドを切ってどうする！"
         },
         {
           "type": "friend",
-          "emoji": "🔐",
-          "name": "安全HTTPS通信(叩くな!)",
-          "score": -260,
-          "duration_ms": 850
+          "emoji": "📋",
+          "name": "イエ〇エ脆弱性報告書(叩くな!)",
+          "score": -280,
+          "duration_ms": 850,
+          "quote": "せっかくの脆弱性報告書をまた握りつぶしたーっ！"
         }
       ],
       "ranks": [
         {
           "min_score": 0,
-          "title": "野良Wi-Fi無防備接続ユーザー",
-          "comment": "パスワードも履歴も抜かれ放題のピンチ！外出先や自宅の通信は『MillenVPN』で即暗号化しましょう！"
+          "title": "脆弱性レポート2年放置サーバー",
+          "comment": "ハッカーに2ヶ月半住み着かれてしまいました！個人のスマホ・PC通信は『MillenVPN』で今すぐ暗号化しましょう！"
         },
         {
           "min_score": 1600,
-          "title": "ネットワーク防衛ガーディアン",
-          "comment": "偽Wi-Fiと盗聴ハッカーを見事撃退！さらにVPNを導入すればセキュリティは鉄壁です！"
+          "title": "疲れ知らずのSOC監視リーダー",
+          "comment": "潜伏ハッカーも野良Wi-Fi罠も即座に検知・撃退！さらにVPNを常時ONにすればセキュリティは完璧です！"
         },
         {
           "min_score": 3200,
-          "title": "絶対暗号化サイバー司令官",
-          "comment": "1ビットの通信漏洩も許さない完璧な反射神経！ハッカーが最も恐れる鉄壁ユーザーです！"
+          "title": "80億円要求を粉砕する絶対防衛神",
+          "comment": "いかなるインフォスティーラーもランサムウェアも1秒で粉砕！日本最強のサイバーガーディアンです！"
         }
       ],
       "affiliate_offers": [
@@ -1250,8 +1111,8 @@
           "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
           "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
           "cpa_jpy": 3500,
-          "expected_cvr": 0.033,
-          "tag": "フリーWi-Fi対策No.1"
+          "expected_cvr": 0.035,
+          "tag": "フリーWi-Fi・ハッキング対策No.1"
         },
         {
           "offer_id": "a8_stocks10_whack_sub",
@@ -1262,8 +1123,483 @@
           "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
           "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
           "cpa_jpy": 4000,
-          "expected_cvr": 0.019,
+          "expected_cvr": 0.02,
           "tag": "資産形成レポート"
+        }
+      ]
+    },
+    {
+      "slug": "stock-surge-catcher",
+      "title": "植田総裁の利上げ砲をかわして急騰10銘柄を掴め！東証アローズ大相場キャッチャー",
+      "subtitle": "米中間選挙ショック＆イナゴ天井掴みを避け、プロ厳選の『ストップ高銘柄』を60秒で集めろ！",
+      "engine": "catcher",
+      "stage_style": "stock_exchange",
+      "trend_category": "2026年日経平均ボラティリティ＆金融政策時事",
+      "trend_keywords": [
+        "植田総裁会見",
+        "米中間選挙ショック",
+        "旬の厳選10銘柄",
+        "イナゴタワー崩壊",
+        "自社株買いサプライズ"
+      ],
+      "buzz_news_context": "【元ネタ時事解説】2026年、日銀・植田総裁の12月利上げ観測や米中間選挙でのハイテク規制懸念から日経平均が1日で数千円乱高下！SNSの煽りに乗って高値ジャンピングキャッチする『イナゴ投資家』と、好決算・自社株買いの『厳選銘柄』を拾うプロの明暗を再現！",
+      "story_intro": "午後3時半、日銀・植田総裁の記者会見が始まり為替と日経先物が大乱高下！上から降ってくる『好決算サプライズ』『大規模自社株買い』『プロ厳選の旬の10銘柄』をポートフォリオでキャッチし、『SNS煽りイナゴ天井爆弾』『下方修正ナイアガラ』を華麗に回避せよ！",
+      "controls_hint": "マウス移動（または左右キー/スワイプ）で証券バスケットを操作！急騰株だけを狙い撃ちしよう！",
+      "bgm_preset": "panic_rush",
+      "buzz_comments": [
+        "植田総裁の第一声でドル円が2円飛んだぞwww",
+        "Xの株クラ煽り銘柄に飛びついたら即イナゴタワー崩壊した…",
+        "やっぱりPBR改善＆自社株買いの厳選銘柄が一番強い",
+        "ボラティリティ高すぎて1分で月給分動く相場w"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "日銀・植田総裁",
+          "quote": "データがオントラックであれば、金融緩和の度合いを調整していく…",
+          "badge": "🏦 日銀政策決定会合"
+        },
+        {
+          "speaker": "東証アローズ速報",
+          "quote": "大規模自社株買い＆増配発表！気配値が張り付いてストップ高！！",
+          "badge": "🚀 厳選銘柄が大爆発"
+        },
+        {
+          "speaker": "イナゴ投資家の末路",
+          "quote": "SNSで煽られてた仕手株を天井でジャンピングキャッチしてしまった…",
+          "badge": "📉 イナゴタワー崩壊"
+        }
+      ],
+      "background": {
+        "gradient": [
+          "#0f0c29",
+          "#064e3b",
+          "#1e1b4b"
+        ],
+        "board_bg": "rgba(10, 18, 36, 0.95)",
+        "border_color": "#00e676",
+        "particle_emoji": "💹",
+        "accent_color": "#00e676"
+      },
+      "player": {
+        "emoji": "💼",
+        "name": "プロ機関投資家ファンド"
+      },
+      "good_items": [
+        {
+          "emoji": "📈",
+          "name": "好決算＆増配サプライズ",
+          "score": 160,
+          "speed": 3.4,
+          "quote": "過去最高益更新＆増配発表でギャップアップ！"
+        },
+        {
+          "emoji": "💎",
+          "name": "発行株10%自社株買い",
+          "score": 260,
+          "speed": 4.0,
+          "quote": "強烈な株主還元発表で買い注文殺到！"
+        },
+        {
+          "emoji": "🚀",
+          "name": "国策AI・防衛ストップ高株",
+          "score": 420,
+          "speed": 4.8,
+          "quote": "国策テーマに乗った本命銘柄が連日ストップ高！"
+        },
+        {
+          "emoji": "👑",
+          "name": "プロ厳選【旬の10銘柄】",
+          "score": 680,
+          "speed": 5.6,
+          "quote": "アナリスト厳選の高騰期待銘柄で資産倍増！"
+        }
+      ],
+      "bad_items": [
+        {
+          "emoji": "📉",
+          "name": "決算またぎ下方修正爆弾",
+          "score": -290,
+          "speed": 4.2,
+          "quote": "無謀な決算ギャンブルでストップ安被弾！(-290)"
+        },
+        {
+          "emoji": "💣",
+          "name": "SNS煽りイナゴ天井掴み",
+          "score": -390,
+          "speed": 5.0,
+          "quote": "Xの煽り屋にハメ込まれて大暴落！(-390)"
+        }
+      ],
+      "ranks": [
+        {
+          "min_score": 0,
+          "title": "SNS煽り屋のカモ・イナゴ投資家",
+          "comment": "根拠のないSNSの噂に飛びついて天井掴みしてしまいました！プロが徹底分析した『旬の厳選10銘柄』で本物の情報源を手に入れましょう！"
+        },
+        {
+          "min_score": 1600,
+          "title": "植田ショックを乗りこなす敏腕トレーダー",
+          "comment": "悪材料をかわして好業績株だけを的確にキャッチ！さらに勝率を高めるプロの厳選10銘柄リストも必見です！"
+        },
+        {
+          "min_score": 3400,
+          "title": "東証の伝説・令和のCis＆BNF級相場師",
+          "comment": "神がかり的なエントリーとリスク管理！どんな乱高下相場もすべて利益に変えるカリスマです！"
+        }
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_stocks10_catcher_main",
+          "network": "A8.net 株式投資プログラム",
+          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
+          "description": "SNSのイナゴ投資はもう卒業！プロのアナリストが徹底調査して選び抜いた高騰期待の10銘柄を公開中。",
+          "cta_text": "【旬の厳選10銘柄】を今すぐチェック (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D",
+          "banner_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1",
+          "cpa_jpy": 4000,
+          "expected_cvr": 0.032,
+          "tag": "急騰期待株・厳選レポート"
+        },
+        {
+          "offer_id": "a8_millenvpn_trader",
+          "network": "A8.net セキュリティ枠",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "証券口座の不正アクセス・乗っ取り被害が急増中！外出先でのトレード通信を国産VPNで完全保護。",
+          "cta_text": "MillenVPNで取引環境を守る (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3500,
+          "expected_cvr": 0.019,
+          "tag": "証券口座セキュリティ"
+        }
+      ]
+    },
+    {
+      "slug": "inflation-whack",
+      "title": "『おいしくなって新登場（内容量20%減）』ステルス値上げ怪人60秒連打バスター！",
+      "subtitle": "弁当の上げ底・お菓子の個数減少・実質賃金マイナス！庶民を舐めるシュリンクフレーションを叩き潰せ",
+      "engine": "whack",
+      "stage_style": "neon_sns",
+      "trend_category": "2026年物価高・ステルス値上げ炎上時事",
+      "trend_keywords": [
+        "おいしくなって新登場(減量)",
+        "セブン上げ底論争",
+        "ステルス値上げ",
+        "株高不況",
+        "実質賃金"
+      ],
+      "buzz_news_context": "【元ネタ時事解説】パッケージに『おいしくなって新登場！』『食べやすいサイズに！』と書きながらこっそり内容量を減らし値段を上げるステルス値上げ（シュリンクフレーション）や、コンビニ弁当の容器工夫、さらに『株は上がっているのに庶民の生活が苦しい株高不況』への怒りを爽快連打ゲーム化！",
+      "story_intro": "スーパーやコンビニに行けば『おいしくなって新登場！（※内容量20%減＆30円値上げ）』『女性でも食べやすいミニサイズ！（※値段据え置き）』ばかり！庶民の目を欺く『ステルス値上げ怪人』と『上げ底容器トリック魔』が次々と穴から顔を出す！60秒間タップ連打でストレスごとぶっ飛ばせ！",
+      "controls_hint": "穴から飛び出す『ステルス値上げ怪人・上げ底魔王』を素早くタップ！『桐谷さんの優待米🍱』と『高騰株配当金💰』は叩くな！",
+      "bgm_preset": "upbeat_pop",
+      "buzz_comments": [
+        "『おいしくなって新登場』＝内容量2割減の法則やめろwww",
+        "袋開けたら中身が半分空気だった時の絶望感よ",
+        "カントリーマアムが将来素粒子サイズになるコピペ思い出したw",
+        "物価高に文句言ってるだけじゃなく株でインフレヘッジする時代"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "ステルス値上げ怪人",
+          "quote": "『おいしくなって新登場！』※なお内容量はこっそり20%減らしましたw",
+          "badge": "🍪 シュリンクフレーション発動"
+        },
+        {
+          "speaker": "容器デザイナー魔王",
+          "quote": "弁当の底をキュッと上げて断面だけ具を詰めれば豪華に見えるのだ！",
+          "badge": "🍱 視覚トリック容器"
+        },
+        {
+          "speaker": "資産防衛アドバイザー",
+          "quote": "現金の価値が目減りするインフレ時代は、高騰期待株で資産を守れ！",
+          "badge": "📈 インフレ完全攻略"
+        }
+      ],
+      "background": {
+        "gradient": [
+          "#7f1d1d",
+          "#1f2937",
+          "#dc2626"
+        ],
+        "board_bg": "rgba(38, 14, 14, 0.95)",
+        "border_color": "#ff5252",
+        "particle_emoji": "💥",
+        "accent_color": "#ff5252"
+      },
+      "targets": [
+        {
+          "type": "enemy",
+          "emoji": "🍪",
+          "name": "『おいしく新登場』減量魔",
+          "score": 160,
+          "duration_ms": 940,
+          "quote": "バレたか！実は1枚減らして袋を小さくしたのだ！"
+        },
+        {
+          "type": "enemy",
+          "emoji": "📦",
+          "name": "光学迷彩・上げ底容器怪人",
+          "score": 290,
+          "duration_ms": 800,
+          "quote": "横から見たら大盛りなのに底が浅いトリック見破られた！"
+        },
+        {
+          "type": "enemy",
+          "emoji": "📈",
+          "name": "10・11月連続値上げ大魔王",
+          "score": 460,
+          "duration_ms": 650,
+          "quote": "原材料高騰につき来月からまた20%値上げだーっ！"
+        },
+        {
+          "type": "friend",
+          "emoji": "🍱",
+          "name": "桐谷さんの株主優待弁当(叩くな!)",
+          "score": -250,
+          "duration_ms": 900,
+          "quote": "優待券でタダでもらった豪華弁当を潰す気か！"
+        },
+        {
+          "type": "friend",
+          "emoji": "💰",
+          "name": "急騰株の非課税配当金(叩くな!)",
+          "score": -300,
+          "duration_ms": 850,
+          "quote": "せっかくの配当金袋を叩いてしまった！"
+        }
+      ],
+      "ranks": [
+        {
+          "min_score": 0,
+          "title": "ステルス値上げ泣き寝入り消費者",
+          "comment": "減量パッケージと値上げラッシュにされるがままです！現金預金だけでは目減りする時代、『旬の厳選10銘柄』でインフレに勝ちましょう！"
+        },
+        {
+          "min_score": 1600,
+          "title": "裏面グラム表記チェックの達人",
+          "comment": "内容量減少を0.1秒で見抜く鋭い眼光！次は株式投資で物価上昇率以上のリターンを手に入れましょう！"
+        },
+        {
+          "min_score": 3200,
+          "title": "シュリンクフレーション完全粉砕王",
+          "comment": "圧巻の連打力でステルス値上げ怪人を一掃！インフレ時代を余裕で生き抜く最強のマネーファイターです！"
+        }
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_stocks10_inflation",
+          "network": "A8.net 資産防衛プログラム",
+          "title": "あなたの株式投資が一変するかもしれない情報源【旬の厳選10銘柄】",
+          "description": "物価高・インフレに負けない資産形成！株式投資のプロが高騰期待銘柄を徹底絞り込み。",
+          "cta_text": "【旬の厳選10銘柄】を今すぐチェック (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "banner_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1",
+          "cpa_jpy": 4000,
+          "expected_cvr": 0.026,
+          "tag": "インフレ対策・厳選10銘柄"
+        },
+        {
+          "offer_id": "a8_millenvpn_inflation",
+          "network": "A8.net セキュリティ枠",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "コスパ最強の国産VPNでスマホ・PCの通信と大切な資産アカウントを安全保護！",
+          "cta_text": "MillenVPN公式サイトへ (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3500,
+          "expected_cvr": 0.018,
+          "tag": "ネット資産防衛"
+        }
+      ]
+    },
+    {
+      "slug": "contessa-car-suika",
+      "title": "2026日本自動車殿堂入り！『日野コンテッサ1300クーペ』＆昭和名車レストア進化スイカ",
+      "subtitle": "ミケロッティがデザインした1965年のリアエンジン名車が2026年『歴史遺産車』に選定！",
+      "engine": "suika",
+      "stage_style": "press_conference",
+      "trend_category": "2026年11月自動車殿堂ニュース・名車時事",
+      "trend_keywords": [
+        "日野コンテッサ1300クーペ",
+        "日本自動車殿堂2026",
+        "歴史遺産車",
+        "ミケロッティデザイン",
+        "RR方式名車"
+      ],
+      "buzz_news_context": "【元ネタ時事解説】2026年11月、特定非営利活動法人日本自動車殿堂（JAHFA）において、日野自動車が1965年に発売したリアエンジン・リアドライブ（RR）の名車『日野コンテッサ1300クーペ』（イタリアの巨匠ジョヴァンニ・ミケロッティ設計）が『歴史遺産車』に選定された最新ニュースを祝した名車進化ゲーム！",
+      "story_intro": "2026年11月、イタリアの巨匠ミケロッティがスタイリングを手がけた1965年の美しきRRクーペ『日野コンテッサ1300クーペ』が日本自動車殿堂の歴史遺産車に選出！昭和・平成・令和の日本を駆け抜けた伝説の名車たちをガレージ内で合体進化させ、コンテッサ1300クーペ＆日本自動車史の頂点を目指せ！",
+      "controls_hint": "マウス移動（またはタップ）でガレージ内の位置を決めてドロップ！同じランクのマシンを合体させて名車を進化させよう！",
+      "bgm_preset": "chill_melody",
+      "buzz_comments": [
+        "日野自動車が昔こんな美しい乗用クーペ作ってたのか！",
+        "ミケロッティデザインのコンテッサ1300クーペ渋すぎる",
+        "リアエンジン・リアドライブ（RR）でフロントグリルがない造形美！",
+        "2026年の歴史遺産車選定おめでとうございます！！"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "日本自動車殿堂2026",
+          "quote": "1965年発売『日野コンテッサ1300クーペ』を歴史遺産車に選定します！",
+          "badge": "🏆 2026年11月公式選定"
+        },
+        {
+          "speaker": "名車解説員",
+          "quote": "イタリアの巨匠ミケロッティの流麗なデザインと日野のRR技術が融合！",
+          "badge": "🇮🇹 ミケロッティの美学"
+        },
+        {
+          "speaker": "旧車コレクター",
+          "quote": "国際コンクール・デレガンスでも連続大賞を受賞した日本の誇りだ！",
+          "badge": "✨ 伝説のRRクーペ"
+        }
+      ],
+      "background": {
+        "gradient": [
+          "#141e30",
+          "#243b55",
+          "#991b1b"
+        ],
+        "board_bg": "rgba(20, 28, 44, 0.95)",
+        "border_color": "#ffab00",
+        "particle_emoji": "🏆",
+        "accent_color": "#ffab00"
+      },
+      "items": [
+        {
+          "level": 0,
+          "emoji": "🛞",
+          "name": "ホワイトリボンタイヤ",
+          "radius": 18,
+          "color": "#64748b",
+          "score": 10,
+          "quote": "昭和クラシックカーの足元を飾る白リボン！"
+        },
+        {
+          "level": 1,
+          "emoji": "🛵",
+          "name": "本田宗一郎のスーパーカブ",
+          "radius": 24,
+          "color": "#0d9488",
+          "score": 25,
+          "quote": "日本のモータリゼーションを支えた不朽の名機！"
+        },
+        {
+          "level": 2,
+          "emoji": "🐞",
+          "name": "国民車スバル360",
+          "radius": 31,
+          "color": "#84cc16",
+          "score": 50,
+          "quote": "マイカー時代の幕開け・てんとう虫！"
+        },
+        {
+          "level": 3,
+          "emoji": "🚕",
+          "name": "日野ルノー4CV",
+          "radius": 38,
+          "color": "#eab308",
+          "score": 90,
+          "quote": "日野自動車の乗用車技術を培ったRRベース車！"
+        },
+        {
+          "level": 4,
+          "emoji": "🏆",
+          "name": "日野コンテッサ1300クーペ",
+          "radius": 47,
+          "color": "#f97316",
+          "score": 180,
+          "quote": "2026年歴史遺産車選定！ミケロッティの傑作クーペ！"
+        },
+        {
+          "level": 5,
+          "emoji": "🏎️",
+          "name": "ヤマハ共同開発2000GT",
+          "radius": 56,
+          "color": "#ef4444",
+          "score": 300,
+          "quote": "ボンドカーにもなった国産スーパーカーの祖！"
+        },
+        {
+          "level": 6,
+          "emoji": "🚗",
+          "name": "50連勝ハコスカGT-R",
+          "radius": 66,
+          "color": "#8b5cf6",
+          "score": 450,
+          "quote": "S20型エンジン搭載・ツーリングカー無敵伝説！"
+        },
+        {
+          "level": 7,
+          "emoji": "🔥",
+          "name": "ルマン制覇ロータリー787B",
+          "radius": 76,
+          "color": "#3b82f6",
+          "score": 700,
+          "quote": "飽くなき挑戦！ロータリーサウンドが響き渡る！"
+        },
+        {
+          "level": 8,
+          "emoji": "⚡",
+          "name": "次世代全固体電池スポーツ",
+          "radius": 88,
+          "color": "#06b6d4",
+          "score": 1100,
+          "quote": "日本の自動車技術は次世代モビリティへ進化！"
+        },
+        {
+          "level": 9,
+          "emoji": "👑",
+          "name": "日本自動車殿堂グランドマスター",
+          "radius": 102,
+          "color": "#f59e0b",
+          "score": 2200,
+          "quote": "1965年コンテッサから未来まで自動車史を完全制覇！"
+        }
+      ],
+      "ranks": [
+        {
+          "min_score": 0,
+          "title": "ペーパードライバー見習い",
+          "comment": "ガレージがすぐに満車になってしまいました！まずはランク5『日野コンテッサ1300クーペ』の召喚を目指しましょう！"
+        },
+        {
+          "min_score": 900,
+          "title": "ミケロッティ公認・旧車愛好家",
+          "comment": "日野コンテッサ1300クーペの美しいリアエンジン造形を見事再現！日本のモノづくり関連株も要チェックです！"
+        },
+        {
+          "min_score": 2200,
+          "title": "日本自動車殿堂・名誉館長",
+          "comment": "昭和から令和まで日本の自動車史を完全制覇！コンテッサも喜ぶグランドマスター誕生です！"
+        }
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_stocks10_car",
+          "network": "A8.net 注目銘柄プログラム",
+          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
+          "description": "日本の技術力・次世代モビリティ・半導体関連など、プロが厳選した高騰期待10銘柄を公開！",
+          "cta_text": "【旬の厳選10銘柄】詳細を見る (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP",
+          "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TTTEP",
+          "banner_img": "https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1",
+          "cpa_jpy": 4000,
+          "expected_cvr": 0.022,
+          "tag": "日本企業・注目株レポート"
+        },
+        {
+          "offer_id": "a8_fanema_car",
+          "network": "A8.net コレクターズ枠",
+          "title": "アニメ・マンガ・ゲーム等のオリジナルグッズを皆様にお届けします！【FaNeMa】",
+          "description": "コレクター魂をくすぐる精巧なオリジナルグッズ・限定アイテム多数ラインナップ！",
+          "cta_text": "FaNeMa公式ショップを見る (PR)",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "cpa_jpy": 1500,
+          "expected_cvr": 0.023,
+          "tag": "コレクター限定グッズ"
         }
       ]
     }

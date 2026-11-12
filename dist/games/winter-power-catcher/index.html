@@ -3,21 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>冬の電力クライシス！節電＆GXキャッチパニック | 1分時事ミニゲーム</title>
-  <meta name="description" content="今冬の電気代高騰＆インフレを乗り切れ！60秒エネルギー＆高騰資産収集ゲーム - 2026年冬、寒波到来で電力需給が大ピンチ＆光熱費高騰！上から降ってくる『太陽光・蓄電池・GXクレジット』をキャッチして資産を増やし、『電気代値上げ請求書』を避けまくろう！" />
-  <meta property="og:title" content="冬の電力クライシス！節電＆GXキャッチパニック | 1分時事ミニゲーム" />
-  <meta property="og:description" content="今冬の電気代高騰＆インフレを乗り切れ！60秒エネルギー＆高騰資産収集ゲーム" />
+  <title>なぜ庶民がAIの電気代まで負担！？託送料金転嫁＆補助金終了クライシス | 週刊時事ミニゲームアーケード</title>
+  <meta name="description" content="『電力会社は最高益なのにAIデータセンター送電費まで国民負担！？』大炎上ニュースを攻略せよ - 2026年11月、政府の電気・ガス補助金が終了して請求書が爆上がり！さらに『生成AIデータセンター用の送電網コスト（託送料金）まで一般家庭の電気代に上乗せする』というニュースでSNSは大炎上！上から降ってくる『AI託送料金転嫁』『再エネ賦課金』『11月値上げ通知』を避けながら、『自家発電＆高騰エネルギー株』をキャッチして家計を防衛せよ！" />
+  <meta property="og:title" content="なぜ庶民がAIの電気代まで負担！？託送料金転嫁＆補助金終了クライシス | 週刊時事ミニゲームアーケード" />
+  <meta property="og:description" content="『電力会社は最高益なのにAIデータセンター送電費まで国民負担！？』大炎上ニュースを攻略せよ" />
   <meta property="og:type" content="website" />
   <!-- 忍者AdMax 全自動広告タグ -->
   <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
   <style>
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+Rounded+1c:wght@700;800;900&family=Orbitron:wght@700;900&display=swap');
+
 :root {
-  --bg-grad-1: #141e30;
-  --bg-grad-2: #243b55;
-  --bg-grad-3: #c94b4b;
+  --bg-grad-1: #090d16;
+  --bg-grad-2: #1e293b;
+  --bg-grad-3: #7f1d1d;
   --accent-color: #ff4081;
-  --board-bg: rgba(20, 25, 40, 0.94);
-  --border-color: #ff4081;
+  --board-bg: rgba(12, 18, 32, 0.96);
+  --border-color: #ffd700;
 }
 
 * {
@@ -29,10 +31,9 @@
 }
 
 body {
-  font-family: 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-  background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3));
-  background-size: 300% 300%;
-  animation: gradientMove 15s ease infinite;
+  font-family: 'M PLUS Rounded 1c', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  background: radial-gradient(circle at 50% 0%, var(--bg-grad-2), var(--bg-grad-1) 70%),
+              linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-3));
   color: #ffffff;
   min-height: 100vh;
   display: flex;
@@ -41,39 +42,61 @@ body {
   overflow-x: hidden;
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Breaking News Ticker */
+.news-ticker-bar {
+  width: 100%;
+  background: linear-gradient(90deg, #b91c1c, #dc2626, #991b1b);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 5px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 2px solid #ffd700;
+  box-shadow: 0 2px 12px rgba(220, 38, 38, 0.5);
+  z-index: 30;
 }
 
-/* Header Navigation & Top Ad Slot */
+.news-ticker-track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: tickerScroll 28s linear infinite;
+}
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Header Navigation */
 .top-bar {
   width: 100%;
-  max-width: 520px;
+  max-width: 540px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 14px;
+  background: rgba(9, 13, 22, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.25);
   z-index: 20;
 }
 
 .top-bar a.portal-link {
-  color: #fff;
+  color: #ffd700;
   text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 5px 10px;
+  font-size: 0.84rem;
+  font-weight: 900;
+  background: rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.45);
+  padding: 6px 12px;
   border-radius: 20px;
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
 .top-bar a.portal-link:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: #ffd700;
+  color: #090d16;
 }
 
 .top-controls {
@@ -83,79 +106,82 @@ body {
 }
 
 .btn-icon {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 5px 10px;
-  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 6px 12px;
+  border-radius: 18px;
   cursor: pointer;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 800;
+  transition: all 0.2s;
 }
 
 .btn-icon:hover {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(0, 229, 255, 0.25);
+  border-color: #00e5ff;
 }
 
 /* Ad Slots */
 .ad-banner-slot {
   width: 100%;
   max-width: 520px;
-  min-height: 56px;
-  background: rgba(10, 14, 24, 0.88);
-  border: 1px dashed rgba(255, 215, 0, 0.45);
-  border-radius: 8px;
+  min-height: 54px;
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  border-radius: 12px;
   margin: 6px 0;
-  padding: 6px 10px;
+  padding: 8px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
   text-decoration: none;
   color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
   transition: transform 0.15s, border-color 0.2s;
   position: relative;
 }
 
 .ad-banner-slot:hover {
-  transform: translateY(-1px);
-  border-color: #ffd700;
-  background: rgba(20, 28, 48, 0.95);
+  transform: translateY(-2px);
+  border-color: #00e5ff;
 }
 
 .ad-pr-badge {
-  background: #ffab00;
-  color: #111;
+  background: linear-gradient(135deg, #ffd700, #f59e0b);
+  color: #090d16;
   font-size: 0.68rem;
-  font-weight: 800;
-  padding: 2px 6px;
-  border-radius: 4px;
+  font-weight: 900;
+  padding: 3px 7px;
+  border-radius: 6px;
   white-space: nowrap;
 }
 
 .ad-banner-text {
   font-size: 0.8rem;
-  font-weight: 600;
-  line-height: 1.3;
+  font-weight: 800;
+  line-height: 1.35;
   flex: 1;
 }
 
 .ad-banner-cta {
-  background: linear-gradient(90deg, #ff4081, #ff9100);
+  background: linear-gradient(90deg, #e11d48, #f97316);
   color: #fff;
   font-size: 0.75rem;
-  font-weight: 700;
-  padding: 5px 10px;
-  border-radius: 14px;
+  font-weight: 900;
+  padding: 6px 12px;
+  border-radius: 16px;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.5);
 }
 
 /* Game Container */
 .game-wrapper {
   width: 100%;
-  max-width: 500px;
-  padding: 4px 10px 16px;
+  max-width: 520px;
+  padding: 6px 12px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,56 +190,73 @@ body {
 .game-header {
   width: 100%;
   text-align: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  background: rgba(9, 13, 22, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 10px 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .trend-tag {
   display: inline-block;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid var(--accent-color);
+  background: linear-gradient(90deg, #dc2626, #ea580c);
   color: #fff;
   font-size: 0.72rem;
-  font-weight: 700;
-  padding: 2px 10px;
-  border-radius: 12px;
-  margin-bottom: 4px;
+  font-weight: 900;
+  padding: 3px 12px;
+  border-radius: 14px;
+  margin-bottom: 6px;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.45);
 }
 
 .game-title {
-  font-size: 1.25rem;
-  font-weight: 900;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
-  line-height: 1.25;
+  font-family: 'Dela Gothic One', 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 0 2px 0 #000, 0 0 14px rgba(255, 215, 0, 0.35);
+  line-height: 1.35;
 }
 
 .hud-bar {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 424px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 6px 0 8px;
+}
+
+.hud-item {
+  background: rgba(9, 13, 22, 0.85);
+  border: 1px solid rgba(255, 215, 0, 0.35);
   border-radius: 10px;
-  padding: 6px 12px;
-  margin: 6px 0;
-  font-weight: 700;
-  font-size: 0.92rem;
+  padding: 6px 8px;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #94a3b8;
 }
 
 .hud-item span.val {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
   color: #ffd700;
-  font-size: 1.1rem;
-  margin-left: 4px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  margin-top: 1px;
 }
 
 .stage-container {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 424px;
   background: var(--board-bg);
   border: 3px solid var(--border-color);
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.22), 0 14px 36px rgba(0, 0, 0, 0.75);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -229,22 +272,47 @@ canvas#gameCanvas {
 
 .evolution-guide {
   width: 100%;
-  max-width: 420px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  padding: 6px 10px;
-  margin-top: 8px;
+  max-width: 424px;
+  background: rgba(9, 13, 22, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-top: 10px;
   font-size: 0.78rem;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.65;
 }
 
-/* Modals (Intro, Reward Ad, GameOver Result) */
+.evo-chip {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 8px;
+  padding: 2px 7px;
+  margin: 2px;
+  font-weight: 800;
+  font-size: 0.74rem;
+}
+
+.news-context-box {
+  width: 100%;
+  max-width: 424px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.95));
+  border-left: 4px solid #ffd700;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: #e2e8f0;
+}
+
+/* Modals */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(5, 8, 18, 0.85);
-  backdrop-filter: blur(6px);
+  background: rgba(4, 7, 15, 0.88);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -258,55 +326,59 @@ canvas#gameCanvas {
 
 .modal-card {
   width: 100%;
-  max-width: 460px;
+  max-width: 470px;
   max-height: 92vh;
   overflow-y: auto;
-  background: linear-gradient(160deg, #1b2234, #101522);
-  border: 2px solid var(--border-color);
-  border-radius: 18px;
-  padding: 18px 16px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(165deg, #1e293b, #090d16);
+  border: 2px solid #ffd700;
+  border-radius: 20px;
+  padding: 20px 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(255, 215, 0, 0.2);
   text-align: center;
 }
 
 .modal-title {
-  font-size: 1.35rem;
-  font-weight: 900;
-  margin-bottom: 8px;
+  font-family: 'Dela Gothic One', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 10px;
   color: #ffd700;
+  line-height: 1.35;
 }
 
 .story-box {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 10px 12px;
-  font-size: 0.86rem;
-  line-height: 1.55;
-  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
   text-align: left;
 }
 
 .controls-box {
   background: rgba(0, 229, 255, 0.12);
-  border: 1px solid rgba(0, 229, 255, 0.35);
-  border-radius: 8px;
-  padding: 8px 10px;
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  border-radius: 10px;
+  padding: 10px 12px;
   font-size: 0.8rem;
   margin-bottom: 14px;
   color: #e0f7fa;
+  font-weight: 800;
 }
 
 .btn-primary {
   width: 100%;
-  padding: 13px 18px;
+  padding: 14px 18px;
+  font-family: 'Dela Gothic One', sans-serif;
   font-size: 1.05rem;
-  font-weight: 900;
   color: #fff;
-  background: linear-gradient(90deg, #ff4081, #ff9100);
-  border: none;
-  border-radius: 30px;
+  background: linear-gradient(90deg, #e11d48, #f97316);
+  border: 2px solid #fde047;
+  border-radius: 32px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255, 64, 129, 0.5);
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.55);
   transition: transform 0.15s;
   margin-bottom: 8px;
 }
@@ -317,100 +389,103 @@ canvas#gameCanvas {
 
 .btn-reward {
   width: 100%;
-  padding: 11px 14px;
+  padding: 12px 14px;
   font-size: 0.9rem;
-  font-weight: 800;
-  color: #111;
-  background: linear-gradient(90deg, #ffd700, #ffab00);
+  font-weight: 900;
+  color: #090d16;
+  background: linear-gradient(90deg, #fde047, #f59e0b);
   border: none;
   border-radius: 26px;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 4px 16px rgba(250, 204, 21, 0.45);
   margin-bottom: 10px;
 }
 
 .result-score-box {
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 12px;
-  padding: 10px;
-  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
 }
 
 .result-score-num {
-  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
   font-weight: 900;
   color: #ffd700;
 }
 
 .result-rank-badge {
   display: inline-block;
-  background: var(--accent-color);
+  background: linear-gradient(90deg, #e11d48, #9333ea);
   color: #fff;
-  font-weight: 800;
-  font-size: 0.9rem;
-  padding: 4px 12px;
-  border-radius: 16px;
-  margin: 4px 0;
+  font-weight: 900;
+  font-size: 0.92rem;
+  padding: 5px 14px;
+  border-radius: 18px;
+  margin: 6px 0;
+  border: 1px solid #fde047;
 }
 
 /* Native Affiliate Cards inside Result Modal */
 .affiliate-section {
-  margin-top: 12px;
+  margin-top: 14px;
   text-align: left;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 215, 0, 0.35);
-  border-radius: 12px;
-  padding: 10px;
+  background: rgba(9, 13, 22, 0.9);
+  border: 1.5px solid #ffd700;
+  border-radius: 14px;
+  padding: 12px;
 }
 
 .affiliate-header-badge {
   display: inline-block;
-  background: #ff3d00;
+  background: #dc2626;
   color: #fff;
-  font-size: 0.72rem;
-  font-weight: 800;
-  padding: 2px 8px;
-  border-radius: 4px;
+  font-size: 0.74rem;
+  font-weight: 900;
+  padding: 3px 9px;
+  border-radius: 6px;
   margin-bottom: 6px;
 }
 
 .affiliate-header-badge.gold_shine {
   background: #ffd700;
-  color: #111;
+  color: #090d16;
 }
 
 .offer-card {
-  background: rgba(15, 22, 38, 0.95);
+  background: rgba(30, 41, 59, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 12px;
   margin-top: 8px;
 }
 
 .offer-tag {
   display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 800;
-  background: rgba(0, 229, 255, 0.2);
+  font-size: 0.7rem;
+  font-weight: 900;
+  background: rgba(0, 229, 255, 0.18);
   color: #00e5ff;
-  padding: 2px 7px;
-  border-radius: 4px;
+  padding: 2px 8px;
+  border-radius: 6px;
   margin-bottom: 4px;
 }
 
 .offer-title {
-  font-size: 0.88rem;
-  font-weight: 800;
+  font-size: 0.9rem;
+  font-weight: 900;
   color: #fff;
   margin-bottom: 4px;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .offer-desc {
-  font-size: 0.76rem;
-  color: #cfd8dc;
-  margin-bottom: 8px;
-  line-height: 1.4;
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  margin-bottom: 10px;
+  line-height: 1.45;
 }
 
 .offer-cta-btn {
@@ -418,22 +493,22 @@ canvas#gameCanvas {
   width: 100%;
   text-align: center;
   text-decoration: none;
-  padding: 9px 12px;
-  border-radius: 8px;
-  font-weight: 800;
-  font-size: 0.84rem;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 0.86rem;
   color: #fff;
-  background: linear-gradient(90deg, #00c853, #00bfa5);
-  box-shadow: 0 3px 10px rgba(0, 200, 83, 0.35);
+  background: linear-gradient(90deg, #10b981, #059669);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 }
 
 .offer-cta-btn.urgent_red {
-  background: linear-gradient(90deg, #ff1744, #ff6d00);
+  background: linear-gradient(90deg, #e11d48, #ea580c);
 }
 
 .offer-cta-btn.gold_shine {
-  background: linear-gradient(90deg, #ffd600, #ff9100);
-  color: #111;
+  background: linear-gradient(90deg, #fde047, #f59e0b);
+  color: #090d16;
 }
 
 .share-row {
@@ -444,26 +519,33 @@ canvas#gameCanvas {
 
 .btn-share {
   flex: 1;
-  padding: 8px;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 700;
+  padding: 9px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 800;
   text-decoration: none;
   color: #fff;
-  background: #1da1f2;
+  background: #0284c7;
   text-align: center;
 }
 
 .btn-share.other-games {
-  background: #7c4dff;
+  background: #7c3aed;
 }
 
   </style>
 </head>
 <body>
+  <!-- Live Breaking News Ticker -->
+  <div class="news-ticker-bar">
+    <div class="news-ticker-track">
+      🚨【緊急スクープ速報】なぜ庶民がAIの電気代まで負担！？託送料金転嫁＆補助金終了クライシス が現在バズり中！ ｜ 【元ネタ時事解説】生成AIデータセンター急増に伴う送配電網の増強費用（託送料金）が一般家庭の電気代に転嫁される見通しとなり、Xで『なぜ一般人がAI企業のインフラ代まで肩代わりさせられるのか』『電力大手は過去最高益なのに』と大炎上！さらに政府補助金終了による10月・11月連続値上げラッシュをゲーム化！ ｜ 🎵 4トラック・チップチューンシンセBGM＆記者会見カットイン演出稼働中！
+    </div>
+  </div>
+
   <!-- Top Navigation -->
   <div class="top-bar">
-    <a href="../../index.html" class="portal-link">🏠 時事ゲーム一覧(10本)</a>
+    <a href="../../index.html" class="portal-link">⚡ 時事ゲームアーケード一覧(10本)</a>
     <div class="top-controls">
       <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
       <a href="../../dashboard.html" class="btn-icon" style="text-decoration:none;">📊 CEO効果測定</a>
@@ -483,14 +565,14 @@ canvas#gameCanvas {
   <!-- Main Game Wrapper -->
   <div class="game-wrapper">
     <div class="game-header">
-      <span class="trend-tag">🔥 経済・エネルギー・投資時事2026</span>
-      <h1 class="game-title">冬の電力クライシス！節電＆GXキャッチパニック</h1>
+      <span class="trend-tag">🔥 2026年秋冬・電気代託送料金大炎上</span>
+      <h1 class="game-title">なぜ庶民がAIの電気代まで負担！？託送料金転嫁＆補助金終了クライシス</h1>
     </div>
 
     <div class="hud-bar">
-      <div class="hud-item">SCORE:<span id="hudScore" class="val">0</span></div>
-      <div class="hud-item">TIME:<span id="hudTime" class="val">60</span>s</div>
-      <div class="hud-item">BEST:<span id="hudBest" class="val">0</span></div>
+      <div class="hud-item">SCORE<span id="hudScore" class="val">0</span></div>
+      <div class="hud-item">TIME LEFT<span id="hudTime" class="val">60</span></div>
+      <div class="hud-item">HIGH SCORE<span id="hudBest" class="val">0</span></div>
     </div>
 
     <div class="stage-container">
@@ -498,20 +580,24 @@ canvas#gameCanvas {
     </div>
 
     <div id="evolutionGuide" class="evolution-guide"></div>
+
+    <!-- 元ネタ時事ニュース解説ボックス -->
+    <div class="news-context-box">
+      <strong style="color:#ffd700;">📰 なぜバズっている？元ネタ時事ニュース解説</strong><br />
+      【元ネタ時事解説】生成AIデータセンター急増に伴う送配電網の増強費用（託送料金）が一般家庭の電気代に転嫁される見通しとなり、Xで『なぜ一般人がAI企業のインフラ代まで肩代わりさせられるのか』『電力大手は過去最高益なのに』と大炎上！さらに政府補助金終了による10月・11月連続値上げラッシュをゲーム化！
+    </div>
   </div>
 
   <!-- Footer Ad Slot (A8.net Official Banner + Text Link) -->
   <a id="bottomAdBanner" class="ad-banner-slot" href="#pr"></a>
 
   <div style="width:100%;max-width:520px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;padding:8px 10px 24px;">
-    <!-- A8 素材ID007 (320x50) -->
     <div>
       <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D" rel="nofollow" target="_blank">
         <img border="0" width="320" height="50" alt="旬の厳選10銘柄" src="https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1" style="border-radius:6px;display:block;">
       </a>
       <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D" alt="">
     </div>
-    <!-- A8 通常広告 (120x60) -->
     <div>
       <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP" rel="nofollow" target="_blank">
         <img border="0" width="120" height="60" alt="旬の厳選10銘柄" src="https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1" style="border-radius:6px;display:block;">
@@ -523,17 +609,20 @@ canvas#gameCanvas {
   <!-- Intro Story Modal -->
   <div id="introModal" class="modal-overlay">
     <div class="modal-card">
-      <span class="trend-tag">経済・エネルギー・投資時事2026</span>
-      <h2 class="modal-title">冬の電力クライシス！節電＆GXキャッチパニック</h2>
+      <span class="trend-tag">2026年秋冬・電気代託送料金大炎上</span>
+      <h2 class="modal-title">なぜ庶民がAIの電気代まで負担！？託送料金転嫁＆補助金終了クライシス</h2>
       <div class="story-box">
-        <strong>【ストーリー】</strong><br />
-        2026年冬、寒波到来で電力需給が大ピンチ＆光熱費高騰！上から降ってくる『太陽光・蓄電池・GXクレジット』をキャッチして資産を増やし、『電気代値上げ請求書』を避けまくろう！
+        <strong style="color:#ffd700;">【事件・ストーリー背景】</strong><br />
+        2026年11月、政府の電気・ガス補助金が終了して請求書が爆上がり！さらに『生成AIデータセンター用の送電網コスト（託送料金）まで一般家庭の電気代に上乗せする』というニュースでSNSは大炎上！上から降ってくる『AI託送料金転嫁』『再エネ賦課金』『11月値上げ通知』を避けながら、『自家発電＆高騰エネルギー株』をキャッチして家計を防衛せよ！
+      </div>
+      <div class="story-box" style="border-color:rgba(255,215,0,0.35);background:rgba(255,215,0,0.06);font-size:0.78rem;">
+        【元ネタ時事解説】生成AIデータセンター急増に伴う送配電網の増強費用（託送料金）が一般家庭の電気代に転嫁される見通しとなり、Xで『なぜ一般人がAI企業のインフラ代まで肩代わりさせられるのか』『電力大手は過去最高益なのに』と大炎上！さらに政府補助金終了による10月・11月連続値上げラッシュをゲーム化！
       </div>
       <div class="controls-box">
-        <strong>🎮 操作方法（約1分で完結！）</strong><br />
-        マウス移動（または左右キー/画面ドラッグ）でバスケットを操作！エコ電力＆資産アイテムを集めよう！
+        <strong>🎮 操作方法（60秒完結・バズり名言カットイン搭載！）</strong><br />
+        マウス移動（または左右キー/画面ドラッグ）で家計防衛バスケットを操作！不当な負担増請求書を避けて資産アイテムを集めよう！
       </div>
-      <button id="btnStartGame" class="btn-primary">▶ ゲームスタート！（BGM再生）</button>
+      <button id="btnStartGame" class="btn-primary">▶ 実況ゲームスタート！（マルチトラックBGM再生）</button>
       <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.12);font-size:0.76rem;">
         <span style="background:#ffab00;color:#111;font-weight:800;padding:1px 6px;border-radius:4px;margin-right:4px;">PR</span>
         <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I" rel="nofollow" target="_blank" style="color:#ffd700;font-weight:700;">あなたの株式投資が一変するかもしれない情報源</a>
@@ -548,17 +637,17 @@ canvas#gameCanvas {
   <!-- GameOver & Monetization Result Modal -->
   <div id="resultModal" class="modal-overlay hidden">
     <div class="modal-card">
-      <h2 class="modal-title">⏱️ タイムアップ＆結果発表！</h2>
+      <h2 class="modal-title">🚨 60秒終了！緊急会見・判定結果</h2>
       <div class="result-score-box">
-        <div style="font-size:0.8rem; color:#cfd8dc;">獲得スコア</div>
+        <div style="font-size:0.8rem; color:#cfd8dc;">最終獲得スコア</div>
         <div id="resultScoreNum" class="result-score-num">0</div>
         <div id="resultRankTitle" class="result-rank-badge">称号：判定中</div>
-        <p id="resultRankComment" style="font-size:0.82rem; color:#eceff1; margin-top:6px;"></p>
+        <p id="resultRankComment" style="font-size:0.83rem; color:#eceff1; margin-top:6px; line-height:1.5;"></p>
       </div>
 
       <!-- Reward Ad Boost Button -->
       <button id="btnRewardBoost" class="btn-reward">
-        🔥 スポンサーPRを見てスコア1.5倍＆称号解放！
+        🔥 スポンサーPRを見てスコア1.5倍＆特別称号解放！
       </button>
 
       <!-- Retry & Share Buttons -->
@@ -574,13 +663,368 @@ canvas#gameCanvas {
   </div>
 
   <script>
-    window.THEME_DATA = {"slug": "winter-power-catcher", "title": "冬の電力クライシス！節電＆GXキャッチパニック", "subtitle": "今冬の電気代高騰＆インフレを乗り切れ！60秒エネルギー＆高騰資産収集ゲーム", "engine": "catcher", "trend_category": "経済・エネルギー・投資時事2026", "trend_keywords": ["冬の電力需給", "GX関連株", "電気代高騰", "J-クレジット", "株式投資"], "story_intro": "2026年冬、寒波到来で電力需給が大ピンチ＆光熱費高騰！上から降ってくる『太陽光・蓄電池・GXクレジット』をキャッチして資産を増やし、『電気代値上げ請求書』を避けまくろう！", "controls_hint": "マウス移動（または左右キー/画面ドラッグ）でバスケットを操作！エコ電力＆資産アイテムを集めよう！", "bgm_preset": "panic_rush", "background": {"gradient": ["#1a2a6c", "#11998e", "#38ef7d"], "board_bg": "rgba(15, 34, 48, 0.94)", "border_color": "#38ef7d", "particle_emoji": "⚡", "accent_color": "#38ef7d"}, "player": {"emoji": "🔋", "name": "超急速蓄電ポット"}, "good_items": [{"emoji": "☀️", "name": "太陽光パネル発電", "score": 120, "speed": 3.2}, {"emoji": "🌱", "name": "GX・J-クレジット", "score": 200, "speed": 3.8}, {"emoji": "🚢", "name": "安定確保LNG船", "score": 320, "speed": 4.5}, {"emoji": "💎", "name": "次世代エネルギー株", "score": 550, "speed": 5.5}], "bad_items": [{"emoji": "💸", "name": "電気代値上げ請求書", "score": -250, "speed": 4.0}, {"emoji": "🥶", "name": "大寒波ピーク負荷", "score": -350, "speed": 4.8}], "ranks": [{"min_score": 0, "title": "光熱費インフレ直撃世帯", "comment": "このままでは冬の出費で家計が凍りつきます！節約だけでなく『旬の銘柄投資』で攻めの資産防衛を！"}, {"min_score": 1500, "title": "スマート節電＆投資マイスター", "comment": "見事なエネルギー＆資産管理！成長セクターの波に乗って冬を黒字で乗り切れます！"}, {"min_score": 3200, "title": "日本のGXエネルギー長官", "comment": "今冬の電力需給も資産運用も完全黒字化！圧倒的な先見性です！"}], "affiliate_offers": [{"offer_id": "a8_stocks10_energy", "network": "A8.net 高単価マネー枠", "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】", "description": "エネルギー・GX・国策テーマ株の波に乗る！あなたの株式投資が一変するかもしれない情報源。", "cta_text": "プロが選んだ『旬の厳選10銘柄』を見る (PR)", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D", "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D", "banner_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1", "cpa_jpy": 4000, "expected_cvr": 0.021, "tag": "光熱費高騰を投資で回収"}, {"offer_id": "a8_millenvpn_energy", "network": "A8.net セキュリティ枠", "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！", "description": "ネットバンキングや証券口座へのログイン通信を強力暗号化して資産を守る！", "cta_text": "MillenVPNの詳細をチェック (PR)", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6", "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6", "cpa_jpy": 3500, "expected_cvr": 0.016, "tag": "証券・銀行通信の保護"}]};
+    window.THEME_DATA = {"slug": "winter-power-catcher", "title": "なぜ庶民がAIの電気代まで負担！？託送料金転嫁＆補助金終了クライシス", "subtitle": "『電力会社は最高益なのにAIデータセンター送電費まで国民負担！？』大炎上ニュースを攻略せよ", "engine": "catcher", "stage_style": "stock_exchange", "trend_category": "2026年秋冬・電気代託送料金大炎上", "trend_keywords": ["AI電力網託送料金", "なぜ庶民がAIの電気代負担", "電気ガス補助金終了", "再エネ賦課金", "10月11月連続値上げ"], "buzz_news_context": "【元ネタ時事解説】生成AIデータセンター急増に伴う送配電網の増強費用（託送料金）が一般家庭の電気代に転嫁される見通しとなり、Xで『なぜ一般人がAI企業のインフラ代まで肩代わりさせられるのか』『電力大手は過去最高益なのに』と大炎上！さらに政府補助金終了による10月・11月連続値上げラッシュをゲーム化！", "story_intro": "2026年11月、政府の電気・ガス補助金が終了して請求書が爆上がり！さらに『生成AIデータセンター用の送電網コスト（託送料金）まで一般家庭の電気代に上乗せする』というニュースでSNSは大炎上！上から降ってくる『AI託送料金転嫁』『再エネ賦課金』『11月値上げ通知』を避けながら、『自家発電＆高騰エネルギー株』をキャッチして家計を防衛せよ！", "controls_hint": "マウス移動（または左右キー/画面ドラッグ）で家計防衛バスケットを操作！不当な負担増請求書を避けて資産アイテムを集めよう！", "bgm_preset": "panic_rush", "buzz_comments": ["なんで庶民がAIデータセンターの送電網代まで払うんだよw", "電力会社過去最高益なのに10月11月連続値上げは鬼畜", "再エネ賦課金＋託送料金値上げのダブルパンチえぐい", "電気代払うために電力株・インフラ株で配当もらうしかない", "補助金終了した途端に冬の請求書がホラーすぎる"], "buzz_cutins": [{"speaker": "SNSトレンド怒号", "quote": "なぜ一般家庭が巨大IT企業のAIデータセンター送電費を肩代わりするのか！？", "badge": "🔥 託送料金転嫁が大炎上"}, {"speaker": "11月検針票ショック", "quote": "政府補助金終了＋燃料費調整で今月の電気代がまた数千円アップ！！", "badge": "💸 10・11月連続値上げ"}, {"speaker": "逆転の発想", "quote": "光熱費で抜かれるなら、成長するインフラ・AI関連株で取り返せ！", "badge": "📈 攻めの家計防衛"}], "background": {"gradient": ["#0f172a", "#065f46", "#b45309"], "board_bg": "rgba(12, 28, 36, 0.94)", "border_color": "#38ef7d", "particle_emoji": "⚡", "accent_color": "#38ef7d"}, "player": {"emoji": "🛡️", "name": "庶民の家計防衛盾"}, "good_items": [{"emoji": "☀️", "name": "自家消費ソーラー", "score": 130, "speed": 3.3, "quote": "託送料金ゼロの自家発電で電気代カット！"}, {"emoji": "🌱", "name": "GX・J-クレジット還付", "score": 220, "speed": 3.9, "quote": "省エネ＆GX還元ポイントを獲得！"}, {"emoji": "💹", "name": "電力・インフラ高配当株", "score": 350, "speed": 4.5, "quote": "値上げする側の株を持って配当で回収！"}, {"emoji": "👑", "name": "AIデータセンター本命株", "score": 580, "speed": 5.5, "quote": "AI電力需要の恩恵を受ける厳選銘柄で爆益！"}], "bad_items": [{"emoji": "🤖", "name": "AI送電網・託送料金転嫁", "score": -280, "speed": 4.2, "quote": "なぜ庶民がAIのインフラ代まで負担！？(-280)"}, {"emoji": "🧾", "name": "再エネ賦課金＆補助金終了", "score": -360, "speed": 4.9, "quote": "10月・11月連続値上げ請求書が直撃！(-360)"}], "ranks": [{"min_score": 0, "title": "AI託送料金＆再エネ賦課金カモ世帯", "comment": "言われるがままに値上げ分の電気代を払わされています！インフラ・AI相場の波に乗る『旬の厳選10銘柄』で逆襲しましょう！"}, {"min_score": 1500, "title": "託送料金論破のスマート防衛家", "comment": "不当なコスト転嫁を華麗に回避！さらに株式投資のリターンを組み合わせれば冬の光熱費も怖くありません！"}, {"min_score": 3200, "title": "AI電力時代を食い尽くす資産覇王", "comment": "値上げラッシュを完全に利益へ転換！電力需要爆発を味方につけた最強の家計ディフェンスです！"}], "affiliate_offers": [{"offer_id": "a8_stocks10_energy", "network": "A8.net 高単価マネー枠", "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】", "description": "AIデータセンター電力需要・GX・国策インフラ株の波に乗る！電気代値上げ分を投資で取り返すための厳選10銘柄。", "cta_text": "プロが選んだ『旬の厳選10銘柄』を見る (PR)", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D", "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D", "banner_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1", "cpa_jpy": 4000, "expected_cvr": 0.024, "tag": "AI電力需要・厳選10銘柄"}, {"offer_id": "a8_millenvpn_energy", "network": "A8.net セキュリティ枠", "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！", "description": "ネットバンキングや証券口座へのログイン通信を強力暗号化して大切な資産を守る！", "cta_text": "MillenVPNの詳細をチェック (PR)", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6", "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6", "cpa_jpy": 3500, "expected_cvr": 0.017, "tag": "ネット資産防衛"}]};
     window.MONETIZATION_CONFIG = {"company_name": "TrendMiniGames Studio (時事ミニゲーム製作委員会)", "monthly_profit_target_jpy": 100000, "treasurer_status": {"payment_required_now": false, "payment_amount_jpy": 0, "payout_setup_required": false, "notes": "忍者AdMax（全自動枠＋320x50バナー枠）およびA8.net本番アフィリエイト案件3種（旬の厳選10銘柄・FaNeMa・MillenVPN）の全ゲーム組み込みが完了しました。現在100%本番収益化モードで稼働中です。"}, "ad_networks": {"ninja_admax": {"enabled": true, "name": "忍者AdMax (本番稼働中：全自動広告＋320x50バナー)", "signup_url": "https://www.ninja.co.jp/admax/", "admax_auto_id": "59519514442d60e1492d52de2c0f401b", "banner_320x50_id": "93752c4fffa6919b91e2a59f34ce4982", "banner_320x50_src": "https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982", "header_banner_tag_id": "93752c4fffa6919b91e2a59f34ce4982", "footer_banner_tag_id": "93752c4fffa6919b91e2a59f34ce4982", "interstitial_tag_id": "93752c4fffa6919b91e2a59f34ce4982", "estimated_rpm_jpy": 350}, "a8_net": {"enabled": true, "name": "A8.net (本番稼働中：厳選10銘柄・FaNeMa・MillenVPN)", "signup_url": "https://www.a8.net/", "media_id": "4BGJFR", "live_offers": {"stocks_10": {"title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】", "text_link_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I", "text_link_pixel": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I", "banner_320x50_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D", "banner_320x50_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1", "banner_320x50_pixel": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D", "banner_120x60_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP", "banner_120x60_img": "https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1", "banner_120x60_pixel": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TTTEP"}, "fanema": {"title": "アニメ・マンガ・ゲーム等のオリジナルグッズをお届け【FaNeMa】", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP", "banner_img": "https://www21.a8.net/svt/bgt?aid=261112167571&wid=001&eno=01&mid=s00000025309001005000&mc=1", "pixel": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP"}, "millenvpn": {"title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6", "pixel": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6"}}}}, "ab_testing": {"active_experiment": "result_cta_copy_v2_live", "variants": {"A": {"name": "恐怖・損失回避訴求 (Loss Aversion)", "badge_text": "【警告】知らないと損する現実の対策・情報源", "button_style": "urgent_red", "reward_button_text": "🔥 スポンサーPRを見てスコア1.5倍＆称号解放！"}, "B": {"name": "お得・報酬獲得訴求 (Gain & Reward)", "badge_text": "【プレイヤー限定】今チェックすべき厳選おすすめ情報", "button_style": "gold_shine", "reward_button_text": "🎁 PRをチェックしてボーナススコア＋150%獲得！"}}}, "pdca_rules": {"min_impressions_for_judgment": 50, "target_ad_ctr_percent": 3.5, "target_retry_rate_percent": 45.0, "auto_optimize_enabled": true}};
   </script>
   <script>
 /**
- * Web Audio API Procedural BGM & Sound Effects Synthesizer
- * 外部MP3ファイル不要・著作権完全フリー・容量0KBでテーマ別BGMと効果音を自動生成
+ * Rich Visual Assets, Parody Character Renderer, Live Stage Backgrounds & Buzz Cut-in System
+ * 1. 実在ニュース・謝罪会見・バズりミームのパロディ人物＆アイテムを高精細ベクター描画
+ * 2. 記者会見フラッシュ・東証アローズ電光掲示板・回転寿司レーン・SNS弾幕コメントの動的背景
+ * 3. プレイ中にバズった名言・炎上発言が飛び出す「緊急速報カットイン」演出
+ */
+class RichVisualRenderer {
+  constructor(canvas, theme) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.theme = theme;
+    this.tick = 0;
+    this.cutin = null;
+    this.flashes = [];
+    this.danmaku = [];
+    this.shakeAmount = 0;
+
+    this.initDanmaku();
+  }
+
+  initDanmaku() {
+    const comments = this.theme.buzz_comments || [
+      '命の砂時計きたwww',
+      '2年前のイエラエ指摘放置は草',
+      'スライド係の社員かわいそうw',
+      'スーツのボタン留めろ会見w',
+      '店員がメルカリ横流しはアカン',
+      'なぜ庶民がAIの電気代払うのか',
+      '新NISA損切り民息してるかー？',
+      '桐谷さんチャリ爆走www',
+      'ガチでメロい尊い…',
+      '完全にドパガキの症状で草'
+    ];
+    for (let i = 0; i < 9; i++) {
+      this.danmaku.push({
+        text: comments[i % comments.length],
+        x: Math.random() * 400,
+        y: 65 + (i * 42) % 360,
+        speed: 0.9 + Math.random() * 1.4,
+        alpha: 0.18 + Math.random() * 0.18
+      });
+    }
+  }
+
+  triggerCutin(speaker, quote, avatarType = 'kumagai', badge = '🚨 緊急会見速報') {
+    this.cutin = {
+      speaker,
+      quote,
+      avatarType,
+      badge,
+      life: 1.0,
+      maxLife: 1.0
+    };
+    this.shakeAmount = 6;
+    // Camera flash effect
+    for (let i = 0; i < 4; i++) {
+      this.flashes.push({
+        x: 40 + Math.random() * 320,
+        y: 60 + Math.random() * 360,
+        radius: 50 + Math.random() * 80,
+        alpha: 0.75
+      });
+    }
+  }
+
+  triggerRandomBuzzCutin() {
+    const list = this.theme.buzz_cutins || [];
+    if (list.length === 0) return;
+    const item = list[Math.floor(Math.random() * list.length)];
+    this.triggerCutin(item.speaker, item.quote, item.avatar || 'kumagai', item.badge || '🔥 バズり速報');
+  }
+
+  drawStageBackground(width, height) {
+    const ctx = this.ctx;
+    this.tick++;
+
+    ctx.save();
+    if (this.shakeAmount > 0.2) {
+      const dx = (Math.random() - 0.5) * this.shakeAmount;
+      const dy = (Math.random() - 0.5) * this.shakeAmount;
+      ctx.translate(dx, dy);
+      this.shakeAmount *= 0.85;
+    }
+
+    const stageType = this.theme.stage_style || 'press_conference';
+
+    if (stageType === 'press_conference') {
+      // 謝罪会見場（金屏風格子＋記者席シルエット＋カメラフラッシュ）
+      const grad = ctx.createLinearGradient(0, 0, 0, height);
+      grad.addColorStop(0, '#0f172a');
+      grad.addColorStop(0.6, '#1e293b');
+      grad.addColorStop(1, '#090d16');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      // パネル背景の市松模様（記者会見バックパネル風）
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+      const size = 40;
+      for (let r = 0; r < height / size; r++) {
+        for (let c = 0; c < width / size; c++) {
+          if ((r + c) % 2 === 0) {
+            ctx.fillRect(c * size, r * size, size, size);
+          }
+        }
+      }
+
+      // ランダム記者カメラフラッシュ
+      if (this.tick % 45 === 0) {
+        this.flashes.push({
+          x: 30 + Math.random() * (width - 60),
+          y: height - 40 - Math.random() * 80,
+          radius: 70,
+          alpha: 0.55
+        });
+      }
+    } else if (stageType === 'stock_exchange') {
+      // 東証アローズ風（ローソク足グリッド＋回転株価ティッカー）
+      const grad = ctx.createLinearGradient(0, 0, 0, height);
+      grad.addColorStop(0, '#041410');
+      grad.addColorStop(1, '#07221b');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.strokeStyle = 'rgba(0, 230, 118, 0.08)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < width; x += 32) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
+      }
+      for (let y = 0; y < height; y += 32) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
+      }
+
+      // 背景ローソク足アニメーション
+      for (let i = 0; i < 10; i++) {
+        const cx = 24 + i * 38;
+        const wave = Math.sin((this.tick * 0.03) + i * 0.7) * 55;
+        const cy = 220 + wave;
+        const isUp = Math.cos((this.tick * 0.03) + i) >= 0;
+        ctx.fillStyle = isUp ? 'rgba(255, 23, 68, 0.16)' : 'rgba(0, 230, 118, 0.16)';
+        ctx.fillRect(cx - 8, cy - 22, 16, 44);
+        ctx.fillRect(cx - 1.5, cy - 36, 3, 72);
+      }
+    } else if (stageType === 'sushi_lane') {
+      // 回転寿司レーン＆フリマ出品風背景
+      const grad = ctx.createLinearGradient(0, 0, 0, height);
+      grad.addColorStop(0, '#2a1215');
+      grad.addColorStop(1, '#14080a');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      // 回転レーンベルト
+      ctx.fillStyle = 'rgba(255, 215, 0, 0.08)';
+      ctx.fillRect(0, 140, width, 28);
+      ctx.fillRect(0, 310, width, 28);
+      const offset = (this.tick * 1.5) % 60;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
+      for (let x = -60 + offset; x < width; x += 60) {
+        ctx.fillRect(x, 146, 36, 16);
+        ctx.fillRect(width - x, 316, 36, 16);
+      }
+    } else {
+      // ネオンSNS＆ドパガキ2分割風ステージ
+      const grad = ctx.createLinearGradient(0, 0, width, height);
+      grad.addColorStop(0, '#1a0b2e');
+      grad.addColorStop(0.5, '#2d114d');
+      grad.addColorStop(1, '#0f172a');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      // 集中線・ネオンサークル
+      ctx.strokeStyle = 'rgba(255, 64, 129, 0.1)';
+      ctx.lineWidth = 2;
+      const r = (this.tick * 1.2) % 240;
+      ctx.beginPath();
+      ctx.arc(width / 2, height / 2, r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // 流れるSNS弾幕コメント
+    ctx.font = 'bold 12px "Hiragino Kaku Gothic ProN", sans-serif';
+    for (const d of this.danmaku) {
+      d.x -= d.speed;
+      if (d.x < -220) d.x = width + 20;
+      ctx.fillStyle = `rgba(255, 255, 255, ${d.alpha})`;
+      ctx.fillText(d.text, d.x, d.y);
+    }
+
+    // カメラフラッシュ発光描画
+    for (let i = this.flashes.length - 1; i >= 0; i--) {
+      const f = this.flashes[i];
+      const radGrad = ctx.createRadialGradient(f.x, f.y, 2, f.x, f.y, f.radius);
+      radGrad.addColorStop(0, `rgba(255, 255, 255, ${f.alpha})`);
+      radGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = radGrad;
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
+      ctx.fill();
+      f.alpha -= 0.06;
+      if (f.alpha <= 0) this.flashes.splice(i, 1);
+    }
+
+    ctx.restore();
+  }
+
+  /**
+   * キャラクター・パロディ人物のリッチベクター描画（立体メダル＋似顔絵パーツ＋ラベルリボン）
+   */
+  drawRichCharacter(x, y, radius, spec, isPreview = false) {
+    const ctx = this.ctx;
+    ctx.save();
+    if (isPreview) ctx.globalAlpha = 0.85;
+
+    // 外周ドロップシャドウ＆オーラ
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.55)';
+    ctx.shadowBlur = 8;
+    ctx.shadowOffsetY = 3;
+
+    // ベース立体球体グラデーション
+    const baseColor = spec.color || '#ff4081';
+    const sphereGrad = ctx.createRadialGradient(
+      x - radius * 0.3, y - radius * 0.3, radius * 0.1,
+      x, y, radius
+    );
+    sphereGrad.addColorStop(0, '#ffffff');
+    sphereGrad.addColorStop(0.25, baseColor);
+    sphereGrad.addColorStop(1, '#111827');
+
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fillStyle = sphereGrad;
+    ctx.fill();
+
+    // メタリックゴールド/ネオン枠線
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetY = 0;
+    ctx.lineWidth = radius >= 45 ? 3.5 : 2.2;
+    ctx.strokeStyle = radius >= 55 ? '#ffd700' : 'rgba(255, 255, 255, 0.9)';
+    ctx.stroke();
+
+    // パロディ人物イラストレイヤー（avatar属性がある場合、似顔絵ベクターパーツを重ねる）
+    const avatar = spec.avatar || '';
+    if (avatar === 'kumagai_ceo' && radius >= 26) {
+      // クマガイ社長風：紺スーツ襟＋赤ネクタイ＋黒髪七三＋涙＋砂時計バッジ
+      ctx.fillStyle = '#0f172a';
+      ctx.beginPath();
+      ctx.arc(x, y + radius * 0.55, radius * 0.42, Math.PI, 0, false);
+      ctx.fill();
+      ctx.fillStyle = '#e11d48'; // 赤ネクタイ＆チーフ
+      ctx.fillRect(x - 3, y + radius * 0.25, 6, radius * 0.35);
+    } else if (avatar === 'kiritani_master' && radius >= 26) {
+      // 桐谷名人風：メガネフレーム＋自転車ヘルメット風アクセント
+      ctx.strokeStyle = '#ffd700';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(x - radius * 0.42, y - radius * 0.22, radius * 0.35, radius * 0.22);
+      ctx.strokeRect(x + radius * 0.07, y - radius * 0.22, radius * 0.35, radius * 0.22);
+    } else if (avatar === 'ueda_gov' && radius >= 26) {
+      // 植田総裁風：黒縁メガネ＋日銀バッジ
+      ctx.strokeStyle = '#111';
+      ctx.lineWidth = 2.5;
+      ctx.strokeRect(x - radius * 0.42, y - radius * 0.2, radius * 0.36, radius * 0.22);
+      ctx.strokeRect(x + radius * 0.06, y - radius * 0.2, radius * 0.36, radius * 0.22);
+    }
+
+    // メイン絵文字/シンボル
+    const fontSize = Math.max(15, Math.floor(radius * 0.88));
+    ctx.font = `${fontSize}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(spec.emoji || '🔥', x, y - (radius >= 28 ? 3 : 0));
+
+    // 上部ハイライトグロス（ツヤ感）
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.28)';
+    ctx.beginPath();
+    ctx.ellipse(x - radius * 0.22, y - radius * 0.48, radius * 0.38, radius * 0.16, -0.3, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 名前リボンプレート（半径24以上）
+    if (radius >= 24 && spec.name) {
+      const label = spec.name.slice(0, 8);
+      const pillW = Math.min(radius * 1.9, Math.max(48, label.length * 9.5));
+      const pillH = radius >= 48 ? 16 : 13;
+      const py = y + radius * 0.58;
+
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.82)';
+      ctx.beginPath();
+      ctx.roundRect(x - pillW / 2, py - pillH / 2, pillW, pillH, 6);
+      ctx.fill();
+      ctx.strokeStyle = '#ffd700';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = `bold ${radius >= 48 ? 10 : 8.5}px "Hiragino Kaku Gothic ProN", sans-serif`;
+      ctx.fillText(label, x, py + 0.5);
+    }
+
+    ctx.restore();
+  }
+
+  /**
+   * 画面上部に飛び出す「週刊誌スクープ／謝罪会見テロップ風カットイン」描画
+   */
+  drawCutinOverlay(width) {
+    if (!this.cutin) return;
+    const c = this.cutin;
+    const ctx = this.ctx;
+
+    ctx.save();
+    const alpha = Math.min(1, c.life * 2.2);
+    ctx.globalAlpha = alpha;
+
+    // ニュース速報テロップ枠
+    const boxX = 10;
+    const boxY = 46;
+    const boxW = width - 20;
+    const boxH = 54;
+
+    const grad = ctx.createLinearGradient(boxX, boxY, boxX + boxW, boxY);
+    grad.addColorStop(0, 'rgba(185, 28, 28, 0.96)');
+    grad.addColorStop(0.5, 'rgba(15, 23, 42, 0.96)');
+    grad.addColorStop(1, 'rgba(30, 41, 59, 0.96)');
+
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.roundRect(boxX, boxY, boxW, boxH, 10);
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#ffd700';
+    ctx.stroke();
+
+    // バッジ
+    ctx.fillStyle = '#ffd700';
+    ctx.font = 'bold 10px "Hiragino Kaku Gothic ProN", sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(`${c.badge} ｜ ${c.speaker}`, boxX + 12, boxY + 17);
+
+    // セリフ本文
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
+    ctx.fillText(`「${c.quote.slice(0, 25)}」`, boxX + 12, boxY + 39);
+
+    ctx.restore();
+
+    c.life -= 0.015;
+    if (c.life <= 0) {
+      this.cutin = null;
+    }
+  }
+}
+
+window.RichVisualRenderer = RichVisualRenderer;
+
+  </script>
+  <script>
+/**
+ * Rich Multi-Track Synth & Arcade Sound Engine (Web Audio API)
+ * ドラムビート（Kick / Snare / Hi-Hat）＋重低音ベース＋コード和音＋リードメロディの4トラック同時演奏
+ * ＆ 記者会見カメラシャッター連写音・爆発音・コイン音などのリアル効果音合成
  */
 class ProceduralAudioEngine {
   constructor(preset = 'upbeat_pop') {
@@ -591,31 +1035,72 @@ class ProceduralAudioEngine {
     this.bgmTimer = null;
     this.stepIndex = 0;
 
+    // 16ステップのマルチトラックシーケンス定義
     this.presets = {
       upbeat_pop: {
-        tempoMs: 190,
-        wave: 'triangle',
-        notes: [523.25, 659.25, 783.99, 659.25, 880.0, 783.99, 659.25, 587.33]
+        tempoMs: 135,
+        leadWave: 'triangle',
+        bassWave: 'sawtooth',
+        lead: [523.25, 0, 659.25, 783.99, 880.0, 783.99, 659.25, 587.33, 523.25, 659.25, 783.99, 1046.5, 987.77, 783.99, 659.25, 587.33],
+        bass: [130.81, 130.81, 164.81, 164.81, 174.61, 174.61, 196.0, 196.0],
+        chords: [
+          [261.63, 329.63, 392.0],
+          [220.0, 261.63, 329.63],
+          [174.61, 220.0, 261.63],
+          [196.0, 246.94, 293.66]
+        ]
       },
       cyber_tension: {
-        tempoMs: 165,
-        wave: 'sawtooth',
-        notes: [220.0, 261.63, 329.63, 220.0, 293.66, 349.23, 329.63, 196.0]
+        tempoMs: 125,
+        leadWave: 'sawtooth',
+        bassWave: 'sawtooth',
+        lead: [220.0, 261.63, 329.63, 440.0, 392.0, 329.63, 293.66, 261.63, 220.0, 329.63, 440.0, 523.25, 493.88, 440.0, 329.63, 246.94],
+        bass: [110.0, 110.0, 110.0, 130.81, 146.83, 146.83, 130.81, 98.0],
+        chords: [
+          [220.0, 261.63, 329.63],
+          [174.61, 220.0, 261.63],
+          [146.83, 174.61, 220.0],
+          [164.81, 196.0, 246.94]
+        ]
       },
       retro_8bit: {
-        tempoMs: 180,
-        wave: 'square',
-        notes: [392.0, 440.0, 493.88, 523.25, 587.33, 523.25, 493.88, 440.0]
+        tempoMs: 130,
+        leadWave: 'square',
+        bassWave: 'triangle',
+        lead: [392.0, 440.0, 493.88, 587.33, 659.25, 587.33, 493.88, 440.0, 392.0, 493.88, 587.33, 783.99, 659.25, 587.33, 493.88, 440.0],
+        bass: [196.0, 196.0, 146.83, 146.83, 164.81, 164.81, 130.81, 146.83],
+        chords: [
+          [196.0, 246.94, 293.66],
+          [146.83, 185.0, 220.0],
+          [164.81, 196.0, 246.94],
+          [130.81, 164.81, 196.0]
+        ]
       },
       panic_rush: {
-        tempoMs: 145,
-        wave: 'square',
-        notes: [329.63, 392.0, 493.88, 659.25, 587.33, 493.88, 392.0, 329.63]
+        tempoMs: 115,
+        leadWave: 'sawtooth',
+        bassWave: 'square',
+        lead: [329.63, 392.0, 493.88, 659.25, 698.46, 659.25, 493.88, 392.0, 329.63, 493.88, 659.25, 783.99, 739.99, 659.25, 493.88, 369.99],
+        bass: [164.81, 164.81, 196.0, 196.0, 220.0, 220.0, 246.94, 196.0],
+        chords: [
+          [164.81, 196.0, 246.94],
+          [196.0, 246.94, 293.66],
+          [220.0, 261.63, 329.63],
+          [246.94, 293.66, 369.99]
+        ]
       },
       chill_melody: {
-        tempoMs: 240,
-        wave: 'sine',
-        notes: [261.63, 329.63, 392.0, 493.88, 440.0, 392.0, 329.63, 293.66]
+        tempoMs: 165,
+        leadWave: 'sine',
+        bassWave: 'triangle',
+        lead: [261.63, 329.63, 392.0, 523.25, 493.88, 392.0, 329.63, 293.66, 261.63, 329.63, 440.0, 523.25, 587.33, 523.25, 440.0, 392.0],
+        bass: [130.81, 130.81, 98.0, 98.0, 110.0, 110.0, 87.31, 98.0],
+        chords: [
+          [261.63, 329.63, 392.0],
+          [196.0, 246.94, 293.66],
+          [220.0, 261.63, 329.63],
+          [174.61, 220.0, 261.63]
+        ]
       }
     };
   }
@@ -652,11 +1137,33 @@ class ProceduralAudioEngine {
 
     this.bgmTimer = setInterval(() => {
       if (this.isMuted || !this.isPlayingBgm) return;
-      const freq = cfg.notes[this.stepIndex % cfg.notes.length];
-      this.playTone(freq, cfg.tempoMs / 1000 * 0.75, cfg.wave, 0.045);
-      if (this.stepIndex % 2 === 0) {
-        this.playTone(freq / 2, cfg.tempoMs / 1000 * 0.85, 'sine', 0.035);
+      const step = this.stepIndex % 16;
+
+      // 1. Drum Track (Kick on 0, 4, 8, 12 / Snare on 4, 12 / HiHat on every even step)
+      if (step % 4 === 0) this.playDrumKick();
+      if (step % 8 === 4) this.playNoiseBurst(0.08, 0.045, 1200); // Snare
+      if (step % 2 === 1) this.playNoiseBurst(0.03, 0.02, 5000);  // Hi-Hat
+
+      // 2. Bass Track
+      const bassFreq = cfg.bass[Math.floor(step / 2) % cfg.bass.length];
+      if (bassFreq) {
+        this.playTone(bassFreq, cfg.tempoMs / 1000 * 0.85, cfg.bassWave, 0.042);
       }
+
+      // 3. Chord Pad (on step 0, 4, 8, 12)
+      if (step % 4 === 0 && cfg.chords) {
+        const chord = cfg.chords[Math.floor(step / 4) % cfg.chords.length];
+        chord.forEach(f => {
+          this.playTone(f, (cfg.tempoMs * 3.8) / 1000, 'sine', 0.022);
+        });
+      }
+
+      // 4. Lead Melody
+      const leadFreq = cfg.lead[step % cfg.lead.length];
+      if (leadFreq > 0) {
+        this.playTone(leadFreq, cfg.tempoMs / 1000 * 0.78, cfg.leadWave, 0.048);
+      }
+
       this.stepIndex++;
     }, cfg.tempoMs);
   }
@@ -667,6 +1174,48 @@ class ProceduralAudioEngine {
       clearInterval(this.bgmTimer);
       this.bgmTimer = null;
     }
+  }
+
+  playDrumKick() {
+    if (this.isMuted || !this.ctx) return;
+    const now = this.ctx.currentTime;
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(135, now);
+    osc.frequency.exponentialRampToValueAtTime(38, now + 0.11);
+    gain.gain.setValueAtTime(0.11, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
+    osc.connect(gain);
+    gain.connect(this.ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.11);
+  }
+
+  playNoiseBurst(durationSec = 0.06, volume = 0.04, filterFreq = 2000) {
+    if (this.isMuted || !this.ctx) return;
+    const now = this.ctx.currentTime;
+    const bufferSize = Math.floor(this.ctx.sampleRate * durationSec);
+    const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      data[i] = Math.random() * 2 - 1;
+    }
+    const noise = this.ctx.createBufferSource();
+    noise.buffer = buffer;
+
+    const filter = this.ctx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(filterFreq, now);
+
+    const gain = this.ctx.createGain();
+    gain.gain.setValueAtTime(volume, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + durationSec);
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.ctx.destination);
+    noise.start(now);
   }
 
   playTone(freq, durationSec, type = 'sine', volume = 0.08, slideToFreq = null) {
@@ -694,30 +1243,42 @@ class ProceduralAudioEngine {
 
   playSE(type, level = 1) {
     if (this.isMuted) return;
+    this.initContext();
     switch (type) {
       case 'drop':
-        this.playTone(300, 0.09, 'sine', 0.08, 180);
+        this.playTone(340, 0.08, 'sine', 0.09, 170);
         break;
       case 'merge':
-        const baseFreq = 330 + (level * 55);
-        this.playTone(baseFreq, 0.14, 'triangle', 0.12, baseFreq * 1.35);
+        // 進化音＋高ランク時は記者会見のカメラシャッター連写音
+        const baseFreq = 350 + (level * 65);
+        this.playTone(baseFreq, 0.14, 'triangle', 0.13, baseFreq * 1.4);
+        this.playTone(baseFreq * 1.25, 0.18, 'sine', 0.09, baseFreq * 1.6);
+        if (level >= 3) {
+          this.playNoiseBurst(0.04, 0.06, 3500);
+          setTimeout(() => this.playNoiseBurst(0.04, 0.06, 4200), 65);
+        }
         break;
       case 'jump':
-        this.playTone(280, 0.12, 'square', 0.07, 560);
+        this.playTone(300, 0.11, 'square', 0.075, 620);
         break;
       case 'hit':
-        this.playTone(520, 0.1, 'triangle', 0.1, 880);
+        // 爽快チャリン＆パンチ音
+        this.playTone(587.33, 0.08, 'triangle', 0.11, 880);
+        setTimeout(() => this.playTone(1174.66, 0.12, 'sine', 0.11), 50);
         break;
       case 'damage':
-        this.playTone(190, 0.22, 'sawtooth', 0.11, 95);
+        this.playNoiseBurst(0.14, 0.09, 600);
+        this.playTone(180, 0.24, 'sawtooth', 0.12, 85);
         break;
       case 'reward':
-        this.playTone(523.25, 0.12, 'triangle', 0.12, 659.25);
-        setTimeout(() => this.playTone(783.99, 0.25, 'triangle', 0.14, 1046.5), 110);
+        [523.25, 659.25, 783.99, 1046.5].forEach((f, idx) => {
+          setTimeout(() => this.playTone(f, 0.2, 'triangle', 0.13), idx * 75);
+        });
         break;
       case 'gameover':
-        this.playTone(392.0, 0.18, 'sawtooth', 0.1, 329.63);
-        setTimeout(() => this.playTone(293.66, 0.35, 'sawtooth', 0.1, 196.0), 180);
+        [392.0, 349.23, 329.63, 261.63].forEach((f, idx) => {
+          setTimeout(() => this.playTone(f, 0.22, 'sawtooth', 0.1, f * 0.92), idx * 120);
+        });
         break;
     }
   }
@@ -996,8 +1557,7 @@ window.MiniGameMonetizationSDK = MiniGameMonetizationSDK;
   </script>
   <script>
 /**
- * Engine 4: Catch-Drop (60秒ハイスピード収集＆罠回避エンジン)
- * 参照OSS: HTML5 Canvas Arcade Catcher (MIT/CC0)
+ * Engine 4: Catch-Drop (60秒ハイスピード収集＆罠回避エンジン - Rich Parody Edition)
  */
 class CatcherGameEngine {
   constructor(canvas, theme, audio, sdk, callbacks) {
@@ -1013,6 +1573,7 @@ class CatcherGameEngine {
     this.canvas.width = this.width;
     this.canvas.height = this.height;
 
+    this.rich = new window.RichVisualRenderer(this.canvas, this.theme);
     this.playerSpec = theme.player || { emoji: '🔋', name: 'キャッチャー' };
     this.goodItems = theme.good_items || [];
     this.badItems = theme.bad_items || [];
@@ -1034,16 +1595,16 @@ class CatcherGameEngine {
   renderEvolutionGuide() {
     const guide = document.getElementById('evolutionGuide');
     if (!guide) return;
-    const goods = this.goodItems.map(g => `${g.emoji}+${g.score}`).join(' ');
-    const bads = this.badItems.map(b => `${b.emoji}${b.score}`).join(' ');
-    guide.innerHTML = `<strong>【獲得】</strong> ${goods} ｜ <strong>【危険】</strong> ${bads}`;
+    const goods = this.goodItems.map(g => `<span class="evo-chip">${g.emoji}${g.name}(+${g.score})</span>`).join(' ');
+    const bads = this.badItems.map(b => `<span class="evo-chip" style="border-color:#ff5252">${b.emoji}${b.name}(${b.score})</span>`).join(' ');
+    guide.innerHTML = `<div style="margin-bottom:4px;"><strong style="color:#00e676">【獲得ターゲット】</strong> ${goods}</div><div><strong style="color:#ff5252">【炎上トラップ】</strong> ${bads}</div>`;
   }
 
   bindEvents() {
     const movePlayer = (clientX) => {
       const rect = this.canvas.getBoundingClientRect();
       const x = (clientX - rect.left) * (this.width / rect.width);
-      this.playerX = Math.max(36, Math.min(this.width - 36, x));
+      this.playerX = Math.max(40, Math.min(this.width - 40, x));
     };
 
     this.canvas.addEventListener('mousemove', (e) => {
@@ -1059,9 +1620,9 @@ class CatcherGameEngine {
     window.addEventListener('keydown', (e) => {
       if (!this.isRunning) return;
       if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
-        this.playerX = Math.max(36, this.playerX - 28);
+        this.playerX = Math.max(40, this.playerX - 28);
       } else if (e.code === 'ArrowRight' || e.code === 'KeyD') {
-        this.playerX = Math.min(this.width - 36, this.playerX + 28);
+        this.playerX = Math.min(this.width - 40, this.playerX + 28);
       }
     });
   }
@@ -1077,6 +1638,7 @@ class CatcherGameEngine {
 
     this.cb.onScoreChange(this.score);
     this.cb.onTimeChange(this.timeLeft);
+    this.rich.triggerRandomBuzzCutin();
 
     if (this.timerInterval) clearInterval(this.timerInterval);
     this.timerInterval = setInterval(() => {
@@ -1098,16 +1660,16 @@ class CatcherGameEngine {
   update() {
     this.frameCount++;
     const isFever = this.timeLeft <= 15;
-    const spawnInterval = isFever ? 18 : 28;
+    const spawnInterval = isFever ? 18 : 27;
 
     if (this.frameCount % spawnInterval === 0) {
-      const isBad = Math.random() < 0.28;
+      const isBad = Math.random() < 0.3;
       const pool = isBad ? this.badItems : this.goodItems;
       const spec = pool[Math.floor(Math.random() * pool.length)];
       if (spec) {
         this.falling.push({
-          x: 28 + Math.random() * (this.width - 56),
-          y: -20,
+          x: 32 + Math.random() * (this.width - 64),
+          y: -25,
           vy: (spec.speed || 3.5) * (isFever ? 1.25 : 1.0),
           isBad,
           spec
@@ -1115,92 +1677,90 @@ class CatcherGameEngine {
       }
     }
 
-    const catcherY = this.height - 48;
+    const catcherY = this.height - 52;
     for (let i = this.falling.length - 1; i >= 0; i--) {
       const item = this.falling[i];
       item.y += item.vy;
 
       const dist = Math.hypot(item.x - this.playerX, item.y - catcherY);
-      if (dist < 38) {
+      if (dist < 42) {
         this.score = Math.max(0, this.score + item.spec.score);
         this.cb.onScoreChange(this.score);
         this.audio.playSE(item.isBad ? 'damage' : 'hit');
         this.popups.push({
           x: item.x,
-          y: catcherY - 20,
-          text: `${item.spec.score > 0 ? '+' : ''}${item.spec.score}`,
+          y: catcherY - 24,
+          text: `${item.spec.name} ${item.spec.score > 0 ? '+' : ''}${item.spec.score}`,
           color: item.isBad ? '#ff5252' : '#69f0ae',
           life: 1.0
         });
+        if (item.isBad || item.spec.score >= 400) {
+          this.rich.triggerCutin(
+            item.spec.name,
+            item.spec.quote || (item.isBad ? 'うわぁぁ！直撃ダメージ！！' : '神アイテム大量確保！！'),
+            'kumagai',
+            item.isBad ? '🚨 炎上被害発生' : '💰 大口獲得速報'
+          );
+        }
         this.falling.splice(i, 1);
-      } else if (item.y > this.height + 30) {
+      } else if (item.y > this.height + 35) {
         this.falling.splice(i, 1);
       }
     }
 
     this.popups.forEach(p => {
       p.y -= 1.3;
-      p.life -= 0.04;
+      p.life -= 0.035;
     });
     this.popups = this.popups.filter(p => p.life > 0);
   }
 
   draw() {
     const ctx = this.ctx;
-    ctx.clearRect(0, 0, this.width, this.height);
+    this.rich.drawStageBackground(this.width, this.height);
 
     if (this.timeLeft <= 15) {
       ctx.save();
       ctx.fillStyle = 'rgba(255, 215, 0, 0.14)';
       ctx.fillRect(0, 0, this.width, this.height);
       ctx.fillStyle = '#ffd700';
-      ctx.font = 'bold 14px sans-serif';
+      ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('⚡ FEVER TIME! 落下スピード＆出現率UP! ⚡', this.width / 2, 26);
+      ctx.fillText('⚡ ラスト15秒！大相場フィーバータイム突入！ ⚡', this.width / 2, 26);
       ctx.restore();
     }
 
-    // Draw falling items
     for (const item of this.falling) {
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(item.x, item.y, 20, 0, Math.PI * 2);
-      ctx.fillStyle = item.isBad ? 'rgba(244, 67, 54, 0.35)' : 'rgba(0, 230, 118, 0.25)';
-      ctx.fill();
-      ctx.font = '25px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(item.spec.emoji, item.x, item.y);
-      ctx.restore();
+      this.rich.drawRichCharacter(item.x, item.y, 26, {
+        emoji: item.spec.emoji,
+        name: item.spec.name,
+        color: item.isBad ? '#ef4444' : '#10b981',
+        avatar: item.spec.avatar
+      });
     }
 
-    // Draw player basket
-    const catcherY = this.height - 48;
-    ctx.save();
-    ctx.fillStyle = '#00e676';
-    ctx.beginPath();
-    ctx.roundRect(this.playerX - 36, catcherY - 18, 72, 36, 12);
-    ctx.fill();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#fff';
-    ctx.stroke();
+    const catcherY = this.height - 52;
+    this.rich.drawRichCharacter(this.playerX, catcherY, 34, {
+      emoji: this.playerSpec.emoji,
+      name: this.playerSpec.name,
+      color: '#f59e0b',
+      avatar: this.playerSpec.avatar || 'kiritani_master'
+    });
 
-    ctx.font = '24px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(this.playerSpec.emoji, this.playerX, catcherY);
-    ctx.restore();
-
-    // Draw popups
     for (const p of this.popups) {
       ctx.save();
       ctx.globalAlpha = Math.max(0, p.life);
       ctx.fillStyle = p.color;
-      ctx.font = 'bold 16px sans-serif';
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 3;
+      ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
       ctx.textAlign = 'center';
+      ctx.strokeText(p.text, p.x, p.y);
       ctx.fillText(p.text, p.x, p.y);
       ctx.restore();
     }
+
+    this.rich.drawCutinOverlay(this.width);
   }
 
   finishGame() {
@@ -1224,12 +1784,12 @@ window.CatcherGameEngine = CatcherGameEngine;
 
       const root = document.documentElement;
       if (theme.background) {
-        const g = theme.background.gradient || ['#141e30', '#243b55', '#c94b4b'];
+        const g = theme.background.gradient || ['#090d16', '#1e293b', '#7f1d1d'];
         root.style.setProperty('--bg-grad-1', g[0]);
         root.style.setProperty('--bg-grad-2', g[1] || g[0]);
         root.style.setProperty('--bg-grad-3', g[2] || g[1]);
-        root.style.setProperty('--board-bg', theme.background.board_bg || 'rgba(20,25,40,0.94)');
-        root.style.setProperty('--border-color', theme.background.border_color || '#ff4081');
+        root.style.setProperty('--board-bg', theme.background.board_bg || 'rgba(12,18,32,0.96)');
+        root.style.setProperty('--border-color', theme.background.border_color || '#ffd700');
         root.style.setProperty('--accent-color', theme.background.accent_color || '#ff4081');
       }
 

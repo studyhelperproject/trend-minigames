@@ -3,21 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>伝説の名車復活！日野コンテッサ＆日本車進化スイカ | 1分時事ミニゲーム</title>
-  <meta name="description" content="2026年『日野コンテッサ1300クーペ』自動車殿堂・歴史遺産車選定記念パズル！ - 1965年誕生の美しき名車『日野コンテッサ1300クーペ』が2026年日本自動車殿堂の歴史遺産車に選定！昭和・平成・令和を彩る日本の名車マシンを合体させ、伝説のコンテッサ＆未来の殿堂入りマシンへ進化させよう！" />
-  <meta property="og:title" content="伝説の名車復活！日野コンテッサ＆日本車進化スイカ | 1分時事ミニゲーム" />
-  <meta property="og:description" content="2026年『日野コンテッサ1300クーペ』自動車殿堂・歴史遺産車選定記念パズル！" />
+  <title>2026日本自動車殿堂入り！『日野コンテッサ1300クーペ』＆昭和名車レストア進化スイカ | 週刊時事ミニゲームアーケード</title>
+  <meta name="description" content="ミケロッティがデザインした1965年のリアエンジン名車が2026年『歴史遺産車』に選定！ - 2026年11月、イタリアの巨匠ミケロッティがスタイリングを手がけた1965年の美しきRRクーペ『日野コンテッサ1300クーペ』が日本自動車殿堂の歴史遺産車に選出！昭和・平成・令和の日本を駆け抜けた伝説の名車たちをガレージ内で合体進化させ、コンテッサ1300クーペ＆日本自動車史の頂点を目指せ！" />
+  <meta property="og:title" content="2026日本自動車殿堂入り！『日野コンテッサ1300クーペ』＆昭和名車レストア進化スイカ | 週刊時事ミニゲームアーケード" />
+  <meta property="og:description" content="ミケロッティがデザインした1965年のリアエンジン名車が2026年『歴史遺産車』に選定！" />
   <meta property="og:type" content="website" />
   <!-- 忍者AdMax 全自動広告タグ -->
   <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
   <style>
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+Rounded+1c:wght@700;800;900&family=Orbitron:wght@700;900&display=swap');
+
 :root {
-  --bg-grad-1: #141e30;
-  --bg-grad-2: #243b55;
-  --bg-grad-3: #c94b4b;
+  --bg-grad-1: #090d16;
+  --bg-grad-2: #1e293b;
+  --bg-grad-3: #7f1d1d;
   --accent-color: #ff4081;
-  --board-bg: rgba(20, 25, 40, 0.94);
-  --border-color: #ff4081;
+  --board-bg: rgba(12, 18, 32, 0.96);
+  --border-color: #ffd700;
 }
 
 * {
@@ -29,10 +31,9 @@
 }
 
 body {
-  font-family: 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-  background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2), var(--bg-grad-3));
-  background-size: 300% 300%;
-  animation: gradientMove 15s ease infinite;
+  font-family: 'M PLUS Rounded 1c', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  background: radial-gradient(circle at 50% 0%, var(--bg-grad-2), var(--bg-grad-1) 70%),
+              linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-3));
   color: #ffffff;
   min-height: 100vh;
   display: flex;
@@ -41,39 +42,61 @@ body {
   overflow-x: hidden;
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Breaking News Ticker */
+.news-ticker-bar {
+  width: 100%;
+  background: linear-gradient(90deg, #b91c1c, #dc2626, #991b1b);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 5px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 2px solid #ffd700;
+  box-shadow: 0 2px 12px rgba(220, 38, 38, 0.5);
+  z-index: 30;
 }
 
-/* Header Navigation & Top Ad Slot */
+.news-ticker-track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: tickerScroll 28s linear infinite;
+}
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Header Navigation */
 .top-bar {
   width: 100%;
-  max-width: 520px;
+  max-width: 540px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 14px;
+  background: rgba(9, 13, 22, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.25);
   z-index: 20;
 }
 
 .top-bar a.portal-link {
-  color: #fff;
+  color: #ffd700;
   text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 5px 10px;
+  font-size: 0.84rem;
+  font-weight: 900;
+  background: rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.45);
+  padding: 6px 12px;
   border-radius: 20px;
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
 .top-bar a.portal-link:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: #ffd700;
+  color: #090d16;
 }
 
 .top-controls {
@@ -83,79 +106,82 @@ body {
 }
 
 .btn-icon {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 5px 10px;
-  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 6px 12px;
+  border-radius: 18px;
   cursor: pointer;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 800;
+  transition: all 0.2s;
 }
 
 .btn-icon:hover {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(0, 229, 255, 0.25);
+  border-color: #00e5ff;
 }
 
 /* Ad Slots */
 .ad-banner-slot {
   width: 100%;
   max-width: 520px;
-  min-height: 56px;
-  background: rgba(10, 14, 24, 0.88);
-  border: 1px dashed rgba(255, 215, 0, 0.45);
-  border-radius: 8px;
+  min-height: 54px;
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  border-radius: 12px;
   margin: 6px 0;
-  padding: 6px 10px;
+  padding: 8px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
   text-decoration: none;
   color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
   transition: transform 0.15s, border-color 0.2s;
   position: relative;
 }
 
 .ad-banner-slot:hover {
-  transform: translateY(-1px);
-  border-color: #ffd700;
-  background: rgba(20, 28, 48, 0.95);
+  transform: translateY(-2px);
+  border-color: #00e5ff;
 }
 
 .ad-pr-badge {
-  background: #ffab00;
-  color: #111;
+  background: linear-gradient(135deg, #ffd700, #f59e0b);
+  color: #090d16;
   font-size: 0.68rem;
-  font-weight: 800;
-  padding: 2px 6px;
-  border-radius: 4px;
+  font-weight: 900;
+  padding: 3px 7px;
+  border-radius: 6px;
   white-space: nowrap;
 }
 
 .ad-banner-text {
   font-size: 0.8rem;
-  font-weight: 600;
-  line-height: 1.3;
+  font-weight: 800;
+  line-height: 1.35;
   flex: 1;
 }
 
 .ad-banner-cta {
-  background: linear-gradient(90deg, #ff4081, #ff9100);
+  background: linear-gradient(90deg, #e11d48, #f97316);
   color: #fff;
   font-size: 0.75rem;
-  font-weight: 700;
-  padding: 5px 10px;
-  border-radius: 14px;
+  font-weight: 900;
+  padding: 6px 12px;
+  border-radius: 16px;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.5);
 }
 
 /* Game Container */
 .game-wrapper {
   width: 100%;
-  max-width: 500px;
-  padding: 4px 10px 16px;
+  max-width: 520px;
+  padding: 6px 12px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,56 +190,73 @@ body {
 .game-header {
   width: 100%;
   text-align: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  background: rgba(9, 13, 22, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 10px 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .trend-tag {
   display: inline-block;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid var(--accent-color);
+  background: linear-gradient(90deg, #dc2626, #ea580c);
   color: #fff;
   font-size: 0.72rem;
-  font-weight: 700;
-  padding: 2px 10px;
-  border-radius: 12px;
-  margin-bottom: 4px;
+  font-weight: 900;
+  padding: 3px 12px;
+  border-radius: 14px;
+  margin-bottom: 6px;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.45);
 }
 
 .game-title {
-  font-size: 1.25rem;
-  font-weight: 900;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
-  line-height: 1.25;
+  font-family: 'Dela Gothic One', 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 0 2px 0 #000, 0 0 14px rgba(255, 215, 0, 0.35);
+  line-height: 1.35;
 }
 
 .hud-bar {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 424px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 6px 0 8px;
+}
+
+.hud-item {
+  background: rgba(9, 13, 22, 0.85);
+  border: 1px solid rgba(255, 215, 0, 0.35);
   border-radius: 10px;
-  padding: 6px 12px;
-  margin: 6px 0;
-  font-weight: 700;
-  font-size: 0.92rem;
+  padding: 6px 8px;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #94a3b8;
 }
 
 .hud-item span.val {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
   color: #ffd700;
-  font-size: 1.1rem;
-  margin-left: 4px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  margin-top: 1px;
 }
 
 .stage-container {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 424px;
   background: var(--board-bg);
   border: 3px solid var(--border-color);
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.22), 0 14px 36px rgba(0, 0, 0, 0.75);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -229,22 +272,47 @@ canvas#gameCanvas {
 
 .evolution-guide {
   width: 100%;
-  max-width: 420px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  padding: 6px 10px;
-  margin-top: 8px;
+  max-width: 424px;
+  background: rgba(9, 13, 22, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-top: 10px;
   font-size: 0.78rem;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.65;
 }
 
-/* Modals (Intro, Reward Ad, GameOver Result) */
+.evo-chip {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 8px;
+  padding: 2px 7px;
+  margin: 2px;
+  font-weight: 800;
+  font-size: 0.74rem;
+}
+
+.news-context-box {
+  width: 100%;
+  max-width: 424px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.95));
+  border-left: 4px solid #ffd700;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: #e2e8f0;
+}
+
+/* Modals */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(5, 8, 18, 0.85);
-  backdrop-filter: blur(6px);
+  background: rgba(4, 7, 15, 0.88);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -258,55 +326,59 @@ canvas#gameCanvas {
 
 .modal-card {
   width: 100%;
-  max-width: 460px;
+  max-width: 470px;
   max-height: 92vh;
   overflow-y: auto;
-  background: linear-gradient(160deg, #1b2234, #101522);
-  border: 2px solid var(--border-color);
-  border-radius: 18px;
-  padding: 18px 16px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(165deg, #1e293b, #090d16);
+  border: 2px solid #ffd700;
+  border-radius: 20px;
+  padding: 20px 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(255, 215, 0, 0.2);
   text-align: center;
 }
 
 .modal-title {
-  font-size: 1.35rem;
-  font-weight: 900;
-  margin-bottom: 8px;
+  font-family: 'Dela Gothic One', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 10px;
   color: #ffd700;
+  line-height: 1.35;
 }
 
 .story-box {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 10px 12px;
-  font-size: 0.86rem;
-  line-height: 1.55;
-  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
   text-align: left;
 }
 
 .controls-box {
   background: rgba(0, 229, 255, 0.12);
-  border: 1px solid rgba(0, 229, 255, 0.35);
-  border-radius: 8px;
-  padding: 8px 10px;
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  border-radius: 10px;
+  padding: 10px 12px;
   font-size: 0.8rem;
   margin-bottom: 14px;
   color: #e0f7fa;
+  font-weight: 800;
 }
 
 .btn-primary {
   width: 100%;
-  padding: 13px 18px;
+  padding: 14px 18px;
+  font-family: 'Dela Gothic One', sans-serif;
   font-size: 1.05rem;
-  font-weight: 900;
   color: #fff;
-  background: linear-gradient(90deg, #ff4081, #ff9100);
-  border: none;
-  border-radius: 30px;
+  background: linear-gradient(90deg, #e11d48, #f97316);
+  border: 2px solid #fde047;
+  border-radius: 32px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255, 64, 129, 0.5);
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.55);
   transition: transform 0.15s;
   margin-bottom: 8px;
 }
@@ -317,100 +389,103 @@ canvas#gameCanvas {
 
 .btn-reward {
   width: 100%;
-  padding: 11px 14px;
+  padding: 12px 14px;
   font-size: 0.9rem;
-  font-weight: 800;
-  color: #111;
-  background: linear-gradient(90deg, #ffd700, #ffab00);
+  font-weight: 900;
+  color: #090d16;
+  background: linear-gradient(90deg, #fde047, #f59e0b);
   border: none;
   border-radius: 26px;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 4px 16px rgba(250, 204, 21, 0.45);
   margin-bottom: 10px;
 }
 
 .result-score-box {
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 12px;
-  padding: 10px;
-  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
 }
 
 .result-score-num {
-  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
   font-weight: 900;
   color: #ffd700;
 }
 
 .result-rank-badge {
   display: inline-block;
-  background: var(--accent-color);
+  background: linear-gradient(90deg, #e11d48, #9333ea);
   color: #fff;
-  font-weight: 800;
-  font-size: 0.9rem;
-  padding: 4px 12px;
-  border-radius: 16px;
-  margin: 4px 0;
+  font-weight: 900;
+  font-size: 0.92rem;
+  padding: 5px 14px;
+  border-radius: 18px;
+  margin: 6px 0;
+  border: 1px solid #fde047;
 }
 
 /* Native Affiliate Cards inside Result Modal */
 .affiliate-section {
-  margin-top: 12px;
+  margin-top: 14px;
   text-align: left;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 215, 0, 0.35);
-  border-radius: 12px;
-  padding: 10px;
+  background: rgba(9, 13, 22, 0.9);
+  border: 1.5px solid #ffd700;
+  border-radius: 14px;
+  padding: 12px;
 }
 
 .affiliate-header-badge {
   display: inline-block;
-  background: #ff3d00;
+  background: #dc2626;
   color: #fff;
-  font-size: 0.72rem;
-  font-weight: 800;
-  padding: 2px 8px;
-  border-radius: 4px;
+  font-size: 0.74rem;
+  font-weight: 900;
+  padding: 3px 9px;
+  border-radius: 6px;
   margin-bottom: 6px;
 }
 
 .affiliate-header-badge.gold_shine {
   background: #ffd700;
-  color: #111;
+  color: #090d16;
 }
 
 .offer-card {
-  background: rgba(15, 22, 38, 0.95);
+  background: rgba(30, 41, 59, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 12px;
   margin-top: 8px;
 }
 
 .offer-tag {
   display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 800;
-  background: rgba(0, 229, 255, 0.2);
+  font-size: 0.7rem;
+  font-weight: 900;
+  background: rgba(0, 229, 255, 0.18);
   color: #00e5ff;
-  padding: 2px 7px;
-  border-radius: 4px;
+  padding: 2px 8px;
+  border-radius: 6px;
   margin-bottom: 4px;
 }
 
 .offer-title {
-  font-size: 0.88rem;
-  font-weight: 800;
+  font-size: 0.9rem;
+  font-weight: 900;
   color: #fff;
   margin-bottom: 4px;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .offer-desc {
-  font-size: 0.76rem;
-  color: #cfd8dc;
-  margin-bottom: 8px;
-  line-height: 1.4;
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  margin-bottom: 10px;
+  line-height: 1.45;
 }
 
 .offer-cta-btn {
@@ -418,22 +493,22 @@ canvas#gameCanvas {
   width: 100%;
   text-align: center;
   text-decoration: none;
-  padding: 9px 12px;
-  border-radius: 8px;
-  font-weight: 800;
-  font-size: 0.84rem;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 0.86rem;
   color: #fff;
-  background: linear-gradient(90deg, #00c853, #00bfa5);
-  box-shadow: 0 3px 10px rgba(0, 200, 83, 0.35);
+  background: linear-gradient(90deg, #10b981, #059669);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 }
 
 .offer-cta-btn.urgent_red {
-  background: linear-gradient(90deg, #ff1744, #ff6d00);
+  background: linear-gradient(90deg, #e11d48, #ea580c);
 }
 
 .offer-cta-btn.gold_shine {
-  background: linear-gradient(90deg, #ffd600, #ff9100);
-  color: #111;
+  background: linear-gradient(90deg, #fde047, #f59e0b);
+  color: #090d16;
 }
 
 .share-row {
@@ -444,26 +519,33 @@ canvas#gameCanvas {
 
 .btn-share {
   flex: 1;
-  padding: 8px;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 700;
+  padding: 9px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 800;
   text-decoration: none;
   color: #fff;
-  background: #1da1f2;
+  background: #0284c7;
   text-align: center;
 }
 
 .btn-share.other-games {
-  background: #7c4dff;
+  background: #7c3aed;
 }
 
   </style>
 </head>
 <body>
+  <!-- Live Breaking News Ticker -->
+  <div class="news-ticker-bar">
+    <div class="news-ticker-track">
+      🚨【緊急スクープ速報】2026日本自動車殿堂入り！『日野コンテッサ1300クーペ』＆昭和名車レストア進化スイカ が現在バズり中！ ｜ 【元ネタ時事解説】2026年11月、特定非営利活動法人日本自動車殿堂（JAHFA）において、日野自動車が1965年に発売したリアエンジン・リアドライブ（RR）の名車『日野コンテッサ1300クーペ』（イタリアの巨匠ジョヴァンニ・ミケロッティ設計）が『歴史遺産車』に選定された最新ニュースを祝した名車進化ゲーム！ ｜ 🎵 4トラック・チップチューンシンセBGM＆記者会見カットイン演出稼働中！
+    </div>
+  </div>
+
   <!-- Top Navigation -->
   <div class="top-bar">
-    <a href="../../index.html" class="portal-link">🏠 時事ゲーム一覧(10本)</a>
+    <a href="../../index.html" class="portal-link">⚡ 時事ゲームアーケード一覧(10本)</a>
     <div class="top-controls">
       <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
       <a href="../../dashboard.html" class="btn-icon" style="text-decoration:none;">📊 CEO効果測定</a>
@@ -483,14 +565,14 @@ canvas#gameCanvas {
   <!-- Main Game Wrapper -->
   <div class="game-wrapper">
     <div class="game-header">
-      <span class="trend-tag">🔥 クルマ・産業・コレクター時事2026</span>
-      <h1 class="game-title">伝説の名車復活！日野コンテッサ＆日本車進化スイカ</h1>
+      <span class="trend-tag">🔥 2026年11月自動車殿堂ニュース・名車時事</span>
+      <h1 class="game-title">2026日本自動車殿堂入り！『日野コンテッサ1300クーペ』＆昭和名車レストア進化スイカ</h1>
     </div>
 
     <div class="hud-bar">
-      <div class="hud-item">SCORE:<span id="hudScore" class="val">0</span></div>
-      <div class="hud-item">TIME:<span id="hudTime" class="val">60</span>s</div>
-      <div class="hud-item">BEST:<span id="hudBest" class="val">0</span></div>
+      <div class="hud-item">SCORE<span id="hudScore" class="val">0</span></div>
+      <div class="hud-item">TIME LEFT<span id="hudTime" class="val">60</span></div>
+      <div class="hud-item">HIGH SCORE<span id="hudBest" class="val">0</span></div>
     </div>
 
     <div class="stage-container">
@@ -498,20 +580,24 @@ canvas#gameCanvas {
     </div>
 
     <div id="evolutionGuide" class="evolution-guide"></div>
+
+    <!-- 元ネタ時事ニュース解説ボックス -->
+    <div class="news-context-box">
+      <strong style="color:#ffd700;">📰 なぜバズっている？元ネタ時事ニュース解説</strong><br />
+      【元ネタ時事解説】2026年11月、特定非営利活動法人日本自動車殿堂（JAHFA）において、日野自動車が1965年に発売したリアエンジン・リアドライブ（RR）の名車『日野コンテッサ1300クーペ』（イタリアの巨匠ジョヴァンニ・ミケロッティ設計）が『歴史遺産車』に選定された最新ニュースを祝した名車進化ゲーム！
+    </div>
   </div>
 
   <!-- Footer Ad Slot (A8.net Official Banner + Text Link) -->
   <a id="bottomAdBanner" class="ad-banner-slot" href="#pr"></a>
 
   <div style="width:100%;max-width:520px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;padding:8px 10px 24px;">
-    <!-- A8 素材ID007 (320x50) -->
     <div>
       <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D" rel="nofollow" target="_blank">
         <img border="0" width="320" height="50" alt="旬の厳選10銘柄" src="https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1" style="border-radius:6px;display:block;">
       </a>
       <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D" alt="">
     </div>
-    <!-- A8 通常広告 (120x60) -->
     <div>
       <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP" rel="nofollow" target="_blank">
         <img border="0" width="120" height="60" alt="旬の厳選10銘柄" src="https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1" style="border-radius:6px;display:block;">
@@ -523,17 +609,20 @@ canvas#gameCanvas {
   <!-- Intro Story Modal -->
   <div id="introModal" class="modal-overlay">
     <div class="modal-card">
-      <span class="trend-tag">クルマ・産業・コレクター時事2026</span>
-      <h2 class="modal-title">伝説の名車復活！日野コンテッサ＆日本車進化スイカ</h2>
+      <span class="trend-tag">2026年11月自動車殿堂ニュース・名車時事</span>
+      <h2 class="modal-title">2026日本自動車殿堂入り！『日野コンテッサ1300クーペ』＆昭和名車レストア進化スイカ</h2>
       <div class="story-box">
-        <strong>【ストーリー】</strong><br />
-        1965年誕生の美しき名車『日野コンテッサ1300クーペ』が2026年日本自動車殿堂の歴史遺産車に選定！昭和・平成・令和を彩る日本の名車マシンを合体させ、伝説のコンテッサ＆未来の殿堂入りマシンへ進化させよう！
+        <strong style="color:#ffd700;">【事件・ストーリー背景】</strong><br />
+        2026年11月、イタリアの巨匠ミケロッティがスタイリングを手がけた1965年の美しきRRクーペ『日野コンテッサ1300クーペ』が日本自動車殿堂の歴史遺産車に選出！昭和・平成・令和の日本を駆け抜けた伝説の名車たちをガレージ内で合体進化させ、コンテッサ1300クーペ＆日本自動車史の頂点を目指せ！
+      </div>
+      <div class="story-box" style="border-color:rgba(255,215,0,0.35);background:rgba(255,215,0,0.06);font-size:0.78rem;">
+        【元ネタ時事解説】2026年11月、特定非営利活動法人日本自動車殿堂（JAHFA）において、日野自動車が1965年に発売したリアエンジン・リアドライブ（RR）の名車『日野コンテッサ1300クーペ』（イタリアの巨匠ジョヴァンニ・ミケロッティ設計）が『歴史遺産車』に選定された最新ニュースを祝した名車進化ゲーム！
       </div>
       <div class="controls-box">
-        <strong>🎮 操作方法（約1分で完結！）</strong><br />
+        <strong>🎮 操作方法（60秒完結・バズり名言カットイン搭載！）</strong><br />
         マウス移動（またはタップ）でガレージ内の位置を決めてドロップ！同じランクのマシンを合体させて名車を進化させよう！
       </div>
-      <button id="btnStartGame" class="btn-primary">▶ ゲームスタート！（BGM再生）</button>
+      <button id="btnStartGame" class="btn-primary">▶ 実況ゲームスタート！（マルチトラックBGM再生）</button>
       <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.12);font-size:0.76rem;">
         <span style="background:#ffab00;color:#111;font-weight:800;padding:1px 6px;border-radius:4px;margin-right:4px;">PR</span>
         <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I" rel="nofollow" target="_blank" style="color:#ffd700;font-weight:700;">あなたの株式投資が一変するかもしれない情報源</a>
@@ -548,17 +637,17 @@ canvas#gameCanvas {
   <!-- GameOver & Monetization Result Modal -->
   <div id="resultModal" class="modal-overlay hidden">
     <div class="modal-card">
-      <h2 class="modal-title">⏱️ タイムアップ＆結果発表！</h2>
+      <h2 class="modal-title">🚨 60秒終了！緊急会見・判定結果</h2>
       <div class="result-score-box">
-        <div style="font-size:0.8rem; color:#cfd8dc;">獲得スコア</div>
+        <div style="font-size:0.8rem; color:#cfd8dc;">最終獲得スコア</div>
         <div id="resultScoreNum" class="result-score-num">0</div>
         <div id="resultRankTitle" class="result-rank-badge">称号：判定中</div>
-        <p id="resultRankComment" style="font-size:0.82rem; color:#eceff1; margin-top:6px;"></p>
+        <p id="resultRankComment" style="font-size:0.83rem; color:#eceff1; margin-top:6px; line-height:1.5;"></p>
       </div>
 
       <!-- Reward Ad Boost Button -->
       <button id="btnRewardBoost" class="btn-reward">
-        🔥 スポンサーPRを見てスコア1.5倍＆称号解放！
+        🔥 スポンサーPRを見てスコア1.5倍＆特別称号解放！
       </button>
 
       <!-- Retry & Share Buttons -->
@@ -574,13 +663,368 @@ canvas#gameCanvas {
   </div>
 
   <script>
-    window.THEME_DATA = {"slug": "contessa-car-suika", "title": "伝説の名車復活！日野コンテッサ＆日本車進化スイカ", "subtitle": "2026年『日野コンテッサ1300クーペ』自動車殿堂・歴史遺産車選定記念パズル！", "engine": "suika", "trend_category": "クルマ・産業・コレクター時事2026", "trend_keywords": ["日野コンテッサ1300クーペ", "日本自動車殿堂", "歴史遺産車", "自動車関連株", "コレクター"], "story_intro": "1965年誕生の美しき名車『日野コンテッサ1300クーペ』が2026年日本自動車殿堂の歴史遺産車に選定！昭和・平成・令和を彩る日本の名車マシンを合体させ、伝説のコンテッサ＆未来の殿堂入りマシンへ進化させよう！", "controls_hint": "マウス移動（またはタップ）でガレージ内の位置を決めてドロップ！同じランクのマシンを合体させて名車を進化させよう！", "bgm_preset": "chill_melody", "background": {"gradient": ["#141e30", "#243b55", "#c94b4b"], "board_bg": "rgba(25, 32, 48, 0.95)", "border_color": "#ffab00", "particle_emoji": "🏆", "accent_color": "#ffab00"}, "items": [{"level": 0, "emoji": "🛞", "name": "ホワイトリボンタイヤ", "radius": 18, "color": "#78909c", "score": 10}, {"level": 1, "emoji": "🛵", "name": "昭和スーパーカブ", "radius": 24, "color": "#4db6ac", "score": 25}, {"level": 2, "emoji": "🐞", "name": "てんとう虫360", "radius": 31, "color": "#dce775", "score": 50}, {"level": 3, "emoji": "🚕", "name": "純国産初代クラウン", "radius": 38, "color": "#ffd54f", "score": 90}, {"level": 4, "emoji": "🏆", "name": "日野コンテッサ1300クーペ", "radius": 47, "color": "#ff7043", "score": 180}, {"level": 5, "emoji": "🏎️", "name": "幻の2000GT", "radius": 56, "color": "#ef5350", "score": 300}, {"level": 6, "emoji": "🚗", "name": "伝説のハコスカGT-R", "radius": 66, "color": "#ab47bc", "score": 450}, {"level": 7, "emoji": "🔥", "name": "ロータリーRX-7", "radius": 76, "color": "#5c6bc0", "score": 700}, {"level": 8, "emoji": "⚡", "name": "令和ハイパーEVスポーツ", "radius": 88, "color": "#29b6f6", "score": 1100}, {"level": 9, "emoji": "👑", "name": "日本自動車殿堂レジェンド", "radius": 102, "color": "#ffab00", "score": 2200}], "ranks": [{"min_score": 0, "title": "サンデードライバー見習い", "comment": "ガレージが満車になってしまいました！まずは日野コンテッサの召喚を目指そう！"}, {"min_score": 900, "title": "クラシックカー名伯楽", "comment": "日野コンテッサ1300クーペのイタリアンデザインも喜ぶ名車コレクションです！"}, {"min_score": 2200, "title": "日本自動車殿堂・名誉オーナー", "comment": "昭和から令和まで日本の自動車史を完全制覇！伝説のグランドマスター誕生！"}], "affiliate_offers": [{"offer_id": "a8_stocks10_car", "network": "A8.net 注目銘柄プログラム", "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】", "description": "日本のモノづくり・次世代モビリティ・半導体関連など、プロが厳選した高騰期待10銘柄を公開！", "cta_text": "【旬の厳選10銘柄】詳細を見る (PR)", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP", "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TTTEP", "banner_img": "https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1", "cpa_jpy": 4000, "expected_cvr": 0.02, "tag": "名車オーナー・投資家向け"}, {"offer_id": "a8_fanema_car", "network": "A8.net コレクターズ枠", "title": "アニメ・マンガ・ゲーム等のオリジナルグッズを皆様にお届けします！【FaNeMa】", "description": "コレクター魂をくすぐる精巧なオリジナルグッズ・限定アイテム多数ラインナップ！", "cta_text": "FaNeMa公式ショップを見る (PR)", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP", "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP", "cpa_jpy": 1500, "expected_cvr": 0.022, "tag": "コレクター限定グッズ"}]};
+    window.THEME_DATA = {"slug": "contessa-car-suika", "title": "2026日本自動車殿堂入り！『日野コンテッサ1300クーペ』＆昭和名車レストア進化スイカ", "subtitle": "ミケロッティがデザインした1965年のリアエンジン名車が2026年『歴史遺産車』に選定！", "engine": "suika", "stage_style": "press_conference", "trend_category": "2026年11月自動車殿堂ニュース・名車時事", "trend_keywords": ["日野コンテッサ1300クーペ", "日本自動車殿堂2026", "歴史遺産車", "ミケロッティデザイン", "RR方式名車"], "buzz_news_context": "【元ネタ時事解説】2026年11月、特定非営利活動法人日本自動車殿堂（JAHFA）において、日野自動車が1965年に発売したリアエンジン・リアドライブ（RR）の名車『日野コンテッサ1300クーペ』（イタリアの巨匠ジョヴァンニ・ミケロッティ設計）が『歴史遺産車』に選定された最新ニュースを祝した名車進化ゲーム！", "story_intro": "2026年11月、イタリアの巨匠ミケロッティがスタイリングを手がけた1965年の美しきRRクーペ『日野コンテッサ1300クーペ』が日本自動車殿堂の歴史遺産車に選出！昭和・平成・令和の日本を駆け抜けた伝説の名車たちをガレージ内で合体進化させ、コンテッサ1300クーペ＆日本自動車史の頂点を目指せ！", "controls_hint": "マウス移動（またはタップ）でガレージ内の位置を決めてドロップ！同じランクのマシンを合体させて名車を進化させよう！", "bgm_preset": "chill_melody", "buzz_comments": ["日野自動車が昔こんな美しい乗用クーペ作ってたのか！", "ミケロッティデザインのコンテッサ1300クーペ渋すぎる", "リアエンジン・リアドライブ（RR）でフロントグリルがない造形美！", "2026年の歴史遺産車選定おめでとうございます！！"], "buzz_cutins": [{"speaker": "日本自動車殿堂2026", "quote": "1965年発売『日野コンテッサ1300クーペ』を歴史遺産車に選定します！", "badge": "🏆 2026年11月公式選定"}, {"speaker": "名車解説員", "quote": "イタリアの巨匠ミケロッティの流麗なデザインと日野のRR技術が融合！", "badge": "🇮🇹 ミケロッティの美学"}, {"speaker": "旧車コレクター", "quote": "国際コンクール・デレガンスでも連続大賞を受賞した日本の誇りだ！", "badge": "✨ 伝説のRRクーペ"}], "background": {"gradient": ["#141e30", "#243b55", "#991b1b"], "board_bg": "rgba(20, 28, 44, 0.95)", "border_color": "#ffab00", "particle_emoji": "🏆", "accent_color": "#ffab00"}, "items": [{"level": 0, "emoji": "🛞", "name": "ホワイトリボンタイヤ", "radius": 18, "color": "#64748b", "score": 10, "quote": "昭和クラシックカーの足元を飾る白リボン！"}, {"level": 1, "emoji": "🛵", "name": "本田宗一郎のスーパーカブ", "radius": 24, "color": "#0d9488", "score": 25, "quote": "日本のモータリゼーションを支えた不朽の名機！"}, {"level": 2, "emoji": "🐞", "name": "国民車スバル360", "radius": 31, "color": "#84cc16", "score": 50, "quote": "マイカー時代の幕開け・てんとう虫！"}, {"level": 3, "emoji": "🚕", "name": "日野ルノー4CV", "radius": 38, "color": "#eab308", "score": 90, "quote": "日野自動車の乗用車技術を培ったRRベース車！"}, {"level": 4, "emoji": "🏆", "name": "日野コンテッサ1300クーペ", "radius": 47, "color": "#f97316", "score": 180, "quote": "2026年歴史遺産車選定！ミケロッティの傑作クーペ！"}, {"level": 5, "emoji": "🏎️", "name": "ヤマハ共同開発2000GT", "radius": 56, "color": "#ef4444", "score": 300, "quote": "ボンドカーにもなった国産スーパーカーの祖！"}, {"level": 6, "emoji": "🚗", "name": "50連勝ハコスカGT-R", "radius": 66, "color": "#8b5cf6", "score": 450, "quote": "S20型エンジン搭載・ツーリングカー無敵伝説！"}, {"level": 7, "emoji": "🔥", "name": "ルマン制覇ロータリー787B", "radius": 76, "color": "#3b82f6", "score": 700, "quote": "飽くなき挑戦！ロータリーサウンドが響き渡る！"}, {"level": 8, "emoji": "⚡", "name": "次世代全固体電池スポーツ", "radius": 88, "color": "#06b6d4", "score": 1100, "quote": "日本の自動車技術は次世代モビリティへ進化！"}, {"level": 9, "emoji": "👑", "name": "日本自動車殿堂グランドマスター", "radius": 102, "color": "#f59e0b", "score": 2200, "quote": "1965年コンテッサから未来まで自動車史を完全制覇！"}], "ranks": [{"min_score": 0, "title": "ペーパードライバー見習い", "comment": "ガレージがすぐに満車になってしまいました！まずはランク5『日野コンテッサ1300クーペ』の召喚を目指しましょう！"}, {"min_score": 900, "title": "ミケロッティ公認・旧車愛好家", "comment": "日野コンテッサ1300クーペの美しいリアエンジン造形を見事再現！日本のモノづくり関連株も要チェックです！"}, {"min_score": 2200, "title": "日本自動車殿堂・名誉館長", "comment": "昭和から令和まで日本の自動車史を完全制覇！コンテッサも喜ぶグランドマスター誕生です！"}], "affiliate_offers": [{"offer_id": "a8_stocks10_car", "network": "A8.net 注目銘柄プログラム", "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】", "description": "日本の技術力・次世代モビリティ・半導体関連など、プロが厳選した高騰期待10銘柄を公開！", "cta_text": "【旬の厳選10銘柄】詳細を見る (PR)", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP", "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TTTEP", "banner_img": "https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1", "cpa_jpy": 4000, "expected_cvr": 0.022, "tag": "日本企業・注目株レポート"}, {"offer_id": "a8_fanema_car", "network": "A8.net コレクターズ枠", "title": "アニメ・マンガ・ゲーム等のオリジナルグッズを皆様にお届けします！【FaNeMa】", "description": "コレクター魂をくすぐる精巧なオリジナルグッズ・限定アイテム多数ラインナップ！", "cta_text": "FaNeMa公式ショップを見る (PR)", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP", "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP", "cpa_jpy": 1500, "expected_cvr": 0.023, "tag": "コレクター限定グッズ"}]};
     window.MONETIZATION_CONFIG = {"company_name": "TrendMiniGames Studio (時事ミニゲーム製作委員会)", "monthly_profit_target_jpy": 100000, "treasurer_status": {"payment_required_now": false, "payment_amount_jpy": 0, "payout_setup_required": false, "notes": "忍者AdMax（全自動枠＋320x50バナー枠）およびA8.net本番アフィリエイト案件3種（旬の厳選10銘柄・FaNeMa・MillenVPN）の全ゲーム組み込みが完了しました。現在100%本番収益化モードで稼働中です。"}, "ad_networks": {"ninja_admax": {"enabled": true, "name": "忍者AdMax (本番稼働中：全自動広告＋320x50バナー)", "signup_url": "https://www.ninja.co.jp/admax/", "admax_auto_id": "59519514442d60e1492d52de2c0f401b", "banner_320x50_id": "93752c4fffa6919b91e2a59f34ce4982", "banner_320x50_src": "https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982", "header_banner_tag_id": "93752c4fffa6919b91e2a59f34ce4982", "footer_banner_tag_id": "93752c4fffa6919b91e2a59f34ce4982", "interstitial_tag_id": "93752c4fffa6919b91e2a59f34ce4982", "estimated_rpm_jpy": 350}, "a8_net": {"enabled": true, "name": "A8.net (本番稼働中：厳選10銘柄・FaNeMa・MillenVPN)", "signup_url": "https://www.a8.net/", "media_id": "4BGJFR", "live_offers": {"stocks_10": {"title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】", "text_link_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I", "text_link_pixel": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I", "banner_320x50_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D", "banner_320x50_img": "https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1", "banner_320x50_pixel": "https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D", "banner_120x60_url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TTTEP", "banner_120x60_img": "https://www28.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005010000&mc=1", "banner_120x60_pixel": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TTTEP"}, "fanema": {"title": "アニメ・マンガ・ゲーム等のオリジナルグッズをお届け【FaNeMa】", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP", "banner_img": "https://www21.a8.net/svt/bgt?aid=261112167571&wid=001&eno=01&mid=s00000025309001005000&mc=1", "pixel": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP"}, "millenvpn": {"title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！", "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6", "pixel": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6"}}}}, "ab_testing": {"active_experiment": "result_cta_copy_v2_live", "variants": {"A": {"name": "恐怖・損失回避訴求 (Loss Aversion)", "badge_text": "【警告】知らないと損する現実の対策・情報源", "button_style": "urgent_red", "reward_button_text": "🔥 スポンサーPRを見てスコア1.5倍＆称号解放！"}, "B": {"name": "お得・報酬獲得訴求 (Gain & Reward)", "badge_text": "【プレイヤー限定】今チェックすべき厳選おすすめ情報", "button_style": "gold_shine", "reward_button_text": "🎁 PRをチェックしてボーナススコア＋150%獲得！"}}}, "pdca_rules": {"min_impressions_for_judgment": 50, "target_ad_ctr_percent": 3.5, "target_retry_rate_percent": 45.0, "auto_optimize_enabled": true}};
   </script>
   <script>
 /**
- * Web Audio API Procedural BGM & Sound Effects Synthesizer
- * 外部MP3ファイル不要・著作権完全フリー・容量0KBでテーマ別BGMと効果音を自動生成
+ * Rich Visual Assets, Parody Character Renderer, Live Stage Backgrounds & Buzz Cut-in System
+ * 1. 実在ニュース・謝罪会見・バズりミームのパロディ人物＆アイテムを高精細ベクター描画
+ * 2. 記者会見フラッシュ・東証アローズ電光掲示板・回転寿司レーン・SNS弾幕コメントの動的背景
+ * 3. プレイ中にバズった名言・炎上発言が飛び出す「緊急速報カットイン」演出
+ */
+class RichVisualRenderer {
+  constructor(canvas, theme) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.theme = theme;
+    this.tick = 0;
+    this.cutin = null;
+    this.flashes = [];
+    this.danmaku = [];
+    this.shakeAmount = 0;
+
+    this.initDanmaku();
+  }
+
+  initDanmaku() {
+    const comments = this.theme.buzz_comments || [
+      '命の砂時計きたwww',
+      '2年前のイエラエ指摘放置は草',
+      'スライド係の社員かわいそうw',
+      'スーツのボタン留めろ会見w',
+      '店員がメルカリ横流しはアカン',
+      'なぜ庶民がAIの電気代払うのか',
+      '新NISA損切り民息してるかー？',
+      '桐谷さんチャリ爆走www',
+      'ガチでメロい尊い…',
+      '完全にドパガキの症状で草'
+    ];
+    for (let i = 0; i < 9; i++) {
+      this.danmaku.push({
+        text: comments[i % comments.length],
+        x: Math.random() * 400,
+        y: 65 + (i * 42) % 360,
+        speed: 0.9 + Math.random() * 1.4,
+        alpha: 0.18 + Math.random() * 0.18
+      });
+    }
+  }
+
+  triggerCutin(speaker, quote, avatarType = 'kumagai', badge = '🚨 緊急会見速報') {
+    this.cutin = {
+      speaker,
+      quote,
+      avatarType,
+      badge,
+      life: 1.0,
+      maxLife: 1.0
+    };
+    this.shakeAmount = 6;
+    // Camera flash effect
+    for (let i = 0; i < 4; i++) {
+      this.flashes.push({
+        x: 40 + Math.random() * 320,
+        y: 60 + Math.random() * 360,
+        radius: 50 + Math.random() * 80,
+        alpha: 0.75
+      });
+    }
+  }
+
+  triggerRandomBuzzCutin() {
+    const list = this.theme.buzz_cutins || [];
+    if (list.length === 0) return;
+    const item = list[Math.floor(Math.random() * list.length)];
+    this.triggerCutin(item.speaker, item.quote, item.avatar || 'kumagai', item.badge || '🔥 バズり速報');
+  }
+
+  drawStageBackground(width, height) {
+    const ctx = this.ctx;
+    this.tick++;
+
+    ctx.save();
+    if (this.shakeAmount > 0.2) {
+      const dx = (Math.random() - 0.5) * this.shakeAmount;
+      const dy = (Math.random() - 0.5) * this.shakeAmount;
+      ctx.translate(dx, dy);
+      this.shakeAmount *= 0.85;
+    }
+
+    const stageType = this.theme.stage_style || 'press_conference';
+
+    if (stageType === 'press_conference') {
+      // 謝罪会見場（金屏風格子＋記者席シルエット＋カメラフラッシュ）
+      const grad = ctx.createLinearGradient(0, 0, 0, height);
+      grad.addColorStop(0, '#0f172a');
+      grad.addColorStop(0.6, '#1e293b');
+      grad.addColorStop(1, '#090d16');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      // パネル背景の市松模様（記者会見バックパネル風）
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+      const size = 40;
+      for (let r = 0; r < height / size; r++) {
+        for (let c = 0; c < width / size; c++) {
+          if ((r + c) % 2 === 0) {
+            ctx.fillRect(c * size, r * size, size, size);
+          }
+        }
+      }
+
+      // ランダム記者カメラフラッシュ
+      if (this.tick % 45 === 0) {
+        this.flashes.push({
+          x: 30 + Math.random() * (width - 60),
+          y: height - 40 - Math.random() * 80,
+          radius: 70,
+          alpha: 0.55
+        });
+      }
+    } else if (stageType === 'stock_exchange') {
+      // 東証アローズ風（ローソク足グリッド＋回転株価ティッカー）
+      const grad = ctx.createLinearGradient(0, 0, 0, height);
+      grad.addColorStop(0, '#041410');
+      grad.addColorStop(1, '#07221b');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.strokeStyle = 'rgba(0, 230, 118, 0.08)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < width; x += 32) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
+      }
+      for (let y = 0; y < height; y += 32) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
+      }
+
+      // 背景ローソク足アニメーション
+      for (let i = 0; i < 10; i++) {
+        const cx = 24 + i * 38;
+        const wave = Math.sin((this.tick * 0.03) + i * 0.7) * 55;
+        const cy = 220 + wave;
+        const isUp = Math.cos((this.tick * 0.03) + i) >= 0;
+        ctx.fillStyle = isUp ? 'rgba(255, 23, 68, 0.16)' : 'rgba(0, 230, 118, 0.16)';
+        ctx.fillRect(cx - 8, cy - 22, 16, 44);
+        ctx.fillRect(cx - 1.5, cy - 36, 3, 72);
+      }
+    } else if (stageType === 'sushi_lane') {
+      // 回転寿司レーン＆フリマ出品風背景
+      const grad = ctx.createLinearGradient(0, 0, 0, height);
+      grad.addColorStop(0, '#2a1215');
+      grad.addColorStop(1, '#14080a');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      // 回転レーンベルト
+      ctx.fillStyle = 'rgba(255, 215, 0, 0.08)';
+      ctx.fillRect(0, 140, width, 28);
+      ctx.fillRect(0, 310, width, 28);
+      const offset = (this.tick * 1.5) % 60;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
+      for (let x = -60 + offset; x < width; x += 60) {
+        ctx.fillRect(x, 146, 36, 16);
+        ctx.fillRect(width - x, 316, 36, 16);
+      }
+    } else {
+      // ネオンSNS＆ドパガキ2分割風ステージ
+      const grad = ctx.createLinearGradient(0, 0, width, height);
+      grad.addColorStop(0, '#1a0b2e');
+      grad.addColorStop(0.5, '#2d114d');
+      grad.addColorStop(1, '#0f172a');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
+
+      // 集中線・ネオンサークル
+      ctx.strokeStyle = 'rgba(255, 64, 129, 0.1)';
+      ctx.lineWidth = 2;
+      const r = (this.tick * 1.2) % 240;
+      ctx.beginPath();
+      ctx.arc(width / 2, height / 2, r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // 流れるSNS弾幕コメント
+    ctx.font = 'bold 12px "Hiragino Kaku Gothic ProN", sans-serif';
+    for (const d of this.danmaku) {
+      d.x -= d.speed;
+      if (d.x < -220) d.x = width + 20;
+      ctx.fillStyle = `rgba(255, 255, 255, ${d.alpha})`;
+      ctx.fillText(d.text, d.x, d.y);
+    }
+
+    // カメラフラッシュ発光描画
+    for (let i = this.flashes.length - 1; i >= 0; i--) {
+      const f = this.flashes[i];
+      const radGrad = ctx.createRadialGradient(f.x, f.y, 2, f.x, f.y, f.radius);
+      radGrad.addColorStop(0, `rgba(255, 255, 255, ${f.alpha})`);
+      radGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = radGrad;
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
+      ctx.fill();
+      f.alpha -= 0.06;
+      if (f.alpha <= 0) this.flashes.splice(i, 1);
+    }
+
+    ctx.restore();
+  }
+
+  /**
+   * キャラクター・パロディ人物のリッチベクター描画（立体メダル＋似顔絵パーツ＋ラベルリボン）
+   */
+  drawRichCharacter(x, y, radius, spec, isPreview = false) {
+    const ctx = this.ctx;
+    ctx.save();
+    if (isPreview) ctx.globalAlpha = 0.85;
+
+    // 外周ドロップシャドウ＆オーラ
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.55)';
+    ctx.shadowBlur = 8;
+    ctx.shadowOffsetY = 3;
+
+    // ベース立体球体グラデーション
+    const baseColor = spec.color || '#ff4081';
+    const sphereGrad = ctx.createRadialGradient(
+      x - radius * 0.3, y - radius * 0.3, radius * 0.1,
+      x, y, radius
+    );
+    sphereGrad.addColorStop(0, '#ffffff');
+    sphereGrad.addColorStop(0.25, baseColor);
+    sphereGrad.addColorStop(1, '#111827');
+
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fillStyle = sphereGrad;
+    ctx.fill();
+
+    // メタリックゴールド/ネオン枠線
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetY = 0;
+    ctx.lineWidth = radius >= 45 ? 3.5 : 2.2;
+    ctx.strokeStyle = radius >= 55 ? '#ffd700' : 'rgba(255, 255, 255, 0.9)';
+    ctx.stroke();
+
+    // パロディ人物イラストレイヤー（avatar属性がある場合、似顔絵ベクターパーツを重ねる）
+    const avatar = spec.avatar || '';
+    if (avatar === 'kumagai_ceo' && radius >= 26) {
+      // クマガイ社長風：紺スーツ襟＋赤ネクタイ＋黒髪七三＋涙＋砂時計バッジ
+      ctx.fillStyle = '#0f172a';
+      ctx.beginPath();
+      ctx.arc(x, y + radius * 0.55, radius * 0.42, Math.PI, 0, false);
+      ctx.fill();
+      ctx.fillStyle = '#e11d48'; // 赤ネクタイ＆チーフ
+      ctx.fillRect(x - 3, y + radius * 0.25, 6, radius * 0.35);
+    } else if (avatar === 'kiritani_master' && radius >= 26) {
+      // 桐谷名人風：メガネフレーム＋自転車ヘルメット風アクセント
+      ctx.strokeStyle = '#ffd700';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(x - radius * 0.42, y - radius * 0.22, radius * 0.35, radius * 0.22);
+      ctx.strokeRect(x + radius * 0.07, y - radius * 0.22, radius * 0.35, radius * 0.22);
+    } else if (avatar === 'ueda_gov' && radius >= 26) {
+      // 植田総裁風：黒縁メガネ＋日銀バッジ
+      ctx.strokeStyle = '#111';
+      ctx.lineWidth = 2.5;
+      ctx.strokeRect(x - radius * 0.42, y - radius * 0.2, radius * 0.36, radius * 0.22);
+      ctx.strokeRect(x + radius * 0.06, y - radius * 0.2, radius * 0.36, radius * 0.22);
+    }
+
+    // メイン絵文字/シンボル
+    const fontSize = Math.max(15, Math.floor(radius * 0.88));
+    ctx.font = `${fontSize}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(spec.emoji || '🔥', x, y - (radius >= 28 ? 3 : 0));
+
+    // 上部ハイライトグロス（ツヤ感）
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.28)';
+    ctx.beginPath();
+    ctx.ellipse(x - radius * 0.22, y - radius * 0.48, radius * 0.38, radius * 0.16, -0.3, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 名前リボンプレート（半径24以上）
+    if (radius >= 24 && spec.name) {
+      const label = spec.name.slice(0, 8);
+      const pillW = Math.min(radius * 1.9, Math.max(48, label.length * 9.5));
+      const pillH = radius >= 48 ? 16 : 13;
+      const py = y + radius * 0.58;
+
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.82)';
+      ctx.beginPath();
+      ctx.roundRect(x - pillW / 2, py - pillH / 2, pillW, pillH, 6);
+      ctx.fill();
+      ctx.strokeStyle = '#ffd700';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = `bold ${radius >= 48 ? 10 : 8.5}px "Hiragino Kaku Gothic ProN", sans-serif`;
+      ctx.fillText(label, x, py + 0.5);
+    }
+
+    ctx.restore();
+  }
+
+  /**
+   * 画面上部に飛び出す「週刊誌スクープ／謝罪会見テロップ風カットイン」描画
+   */
+  drawCutinOverlay(width) {
+    if (!this.cutin) return;
+    const c = this.cutin;
+    const ctx = this.ctx;
+
+    ctx.save();
+    const alpha = Math.min(1, c.life * 2.2);
+    ctx.globalAlpha = alpha;
+
+    // ニュース速報テロップ枠
+    const boxX = 10;
+    const boxY = 46;
+    const boxW = width - 20;
+    const boxH = 54;
+
+    const grad = ctx.createLinearGradient(boxX, boxY, boxX + boxW, boxY);
+    grad.addColorStop(0, 'rgba(185, 28, 28, 0.96)');
+    grad.addColorStop(0.5, 'rgba(15, 23, 42, 0.96)');
+    grad.addColorStop(1, 'rgba(30, 41, 59, 0.96)');
+
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.roundRect(boxX, boxY, boxW, boxH, 10);
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#ffd700';
+    ctx.stroke();
+
+    // バッジ
+    ctx.fillStyle = '#ffd700';
+    ctx.font = 'bold 10px "Hiragino Kaku Gothic ProN", sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(`${c.badge} ｜ ${c.speaker}`, boxX + 12, boxY + 17);
+
+    // セリフ本文
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
+    ctx.fillText(`「${c.quote.slice(0, 25)}」`, boxX + 12, boxY + 39);
+
+    ctx.restore();
+
+    c.life -= 0.015;
+    if (c.life <= 0) {
+      this.cutin = null;
+    }
+  }
+}
+
+window.RichVisualRenderer = RichVisualRenderer;
+
+  </script>
+  <script>
+/**
+ * Rich Multi-Track Synth & Arcade Sound Engine (Web Audio API)
+ * ドラムビート（Kick / Snare / Hi-Hat）＋重低音ベース＋コード和音＋リードメロディの4トラック同時演奏
+ * ＆ 記者会見カメラシャッター連写音・爆発音・コイン音などのリアル効果音合成
  */
 class ProceduralAudioEngine {
   constructor(preset = 'upbeat_pop') {
@@ -591,31 +1035,72 @@ class ProceduralAudioEngine {
     this.bgmTimer = null;
     this.stepIndex = 0;
 
+    // 16ステップのマルチトラックシーケンス定義
     this.presets = {
       upbeat_pop: {
-        tempoMs: 190,
-        wave: 'triangle',
-        notes: [523.25, 659.25, 783.99, 659.25, 880.0, 783.99, 659.25, 587.33]
+        tempoMs: 135,
+        leadWave: 'triangle',
+        bassWave: 'sawtooth',
+        lead: [523.25, 0, 659.25, 783.99, 880.0, 783.99, 659.25, 587.33, 523.25, 659.25, 783.99, 1046.5, 987.77, 783.99, 659.25, 587.33],
+        bass: [130.81, 130.81, 164.81, 164.81, 174.61, 174.61, 196.0, 196.0],
+        chords: [
+          [261.63, 329.63, 392.0],
+          [220.0, 261.63, 329.63],
+          [174.61, 220.0, 261.63],
+          [196.0, 246.94, 293.66]
+        ]
       },
       cyber_tension: {
-        tempoMs: 165,
-        wave: 'sawtooth',
-        notes: [220.0, 261.63, 329.63, 220.0, 293.66, 349.23, 329.63, 196.0]
+        tempoMs: 125,
+        leadWave: 'sawtooth',
+        bassWave: 'sawtooth',
+        lead: [220.0, 261.63, 329.63, 440.0, 392.0, 329.63, 293.66, 261.63, 220.0, 329.63, 440.0, 523.25, 493.88, 440.0, 329.63, 246.94],
+        bass: [110.0, 110.0, 110.0, 130.81, 146.83, 146.83, 130.81, 98.0],
+        chords: [
+          [220.0, 261.63, 329.63],
+          [174.61, 220.0, 261.63],
+          [146.83, 174.61, 220.0],
+          [164.81, 196.0, 246.94]
+        ]
       },
       retro_8bit: {
-        tempoMs: 180,
-        wave: 'square',
-        notes: [392.0, 440.0, 493.88, 523.25, 587.33, 523.25, 493.88, 440.0]
+        tempoMs: 130,
+        leadWave: 'square',
+        bassWave: 'triangle',
+        lead: [392.0, 440.0, 493.88, 587.33, 659.25, 587.33, 493.88, 440.0, 392.0, 493.88, 587.33, 783.99, 659.25, 587.33, 493.88, 440.0],
+        bass: [196.0, 196.0, 146.83, 146.83, 164.81, 164.81, 130.81, 146.83],
+        chords: [
+          [196.0, 246.94, 293.66],
+          [146.83, 185.0, 220.0],
+          [164.81, 196.0, 246.94],
+          [130.81, 164.81, 196.0]
+        ]
       },
       panic_rush: {
-        tempoMs: 145,
-        wave: 'square',
-        notes: [329.63, 392.0, 493.88, 659.25, 587.33, 493.88, 392.0, 329.63]
+        tempoMs: 115,
+        leadWave: 'sawtooth',
+        bassWave: 'square',
+        lead: [329.63, 392.0, 493.88, 659.25, 698.46, 659.25, 493.88, 392.0, 329.63, 493.88, 659.25, 783.99, 739.99, 659.25, 493.88, 369.99],
+        bass: [164.81, 164.81, 196.0, 196.0, 220.0, 220.0, 246.94, 196.0],
+        chords: [
+          [164.81, 196.0, 246.94],
+          [196.0, 246.94, 293.66],
+          [220.0, 261.63, 329.63],
+          [246.94, 293.66, 369.99]
+        ]
       },
       chill_melody: {
-        tempoMs: 240,
-        wave: 'sine',
-        notes: [261.63, 329.63, 392.0, 493.88, 440.0, 392.0, 329.63, 293.66]
+        tempoMs: 165,
+        leadWave: 'sine',
+        bassWave: 'triangle',
+        lead: [261.63, 329.63, 392.0, 523.25, 493.88, 392.0, 329.63, 293.66, 261.63, 329.63, 440.0, 523.25, 587.33, 523.25, 440.0, 392.0],
+        bass: [130.81, 130.81, 98.0, 98.0, 110.0, 110.0, 87.31, 98.0],
+        chords: [
+          [261.63, 329.63, 392.0],
+          [196.0, 246.94, 293.66],
+          [220.0, 261.63, 329.63],
+          [174.61, 220.0, 261.63]
+        ]
       }
     };
   }
@@ -652,11 +1137,33 @@ class ProceduralAudioEngine {
 
     this.bgmTimer = setInterval(() => {
       if (this.isMuted || !this.isPlayingBgm) return;
-      const freq = cfg.notes[this.stepIndex % cfg.notes.length];
-      this.playTone(freq, cfg.tempoMs / 1000 * 0.75, cfg.wave, 0.045);
-      if (this.stepIndex % 2 === 0) {
-        this.playTone(freq / 2, cfg.tempoMs / 1000 * 0.85, 'sine', 0.035);
+      const step = this.stepIndex % 16;
+
+      // 1. Drum Track (Kick on 0, 4, 8, 12 / Snare on 4, 12 / HiHat on every even step)
+      if (step % 4 === 0) this.playDrumKick();
+      if (step % 8 === 4) this.playNoiseBurst(0.08, 0.045, 1200); // Snare
+      if (step % 2 === 1) this.playNoiseBurst(0.03, 0.02, 5000);  // Hi-Hat
+
+      // 2. Bass Track
+      const bassFreq = cfg.bass[Math.floor(step / 2) % cfg.bass.length];
+      if (bassFreq) {
+        this.playTone(bassFreq, cfg.tempoMs / 1000 * 0.85, cfg.bassWave, 0.042);
       }
+
+      // 3. Chord Pad (on step 0, 4, 8, 12)
+      if (step % 4 === 0 && cfg.chords) {
+        const chord = cfg.chords[Math.floor(step / 4) % cfg.chords.length];
+        chord.forEach(f => {
+          this.playTone(f, (cfg.tempoMs * 3.8) / 1000, 'sine', 0.022);
+        });
+      }
+
+      // 4. Lead Melody
+      const leadFreq = cfg.lead[step % cfg.lead.length];
+      if (leadFreq > 0) {
+        this.playTone(leadFreq, cfg.tempoMs / 1000 * 0.78, cfg.leadWave, 0.048);
+      }
+
       this.stepIndex++;
     }, cfg.tempoMs);
   }
@@ -667,6 +1174,48 @@ class ProceduralAudioEngine {
       clearInterval(this.bgmTimer);
       this.bgmTimer = null;
     }
+  }
+
+  playDrumKick() {
+    if (this.isMuted || !this.ctx) return;
+    const now = this.ctx.currentTime;
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(135, now);
+    osc.frequency.exponentialRampToValueAtTime(38, now + 0.11);
+    gain.gain.setValueAtTime(0.11, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
+    osc.connect(gain);
+    gain.connect(this.ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.11);
+  }
+
+  playNoiseBurst(durationSec = 0.06, volume = 0.04, filterFreq = 2000) {
+    if (this.isMuted || !this.ctx) return;
+    const now = this.ctx.currentTime;
+    const bufferSize = Math.floor(this.ctx.sampleRate * durationSec);
+    const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      data[i] = Math.random() * 2 - 1;
+    }
+    const noise = this.ctx.createBufferSource();
+    noise.buffer = buffer;
+
+    const filter = this.ctx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(filterFreq, now);
+
+    const gain = this.ctx.createGain();
+    gain.gain.setValueAtTime(volume, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + durationSec);
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.ctx.destination);
+    noise.start(now);
   }
 
   playTone(freq, durationSec, type = 'sine', volume = 0.08, slideToFreq = null) {
@@ -694,30 +1243,42 @@ class ProceduralAudioEngine {
 
   playSE(type, level = 1) {
     if (this.isMuted) return;
+    this.initContext();
     switch (type) {
       case 'drop':
-        this.playTone(300, 0.09, 'sine', 0.08, 180);
+        this.playTone(340, 0.08, 'sine', 0.09, 170);
         break;
       case 'merge':
-        const baseFreq = 330 + (level * 55);
-        this.playTone(baseFreq, 0.14, 'triangle', 0.12, baseFreq * 1.35);
+        // 進化音＋高ランク時は記者会見のカメラシャッター連写音
+        const baseFreq = 350 + (level * 65);
+        this.playTone(baseFreq, 0.14, 'triangle', 0.13, baseFreq * 1.4);
+        this.playTone(baseFreq * 1.25, 0.18, 'sine', 0.09, baseFreq * 1.6);
+        if (level >= 3) {
+          this.playNoiseBurst(0.04, 0.06, 3500);
+          setTimeout(() => this.playNoiseBurst(0.04, 0.06, 4200), 65);
+        }
         break;
       case 'jump':
-        this.playTone(280, 0.12, 'square', 0.07, 560);
+        this.playTone(300, 0.11, 'square', 0.075, 620);
         break;
       case 'hit':
-        this.playTone(520, 0.1, 'triangle', 0.1, 880);
+        // 爽快チャリン＆パンチ音
+        this.playTone(587.33, 0.08, 'triangle', 0.11, 880);
+        setTimeout(() => this.playTone(1174.66, 0.12, 'sine', 0.11), 50);
         break;
       case 'damage':
-        this.playTone(190, 0.22, 'sawtooth', 0.11, 95);
+        this.playNoiseBurst(0.14, 0.09, 600);
+        this.playTone(180, 0.24, 'sawtooth', 0.12, 85);
         break;
       case 'reward':
-        this.playTone(523.25, 0.12, 'triangle', 0.12, 659.25);
-        setTimeout(() => this.playTone(783.99, 0.25, 'triangle', 0.14, 1046.5), 110);
+        [523.25, 659.25, 783.99, 1046.5].forEach((f, idx) => {
+          setTimeout(() => this.playTone(f, 0.2, 'triangle', 0.13), idx * 75);
+        });
         break;
       case 'gameover':
-        this.playTone(392.0, 0.18, 'sawtooth', 0.1, 329.63);
-        setTimeout(() => this.playTone(293.66, 0.35, 'sawtooth', 0.1, 196.0), 180);
+        [392.0, 349.23, 329.63, 261.63].forEach((f, idx) => {
+          setTimeout(() => this.playTone(f, 0.22, 'sawtooth', 0.1, f * 0.92), idx * 120);
+        });
         break;
     }
   }
@@ -996,9 +1557,8 @@ window.MiniGameMonetizationSDK = MiniGameMonetizationSDK;
   </script>
   <script>
 /**
- * Engine 1: Suika-Physics (落下＆合体物理パズルエンジン)
- * 参照OSS: sgbj/suika-clone, isobelmcrae/suika (MIT)
- * 1分で決着がつく「60秒スコアアタック＋デッドライン溢れ判定」ハイブリッド仕様
+ * Engine 1: Suika-Physics (落下＆合体物理パズルエンジン - Rich Parody Edition)
+ * 動的ステージ背景＋パロディ似顔絵ベクター描画＋バズり名言カットイン搭載
  */
 class SuikaGameEngine {
   constructor(canvas, theme, audio, sdk, callbacks) {
@@ -1014,6 +1574,7 @@ class SuikaGameEngine {
     this.canvas.width = this.width;
     this.canvas.height = this.height;
 
+    this.rich = new window.RichVisualRenderer(this.canvas, this.theme);
     this.items = theme.items || [];
     this.balls = [];
     this.particles = [];
@@ -1026,7 +1587,7 @@ class SuikaGameEngine {
     this.currentLevel = 0;
     this.nextLevel = 1;
     this.canDrop = true;
-    this.deadLineY = 85;
+    this.deadLineY = 92;
     this.timerInterval = null;
     this.animId = null;
 
@@ -1037,8 +1598,8 @@ class SuikaGameEngine {
   renderEvolutionGuide() {
     const guide = document.getElementById('evolutionGuide');
     if (!guide) return;
-    const chain = this.items.map(it => `${it.emoji}<span style="font-size:0.7rem">${it.name.slice(0, 4)}</span>`).join(' ➔ ');
-    guide.innerHTML = `<strong>【進化図鑑】</strong> ${chain}`;
+    const chain = this.items.map(it => `<span class="evo-chip">${it.emoji} ${it.name}</span>`).join(' <span style="color:#ffd700">▸</span> ');
+    guide.innerHTML = `<div style="font-weight:900;color:#ffd700;margin-bottom:4px;">【時事進化ルート】同じキャラをぶつけて最終形態を召喚せよ！</div><div>${chain}</div>`;
   }
 
   bindEvents() {
@@ -1091,6 +1652,7 @@ class SuikaGameEngine {
 
     this.cb.onScoreChange(this.score);
     this.cb.onTimeChange(this.timeLeft);
+    this.rich.triggerRandomBuzzCutin();
 
     if (this.timerInterval) clearInterval(this.timerInterval);
     this.timerInterval = setInterval(() => {
@@ -1117,9 +1679,9 @@ class SuikaGameEngine {
     const spec = this.items[this.currentLevel] || this.items[0];
     this.balls.push({
       x: this.dropX + (Math.random() - 0.5) * 2,
-      y: 52,
+      y: 54,
       vx: 0,
-      vy: 1.5,
+      vy: 1.8,
       level: this.currentLevel,
       radius: spec.radius,
       bornAt: Date.now()
@@ -1131,13 +1693,13 @@ class SuikaGameEngine {
 
     setTimeout(() => {
       this.canDrop = true;
-    }, 340);
+    }, 320);
   }
 
   spawnParticles(x, y, color) {
-    for (let i = 0; i < 12; i++) {
-      const angle = (Math.PI * 2 * i) / 12;
-      const speed = 2 + Math.random() * 3.5;
+    for (let i = 0; i < 16; i++) {
+      const angle = (Math.PI * 2 * i) / 16;
+      const speed = 2.2 + Math.random() * 4.0;
       this.particles.push({
         x, y,
         vx: Math.cos(angle) * speed,
@@ -1174,7 +1736,6 @@ class SuikaGameEngine {
       }
     }
 
-    // Physics sub-steps & collision merge
     for (let iter = 0; iter < 4; iter++) {
       for (let i = 0; i < this.balls.length; i++) {
         for (let j = i + 1; j < this.balls.length; j++) {
@@ -1189,7 +1750,6 @@ class SuikaGameEngine {
 
           if (dist < minDist) {
             if (a.level === b.level && a.level < this.items.length - 1) {
-              // Merge into next level!
               const nextLv = a.level + 1;
               const nextSpec = this.items[nextLv];
               const mx = (a.x + b.x) / 2;
@@ -1201,26 +1761,36 @@ class SuikaGameEngine {
                 x: mx,
                 y: my,
                 vx: 0,
-                vy: -1.5,
+                vy: -1.6,
                 level: nextLv,
                 radius: nextSpec.radius,
                 bornAt: Date.now()
               });
 
-              const gained = nextSpec.score || (nextLv + 1) * 30;
+              const gained = nextSpec.score || (nextLv + 1) * 35;
               this.score += gained;
               this.cb.onScoreChange(this.score);
               this.audio.playSE('merge', nextLv);
               this.spawnParticles(mx, my, nextSpec.color);
+
+              const quoteText = nextSpec.quote || `${nextSpec.name}に進化！`;
               this.floatingTexts.push({
                 x: mx,
                 y: my,
-                text: `${nextSpec.emoji} +${gained}`,
+                text: `${nextSpec.emoji} +${gained} (${nextSpec.name})`,
                 life: 1.0
               });
+
+              if (nextLv >= 3) {
+                this.rich.triggerCutin(
+                  nextSpec.name,
+                  quoteText,
+                  nextSpec.avatar || 'kumagai',
+                  `🔥 Lv.${nextLv + 1} 進化達成！`
+                );
+              }
               break;
             } else {
-              // Elastic separation
               const overlap = (minDist - dist) * 0.52;
               const nx = dx / dist;
               const ny = dy / dist;
@@ -1245,7 +1815,6 @@ class SuikaGameEngine {
       }
     }
 
-    // Check overflow above deadline
     const now = Date.now();
     for (const b of this.balls) {
       if (now - b.bornAt > 1800 && b.y - b.radius < this.deadLineY && Math.abs(b.vy) < 0.8) {
@@ -1254,7 +1823,6 @@ class SuikaGameEngine {
       }
     }
 
-    // Update particles & floating texts
     this.particles.forEach(p => {
       p.x += p.vx;
       p.y += p.vy;
@@ -1263,104 +1831,87 @@ class SuikaGameEngine {
     this.particles = this.particles.filter(p => p.life > 0);
 
     this.floatingTexts.forEach(ft => {
-      ft.y -= 1.2;
-      ft.life -= 0.03;
+      ft.y -= 1.3;
+      ft.life -= 0.028;
     });
     this.floatingTexts = this.floatingTexts.filter(ft => ft.life > 0);
   }
 
   draw() {
     const ctx = this.ctx;
-    ctx.clearRect(0, 0, this.width, this.height);
+    this.rich.drawStageBackground(this.width, this.height);
 
-    // Deadline line
+    // 炎上デッドライン
     ctx.save();
-    ctx.strokeStyle = 'rgba(255, 82, 82, 0.7)';
+    ctx.strokeStyle = 'rgba(255, 23, 68, 0.8)';
     ctx.lineWidth = 2;
     ctx.setLineDash([6, 6]);
     ctx.beginPath();
     ctx.moveTo(0, this.deadLineY);
     ctx.lineTo(this.width, this.deadLineY);
     ctx.stroke();
+    ctx.fillStyle = 'rgba(255, 23, 68, 0.85)';
+    ctx.font = 'bold 10px sans-serif';
+    ctx.fillText('▲ 炎上デッドライン（超過で即謝罪会見）', 8, this.deadLineY - 5);
     ctx.restore();
 
-    // Preview dropper & guide line
     if (this.canDrop) {
       const curSpec = this.items[this.currentLevel] || this.items[0];
       ctx.save();
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.22)';
+      ctx.strokeStyle = 'rgba(255, 215, 0, 0.35)';
+      ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.moveTo(this.dropX, 45);
+      ctx.moveTo(this.dropX, 42);
       ctx.lineTo(this.dropX, this.height);
       ctx.stroke();
       ctx.restore();
 
-      this.drawBallItem(this.dropX, 42, curSpec, true);
+      this.rich.drawRichCharacter(this.dropX, 40, curSpec.radius, curSpec, true);
     }
 
-    // Next item badge
     const nextSpec = this.items[this.nextLevel] || this.items[0];
     ctx.save();
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
-    ctx.fillRect(this.width - 105, 8, 97, 32);
-    ctx.fillStyle = '#fff';
-    ctx.font = 'bold 12px sans-serif';
-    ctx.fillText(`NEXT: ${nextSpec.emoji}`, this.width - 96, 29);
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.72)';
+    ctx.strokeStyle = '#ffd700';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(this.width - 135, 6, 128, 32, 8);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = '#ffd700';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.fillText(`NEXT: ${nextSpec.emoji} ${nextSpec.name.slice(0, 5)}`, this.width - 127, 26);
     ctx.restore();
 
-    // Active balls
     for (const b of this.balls) {
       const spec = this.items[b.level] || this.items[0];
-      this.drawBallItem(b.x, b.y, spec, false);
+      this.rich.drawRichCharacter(b.x, b.y, b.radius, spec, false);
     }
 
-    // Particles
     for (const p of this.particles) {
       ctx.save();
       ctx.globalAlpha = Math.max(0, p.life);
       ctx.fillStyle = p.color;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
       ctx.fill();
       ctx.restore();
     }
 
-    // Floating texts
     for (const ft of this.floatingTexts) {
       ctx.save();
       ctx.globalAlpha = Math.max(0, ft.life);
-      ctx.font = 'bold 15px sans-serif';
+      ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
       ctx.fillStyle = '#ffd700';
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 3;
       ctx.textAlign = 'center';
+      ctx.strokeText(ft.text, ft.x, ft.y);
       ctx.fillText(ft.text, ft.x, ft.y);
       ctx.restore();
     }
-  }
 
-  drawBallItem(x, y, spec, isPreview) {
-    const ctx = this.ctx;
-    ctx.save();
-    if (isPreview) ctx.globalAlpha = 0.85;
-
-    ctx.beginPath();
-    ctx.arc(x, y, spec.radius, 0, Math.PI * 2);
-    ctx.fillStyle = spec.color || '#ff80ab';
-    ctx.fill();
-    ctx.lineWidth = 2.5;
-    ctx.strokeStyle = '#ffffff';
-    ctx.stroke();
-
-    ctx.font = `${Math.max(14, Math.floor(spec.radius * 0.95))}px sans-serif`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(spec.emoji, x, y - 2);
-
-    if (spec.radius >= 30) {
-      ctx.font = 'bold 9px sans-serif';
-      ctx.fillStyle = 'rgba(0,0,0,0.75)';
-      ctx.fillText(spec.name.slice(0, 6), x, y + spec.radius * 0.58);
-    }
-    ctx.restore();
+    this.rich.drawCutinOverlay(this.width);
   }
 
   finishGame() {
@@ -1384,12 +1935,12 @@ window.SuikaGameEngine = SuikaGameEngine;
 
       const root = document.documentElement;
       if (theme.background) {
-        const g = theme.background.gradient || ['#141e30', '#243b55', '#c94b4b'];
+        const g = theme.background.gradient || ['#090d16', '#1e293b', '#7f1d1d'];
         root.style.setProperty('--bg-grad-1', g[0]);
         root.style.setProperty('--bg-grad-2', g[1] || g[0]);
         root.style.setProperty('--bg-grad-3', g[2] || g[1]);
-        root.style.setProperty('--board-bg', theme.background.board_bg || 'rgba(20,25,40,0.94)');
-        root.style.setProperty('--border-color', theme.background.border_color || '#ff4081');
+        root.style.setProperty('--board-bg', theme.background.board_bg || 'rgba(12,18,32,0.96)');
+        root.style.setProperty('--border-color', theme.background.border_color || '#ffd700');
         root.style.setProperty('--accent-color', theme.background.accent_color || '#ff4081');
       }
 

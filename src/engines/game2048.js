@@ -1,7 +1,6 @@
 /**
- * Engine 2: 2048-Evolution (60秒スライド合体進化パズルエンジン)
- * 参照OSS: gabrielecirulli/2048 (MIT)
- * キーボード・タッチスワイプ・画面クリック4方向対応
+ * Engine 2: 2048-Evolution (60秒スライド合体進化パズルエンジン - Rich Parody Edition)
+ * 記者会見フラッシュ背景＋バズり名言カットイン（「命の砂時計」「イエラエ2年前指摘」等）搭載
  */
 class Game2048Engine {
   constructor(canvas, theme, audio, sdk, callbacks) {
@@ -13,10 +12,11 @@ class Game2048Engine {
     this.cb = callbacks;
 
     this.width = 400;
-    this.height = 460;
+    this.height = 470;
     this.canvas.width = this.width;
     this.canvas.height = this.height;
 
+    this.rich = new window.RichVisualRenderer(this.canvas, this.theme);
     this.itemMap = {};
     (theme.items || []).forEach(it => {
       this.itemMap[it.value] = it;
@@ -27,6 +27,7 @@ class Game2048Engine {
     this.timeLeft = 60;
     this.isRunning = false;
     this.timerInterval = null;
+    this.animId = null;
 
     this.bindEvents();
     this.renderEvolutionGuide();
@@ -39,8 +40,8 @@ class Game2048Engine {
   renderEvolutionGuide() {
     const guide = document.getElementById('evolutionGuide');
     if (!guide) return;
-    const chain = (this.theme.items || []).slice(0, 8).map(it => `${it.emoji}${it.name.slice(0, 4)}`).join(' ➔ ');
-    guide.innerHTML = `<strong>【防衛進化チャート】</strong> ${chain} ...`;
+    const chain = (this.theme.items || []).map(it => `<span class="evo-chip">${it.emoji}${it.value}:${it.name}</span>`).join(' ▸ ');
+    guide.innerHTML = `<div style="font-weight:900;color:#00e5ff;margin-bottom:4px;">【会見＆防衛進化チャート】</div><div>${chain}</div>`;
   }
 
   bindEvents() {
@@ -92,8 +93,7 @@ class Game2048Engine {
     const x = (clientX - rect.left) * (this.width / rect.width);
     const y = (clientY - rect.top) * (this.height / rect.height);
 
-    // Bottom quick buttons area
-    if (y > 395) {
+    if (y > 400) {
       if (x < 100) this.move('left');
       else if (x < 200) this.move('up');
       else if (x < 300) this.move('down');
@@ -101,7 +101,6 @@ class Game2048Engine {
       return;
     }
 
-    // Relative to center of board
     const cx = 200, cy = 200;
     const dx = x - cx, dy = y - cy;
     if (Math.abs(dx) > Math.abs(dy)) {
@@ -122,7 +121,7 @@ class Game2048Engine {
     this.spawnTile();
     this.cb.onScoreChange(this.score);
     this.cb.onTimeChange(this.timeLeft);
-    this.draw();
+    this.rich.triggerRandomBuzzCutin();
 
     if (this.timerInterval) clearInterval(this.timerInterval);
     this.timerInterval = setInterval(() => {
@@ -133,6 +132,13 @@ class Game2048Engine {
         this.finishGame();
       }
     }, 1000);
+
+    const loop = () => {
+      if (!this.isRunning) return;
+      this.draw();
+      this.animId = requestAnimationFrame(loop);
+    };
+    this.animId = requestAnimationFrame(loop);
   }
 
   spawnTile() {
@@ -144,7 +150,7 @@ class Game2048Engine {
     }
     if (empty.length === 0) return;
     const [r, c] = empty[Math.floor(Math.random() * empty.length)];
-    this.grid[r][c] = Math.random() < 0.85 ? 2 : 4;
+    this.grid[r][c] = Math.random() < 0.82 ? 2 : 4;
   }
 
   slideRow(row) {
@@ -196,11 +202,19 @@ class Game2048Engine {
       if (highestMerge > 0) {
         const lv = Math.log2(highestMerge);
         this.audio.playSE('merge', lv);
+        const mergedSpec = this.itemMap[highestMerge];
+        if (mergedSpec && highestMerge >= 16) {
+          this.rich.triggerCutin(
+            mergedSpec.name,
+            mergedSpec.quote || `${mergedSpec.name}が発動！！`,
+            'kumagai',
+            `📸 会見フラッシュ Lv.${highestMerge}`
+          );
+        }
       } else {
         this.audio.playSE('drop');
       }
       this.spawnTile();
-      this.draw();
 
       if (!this.canMoveAny()) {
         this.finishGame();
@@ -221,68 +235,81 @@ class Game2048Engine {
 
   draw() {
     const ctx = this.ctx;
-    ctx.clearRect(0, 0, this.width, this.height);
+    this.rich.drawStageBackground(this.width, this.height);
 
     const pad = 12;
-    const cellSize = 85;
+    const cellSize = 86;
     for (let r = 0; r < 4; r++) {
       for (let c = 0; c < 4; c++) {
         const val = this.grid[r][c];
         const x = pad + c * (cellSize + 8);
-        const y = pad + r * (cellSize + 8);
+        const y = 20 + r * (cellSize + 8);
 
         const spec = this.itemMap[val] || {
-          color: 'rgba(255,255,255,0.08)',
+          color: 'rgba(255,255,255,0.07)',
           text_color: '#fff',
           emoji: '',
           name: ''
         };
 
-        ctx.fillStyle = val === 0 ? 'rgba(255,255,255,0.08)' : spec.color;
+        ctx.save();
+        ctx.fillStyle = val === 0 ? 'rgba(15, 23, 42, 0.72)' : spec.color;
         ctx.beginPath();
-        ctx.roundRect(x, y, cellSize, cellSize, 10);
+        ctx.roundRect(x, y, cellSize, cellSize, 12);
         ctx.fill();
+        ctx.lineWidth = val >= 64 ? 2.5 : 1.5;
+        ctx.strokeStyle = val >= 64 ? '#ffd700' : 'rgba(255,255,255,0.22)';
+        ctx.stroke();
 
         if (val > 0) {
           ctx.fillStyle = spec.text_color || '#fff';
           ctx.textAlign = 'center';
-          ctx.font = '26px sans-serif';
-          ctx.fillText(spec.emoji || '🛡️', x + cellSize / 2, y + 34);
+          ctx.font = '28px "Segoe UI Emoji", sans-serif';
+          ctx.fillText(spec.emoji || '🛡️', x + cellSize / 2, y + 32);
 
-          ctx.font = 'bold 13px sans-serif';
-          ctx.fillText(val.toString(), x + cellSize / 2, y + 54);
+          ctx.font = '900 13px sans-serif';
+          ctx.fillText(`Lv.${val}`, x + cellSize / 2, y + 52);
 
-          ctx.font = 'bold 10px sans-serif';
-          ctx.fillText((spec.name || '').slice(0, 7), x + cellSize / 2, y + 72);
+          ctx.fillStyle = 'rgba(0,0,0,0.65)';
+          ctx.beginPath();
+          ctx.roundRect(x + 4, y + 60, cellSize - 8, 20, 5);
+          ctx.fill();
+          ctx.fillStyle = '#ffd700';
+          ctx.font = 'bold 9.5px "Hiragino Kaku Gothic ProN", sans-serif';
+          ctx.fillText((spec.name || '').slice(0, 8), x + cellSize / 2, y + 73);
         }
+        ctx.restore();
       }
     }
 
-    // Draw touch buttons at bottom
     const btns = [
-      { label: '⬅ 左', x: 12 },
-      { label: '⬆ 上', x: 108 },
-      { label: '⬇ 下', x: 204 },
-      { label: '➡ 右', x: 300 }
+      { label: '◀ 左スライド', x: 12 },
+      { label: '▲ 上スライド', x: 108 },
+      { label: '▼ 下スライド', x: 204 },
+      { label: '▶ 右スライド', x: 300 }
     ];
     btns.forEach(b => {
-      ctx.fillStyle = 'rgba(0, 229, 255, 0.2)';
+      ctx.fillStyle = 'rgba(0, 229, 255, 0.22)';
       ctx.beginPath();
-      ctx.roundRect(b.x, 400, 88, 46, 8);
+      ctx.roundRect(b.x, 405, 88, 50, 10);
       ctx.fill();
-      ctx.strokeStyle = 'rgba(0, 229, 255, 0.6)';
+      ctx.strokeStyle = '#00e5ff';
+      ctx.lineWidth = 1.5;
       ctx.stroke();
       ctx.fillStyle = '#fff';
-      ctx.font = 'bold 14px sans-serif';
+      ctx.font = 'bold 12px "Hiragino Kaku Gothic ProN", sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText(b.label, b.x + 44, 428);
+      ctx.fillText(b.label, b.x + 44, 434);
     });
+
+    this.rich.drawCutinOverlay(this.width);
   }
 
   finishGame() {
     if (!this.isRunning) return;
     this.isRunning = false;
     if (this.timerInterval) clearInterval(this.timerInterval);
+    if (this.animId) cancelAnimationFrame(this.animId);
     this.audio.playSE('gameover');
     const durationSec = Math.max(5, Math.round((Date.now() - this.startTime) / 1000));
     this.cb.onGameOver(this.score, durationSec);

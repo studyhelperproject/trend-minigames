@@ -1,7 +1,6 @@
 /**
- * Engine 1: Suika-Physics (落下＆合体物理パズルエンジン)
- * 参照OSS: sgbj/suika-clone, isobelmcrae/suika (MIT)
- * 1分で決着がつく「60秒スコアアタック＋デッドライン溢れ判定」ハイブリッド仕様
+ * Engine 1: Suika-Physics (落下＆合体物理パズルエンジン - Rich Parody Edition)
+ * 動的ステージ背景＋パロディ似顔絵ベクター描画＋バズり名言カットイン搭載
  */
 class SuikaGameEngine {
   constructor(canvas, theme, audio, sdk, callbacks) {
@@ -17,6 +16,7 @@ class SuikaGameEngine {
     this.canvas.width = this.width;
     this.canvas.height = this.height;
 
+    this.rich = new window.RichVisualRenderer(this.canvas, this.theme);
     this.items = theme.items || [];
     this.balls = [];
     this.particles = [];
@@ -29,7 +29,7 @@ class SuikaGameEngine {
     this.currentLevel = 0;
     this.nextLevel = 1;
     this.canDrop = true;
-    this.deadLineY = 85;
+    this.deadLineY = 92;
     this.timerInterval = null;
     this.animId = null;
 
@@ -40,8 +40,8 @@ class SuikaGameEngine {
   renderEvolutionGuide() {
     const guide = document.getElementById('evolutionGuide');
     if (!guide) return;
-    const chain = this.items.map(it => `${it.emoji}<span style="font-size:0.7rem">${it.name.slice(0, 4)}</span>`).join(' ➔ ');
-    guide.innerHTML = `<strong>【進化図鑑】</strong> ${chain}`;
+    const chain = this.items.map(it => `<span class="evo-chip">${it.emoji} ${it.name}</span>`).join(' <span style="color:#ffd700">▸</span> ');
+    guide.innerHTML = `<div style="font-weight:900;color:#ffd700;margin-bottom:4px;">【時事進化ルート】同じキャラをぶつけて最終形態を召喚せよ！</div><div>${chain}</div>`;
   }
 
   bindEvents() {
@@ -94,6 +94,7 @@ class SuikaGameEngine {
 
     this.cb.onScoreChange(this.score);
     this.cb.onTimeChange(this.timeLeft);
+    this.rich.triggerRandomBuzzCutin();
 
     if (this.timerInterval) clearInterval(this.timerInterval);
     this.timerInterval = setInterval(() => {
@@ -120,9 +121,9 @@ class SuikaGameEngine {
     const spec = this.items[this.currentLevel] || this.items[0];
     this.balls.push({
       x: this.dropX + (Math.random() - 0.5) * 2,
-      y: 52,
+      y: 54,
       vx: 0,
-      vy: 1.5,
+      vy: 1.8,
       level: this.currentLevel,
       radius: spec.radius,
       bornAt: Date.now()
@@ -134,13 +135,13 @@ class SuikaGameEngine {
 
     setTimeout(() => {
       this.canDrop = true;
-    }, 340);
+    }, 320);
   }
 
   spawnParticles(x, y, color) {
-    for (let i = 0; i < 12; i++) {
-      const angle = (Math.PI * 2 * i) / 12;
-      const speed = 2 + Math.random() * 3.5;
+    for (let i = 0; i < 16; i++) {
+      const angle = (Math.PI * 2 * i) / 16;
+      const speed = 2.2 + Math.random() * 4.0;
       this.particles.push({
         x, y,
         vx: Math.cos(angle) * speed,
@@ -177,7 +178,6 @@ class SuikaGameEngine {
       }
     }
 
-    // Physics sub-steps & collision merge
     for (let iter = 0; iter < 4; iter++) {
       for (let i = 0; i < this.balls.length; i++) {
         for (let j = i + 1; j < this.balls.length; j++) {
@@ -192,7 +192,6 @@ class SuikaGameEngine {
 
           if (dist < minDist) {
             if (a.level === b.level && a.level < this.items.length - 1) {
-              // Merge into next level!
               const nextLv = a.level + 1;
               const nextSpec = this.items[nextLv];
               const mx = (a.x + b.x) / 2;
@@ -204,26 +203,36 @@ class SuikaGameEngine {
                 x: mx,
                 y: my,
                 vx: 0,
-                vy: -1.5,
+                vy: -1.6,
                 level: nextLv,
                 radius: nextSpec.radius,
                 bornAt: Date.now()
               });
 
-              const gained = nextSpec.score || (nextLv + 1) * 30;
+              const gained = nextSpec.score || (nextLv + 1) * 35;
               this.score += gained;
               this.cb.onScoreChange(this.score);
               this.audio.playSE('merge', nextLv);
               this.spawnParticles(mx, my, nextSpec.color);
+
+              const quoteText = nextSpec.quote || `${nextSpec.name}に進化！`;
               this.floatingTexts.push({
                 x: mx,
                 y: my,
-                text: `${nextSpec.emoji} +${gained}`,
+                text: `${nextSpec.emoji} +${gained} (${nextSpec.name})`,
                 life: 1.0
               });
+
+              if (nextLv >= 3) {
+                this.rich.triggerCutin(
+                  nextSpec.name,
+                  quoteText,
+                  nextSpec.avatar || 'kumagai',
+                  `🔥 Lv.${nextLv + 1} 進化達成！`
+                );
+              }
               break;
             } else {
-              // Elastic separation
               const overlap = (minDist - dist) * 0.52;
               const nx = dx / dist;
               const ny = dy / dist;
@@ -248,7 +257,6 @@ class SuikaGameEngine {
       }
     }
 
-    // Check overflow above deadline
     const now = Date.now();
     for (const b of this.balls) {
       if (now - b.bornAt > 1800 && b.y - b.radius < this.deadLineY && Math.abs(b.vy) < 0.8) {
@@ -257,7 +265,6 @@ class SuikaGameEngine {
       }
     }
 
-    // Update particles & floating texts
     this.particles.forEach(p => {
       p.x += p.vx;
       p.y += p.vy;
@@ -266,104 +273,87 @@ class SuikaGameEngine {
     this.particles = this.particles.filter(p => p.life > 0);
 
     this.floatingTexts.forEach(ft => {
-      ft.y -= 1.2;
-      ft.life -= 0.03;
+      ft.y -= 1.3;
+      ft.life -= 0.028;
     });
     this.floatingTexts = this.floatingTexts.filter(ft => ft.life > 0);
   }
 
   draw() {
     const ctx = this.ctx;
-    ctx.clearRect(0, 0, this.width, this.height);
+    this.rich.drawStageBackground(this.width, this.height);
 
-    // Deadline line
+    // 炎上デッドライン
     ctx.save();
-    ctx.strokeStyle = 'rgba(255, 82, 82, 0.7)';
+    ctx.strokeStyle = 'rgba(255, 23, 68, 0.8)';
     ctx.lineWidth = 2;
     ctx.setLineDash([6, 6]);
     ctx.beginPath();
     ctx.moveTo(0, this.deadLineY);
     ctx.lineTo(this.width, this.deadLineY);
     ctx.stroke();
+    ctx.fillStyle = 'rgba(255, 23, 68, 0.85)';
+    ctx.font = 'bold 10px sans-serif';
+    ctx.fillText('▲ 炎上デッドライン（超過で即謝罪会見）', 8, this.deadLineY - 5);
     ctx.restore();
 
-    // Preview dropper & guide line
     if (this.canDrop) {
       const curSpec = this.items[this.currentLevel] || this.items[0];
       ctx.save();
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.22)';
+      ctx.strokeStyle = 'rgba(255, 215, 0, 0.35)';
+      ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.moveTo(this.dropX, 45);
+      ctx.moveTo(this.dropX, 42);
       ctx.lineTo(this.dropX, this.height);
       ctx.stroke();
       ctx.restore();
 
-      this.drawBallItem(this.dropX, 42, curSpec, true);
+      this.rich.drawRichCharacter(this.dropX, 40, curSpec.radius, curSpec, true);
     }
 
-    // Next item badge
     const nextSpec = this.items[this.nextLevel] || this.items[0];
     ctx.save();
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
-    ctx.fillRect(this.width - 105, 8, 97, 32);
-    ctx.fillStyle = '#fff';
-    ctx.font = 'bold 12px sans-serif';
-    ctx.fillText(`NEXT: ${nextSpec.emoji}`, this.width - 96, 29);
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.72)';
+    ctx.strokeStyle = '#ffd700';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(this.width - 135, 6, 128, 32, 8);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = '#ffd700';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.fillText(`NEXT: ${nextSpec.emoji} ${nextSpec.name.slice(0, 5)}`, this.width - 127, 26);
     ctx.restore();
 
-    // Active balls
     for (const b of this.balls) {
       const spec = this.items[b.level] || this.items[0];
-      this.drawBallItem(b.x, b.y, spec, false);
+      this.rich.drawRichCharacter(b.x, b.y, b.radius, spec, false);
     }
 
-    // Particles
     for (const p of this.particles) {
       ctx.save();
       ctx.globalAlpha = Math.max(0, p.life);
       ctx.fillStyle = p.color;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
       ctx.fill();
       ctx.restore();
     }
 
-    // Floating texts
     for (const ft of this.floatingTexts) {
       ctx.save();
       ctx.globalAlpha = Math.max(0, ft.life);
-      ctx.font = 'bold 15px sans-serif';
+      ctx.font = 'bold 13px "Hiragino Kaku Gothic ProN", sans-serif';
       ctx.fillStyle = '#ffd700';
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 3;
       ctx.textAlign = 'center';
+      ctx.strokeText(ft.text, ft.x, ft.y);
       ctx.fillText(ft.text, ft.x, ft.y);
       ctx.restore();
     }
-  }
 
-  drawBallItem(x, y, spec, isPreview) {
-    const ctx = this.ctx;
-    ctx.save();
-    if (isPreview) ctx.globalAlpha = 0.85;
-
-    ctx.beginPath();
-    ctx.arc(x, y, spec.radius, 0, Math.PI * 2);
-    ctx.fillStyle = spec.color || '#ff80ab';
-    ctx.fill();
-    ctx.lineWidth = 2.5;
-    ctx.strokeStyle = '#ffffff';
-    ctx.stroke();
-
-    ctx.font = `${Math.max(14, Math.floor(spec.radius * 0.95))}px sans-serif`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(spec.emoji, x, y - 2);
-
-    if (spec.radius >= 30) {
-      ctx.font = 'bold 9px sans-serif';
-      ctx.fillStyle = 'rgba(0,0,0,0.75)';
-      ctx.fillText(spec.name.slice(0, 6), x, y + spec.radius * 0.58);
-    }
-    ctx.restore();
+    this.rich.drawCutinOverlay(this.width);
   }
 
   finishGame() {
