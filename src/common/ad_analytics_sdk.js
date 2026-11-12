@@ -118,11 +118,8 @@ class MiniGameMonetizationSDK {
 
   extractNinjaSrc(tagOrId) {
     if (!tagOrId || tagOrId.includes('DEMO')) return null;
-    const match = tagOrId.match(/https:\/\/adm\.shinobi\.jp\/[a-zA-Z0-9_\/]+/);
+    const match = tagOrId.match(/https:\/\/adm\.shinobi\.jp\/s\/[a-zA-Z0-9_\/]+/);
     if (match) return match[0];
-    if (/^[a-fA-F0-9]{32}$/.test(tagOrId.trim())) {
-      return `https://adm.shinobi.jp/s/${tagOrId.trim()}`;
-    }
     return null;
   }
 

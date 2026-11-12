@@ -12,9 +12,11 @@
       "enabled": true,
       "name": "忍者AdMax (審査なし・即日収益化・インプレッション/クリック報酬)",
       "signup_url": "https://www.ninja.co.jp/admax/",
-      "header_banner_tag_id": "NINJA_HEADER_DEMO_ID",
-      "footer_banner_tag_id": "NINJA_FOOTER_DEMO_ID",
-      "interstitial_tag_id": "NINJA_RESULT_DEMO_ID",
+      "admax_auto_id": "59519514442d60e1492d52de2c0f401b",
+      "auto_script_tag": "<script async src=\"https://adm.shinobi.jp/st/auto.js\" data-admax-id=\"59519514442d60e1492d52de2c0f401b\"></script>",
+      "header_banner_tag_id": "59519514442d60e1492d52de2c0f401b",
+      "footer_banner_tag_id": "59519514442d60e1492d52de2c0f401b",
+      "interstitial_tag_id": "59519514442d60e1492d52de2c0f401b",
       "estimated_rpm_jpy": 300
     },
     "google_adsense": {
