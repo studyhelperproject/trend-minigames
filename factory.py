@@ -258,11 +258,12 @@ def run_pdca_cycle(simulate_days: int = 0) -> dict:
 
     cycle_no = len(analytics.get("pdca_logs", [])) + 1
     now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    newest = themes[-1]["title"][:24] if themes else ""
     log_entry = {
         "cycle": cycle_no,
         "timestamp": now_str,
         "summary": f"累計利益 ¥{total_profit:,} (目標達成率 {total_profit / target_profit * 100:.1f}%) | 最高収益: {best['title'][:22]}... (¥{best['estimated_revenue_jpy']:,})",
-        "action_taken": f"ユーザーFB反映：全10本の時事解像度（GM〇会見・く〇寿司横流し等）・4トラックBGM・リッチベクターUI・週刊スクープ風ポータルへ全面刷新完了。",
+        "action_taken": f"全{len(themes)}本稼働中（最新追加:『{newest}...』）。時事ネタ解像度強化＆A8本番3案件（旬の厳選10銘柄・FaNeMa・MillenVPN）＋忍者AdMax最適化を継続。",
     }
     analytics.setdefault("pdca_logs", []).append(log_entry)
     analytics["updated_at"] = now_str
