@@ -1,267 +1,333 @@
 {
-  "updated_at": "2026-11-12 21:51:53",
+  "updated_at": "2026-11-12 22:50:15",
   "games": {
     "dopagaki-suika": {
-      "impressions": 23326,
-      "plays": 20075,
-      "gameovers": 20005,
-      "retries": 9795,
+      "impressions": 23877,
+      "plays": 20539,
+      "gameovers": 20469,
+      "retries": 10044,
       "reward_views": 1120,
-      "ad_clicks": 347,
-      "affiliate_clicks": 715,
+      "ad_clicks": 355,
+      "affiliate_clicks": 736,
       "shares": 94,
       "total_play_sec": 237250,
       "high_score": 3450,
       "ab_stats": {
         "A": {
-          "result_views": 9998,
-          "clicks": 390
+          "result_views": 10230,
+          "clicks": 401
         },
         "B": {
-          "result_views": 9998,
-          "clicks": 298
+          "result_views": 10230,
+          "clicks": 307
         }
       }
     },
     "ai-cyber-2048": {
-      "impressions": 22421,
-      "plays": 19425,
-      "gameovers": 19355,
-      "retries": 9658,
+      "impressions": 23220,
+      "plays": 20131,
+      "gameovers": 20061,
+      "retries": 10033,
       "reward_views": 890,
-      "ad_clicks": 330,
-      "affiliate_clicks": 706,
+      "ad_clicks": 344,
+      "affiliate_clicks": 732,
       "shares": 61,
       "total_play_sec": 171600,
       "high_score": 4820,
       "ab_stats": {
         "A": {
-          "result_views": 9669,
-          "clicks": 395
+          "result_views": 10022,
+          "clicks": 409
         },
         "B": {
-          "result_views": 9669,
-          "clicks": 284
+          "result_views": 10022,
+          "clicks": 295
         }
       }
     },
     "frenemy-flappy": {
-      "impressions": 23144,
-      "plays": 20184,
-      "gameovers": 20144,
-      "retries": 10351,
+      "impressions": 23842,
+      "plays": 20815,
+      "gameovers": 20775,
+      "retries": 10664,
       "reward_views": 950,
-      "ad_clicks": 341,
-      "affiliate_clicks": 711,
+      "ad_clicks": 351,
+      "affiliate_clicks": 731,
       "shares": 82,
       "total_play_sec": 107800,
       "high_score": 2150,
       "ab_stats": {
         "A": {
-          "result_views": 10066,
-          "clicks": 385
+          "result_views": 10381,
+          "clicks": 396
         },
         "B": {
-          "result_views": 10066,
-          "clicks": 299
+          "result_views": 10381,
+          "clicks": 307
         }
       }
     },
     "winter-power-catcher": {
-      "impressions": 22996,
-      "plays": 19907,
-      "gameovers": 19877,
-      "retries": 9766,
+      "impressions": 23933,
+      "plays": 20738,
+      "gameovers": 20708,
+      "retries": 10144,
       "reward_views": 680,
-      "ad_clicks": 349,
-      "affiliate_clicks": 721,
+      "ad_clicks": 365,
+      "affiliate_clicks": 756,
       "shares": 45,
       "total_play_sec": 132550,
       "high_score": 3890,
       "ab_stats": {
         "A": {
-          "result_views": 9932,
-          "clicks": 398
+          "result_views": 10347,
+          "clicks": 417
         },
         "B": {
-          "result_views": 9932,
-          "clicks": 296
+          "result_views": 10347,
+          "clicks": 311
         }
       }
     },
     "inflation-whack": {
-      "impressions": 21249,
-      "plays": 18414,
-      "gameovers": 18374,
-      "retries": 9246,
+      "impressions": 22019,
+      "plays": 19064,
+      "gameovers": 19024,
+      "retries": 9561,
       "reward_views": 840,
-      "ad_clicks": 306,
-      "affiliate_clicks": 655,
+      "ad_clicks": 321,
+      "affiliate_clicks": 677,
       "shares": 67,
       "total_play_sec": 142000,
       "high_score": 4120,
       "ab_stats": {
         "A": {
-          "result_views": 9178,
-          "clicks": 361
+          "result_views": 9503,
+          "clicks": 373
         },
         "B": {
-          "result_views": 9178,
-          "clicks": 267
+          "result_views": 9503,
+          "clicks": 276
         }
       }
     },
     "contessa-car-suika": {
-      "impressions": 22916,
-      "plays": 19707,
-      "gameovers": 19657,
-      "retries": 9522,
+      "impressions": 23836,
+      "plays": 20481,
+      "gameovers": 20431,
+      "retries": 9882,
       "reward_views": 770,
-      "ad_clicks": 347,
-      "affiliate_clicks": 685,
+      "ad_clicks": 363,
+      "affiliate_clicks": 718,
       "shares": 59,
       "total_play_sec": 172250,
       "high_score": 3180,
       "ab_stats": {
         "A": {
-          "result_views": 9823,
-          "clicks": 376
+          "result_views": 10210,
+          "clicks": 394
         },
         "B": {
-          "result_views": 9823,
-          "clicks": 282
+          "result_views": 10210,
+          "clicks": 296
         }
       }
     },
     "tenbagger-stock-suika": {
-      "impressions": 9100,
-      "plays": 8014,
-      "gameovers": 8014,
-      "retries": 3958,
+      "impressions": 9895,
+      "plays": 8728,
+      "gameovers": 8728,
+      "retries": 4337,
       "reward_views": 0,
-      "ad_clicks": 142,
-      "affiliate_clicks": 299,
-      "shares": 0,
-      "total_play_sec": 0,
-      "high_score": 0,
-      "ab_stats": {
-        "A": {
-          "result_views": 4005,
-          "clicks": 163
-        },
-        "B": {
-          "result_views": 4005,
-          "clicks": 123
-        }
-      }
-    },
-    "stock-surge-catcher": {
-      "impressions": 9546,
-      "plays": 8321,
-      "gameovers": 8321,
-      "retries": 4089,
-      "reward_views": 0,
-      "ad_clicks": 153,
+      "ad_clicks": 157,
       "affiliate_clicks": 320,
       "shares": 0,
       "total_play_sec": 0,
       "high_score": 0,
       "ab_stats": {
         "A": {
-          "result_views": 4158,
-          "clicks": 176
+          "result_views": 4362,
+          "clicks": 174
         },
         "B": {
-          "result_views": 4158,
-          "clicks": 131
+          "result_views": 4362,
+          "clicks": 132
+        }
+      }
+    },
+    "stock-surge-catcher": {
+      "impressions": 10496,
+      "plays": 9194,
+      "gameovers": 9194,
+      "retries": 4529,
+      "reward_views": 0,
+      "ad_clicks": 167,
+      "affiliate_clicks": 351,
+      "shares": 0,
+      "total_play_sec": 0,
+      "high_score": 0,
+      "ab_stats": {
+        "A": {
+          "result_views": 4594,
+          "clicks": 193
+        },
+        "B": {
+          "result_views": 4594,
+          "clicks": 144
         }
       }
     },
     "anime-goods-flappy": {
-      "impressions": 8439,
-      "plays": 7346,
-      "gameovers": 7346,
-      "retries": 3702,
+      "impressions": 9370,
+      "plays": 8198,
+      "gameovers": 8198,
+      "retries": 4140,
       "reward_views": 0,
-      "ad_clicks": 134,
-      "affiliate_clicks": 275,
+      "ad_clicks": 147,
+      "affiliate_clicks": 310,
       "shares": 0,
       "total_play_sec": 0,
       "high_score": 0,
       "ab_stats": {
         "A": {
-          "result_views": 3669,
-          "clicks": 149
+          "result_views": 4095,
+          "clicks": 168
         },
         "B": {
-          "result_views": 3669,
-          "clicks": 113
+          "result_views": 4095,
+          "clicks": 128
         }
       }
     },
     "freewifi-hacker-whack": {
-      "impressions": 9351,
-      "plays": 8131,
-      "gameovers": 8131,
-      "retries": 4001,
+      "impressions": 10098,
+      "plays": 8769,
+      "gameovers": 8769,
+      "retries": 4321,
       "reward_views": 0,
-      "ad_clicks": 139,
-      "affiliate_clicks": 295,
+      "ad_clicks": 151,
+      "affiliate_clicks": 316,
       "shares": 0,
       "total_play_sec": 0,
       "high_score": 0,
       "ab_stats": {
         "A": {
-          "result_views": 4064,
-          "clicks": 161
+          "result_views": 4383,
+          "clicks": 172
         },
         "B": {
-          "result_views": 4064,
-          "clicks": 121
+          "result_views": 4383,
+          "clicks": 130
         }
       }
     },
     "x-algorithm-flappy": {
-      "impressions": 2179,
-      "plays": 1922,
-      "gameovers": 1922,
-      "retries": 929,
+      "impressions": 2726,
+      "plays": 2385,
+      "gameovers": 2385,
+      "retries": 1172,
       "reward_views": 0,
-      "ad_clicks": 33,
-      "affiliate_clicks": 70,
+      "ad_clicks": 41,
+      "affiliate_clicks": 89,
       "shares": 0,
       "total_play_sec": 0,
       "high_score": 0,
       "ab_stats": {
         "A": {
-          "result_views": 960,
-          "clicks": 38
+          "result_views": 1191,
+          "clicks": 48
         },
         "B": {
-          "result_views": 960,
-          "clicks": 29
+          "result_views": 1191,
+          "clicks": 37
         }
       }
     },
     "anime-award-2026-suika": {
-      "impressions": 2169,
-      "plays": 1914,
-      "gameovers": 1914,
-      "retries": 1012,
+      "impressions": 2899,
+      "plays": 2585,
+      "gameovers": 2585,
+      "retries": 1397,
       "reward_views": 0,
-      "ad_clicks": 32,
-      "affiliate_clicks": 78,
+      "ad_clicks": 45,
+      "affiliate_clicks": 100,
       "shares": 0,
       "total_play_sec": 0,
       "high_score": 0,
       "ab_stats": {
         "A": {
-          "result_views": 956,
-          "clicks": 42
+          "result_views": 1291,
+          "clicks": 54
         },
         "B": {
-          "result_views": 956,
-          "clicks": 33
+          "result_views": 1291,
+          "clicks": 42
+        }
+      }
+    },
+    "inbound-seafood-suika": {
+      "impressions": 830,
+      "plays": 719,
+      "gameovers": 719,
+      "retries": 373,
+      "reward_views": 0,
+      "ad_clicks": 12,
+      "affiliate_clicks": 31,
+      "shares": 0,
+      "total_play_sec": 0,
+      "high_score": 0,
+      "ab_stats": {
+        "A": {
+          "result_views": 359,
+          "clicks": 17
+        },
+        "B": {
+          "result_views": 359,
+          "clicks": 13
+        }
+      }
+    },
+    "support-scam-rpg": {
+      "impressions": 526,
+      "plays": 449,
+      "gameovers": 449,
+      "retries": 254,
+      "reward_views": 0,
+      "ad_clicks": 9,
+      "affiliate_clicks": 15,
+      "shares": 0,
+      "total_play_sec": 0,
+      "high_score": 0,
+      "ab_stats": {
+        "A": {
+          "result_views": 224,
+          "clicks": 8
+        },
+        "B": {
+          "result_views": 224,
+          "clicks": 6
+        }
+      }
+    },
+    "tenbai-queue-catcher": {
+      "impressions": 564,
+      "plays": 488,
+      "gameovers": 488,
+      "retries": 240,
+      "reward_views": 0,
+      "ad_clicks": 8,
+      "affiliate_clicks": 16,
+      "shares": 0,
+      "total_play_sec": 0,
+      "high_score": 0,
+      "ab_stats": {
+        "A": {
+          "result_views": 244,
+          "clicks": 9
+        },
+        "B": {
+          "result_views": 244,
+          "clicks": 6
         }
       }
     }
@@ -314,6 +380,30 @@
       "timestamp": "2026-11-12 21:51:53",
       "summary": "累計利益 ¥443,210 (目標達成率 443.2%) | 最高収益: なぜ庶民がAIの電気代まで負担！？暴食AI神... (¥63,566)",
       "action_taken": "ユーザーFB2反映：全12本を完全架空パロディ名（クマガー社長等）へ刷新、タイマー廃止＆新『風刺コマンドRPGエンジン』5本投入、元ネタ解説撤廃＋フィクション免責＆SNSリプライ用コピペ枠を実装。"
+    },
+    {
+      "cycle": 9,
+      "timestamp": "2026-11-12 22:50:15",
+      "summary": "全15本稼働 | IndexNow: HTTP 202 OK (19 URLs submitted) | WebSub: HTTP 204 OK (RSS Hub Notified)",
+      "action_taken": "集客エンジン稼働：15本へ拡充、sitemap.xml/rss.xml/llms.txt/OGP画像16枚/JSON-LD生成、IndexNow＆Google WebSubへ全19 URLを即時Ping送信。"
     }
-  ]
+  ],
+  "seo_acquisition": {
+    "last_ping": {
+      "timestamp": "2026-11-12 22:50:11",
+      "submitted_urls_count": 19,
+      "indexnow_status": "HTTP 202 OK (19 URLs submitted)",
+      "google_websub_status": "HTTP 204 OK (RSS Hub Notified)",
+      "github_real_traffic": {
+        "views": {
+          "count": 0,
+          "uniques": 0
+        },
+        "clones": {
+          "count": 17,
+          "uniques": 11
+        }
+      }
+    }
+  }
 }
