@@ -3,11 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>{{TITLE}} | 週刊風刺ミニゲーム横丁</title>
-  <meta name="description" content="{{SUBTITLE}} ※このゲームはフィクションであり実在の人物・団体とは関係ありません。" />
+  <title>{{TITLE}} | 週刊風刺ミニゲーム横丁（無料ブラウザゲーム）</title>
+  <meta name="description" content="{{SUBTITLE}} 1分で遊べる無料ブラウザ風刺ゲーム。※このゲームはフィクションであり実在の人物・団体とは関係ありません。" />
+  <meta name="keywords" content="{{META_KEYWORDS}},無料ゲーム,ブラウザゲーム,ミニゲーム,風刺ゲーム,暇つぶし" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  <link rel="alternate" type="application/rss+xml" title="週刊時事風刺ミニゲーム横丁 RSS" href="https://studyhelperproject.github.io/trend-minigames/rss.xml" />
   <meta property="og:title" content="{{TITLE}} | 週刊風刺ミニゲーム横丁" />
   <meta property="og:description" content="{{SUBTITLE}}" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:image" content="{{OGP_IMAGE_URL}}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{TITLE}}" />
+  <meta name="twitter:description" content="{{SUBTITLE}}" />
+  <meta name="twitter:image" content="{{OGP_IMAGE_URL}}" />
+  <script type="application/ld+json">
+{{JSON_LD}}
+  </script>
   <!-- 忍者AdMax 全自動広告タグ -->
   <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
   <style>
@@ -24,9 +36,10 @@
 
   <!-- Top Navigation -->
   <div class="top-bar">
-    <a href="../../index.html" class="portal-link">⚡ 風刺ゲーム横丁一覧(12本)</a>
+    <a href="../../index.html" class="portal-link">⚡ 風刺ゲーム横丁一覧({{GAME_COUNT}}本)</a>
     <div class="top-controls">
       <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
+      <a href="../../marketing.html" class="btn-icon" style="text-decoration:none;border-color:#00e5ff;color:#00e5ff;">📣 集客センター</a>
       <a href="../../dashboard.html" class="btn-icon" style="text-decoration:none;">📊 CEO効果測定</a>
     </div>
   </div>
@@ -62,13 +75,25 @@
 
     <!-- バズ投稿へのリプライ用ワンタップコピー枠 ＆ フィクション免責表示 -->
     <div class="news-context-box">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap;">
         <strong style="color:#00e5ff;">💬 関連するSNSのバズ投稿へリプライで貼る用</strong>
-        <button id="btnCopyReply" type="button" style="cursor:pointer;background:linear-gradient(90deg,#00e5ff,#2563eb);color:#fff;border:none;padding:4px 12px;border-radius:14px;font-size:0.74rem;font-weight:900;">📋 リプライ文＋URLをコピー</button>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <button id="btnCopyReply" type="button" style="cursor:pointer;background:linear-gradient(90deg,#00e5ff,#2563eb);color:#fff;border:none;padding:4px 10px;border-radius:14px;font-size:0.72rem;font-weight:900;">📋 コピー</button>
+          <a href="{{X_SEARCH_URL}}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;background:#1e293b;border:1px solid #38bdf8;color:#38bdf8;padding:4px 10px;border-radius:14px;font-size:0.72rem;font-weight:900;">🔍 関連バズ検索を開く</a>
+          <a href="{{X_INTENT_URL}}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;background:#e11d48;color:#fff;padding:4px 10px;border-radius:14px;font-size:0.72rem;font-weight:900;">𝕏 1タップ投稿</a>
+        </div>
       </div>
       <div id="snsReplyText" style="background:rgba(0,0,0,0.45);padding:8px 10px;border-radius:8px;font-size:0.76rem;color:#e2e8f0;margin-bottom:8px;word-break:break-all;">{{SNS_REPLY_TEMPLATE}}</div>
       <div style="font-size:0.7rem;color:#94a3b8;border-top:1px solid rgba(255,255,255,0.1);padding-top:6px;">
         ⚠️ <strong>【免責事項】</strong> 本作は世相を風刺した100%フィクションのジョークゲームです。登場する人物（クマガー社長・キリタマ仙人・ウエダー魔導総裁等）・団体・会社・名称はすべて架空のものであり、実在の人物・企業・商標とは一切関係ありません。
+      </div>
+    </div>
+
+    <!-- 関連おすすめ風刺ゲーム回遊枠 (PV/UU向上＆内部SEOリンク) -->
+    <div style="width:100%;margin-top:8px;background:rgba(15,23,42,0.9);border:1px solid rgba(255,215,0,0.3);border-radius:12px;padding:10px;">
+      <div style="font-size:0.78rem;font-weight:900;color:#fde047;margin-bottom:8px;">🎮 続けて遊べる！今バズっている関連風刺ゲーム</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        {{RELATED_GAMES_HTML}}
       </div>
     </div>
   </div>

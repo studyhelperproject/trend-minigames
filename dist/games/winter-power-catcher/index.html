@@ -3,11 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>なぜ庶民がAIの電気代まで負担！？暴食AI神『チャッピー9000』討伐RPG | 週刊風刺ミニゲーム横丁</title>
-  <meta name="description" content="AIに節電方法を聞いたら、その回答を生成する電力で俺の家の電気代がまた3円上がった件（1分完結コマンドRPG） ※このゲームはフィクションであり実在の人物・団体とは関係ありません。" />
+  <title>なぜ庶民がAIの電気代まで負担！？暴食AI神『チャッピー9000』討伐RPG | 週刊風刺ミニゲーム横丁（無料ブラウザゲーム）</title>
+  <meta name="description" content="AIに節電方法を聞いたら、その回答を生成する電力で俺の家の電気代がまた3円上がった件（1分完結コマンドRPG） 1分で遊べる無料ブラウザ風刺ゲーム。※このゲームはフィクションであり実在の人物・団体とは関係ありません。" />
+  <meta name="keywords" content="AIの電気代,託送料金転嫁,チャッピー9000,フィクション風刺,無料ゲーム,ブラウザゲーム,ミニゲーム,風刺ゲーム,暇つぶし" />
+  <link rel="canonical" href="https://studyhelperproject.github.io/trend-minigames/games/winter-power-catcher/" />
+  <link rel="alternate" type="application/rss+xml" title="週刊時事風刺ミニゲーム横丁 RSS" href="https://studyhelperproject.github.io/trend-minigames/rss.xml" />
   <meta property="og:title" content="なぜ庶民がAIの電気代まで負担！？暴食AI神『チャッピー9000』討伐RPG | 週刊風刺ミニゲーム横丁" />
   <meta property="og:description" content="AIに節電方法を聞いたら、その回答を生成する電力で俺の家の電気代がまた3円上がった件（1分完結コマンドRPG）" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://studyhelperproject.github.io/trend-minigames/games/winter-power-catcher/" />
+  <meta property="og:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/winter-power-catcher.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="なぜ庶民がAIの電気代まで負担！？暴食AI神『チャッピー9000』討伐RPG" />
+  <meta name="twitter:description" content="AIに節電方法を聞いたら、その回答を生成する電力で俺の家の電気代がまた3円上がった件（1分完結コマンドRPG）" />
+  <meta name="twitter:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/winter-power-catcher.svg" />
+  <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "VideoGame", "name": "なぜ庶民がAIの電気代まで負担！？暴食AI神『チャッピー9000』討伐RPG", "description": "AIに節電方法を聞いたら、その回答を生成する電力で俺の家の電気代がまた3円上がった件（1分完結コマンドRPG）", "genre": ["電気代高騰×生成AI風刺RPG", "Satire Game", "Arcade", "Browser Game"], "url": "https://studyhelperproject.github.io/trend-minigames/games/winter-power-catcher/", "image": "https://studyhelperproject.github.io/trend-minigames/ogp/winter-power-catcher.svg", "playMode": "SinglePlayer", "applicationCategory": "Game", "operatingSystem": "Web Browser (PC, iOS, Android)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}
+  </script>
   <!-- 忍者AdMax 全自動広告タグ -->
   <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
   <style>
@@ -545,9 +557,10 @@ canvas#gameCanvas {
 
   <!-- Top Navigation -->
   <div class="top-bar">
-    <a href="../../index.html" class="portal-link">⚡ 風刺ゲーム横丁一覧(12本)</a>
+    <a href="../../index.html" class="portal-link">⚡ 風刺ゲーム横丁一覧(15本)</a>
     <div class="top-controls">
       <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
+      <a href="../../marketing.html" class="btn-icon" style="text-decoration:none;border-color:#00e5ff;color:#00e5ff;">📣 集客センター</a>
       <a href="../../dashboard.html" class="btn-icon" style="text-decoration:none;">📊 CEO効果測定</a>
     </div>
   </div>
@@ -583,13 +596,28 @@ canvas#gameCanvas {
 
     <!-- バズ投稿へのリプライ用ワンタップコピー枠 ＆ フィクション免責表示 -->
     <div class="news-context-box">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap;">
         <strong style="color:#00e5ff;">💬 関連するSNSのバズ投稿へリプライで貼る用</strong>
-        <button id="btnCopyReply" type="button" style="cursor:pointer;background:linear-gradient(90deg,#00e5ff,#2563eb);color:#fff;border:none;padding:4px 12px;border-radius:14px;font-size:0.74rem;font-weight:900;">📋 リプライ文＋URLをコピー</button>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <button id="btnCopyReply" type="button" style="cursor:pointer;background:linear-gradient(90deg,#00e5ff,#2563eb);color:#fff;border:none;padding:4px 10px;border-radius:14px;font-size:0.72rem;font-weight:900;">📋 コピー</button>
+          <a href="https://x.com/search?q=%E9%9B%BB%E6%B0%97%E4%BB%A3%20AI%20OR%20%E8%A8%97%E9%80%81%E6%96%99%E9%87%91%20OR%20%E5%86%8D%E3%82%A8%E3%83%8D%E8%B3%A6%E8%AA%B2%E9%87%91&f=live" target="_blank" rel="noopener noreferrer" style="text-decoration:none;background:#1e293b;border:1px solid #38bdf8;color:#38bdf8;padding:4px 10px;border-radius:14px;font-size:0.72rem;font-weight:900;">🔍 関連バズ検索を開く</a>
+          <a href="https://x.com/intent/post?text=AI%E3%81%8C%E8%B3%A2%E3%81%8F%E3%81%AA%E3%82%8B%E3%81%9F%E3%81%B3%E5%BA%B6%E6%B0%91%E3%81%AE%E6%9A%96%E6%88%BF%E3%81%8C%E6%B6%88%E3%81%88%E3%82%8B%E4%BB%A4%E5%92%8C%E3%81%AE%E3%83%90%E3%82%B0%E3%80%81%E3%81%A4%E3%81%84%E3%81%AB%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89RPG%E5%8C%96%E3%81%95%E3%82%8C%E3%81%A6%E3%81%A6%E8%8D%89%F0%9F%98%82%20%E3%80%8E%E3%81%8A%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A6%E3%81%A6%E5%AC%89%E3%81%97%E3%81%84%E3%81%A7%E3%81%99%F0%9F%98%8A%EF%BC%88%E9%9B%BB%E5%8A%9B300kW%E6%B6%88%E8%B2%BB%EF%BC%89%E3%80%8F%E6%94%BB%E6%92%83%E3%81%8C%E7%90%86%E4%B8%8D%E5%B0%BD%E3%81%99%E3%81%8E%E3%82%8B%EF%BD%97%20https%3A//studyhelperproject.github.io/trend-minigames/games/winter-power-catcher/%0A%23AI%E3%81%AE%E9%9B%BB%E6%B0%97%E4%BB%A3%20%23%E8%A8%97%E9%80%81%E6%96%99%E9%87%91%E8%BB%A2%E5%AB%81%20%23%E3%83%95%E3%83%AA%E3%83%BC%E3%82%B2%E3%83%BC%E3%83%A0%20%23%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%82%B2%E3%83%BC%E3%83%A0" target="_blank" rel="noopener noreferrer" style="text-decoration:none;background:#e11d48;color:#fff;padding:4px 10px;border-radius:14px;font-size:0.72rem;font-weight:900;">𝕏 1タップ投稿</a>
+        </div>
       </div>
       <div id="snsReplyText" style="background:rgba(0,0,0,0.45);padding:8px 10px;border-radius:8px;font-size:0.76rem;color:#e2e8f0;margin-bottom:8px;word-break:break-all;">AIが賢くなるたび庶民の暖房が消える令和のバグ、ついにコマンドRPG化されてて草😂 『お役に立てて嬉しいです😊（電力300kW消費）』攻撃が理不尽すぎるｗ https://studyhelperproject.github.io/trend-minigames/games/winter-power-catcher/</div>
       <div style="font-size:0.7rem;color:#94a3b8;border-top:1px solid rgba(255,255,255,0.1);padding-top:6px;">
         ⚠️ <strong>【免責事項】</strong> 本作は世相を風刺した100%フィクションのジョークゲームです。登場する人物（クマガー社長・キリタマ仙人・ウエダー魔導総裁等）・団体・会社・名称はすべて架空のものであり、実在の人物・企業・商標とは一切関係ありません。
+      </div>
+    </div>
+
+    <!-- 関連おすすめ風刺ゲーム回遊枠 (PV/UU向上＆内部SEOリンク) -->
+    <div style="width:100%;margin-top:8px;background:rgba(15,23,42,0.9);border:1px solid rgba(255,215,0,0.3);border-radius:12px;padding:10px;">
+      <div style="font-size:0.78rem;font-weight:900;color:#fde047;margin-bottom:8px;">🎮 続けて遊べる！今バズっている関連風刺ゲーム</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <a href="../ai-cyber-2048/index.html" style="text-decoration:none;background:rgba(30,41,59,0.85);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 8px;display:block;"><div style="font-size:0.65rem;color:#38bdf8;font-weight:900;">⚔️ 風刺コマンドRPG</div><div style="font-size:0.75rem;color:#fff;font-weight:800;line-height:1.35;margin-top:2px;">📸 GN〇帝国80億円身代金要求！クマガー社長『命の...</div></a>
+<a href="../inflation-whack/index.html" style="text-decoration:none;background:rgba(30,41,59,0.85);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 8px;display:block;"><div style="font-size:0.65rem;color:#38bdf8;font-weight:900;">⚔️ 風刺コマンドRPG</div><div style="font-size:0.75rem;color:#fff;font-weight:800;line-height:1.35;margin-top:2px;">🛒 『おいしくなって新登場（内容量20%減）』ステル...</div></a>
+<a href="../frenemy-flappy/index.html" style="text-decoration:none;background:rgba(30,41,59,0.85);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 8px;display:block;"><div style="font-size:0.65rem;color:#38bdf8;font-weight:900;">⚔️ 風刺コマンドRPG</div><div style="font-size:0.75rem;color:#fff;font-weight:800;line-height:1.35;margin-top:2px;">💅 『その服個性的だね（笑）』マウント女子四天王・褒...</div></a>
+<a href="../x-algorithm-flappy/index.html" style="text-decoration:none;background:rgba(30,41,59,0.85);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:7px 8px;display:block;"><div style="font-size:0.65rem;color:#38bdf8;font-weight:900;">⚔️ 風刺コマンドRPG</div><div style="font-size:0.75rem;color:#fff;font-weight:800;line-height:1.35;margin-top:2px;">🐦 短文SNS『ペケ』おすすめ欄の闇！いいね3の過疎...</div></a>
       </div>
     </div>
   </div>

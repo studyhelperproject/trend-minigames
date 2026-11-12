@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060b19"/>
+      <stop offset="50%" stop-color="#172554"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="28" y="28" width="1144" height="574" rx="28" fill="rgba(6,9,17,0.78)" stroke="#fde047" stroke-width="5"/>
+  <rect x="64" y="64" width="420" height="48" rx="24" fill="#e11d48"/>
+  <text x="274" y="96" font-family="sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">🔥 SNSアルゴリズム×炎上風刺RPG</text>
+  <text x="600" y="220" font-family="sans-serif" font-size="96" text-anchor="middle">🐦 👁️ 🧟‍♂️ 🔥</text>
+  <text x="600" y="340" font-family="sans-serif" font-size="48" font-weight="bold" fill="#ffffff" text-anchor="middle">短文SNS『ペケ』おすすめ欄の闇！いいね3の</text>
+  <text x="600" y="405" font-family="sans-serif" font-size="46" font-weight="bold" fill="#fde047" text-anchor="middle">過疎ポスト晒し上げアルゴリズム神討伐RPG</text>
+  <text x="600" y="475" font-family="sans-serif" font-size="26" font-weight="bold" fill="#38bdf8" text-anchor="middle">フォロワー12人の身内向け日常ボヤキが、突然1000万人に晒し上げられて主語...</text>
+  <text x="600" y="555" font-family="sans-serif" font-size="22" fill="#94a3b8" text-anchor="middle">🎮 週刊時事風刺ミニゲーム横丁（無料ブラウザゲーム・※完全フィクション）</text>
+</svg>

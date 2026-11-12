@@ -1953,6 +1953,292 @@
           "expected_cvr": 0.024
         }
       ]
+    },
+    {
+      "slug": "inbound-seafood-suika",
+      "title": "1杯1万8000円のインバウンド海鮮丼！？円安160円＆観光地価格進化スイカ",
+      "subtitle": "「地元の定食屋だと思って入ったらメニューが全部英語で桁が1つ多かった件」を合体進化で生き残れ！",
+      "engine": "suika",
+      "has_timer": false,
+      "bgm_preset": "stock_fever",
+      "stage_style": "sushi_lane",
+      "trend_category": "インバウンド物価×円安風刺パズル",
+      "trend_keywords": ["インバウンド海鮮丼", "円安160円", "観光地価格", "資産防衛"],
+      "story_intro": "※実在の店舗・市場とは無関係なフィクションです。歴史的円安で観光地の市場がバブル状態！昔は800円だった海鮮丼が、金箔とウニを乗せて『1杯1万8000円（外国人観光客「Oh, cheap!!」）』に進化！日本人観光客がメニュー表を見てそっと店を出る哀愁のインバウンド進化パズル！",
+      "sns_reply_template": "外国人観光客が『1万8000円の海鮮丼安すぎ！』って笑ってる横で、日本人がそっと素うどんを食べるインバウンド格差がスイカゲームになってて泣ける😂 https://studyhelperproject.github.io/trend-minigames/games/inbound-seafood-suika/",
+      "controls_hint": "位置を合わせてタップでグルメ玉をドロップ！（時間制限なし・左上ボタンでいつでも結果判定へ）",
+      "background": {
+        "gradient": ["#1e1b18", "#3e2723", "#7f1d1d"],
+        "board_bg": "rgba(28, 18, 14, 0.96)",
+        "border_color": "#ffd700",
+        "accent_color": "#ff5252"
+      },
+      "items": [
+        {"level": 0, "emoji": "🍜", "name": "地元民の380円立ち食いそば", "radius": 18, "color": "#94a3b8", "score": 15, "quote": "観光地の路地裏に最後の砦として残る380円かけそば！"},
+        {"level": 1, "emoji": "🍡", "name": "1本900円の観光地牛串", "radius": 25, "color": "#f97316", "score": 35, "quote": "3口で終わるのに定食1食分の値段がする魔法の串！"},
+        {"level": 2, "emoji": "🍵", "name": "英語メニュー専用カフェ", "radius": 33, "color": "#10b981", "score": 75, "quote": "抹茶ラテ1杯2,400円＋サービス料15%でございます♪"},
+        {"level": 3, "emoji": "🦀", "name": "5000円の焼きタラバ足1本", "radius": 42, "color": "#ef4444", "score": 150, "quote": "外国人観光客『エクセレント！日本のカニ激安ね！』"},
+        {"level": 4, "emoji": "🥩", "name": "金箔A5ワギュー寿司1貫", "radius": 53, "color": "#a855f7", "score": 320, "quote": "とりあえず金箔を乗せれば単価が5,000円アップする錬金術！"},
+        {"level": 5, "emoji": "🦞", "name": "1万8000円の皇帝ウニ海鮮丼", "radius": 65, "color": "#f59e0b", "score": 640, "quote": "地元の日本人が値札を3度見して無言で後ずさりする伝説の丼！"},
+        {"level": 6, "emoji": "👑", "name": "1泊30万インバウンド大富豪王", "radius": 78, "color": "#ffd700", "score": 1500, "quote": "円安メリットをフル享受！外貨と株式を持つ者だけが笑う時代！！"}
+      ],
+      "buzz_comments": [
+        "値札のゼロの数を3回確認したｗ",
+        "外国人『Oh! So Cheap!!』日本人『（白目）』",
+        "とりあえず金箔とウニ乗せるインバウンド錬金術",
+        "円の価値が溶けていくのを海鮮丼で実感",
+        "※フィクションの風刺パズルです"
+      ],
+      "buzz_cutins": [
+        {"speaker": "外国人ツーリスト", "quote": "1万8000YEN！？本国のランチより安いよ！2つ頼もう！！", "avatar": "kiritama_master", "badge": "💴 円安バブル"},
+        {"speaker": "日本人サラリーマン", "quote": "観光地の市場を一周見学したあと、近くのコンビニでおにぎり買いました…", "avatar": "kumagaa_ceo", "badge": "🍙 庶民のリアル"},
+        {"speaker": "投資仙人キリタマ", "quote": "円だけ持ってるのはリスク！株式でインフレの波に乗るんじゃ！", "avatar": "uedaa_gov", "badge": "📈 資産防衛術"}
+      ],
+      "ranks": [
+        {"min_score": 0, "title": "値札を見て店を出た小市民", "comment": "1万8000円の海鮮丼の食品サンプルだけスマホで撮って帰った…。"},
+        {"min_score": 1000, "title": "路地裏の名店発掘マイスター", "comment": "観光地価格の罠をかわし、コスパ最強の地元グルメを堪能！"},
+        {"min_score": 2300, "title": "円安インフレ完全攻略の大富豪", "comment": "最高形態達成！円安・物価高に負けない『旬の厳選10銘柄』で資産を守り抜こう！"}
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_stock_10",
+          "tag": "円安・インフレ対策PR",
+          "network": "A8.net",
+          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
+          "description": "円安・インバウンド物価高に負けない！プロが厳選した旬の10銘柄レポートを無料チェック。",
+          "cta_text": "旬の厳選10銘柄を無料で見る",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "cpa_jpy": 3500,
+          "expected_cvr": 0.022
+        },
+        {
+          "offer_id": "a8_millenvpn",
+          "tag": "海外旅行・フリーWi-Fi対策PR",
+          "network": "A8.net",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "ホテルやカフェのフリーWi-Fi利用時の通信暗号化・セキュリティ対策に。",
+          "cta_text": "MillenVPNで通信を保護する",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3000,
+          "expected_cvr": 0.024
+        }
+      ]
+    },
+    {
+      "slug": "support-scam-rpg",
+      "title": "『ピーーッ！トロイの木馬に感染しました！』片言サポート詐欺魔王討伐RPG",
+      "subtitle": "「修理代はコンビニでアップルギフトカード5万円分買ってきて番号教えて！」を正論コマンドで粉砕せよ！",
+      "engine": "rpg_battle",
+      "has_timer": false,
+      "bgm_preset": "cyber_urgent",
+      "stage_style": "press_conference",
+      "trend_category": "ネット詐欺×セキュリティ風刺RPG",
+      "trend_keywords": ["トロイの木馬警告", "サポート詐欺", "ギフトカード要求", "ブラウザ閉じて解決"],
+      "story_intro": "※フィクションの風刺RPGです。深夜にネットサーフィンしていたら突然画面が真っ赤になり『ピーーーッ！！あなたのPCは58個のトロイの木馬に感染しました！』の大音量アラームと共に『片言サポート詐欺魔王・マイケル田中』が出現！「今すぐコンビニで電子マネーを買えばウイルスを消してあげるヨ！」の罠を論破せよ！",
+      "sns_reply_template": "突然ブラウザが爆音で『ピーーッ！トロイの木馬に感染しました！コンビニでギフトカード買ってきて！』って叫ぶサポート詐欺と戦うコマンドRPGが面白すぎる😂 『Esc長押しでタブを閉じる』が最強技で草 https://studyhelperproject.github.io/trend-minigames/games/support-scam-rpg/",
+      "controls_hint": "4つのコマンドを選んで偽セキュリティ警告と片言オペレーターを完全論破せよ！（時間制限なし）",
+      "background": {
+        "gradient": ["#2a0404", "#450a0a", "#0f172a"],
+        "board_bg": "rgba(28, 8, 12, 0.96)",
+        "border_color": "#ff1744",
+        "accent_color": "#00e5ff"
+      },
+      "boss": {
+        "name": "片言サポート魔王・マイケル田中",
+        "title": "Lv.99 偽ウイルス警告＆ギフトカード徴収神",
+        "max_hp": 9400,
+        "visual_type": "ai_server_god",
+        "avatar": "kumagaa_ceo",
+        "intro_quote": "「ピーーッ！！大変デス！あなたのパソコン、あと3分で爆発シマス！修理代はコンビニのギフトカードで払ってネ！」",
+        "phase2_quote": "「ナゼ電話切るデスカ！？遠隔操作ソフトを入れてくれないとハッカーに全データを公開シマスヨ！！」"
+      },
+      "player": {
+        "name": "冷静沈着なネットリテラシー民",
+        "emoji": "💻",
+        "max_hp": 5200
+      },
+      "player_skills": [
+        {
+          "name": "⌨️ 『Escキー長押し』で全画面解除",
+          "sub": "安定2200ダメ＋ゲージ+35%",
+          "type": "attack",
+          "power": 2200,
+          "effect": "player_crit",
+          "log": "フルスクリーン偽装をEscキー長押しで解除し、ブラウザの×ボタンでタブをあっさり閉じた！",
+          "sns": "💬 SNS民「あの爆音画面、ただの全画面Webページだからタブ閉じれば0秒で終わるの広まってほしい」"
+        },
+        {
+          "name": "📣 『大企業がコンビニカード要求するか』砲",
+          "sub": "会心2850風刺ダメ＋ゲージ+45%",
+          "type": "roast",
+          "power": 2850,
+          "effect": "sns_roast_strike",
+          "log": "「世界的IT企業のサポート料金を、なぜ近所のコンビニのプリペイドカード裏面の番号で払うんだよ！」",
+          "sns": "💬 SNS民「時価総額数百兆円の企業がコンビニのギフトカード番号を電話口で聞き取るわけなくて草」"
+        },
+        {
+          "name": "🛡️ コンビニ店員さんの声かけ結界",
+          "sub": "HP2200回復＋次ターン被ダメ半減",
+          "type": "heal",
+          "heal": 2200,
+          "effect": "shield_heal",
+          "log": "レジの店員さんが『それ詐欺ですよ！』と声をかけてくれて正気と資産を完全回復！",
+          "sns": "💬 SNS民「日本のコンビニ店員さんの水際防衛力、もはや特殊部隊レベルで感謝しかない」"
+        },
+        {
+          "name": "💥 奥義：タスクマネージャー強制終了＆VPN装甲",
+          "sub": "【ゲージ100%】超特大5000ダメ",
+          "type": "ult",
+          "power": 5000,
+          "effect": "sns_roast_strike",
+          "log": "【超必殺】Ctrl+Shift+Escで偽警告プロセスを木っ端微塵に消し去り、通信をVPNで完全暗号化！！",
+          "sns": "💬 SNS民「タスクマネージャーを起動できる人間にはサポート詐欺は1ミリも効かない」"
+        }
+      ],
+      "boss_attacks": [
+        {
+          "name": "『心臓に悪い爆音ビープ音＆真っ赤なカウントダウン』",
+          "damage": 1550,
+          "effect": "bill_lightning",
+          "banner": "🚨ピーーッ！残り02:59で全データが消去されます🚨",
+          "log": "深夜の静まり返った部屋に大音量の警告サイレンを鳴り響かせ、パニックを誘発してきた！",
+          "sns": "💬 SNS民「深夜2時にあの『ピーーッ！』が鳴ると詐欺って分かってても心臓止まりそうになるｗ」"
+        },
+        {
+          "name": "『コンビニで5万円分のカードを買って番号を教えろ催眠』",
+          "damage": 1700,
+          "effect": "hallucination_beam",
+          "banner": "💳「店員ニハ『友達へのプレゼント』と嘘ついてネ！」",
+          "log": "巧妙なトークスクリプトでコンビニのプリペイドカードコーナーへ誘導しようとする！",
+          "sns": "💬 SNS民「『店員に聞かれたら嘘をつけ』の時点で1000%詐欺確定演出」"
+        },
+        {
+          "name": "『怪しい遠隔操作ソフトのインストール誘導』",
+          "damage": 1650,
+          "effect": "laser",
+          "banner": "🖥️「ウイルスを消すからこのソフトを入れてネ！」",
+          "log": "修理を装ってPCを外部からリモート操作し、ネットバンキング画面を開かせようとする！",
+          "sns": "💬 SNS民「赤の他人に自分のPCの遠隔操作権限を渡すのは自宅の合鍵を渡すのと同じ」"
+        }
+      ],
+      "buzz_comments": [
+        "深夜の『ピーーッ！』は心臓に悪すぎるｗ",
+        "Esc長押ししてタブ閉じれば0秒で解決",
+        "なぜ修理代がコンビニのギフトカードなのか",
+        "コンビニ店員さんの水際阻止は日本の宝",
+        "※フィクションの風刺RPGです"
+      ],
+      "buzz_cutins": [
+        {"speaker": "片言魔王マイケル", "quote": "ワタシ公式サポートね！修理代はコンビニのギフトカード5万円分でイイヨ！", "avatar": "kumagaa_ceo", "badge": "🚨 偽サポート警告"},
+        {"speaker": "コンビニ店員ヒーロー", "quote": "お客さん待って！パソコン修理でギフトカード買うのは100%詐欺です！！", "avatar": "kiritama_master", "badge": "🛡️ 水際防衛"},
+        {"speaker": "PC防衛マイスター", "quote": "偽警告はタブを閉じるだけ！普段の通信保護はVPNを入れておけば安心だ！", "avatar": "uedaa_gov", "badge": "💻 鉄壁の知恵"}
+      ],
+      "ranks": [
+        {"min_score": 0, "title": "爆音アラームにびっくりした夜更かし民", "comment": "突然のビープ音に驚いてマウスを取り落としてしまった…。"},
+        {"min_score": 4500, "title": "Esc長押しタブ閉じの達人", "comment": "偽の全画面表示を冷静に解除し、詐欺師を0秒でシャットアウト！"},
+        {"min_score": 8500, "title": "ネット詐欺完全粉砕のサイバー守護神", "comment": "サポート詐欺魔王を完全論破！毎日の通信セキュリティはMillenVPNでさらに強化しよう！"}
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_millenvpn",
+          "tag": "ネット防衛・通信暗号化PR",
+          "network": "A8.net",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "怪しい広告ネットワークやフリーWi-Fiからの追跡・盗聴を防ぐ国産VPN。",
+          "cta_text": "MillenVPNで通信を保護する",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3000,
+          "expected_cvr": 0.024
+        },
+        {
+          "offer_id": "a8_stock_10",
+          "tag": "正統派の資産形成PR",
+          "network": "A8.net",
+          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
+          "description": "怪しい儲け話や詐欺に騙されず、プロの正統派マーケット分析で賢く資産形成。",
+          "cta_text": "旬の厳選10銘柄を無料で見る",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "cpa_jpy": 3500,
+          "expected_cvr": 0.022
+        }
+      ]
+    },
+    {
+      "slug": "tenbai-queue-catcher",
+      "title": "始発で並んだのに目の前で完売！？転売ヤー軍団をかわして限定推しグッズ確保キャッチャー",
+      "subtitle": "「1人10個制限で先頭の転売集団が段ボール買い占め→5分後にフリマで3倍価格」の理不尽を突破せよ！",
+      "engine": "catcher",
+      "has_timer": false,
+      "bgm_preset": "upbeat_pop",
+      "stage_style": "sushi_lane",
+      "trend_category": "推し活行列×転売買い占め風刺",
+      "trend_keywords": ["始発待機列", "目の前で完売", "転売ヤー買い占め", "受注生産しか勝たん"],
+      "story_intro": "※フィクションの風刺ゲームです。推しの限定ポップアップストアに朝5時の始発で並んだのに、先頭の転売ヤー集団が謎の言語で号令をかけながら在庫を段ボールごと買い占めていく！空から降ってくる『目の前で完売札』や『高額転売ビーム』をかわし、公式受注グッズを25個キャッチせよ！",
+      "sns_reply_template": "始発で並んだのに先頭の転売ヤー集団に段ボール買い占めされて5分後にフリマアプリに並ぶ地獄、そのままキャッチャーゲームになってて涙出る😂 最初から完全受注生産にしてくれｗ https://studyhelperproject.github.io/trend-minigames/games/tenbai-queue-catcher/",
+      "controls_hint": "左右スワイプで移動！『⚠️高額転売レーザー』と『完売札』を避けて公式グッズを25個集めよう！",
+      "background": {
+        "gradient": ["#1a0b2e", "#311042", "#4a0e2e"],
+        "board_bg": "rgba(22, 10, 34, 0.96)",
+        "border_color": "#f472b6",
+        "accent_color": "#00e5ff"
+      },
+      "player": {"emoji": "🛍️", "name": "始発待機ガチオタ", "avatar": "kiritama_master"},
+      "good_items": [
+        {"emoji": "✨", "name": "推し等身大アクスタ", "score": 250, "speed": 3.6, "quote": "定価で推しのアクスタを無事お迎え！！"},
+        {"emoji": "🧸", "name": "完全受注もちぬい", "score": 340, "speed": 4.1, "quote": "受注生産だから並ばず確実に手に入った！！"},
+        {"emoji": "👑", "name": "FaNeMa限定神グッズ", "score": 520, "speed": 4.6, "avatar": "kiritama_master", "quote": "転売ヤー涙目！公式通販でコンプリート達成！！"}
+      ],
+      "bad_items": [
+        {"emoji": "🚫", "name": "目の前で『本日分完売』札", "score": -350, "speed": 4.3, "avatar": "kumagaa_ceo", "quote": "レジの1人前で『ただいま完売しました〜』の絶望！！"},
+        {"emoji": "📦", "name": "段ボール買い占め転売屋", "score": -500, "speed": 4.8, "quote": "キャラの名前すら知らない集団がカゴ山盛りで会計してる…！"}
+      ],
+      "buzz_comments": [
+        "レジの1人前で完売札出るのが一番心折れる",
+        "キャラ名も知らない転売ヤーが買い占める地獄",
+        "5分後に店の前の路上でフリマ出品すんなｗ",
+        "全ジャンル最初から完全受注生産にしてくれ！",
+        "※フィクションの風刺ゲームです"
+      ],
+      "buzz_cutins": [
+        {"speaker": "始発待機オタク", "quote": "寒空の下で4時間並んだのに、俺の1人前で在庫が尽きた…だと…！？", "avatar": "kiritama_master", "badge": "😭 完売ショック"},
+        {"speaker": "買い占め転売ボス", "quote": "人気グッズ全部カゴに入れろ！店を出たら即フリマアプリに3倍で出品だ！", "avatar": "kumagaa_ceo", "badge": "📦 買い占め発生"},
+        {"speaker": "公式受注の女神", "quote": "転売ヤーからは1円も買わないで！FaNeMaの公式受注予約なら確実にお届けします✨", "avatar": "uedaa_gov", "badge": "💖 公式通販救済"}
+      ],
+      "ranks": [
+        {"min_score": 0, "title": "目の前で完売札を貼られた始発民", "comment": "交通費だけ使って手ぶらで帰る電車の中が一番つらい…。"},
+        {"min_score": 2500, "title": "在庫復活を見逃さない通知ハンター", "comment": "転売出品には目もくれず、公式の在庫を粘り強く確保！"},
+        {"min_score": 5000, "title": "完全受注生産の推し活グランドマスター", "comment": "25個確保で完全勝利！並ばず確実に買えるFaNeMaの公式オリジナルグッズをチェックしよう！"}
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_fanema",
+          "tag": "並ばず買える公式受注PR",
+          "network": "A8.net",
+          "title": "アニメ・マンガ・ゲーム等のオリジナルグッズをお届け！【FaNeMa】",
+          "description": "始発待機や転売価格にサヨナラ！公式オリジナルグッズを自宅で確実に予約・お迎え。",
+          "cta_text": "FaNeMa公式グッズを見る",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "cpa_jpy": 2200,
+          "expected_cvr": 0.025
+        },
+        {
+          "offer_id": "a8_millenvpn",
+          "tag": "イベント会場Wi-Fi対策PR",
+          "network": "A8.net",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "遠征先やカフェでのグッズ予約・クレカ決済時の通信を暗号化して安全に保護。",
+          "cta_text": "MillenVPNで通信を保護する",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3000,
+          "expected_cvr": 0.024
+        }
+      ]
     }
   ]
 }

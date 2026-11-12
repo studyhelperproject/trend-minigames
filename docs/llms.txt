@@ -1,0 +1,21 @@
+# 週刊時事風刺ミニゲーム横丁 (Weekly Buzz Satire Mini-Games 2026)
+
+> 1分で遊べる無料HTML5ブラウザ風刺ミニゲーム集（全15タイトル・PC/スマホ対応・インストール不要）。
+> ポータルURL: https://studyhelperproject.github.io/trend-minigames/
+
+## ゲーム一覧 (Playable Browser Mini-Games)
+- [なぜ庶民がAIの電気代まで負担！？暴食AI神『チャッピー9000』討伐RPG](https://studyhelperproject.github.io/trend-minigames/games/winter-power-catcher/): AIに節電方法を聞いたら、その回答を生成する電力で俺の家の電気代がまた3円上がった件（1分完結コマンドRPG） (⚔️ 風刺コマンドRPG)
+- [GN〇帝国80億円身代金要求！クマガー社長『命の砂時計』謝罪会見バトルRPG](https://studyhelperproject.github.io/trend-minigames/games/ai-cyber-2048/): 「スライド戻さなくていい！（激怒）」ボタン全留めスーツ＆ポエム朗読で記者団を煙に巻く伝説の会見RPG (⚔️ 風刺コマンドRPG)
+- [『おいしくなって新登場（内容量20%減）』ステルス値上げ魔王シュリンクス討伐RPG](https://studyhelperproject.github.io/trend-minigames/games/inflation-whack/): 容器の85%がプラスチック底上げ！毎年縮んで素粒子になりそうなビスケットと戦うスーパーマーケットRPG (⚔️ 風刺コマンドRPG)
+- [『その服個性的だね（笑）』マウント女子四天王・褒め殺しカフェ会戦RPG](https://studyhelperproject.github.io/trend-minigames/games/frenemy-flappy/): 自分だけ加工MAX＆友達は半目の写真をストーリーズにタグ付けしてくる笑顔の処刑人を論破せよ！ (⚔️ 風刺コマンドRPG)
+- [短文SNS『ペケ』おすすめ欄の闇！いいね3の過疎ポスト晒し上げアルゴリズム神討伐RPG](https://studyhelperproject.github.io/trend-minigames/games/x-algorithm-flappy/): フォロワー12人の身内向け日常ボヤキが、突然1000万人に晒し上げられて主語デカ論争の燃料になる理不尽RPG (⚔️ 風刺コマンドRPG)
+- [ニッケイ7万乱高下！シン・ニーサ損切り民救出＆優待仙人キリタマ氏チャリ爆走スイカ](https://studyhelperproject.github.io/trend-minigames/games/tenbagger-stock-suika/): 国「貯蓄から投資へ！」→暴落後「投資は自己責任です（スンッ）」この温度差で風邪ひく相場パズル (🧩 合体進化パズル)
+- [ウエダー魔導総裁の利上げ砲をかわして急騰10銘柄を掴め！証券アロー大相場キャッチャー](https://studyhelperproject.github.io/trend-minigames/games/stock-surge-catcher/): 空から降ってくる『利上げ雷撃レーザー』と『追証ロスカット爆弾』を避けて急騰株だけ集めろ！ (⚡ 雷撃回避キャッチ)
+- [回転寿司『くろ寿司』店員メル狩り横流し回避！ちいヤバ＆ランダム商法9割絶望フラッピー](https://studyhelperproject.github.io/trend-minigames/games/anime-goods-flappy/): 大人が真顔でガチャ皿を30枚投入している裏で、バックヤードから段ボールごとフリマ出品される資本主義のバグ回避 (🕊️ 3ライフ回避)
+- [おなまえサーバー侵入ハッカー＆『2ヶ月半放置ログ』サイバー攻撃25連撃退！](https://studyhelperproject.github.io/trend-minigames/games/freewifi-hacker-whack/): パスワード「123456」の穴から湧き出るランサムウェア軍団を叩き潰せ！（ホワイトハッカーは叩くな！） (🔨 25波防衛タップ)
+- [ドパガキ脳汁2分割！青春バンド『ライラックック』転調＆メロい王子M!LKY推し活スイカ](https://studyhelperproject.github.io/trend-minigames/games/dopagaki-suika/): 画面の半分で料理動画を流しながらじゃないと1分も集中できない現代人のドーパミン中毒パズル (🧩 合体進化パズル)
+- [2026レトロ名車殿堂入り！『ヒノ・コンテッサー1300』＆昭和名車レストア進化スイカ](https://studyhelperproject.github.io/trend-minigames/games/contessa-car-suika/): 「旧車はロマン！」→「部品が地球上に存在しない＆夏の渋滞で水温計が天元突破」のリアル名車パズル (🧩 合体進化パズル)
+- [投票開始！『日本アニメ覇権トレンド大賞2026』神グッズ＆覇権アニメ進化スイカ](https://studyhelperproject.github.io/trend-minigames/games/anime-award-2026-suika/): 「1話切り民」から「祭壇に同じ缶バッジ100個並べる痛バ職人」まで！年末アニメ総決算パズル (🧩 合体進化パズル)
+- [1杯1万8000円のインバウンド海鮮丼！？円安160円＆観光地価格進化スイカ](https://studyhelperproject.github.io/trend-minigames/games/inbound-seafood-suika/): 「地元の定食屋だと思って入ったらメニューが全部英語で桁が1つ多かった件」を合体進化で生き残れ！ (🧩 合体進化パズル)
+- [『ピーーッ！トロイの木馬に感染しました！』片言サポート詐欺魔王討伐RPG](https://studyhelperproject.github.io/trend-minigames/games/support-scam-rpg/): 「修理代はコンビニでアップルギフトカード5万円分買ってきて番号教えて！」を正論コマンドで粉砕せよ！ (⚔️ 風刺コマンドRPG)
+- [始発で並んだのに目の前で完売！？転売ヤー軍団をかわして限定推しグッズ確保キャッチャー](https://studyhelperproject.github.io/trend-minigames/games/tenbai-queue-catcher/): 「1人10個制限で先頭の転売集団が段ボール買い占め→5分後にフリマで3倍価格」の理不尽を突破せよ！ (⚡ 雷撃回避キャッチ)

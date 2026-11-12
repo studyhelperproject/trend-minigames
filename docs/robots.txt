@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://studyhelperproject.github.io/trend-minigames/sitemap.xml
