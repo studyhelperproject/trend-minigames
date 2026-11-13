@@ -78,6 +78,12 @@ ENGINE_LABELS = {
     "flappy": "🕊️ 3ライフ回避",
     "whack": "🔨 25波防衛タップ",
     "game2048": "🔢 風刺2048",
+    "breakout": "🧱 ブロック崩し",
+    "minesweeper": "💣 脆弱性マインスイーパー",
+    "space_invaders": "👾 固定画面インベーダー",
+    "snake": "🐍 爆走スネーク",
+    "match3": "💎 連鎖マッチ3パズル",
+    "frogger": "🏃 道路横断フロッガー",
 }
 
 SEARCH_QUERY_MAP = {
@@ -223,6 +229,8 @@ def build_all() -> dict:
     analytics = load_json(ANALYTICS_PATH) if ANALYTICS_PATH.exists() else {"games": {}, "pdca_logs": []}
 
     style_css = (SRC_DIR / "common" / "style.css").read_text(encoding="utf-8")
+    assets_bundle_path = SRC_DIR / "common" / "game_assets_bundle.js"
+    assets_bundle_js = assets_bundle_path.read_text(encoding="utf-8") if assets_bundle_path.exists() else ""
     rich_assets_js = (SRC_DIR / "common" / "rich_assets.js").read_text(encoding="utf-8")
     audio_js = (SRC_DIR / "common" / "audio.js").read_text(encoding="utf-8")
     sdk_js = (SRC_DIR / "common" / "ad_analytics_sdk.js").read_text(encoding="utf-8")
@@ -230,11 +238,17 @@ def build_all() -> dict:
     portal_tpl = (SRC_DIR / "templates" / "portal_template.html").read_text(encoding="utf-8")
     dash_tpl = (SRC_DIR / "templates" / "dashboard_template.html").read_text(encoding="utf-8")
 
+    if DIST_DIR.exists():
+        shutil.rmtree(DIST_DIR)
     DIST_DIR.mkdir(parents=True, exist_ok=True)
     games_dist = DIST_DIR / "games"
     games_dist.mkdir(parents=True, exist_ok=True)
     ogp_dist = DIST_DIR / "ogp"
     ogp_dist.mkdir(parents=True, exist_ok=True)
+
+    credits_src = BASE_DIR / "CREDITS.txt"
+    if credits_src.exists():
+        shutil.copyfile(credits_src, DIST_DIR / "CREDITS.txt")
 
     # Portal OGP SVG
     (ogp_dist / "portal.svg").write_text(
@@ -251,8 +265,6 @@ def build_all() -> dict:
     cards_html_list = []
     sitemap_urls = [
         (f"{SITE_BASE_URL}/", "1.0"),
-        (f"{SITE_BASE_URL}/marketing.html", "0.8"),
-        (f"{SITE_BASE_URL}/dashboard.html", "0.7"),
     ]
     rss_items = []
     llms_lines = [
@@ -343,6 +355,7 @@ def build_all() -> dict:
             "{{X_INTENT_URL}}": x_intent_url,
             "{{RELATED_GAMES_HTML}}": "\n".join(related_cards),
             "{{INLINE_CSS}}": style_css,
+            "{{INLINE_ASSETS_BUNDLE_JS}}": assets_bundle_js,
             "{{INLINE_RICH_ASSETS_JS}}": rich_assets_js,
             "{{INLINE_AUDIO_JS}}": audio_js,
             "{{INLINE_SDK_JS}}": sdk_js,
@@ -385,15 +398,8 @@ def build_all() -> dict:
           <h2 class="card-title">{theme["title"]}</h2>
           <p class="card-desc">{theme["subtitle"]}</p>
           <div class="scoop-context">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;flex-wrap:wrap;gap:4px;">
-              <strong style="color:#00e5ff;font-size:0.7rem;">💬 関連バズ投稿への返信コピペ用</strong>
-              <div style="display:flex;gap:4px;">
-                <button type="button" data-reply="{escaped_reply}" onclick="copyCardReply(this)" style="cursor:pointer;background:#0284c7;color:#fff;border:none;padding:2px 8px;border-radius:8px;font-size:0.68rem;font-weight:800;">📋 コピー</button>
-                <a href="{x_search_url}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;background:#1e293b;border:1px solid #fde047;color:#fde047;padding:2px 7px;border-radius:8px;font-size:0.66rem;font-weight:800;">🔍 バズ検索</a>
-                <a href="{x_intent_url}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;background:#e11d48;color:#fff;padding:2px 7px;border-radius:8px;font-size:0.66rem;font-weight:800;">𝕏 投稿</a>
-              </div>
-            </div>
-            <div style="font-size:0.7rem;color:#cbd5e1;word-break:break-all;">{html_lib.escape(sns_reply)}</div>
+            <div style="font-size:0.72rem;color:#fde047;font-weight:900;margin-bottom:3px;">📖 ストーリー＆遊び方</div>
+            <div style="font-size:0.72rem;color:#cbd5e1;line-height:1.45;">{html_lib.escape(theme["controls_hint"])}</div>
           </div>
           <div class="kw-list">{kws_html}</div>
           <a href="games/{slug}/index.html" class="play-btn">▶ この風刺ゲームをプレイ！（時間制限なし）</a>
@@ -439,16 +445,18 @@ def build_all() -> dict:
     )
     (DIST_DIR / "index.html").write_text(portal_html, encoding="utf-8")
 
+    # 内部管理用ダッシュボード＆集客センターは公開サイト(dist/docs)には含めず data/internal/ のみに出力
+    internal_dir = BASE_DIR / "data" / "internal"
+    internal_dir.mkdir(parents=True, exist_ok=True)
     dash_html = (
         dash_tpl.replace("{{THEMES_LIST_JSON}}", json.dumps(themes, ensure_ascii=False))
         .replace("{{MONETIZATION_JSON}}", json.dumps(config, ensure_ascii=False))
         .replace("{{INITIAL_ANALYTICS_JSON}}", json.dumps(analytics, ensure_ascii=False))
     )
-    (DIST_DIR / "dashboard.html").write_text(dash_html, encoding="utf-8")
+    (internal_dir / "dashboard.html").write_text(dash_html, encoding="utf-8")
 
-    # Marketing Command Center HTML
     marketing_html = build_marketing_center_html(themes, analytics.get("seo_acquisition", {}))
-    (DIST_DIR / "marketing.html").write_text(marketing_html, encoding="utf-8")
+    (internal_dir / "marketing.html").write_text(marketing_html, encoding="utf-8")
 
     # Generate sitemap.xml
     today_iso = datetime.date.today().isoformat()
@@ -514,7 +522,6 @@ def execute_live_acquisition(themes: list) -> dict:
     now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     url_list = [
         f"{SITE_BASE_URL}/",
-        f"{SITE_BASE_URL}/marketing.html",
         f"{SITE_BASE_URL}/sitemap.xml",
         f"{SITE_BASE_URL}/rss.xml",
     ] + [f"{SITE_BASE_URL}/games/{t['slug']}/" for t in themes]

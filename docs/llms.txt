@@ -1,6 +1,6 @@
 # 週刊時事風刺ミニゲーム横丁 (Weekly Buzz Satire Mini-Games 2026)
 
-> 1分で遊べる無料HTML5ブラウザ風刺ミニゲーム集（全17タイトル・PC/スマホ対応・インストール不要）。
+> 1分で遊べる無料HTML5ブラウザ風刺ミニゲーム集（全21タイトル・PC/スマホ対応・インストール不要）。
 > ポータルURL: https://studyhelperproject.github.io/trend-minigames/
 
 ## ゲーム一覧 (Playable Browser Mini-Games)
@@ -12,12 +12,16 @@
 - [ニッケイ7万乱高下！シン・ニーサ損切り民救出＆優待仙人キリタマ氏チャリ爆走スイカ](https://studyhelperproject.github.io/trend-minigames/games/tenbagger-stock-suika/): 国「貯蓄から投資へ！」→暴落後「投資は自己責任です（スンッ）」この温度差で風邪ひく相場パズル (🧩 合体進化パズル)
 - [ウエダー魔導総裁の利上げ砲をかわして急騰10銘柄を掴め！証券アロー大相場キャッチャー](https://studyhelperproject.github.io/trend-minigames/games/stock-surge-catcher/): 空から降ってくる『利上げ雷撃レーザー』と『追証ロスカット爆弾』を避けて急騰株だけ集めろ！ (⚡ 雷撃回避キャッチ)
 - [回転寿司『くろ寿司』店員メル狩り横流し回避！ちいヤバ＆ランダム商法9割絶望フラッピー](https://studyhelperproject.github.io/trend-minigames/games/anime-goods-flappy/): 大人が真顔でガチャ皿を30枚投入している裏で、バックヤードから段ボールごとフリマ出品される資本主義のバグ回避 (🕊️ 3ライフ回避)
-- [おなまえサーバー侵入ハッカー＆『2ヶ月半放置ログ』サイバー攻撃25連撃退！](https://studyhelperproject.github.io/trend-minigames/games/freewifi-hacker-whack/): パスワード「123456」の穴から湧き出るランサムウェア軍団を叩き潰せ！（ホワイトハッカーは叩くな！） (🔨 25波防衛タップ)
+- [おなまえサーバー『2ヶ月半侵入ログ』脆弱性スキャン＆地雷除去（SweepIt風）](https://studyhelperproject.github.io/trend-minigames/games/freewifi-hacker-whack/): 数字ヒントを頼りに『パスワード123456』『未パッチポート』のランサム地雷を特定し、安全ログを全開放せよ！ (💣 脆弱性マインスイーパー)
 - [ドパガキ脳汁2分割！青春バンド『ライラックック』転調＆メロい王子M!LKY推し活スイカ](https://studyhelperproject.github.io/trend-minigames/games/dopagaki-suika/): 画面の半分で料理動画を流しながらじゃないと1分も集中できない現代人のドーパミン中毒パズル (🧩 合体進化パズル)
 - [2026レトロ名車殿堂入り！『ヒノ・コンテッサー1300』＆昭和名車レストア進化スイカ](https://studyhelperproject.github.io/trend-minigames/games/contessa-car-suika/): 「旧車はロマン！」→「部品が地球上に存在しない＆夏の渋滞で水温計が天元突破」のリアル名車パズル (🧩 合体進化パズル)
 - [投票開始！『日本アニメ覇権トレンド大賞2026』神グッズ＆覇権アニメ進化スイカ](https://studyhelperproject.github.io/trend-minigames/games/anime-award-2026-suika/): 「1話切り民」から「祭壇に同じ缶バッジ100個並べる痛バ職人」まで！年末アニメ総決算パズル (🧩 合体進化パズル)
-- [1杯1万8000円のインバウンド海鮮丼！？円安160円＆観光地価格進化スイカ](https://studyhelperproject.github.io/trend-minigames/games/inbound-seafood-suika/): 「地元の定食屋だと思って入ったらメニューが全部英語で桁が1つ多かった件」を合体進化で生き残れ！ (🧩 合体進化パズル)
+- [インバウンド観光地『1万8千円ウニ丼』渋滞横断！庶民価格の定食屋へ渡れフロッガー](https://studyhelperproject.github.io/trend-minigames/games/inbound-seafood-suika/): 円安観光バスとぼったくり海鮮トラックが猛スピードで走る道路を横切り、庶民の味方・ワンコイン定食屋へ3回到達せよ！ (🏃 道路横断フロッガー)
 - [『ピーーッ！トロイの木馬に感染しました！』片言サポート詐欺魔王討伐RPG](https://studyhelperproject.github.io/trend-minigames/games/support-scam-rpg/): 「修理代はコンビニでアップルギフトカード5万円分買ってきて番号教えて！」を正論コマンドで粉砕せよ！ (⚔️ 風刺コマンドRPG)
 - [始発で並んだのに目の前で完売！？転売ヤー軍団をかわして限定推しグッズ確保キャッチャー](https://studyhelperproject.github.io/trend-minigames/games/tenbai-queue-catcher/): 「1人10個制限で先頭の転売集団が段ボール買い占め→5分後にフリマで3倍価格」の理不尽を突破せよ！ (⚡ 雷撃回避キャッチ)
 - [ノーコンティニューでクリアしてやるぜ！天才ゲーマー研修医vs『神の才能』ゲーム社長討伐RPG](https://studyhelperproject.github.io/trend-minigames/games/gamer-doctor-rpg/): 「私が神だ！！コンティニュー土管から99回復活する社長」と「天井300連爆死ガシャ」を医療コマンドで攻略せよ！ (⚔️ 風刺コマンドRPG)
 - [黒革ジャン社長ハニートラップ辞任危機！？半導体株ナイアガラ＆AIグラボ流出防衛RPG](https://studyhelperproject.github.io/trend-minigames/games/leather-jacket-ceo-rpg/): 「年中無休で黒い革ジャンを着ていたカリスマが傾国の美女スパイに陥落！？」半導体株ガチホ民の資産防衛バトル！ (⚔️ 風刺コマンドRPG)
+- [底上げプラスチック85%を叩き割れ！『おいしくなって新登場』ステルス値上げ破壊ブレイクアウト](https://studyhelperproject.github.io/trend-minigames/games/stealth-bento-breakout/): 弁当容器の上げ底プラスチックと『お客様のご要望にお応えして内容量20%減』ブロックをボールで粉砕せよ！ (🧱 ブロック崩し)
+- [バズったリプ欄の8割がコピペ！？青バッジ・インプレゾンビ＆詐欺広告 迎撃インベーダー](https://studyhelperproject.github.io/trend-minigames/games/impre-zombie-invaders/): 上から隊列を組んで押し寄せる謎アラビア語コピペゾンビと偽セキュリティ警告を自動連射で撃墜せよ！ (👾 固定画面インベーダー)
+- [キリタマ仙人・優待期限ギリギリ『飲食店はしご』爆走スネーク](https://studyhelperproject.github.io/trend-minigames/games/kiritama-voucher-snake/): 今日23時59分が期限の株主優待券をママチャリで次々回収し、大行列を伸ばしまくれ！（壁激突厳禁） (🐍 爆走スネーク)
+- [AIグラボ＆半導体ウェハー争奪！3大メガテック・サプライチェーン・マッチ3パズル](https://studyhelperproject.github.io/trend-minigames/games/semicon-supply-match3/): 黒革ジャン社長のGPU・冷却水・電力・半導体株を3つ揃えて連鎖させ、AI供給網のボトルネックを解消せよ！ (💎 連鎖マッチ3パズル)

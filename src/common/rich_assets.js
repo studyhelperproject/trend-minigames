@@ -187,7 +187,23 @@ class RichVisualRenderer {
   }
 
   /**
-   * キャラクター・架空風刺人物のリッチベクター描画
+   * Twemoji / Game-Icons のプリロード済みSVGベクター画像をCanvasへ描画するヘルパー
+   */
+  drawVectorSprite(emojiOrKey, x, y, size, isGameIcon = false) {
+    const ctx = this.ctx;
+    const cache = window.GAME_ASSET_CACHE;
+    if (cache) {
+      const img = isGameIcon ? (cache.icons && cache.icons[emojiOrKey]) : (cache.emojis && cache.emojis[emojiOrKey]);
+      if (img && img.complete && img.naturalWidth > 0) {
+        ctx.drawImage(img, x - size / 2, y - size / 2, size, size);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * キャラクター・架空風刺人物のリッチベクター描画（Twemoji CC BY 4.0 + Game-Icons CC BY 3.0）
    */
   drawRichCharacter(x, y, radius, spec, isPreview = false) {
     const ctx = this.ctx;
@@ -220,7 +236,6 @@ class RichVisualRenderer {
 
     const avatar = spec.avatar || '';
     if ((avatar === 'kumagaa_ceo' || avatar === 'kumagai_ceo') && radius >= 26) {
-      // 架空・クマガー社長風：ボタン全留めスーツ＋赤ネクタイ＋砂時計モチーフ
       ctx.fillStyle = '#0f172a';
       ctx.beginPath();
       ctx.arc(x, y + radius * 0.55, radius * 0.42, Math.PI, 0, false);
@@ -228,24 +243,27 @@ class RichVisualRenderer {
       ctx.fillStyle = '#e11d48';
       ctx.fillRect(x - 3, y + radius * 0.25, 6, radius * 0.35);
     } else if ((avatar === 'kiritama_master' || avatar === 'kiritani_master') && radius >= 26) {
-      // 架空・キリタマ仙人風：メガネフレーム＋爆走チャリヘルメット風
       ctx.strokeStyle = '#ffd700';
       ctx.lineWidth = 2;
       ctx.strokeRect(x - radius * 0.42, y - radius * 0.22, radius * 0.35, radius * 0.22);
       ctx.strokeRect(x + radius * 0.07, y - radius * 0.22, radius * 0.35, radius * 0.22);
     } else if ((avatar === 'uedaa_gov' || avatar === 'ueda_gov') && radius >= 26) {
-      // 架空・ウエダー魔導総裁風：黒縁メガネ
       ctx.strokeStyle = '#111';
       ctx.lineWidth = 2.5;
       ctx.strokeRect(x - radius * 0.42, y - radius * 0.2, radius * 0.36, radius * 0.22);
       ctx.strokeRect(x + radius * 0.06, y - radius * 0.2, radius * 0.36, radius * 0.22);
     }
 
-    const fontSize = Math.max(15, Math.floor(radius * 0.88));
-    ctx.font = `${fontSize}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(spec.emoji || '🔥', x, y - (radius >= 28 ? 3 : 0));
+    const spriteSize = Math.max(18, Math.floor(radius * 1.15));
+    const sy = y - (radius >= 28 ? 4 : 0);
+    const drawn = this.drawVectorSprite(spec.emoji || '🔥', x, sy, spriteSize, false);
+    if (!drawn) {
+      const fontSize = Math.max(15, Math.floor(radius * 0.88));
+      ctx.font = `${fontSize}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(spec.emoji || '🔥', x, sy);
+    }
 
     ctx.fillStyle = 'rgba(255, 255, 255, 0.28)';
     ctx.beginPath();
@@ -328,13 +346,15 @@ class RichVisualRenderer {
       ctx.fill();
       ctx.stroke();
 
-      // モニター顔（笑顔で電力を爆食いするAI）
+      // モニター顔（Game-Icons SVGベクター描画）
       ctx.fillStyle = isPhase2 ? '#450a0a' : '#042f2e';
       ctx.fillRect(x - 38, y - 36, 76, 46);
-      ctx.fillStyle = isPhase2 ? '#ff5252' : '#00e676';
-      ctx.font = 'bold 24px "Segoe UI Emoji", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(isPhase2 ? '😈⚡' : '😊⚡', x, y - 8);
+      if (!this.drawVectorSprite('boss_ai_server', x, y - 13, 38, true)) {
+        ctx.fillStyle = isPhase2 ? '#ff5252' : '#00e676';
+        ctx.font = 'bold 24px "Segoe UI Emoji", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(isPhase2 ? '😈⚡' : '😊⚡', x, y - 8);
+      }
 
       // 冷却ファン回転＆消費電力メーター
       ctx.fillStyle = '#ffd700';
@@ -444,13 +464,47 @@ class RichVisualRenderer {
         ctx.textAlign = 'center';
         ctx.fillText(i === 0 ? '個性的だね(笑)' : '半目タグ付け♡', ox, oy + 3);
       }
+    } else if (visualType === 'gamer_doctor_god') {
+      // 残機99・土管コンティニュー神社長
+      ctx.fillStyle = '#15803d';
+      ctx.strokeStyle = '#4ade80';
+      ctx.lineWidth = 2.5;
+      ctx.fillRect(x - 86, y - 8, 42, 46);
+      ctx.strokeRect(x - 86, y - 8, 42, 46);
+      ctx.fillRect(x - 92, y - 16, 54, 14);
+      ctx.strokeRect(x - 92, y - 16, 54, 14);
+      this.drawRichCharacter(x, y - 6, 44, {
+        emoji: isPhase2 ? '👑' : '🩺',
+        name: 'クロト神社長',
+        color: isPhase2 ? '#9333ea' : '#059669'
+      });
+      this.drawVectorSprite('boss_gamer_god', x + 76, y - 4, 38, true);
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 9.5px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('「ブハハハ！残機99＆土管コンティニュー神！」', x, y + 48);
+    } else if (visualType === 'leather_jacket_ceo') {
+      // 黒革ジャン社長＆ハニトラ危機
+      this.drawRichCharacter(x, y - 6, 45, {
+        emoji: isPhase2 ? '📉' : '🧥',
+        name: '黒革ジャン社長',
+        color: isPhase2 ? '#dc2626' : '#16a34a',
+        avatar: 'kumagaa_ceo'
+      });
+      this.drawVectorSprite('boss_leather_ceo', x - 78, y - 6, 40, true);
+      this.drawVectorSprite('boss_ai_core', x + 78, y - 6, 38, true);
+      ctx.fillStyle = '#fde047';
+      ctx.font = 'bold 9.5px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('革ジャン辞任危機！？半導体株ナイアガラ警報', x, y + 48);
     } else {
       // SNSおすすめ欄アルゴリズム暴走神
       this.drawRichCharacter(x, y - 4, 45, {
-        emoji: isPhase2 ? '👁️🔥' : '🤖🔥',
+        emoji: isPhase2 ? '👁️' : '🤖',
         name: 'おすすめ欄神',
         color: isPhase2 ? '#dc2626' : '#2563eb'
       });
+      this.drawVectorSprite('boss_algo', x + 76, y - 6, 36, true);
       ctx.fillStyle = '#fde047';
       ctx.font = 'bold 9.5px sans-serif';
       ctx.textAlign = 'center';

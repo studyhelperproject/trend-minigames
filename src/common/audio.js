@@ -218,6 +218,18 @@ class ProceduralAudioEngine {
     osc.stop(now + durationSec);
   }
 
+  playExternalSfx(key, volume = 0.48) {
+    if (this.isMuted) return;
+    const cache = window.GAME_ASSET_CACHE && window.GAME_ASSET_CACHE.audio;
+    if (!cache || !cache[key]) return;
+    try {
+      const baseAudio = cache[key];
+      const clip = baseAudio.cloneNode();
+      clip.volume = volume;
+      clip.play().catch(() => {});
+    } catch (e) {}
+  }
+
   playSE(type, level = 1) {
     if (this.isMuted) return;
     this.initContext();
@@ -226,7 +238,8 @@ class ProceduralAudioEngine {
         this.playTone(340, 0.08, 'sine', 0.09, 170);
         break;
       case 'merge':
-        // 進化音＋高ランク時は記者会見のカメラシャッター連写音
+        // Freesound CC0/CC-BY 実録音レトロパワーアップ効果音＋シンセ和音
+        this.playExternalSfx('merge', 0.42);
         const baseFreq = 350 + (level * 65);
         this.playTone(baseFreq, 0.14, 'triangle', 0.13, baseFreq * 1.4);
         this.playTone(baseFreq * 1.25, 0.18, 'sine', 0.09, baseFreq * 1.6);
@@ -239,20 +252,28 @@ class ProceduralAudioEngine {
         this.playTone(300, 0.11, 'square', 0.075, 620);
         break;
       case 'hit':
-        // 爽快チャリン＆パンチ音
+        // Freesound CC0/CC-BY アーケード打撃音＋チャリン音
+        this.playExternalSfx('hit', 0.45);
         this.playTone(587.33, 0.08, 'triangle', 0.11, 880);
         setTimeout(() => this.playTone(1174.66, 0.12, 'sine', 0.11), 50);
         break;
+      case 'bad':
       case 'damage':
+        // Freesound CC0/CC-BY 爆発ダメージ音
+        this.playExternalSfx('bad', 0.5);
         this.playNoiseBurst(0.14, 0.09, 600);
         this.playTone(180, 0.24, 'sawtooth', 0.12, 85);
         break;
+      case 'milestone':
       case 'reward':
+        // Freesound CC0/CC-BY ファンファーレ効果音
+        this.playExternalSfx('milestone', 0.5);
         [523.25, 659.25, 783.99, 1046.5].forEach((f, idx) => {
           setTimeout(() => this.playTone(f, 0.2, 'triangle', 0.13), idx * 75);
         });
         break;
       case 'gameover':
+        this.playExternalSfx('gameover', 0.5);
         [392.0, 349.23, 329.63, 261.63].forEach((f, idx) => {
           setTimeout(() => this.playTone(f, 0.22, 'sawtooth', 0.1, f * 0.92), idx * 120);
         });

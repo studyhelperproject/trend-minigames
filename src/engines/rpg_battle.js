@@ -506,15 +506,20 @@ class RpgBattleGameEngine {
       ctx.fill();
       ctx.stroke();
 
+      // Game-Icons ベクタースキルアイコンをボタン左端に描画
+      const iconKeyMap = { attack: 'skill_attack', roast: 'skill_roast', heal: 'skill_heal', ult: 'skill_ult' };
+      const hasIcon = this.visual.drawVectorSprite(iconKeyMap[sk.type] || 'skill_attack', b.x + 18, b.y + 22, 22, true);
+      const textOffsetX = hasIcon ? 34 : 10;
+
       ctx.fillStyle = ultReady ? '#fde047' : '#ffffff';
-      ctx.font = 'bold 12px "Hiragino Kaku Gothic ProN", sans-serif';
+      ctx.font = 'bold 11.5px "Hiragino Kaku Gothic ProN", sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText(sk.name.slice(0, 14), b.x + 10, b.y + 23);
+      ctx.fillText(sk.name.slice(0, hasIcon ? 12 : 14), b.x + textOffsetX, b.y + 23);
 
       ctx.fillStyle = '#cbd5e1';
-      ctx.font = 'bold 9.5px "Hiragino Kaku Gothic ProN", sans-serif';
-      const subText = (isUlt && !ultReady) ? `⚡タップでゲージ充填(${this.satireGauge}%)` : sk.sub;
-      ctx.fillText(subText.slice(0, 19), b.x + 10, b.y + 42);
+      ctx.font = 'bold 9.2px "Hiragino Kaku Gothic ProN", sans-serif';
+      const subText = (isUlt && !ultReady) ? `⚡ゲージ充填(${this.satireGauge}%)` : sk.sub;
+      ctx.fillText(subText.slice(0, 18), b.x + 10, b.y + 42);
 
       ctx.restore();
     }

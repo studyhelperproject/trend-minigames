@@ -39,8 +39,6 @@
     <a href="../../index.html" class="portal-link">⚡ 風刺ゲーム横丁一覧({{GAME_COUNT}}本)</a>
     <div class="top-controls">
       <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
-      <a href="../../marketing.html" class="btn-icon" style="text-decoration:none;border-color:#00e5ff;color:#00e5ff;">📣 集客センター</a>
-      <a href="../../dashboard.html" class="btn-icon" style="text-decoration:none;">📊 CEO効果測定</a>
     </div>
   </div>
 
@@ -73,19 +71,16 @@
 
     <div id="evolutionGuide" class="evolution-guide"></div>
 
-    <!-- バズ投稿へのリプライ用ワンタップコピー枠 ＆ フィクション免責表示 -->
+    <!-- プレイヤー向けシェア＆フィクション免責表示 -->
     <div class="news-context-box">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap;">
-        <strong style="color:#00e5ff;">💬 関連するSNSのバズ投稿へリプライで貼る用</strong>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;">
-          <button id="btnCopyReply" type="button" style="cursor:pointer;background:linear-gradient(90deg,#00e5ff,#2563eb);color:#fff;border:none;padding:4px 10px;border-radius:14px;font-size:0.72rem;font-weight:900;">📋 コピー</button>
-          <a href="{{X_SEARCH_URL}}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;background:#1e293b;border:1px solid #38bdf8;color:#38bdf8;padding:4px 10px;border-radius:14px;font-size:0.72rem;font-weight:900;">🔍 関連バズ検索を開く</a>
-          <a href="{{X_INTENT_URL}}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;background:#e11d48;color:#fff;padding:4px 10px;border-radius:14px;font-size:0.72rem;font-weight:900;">𝕏 1タップ投稿</a>
-        </div>
+        <strong style="color:#00e5ff;">📖 風刺ストーリー＆𝕏シェア</strong>
+        <a href="{{X_INTENT_URL}}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;background:#e11d48;color:#fff;padding:4px 12px;border-radius:14px;font-size:0.72rem;font-weight:900;">𝕏 このゲームをシェアする</a>
       </div>
-      <div id="snsReplyText" style="background:rgba(0,0,0,0.45);padding:8px 10px;border-radius:8px;font-size:0.76rem;color:#e2e8f0;margin-bottom:8px;word-break:break-all;">{{SNS_REPLY_TEMPLATE}}</div>
+      <div style="font-size:0.76rem;color:#e2e8f0;margin-bottom:8px;line-height:1.5;">{{STORY_INTRO}}</div>
       <div style="font-size:0.7rem;color:#94a3b8;border-top:1px solid rgba(255,255,255,0.1);padding-top:6px;">
         ⚠️ <strong>【免責事項】</strong> 本作は世相を風刺した100%フィクションのジョークゲームです。登場する人物（クマガー社長・キリタマ仙人・ウエダー魔導総裁等）・団体・会社・名称はすべて架空のものであり、実在の人物・企業・商標とは一切関係ありません。
+        <span style="margin-left:6px;"><a href="../../CREDITS.txt" target="_blank" style="color:#38bdf8;">📜 使用アセット権利表記 (CC BY / CC0)</a></span>
       </div>
     </div>
 
@@ -177,6 +172,9 @@
     window.MONETIZATION_CONFIG = {{MONETIZATION_JSON}};
   </script>
   <script>
+{{INLINE_ASSETS_BUNDLE_JS}}
+  </script>
+  <script>
 {{INLINE_RICH_ASSETS_JS}}
   </script>
   <script>
@@ -238,7 +236,13 @@
         game2048: window.Game2048Engine,
         flappy: window.FlappyGameEngine,
         catcher: window.CatcherGameEngine,
-        whack: window.WhackGameEngine
+        whack: window.WhackGameEngine,
+        breakout: window.BreakoutGameEngine,
+        minesweeper: window.MinesweeperGameEngine,
+        space_invaders: window.SpaceInvadersGameEngine,
+        snake: window.SnakeGameEngine,
+        match3: window.Match3GameEngine,
+        frogger: window.FroggerGameEngine
       };
       const EngineClass = engineMap[theme.engine] || window.SuikaGameEngine;
 

@@ -1331,13 +1331,13 @@
     },
     {
       "slug": "freewifi-hacker-whack",
-      "title": "おなまえサーバー侵入ハッカー＆『2ヶ月半放置ログ』サイバー攻撃25連撃退！",
-      "subtitle": "パスワード「123456」の穴から湧き出るランサムウェア軍団を叩き潰せ！（ホワイトハッカーは叩くな！）",
-      "engine": "whack",
+      "title": "おなまえサーバー『2ヶ月半侵入ログ』脆弱性スキャン＆地雷除去（SweepIt風）",
+      "subtitle": "数字ヒントを頼りに『パスワード123456』『未パッチポート』のランサム地雷を特定し、安全ログを全開放せよ！",
+      "engine": "minesweeper",
       "has_timer": false,
       "bgm_preset": "cyber_urgent",
       "stage_style": "press_conference",
-      "trend_category": "セキュリティ×反射神経撃退アクション",
+      "trend_category": "セキュリティ×論理地雷除去パズル",
       "trend_keywords": [
         "2ヶ月半侵入放置",
         "おなまえサーバー",
@@ -1346,7 +1346,7 @@
       ],
       "story_intro": "※実在のサービスとは無関係なフィクションです。『おなまえサーバー』の管理画面ポートから、身代金80億円を要求するハッカー軍団が次々と湧き出してきた！ただし、2年前から警告してくれていた味方の『イエーラ防衛隊（緑色）』を誤って叩くと減点！25体撃退してサーバーを守り抜け！",
       "sns_reply_template": "2ヶ月半ハッカーに侵入され続けたサーバーの穴を物理タップで塞ぐゲーム、味方のホワイトハッカーを叩くと減点される仕様が皮肉効きすぎてて草😂 https://studyhelperproject.github.io/trend-minigames/games/freewifi-hacker-whack/",
-      "controls_hint": "穴から出る赤いハッカーをタップで撃退！（25体撃退でクリア・緑のイエーラ防衛隊は味方なので叩くな！）",
+      "controls_hint": "マスをタップして安全ログを調査！下部の『🚩フラグ切替』ボタン（PCは右クリック）で危険ポートにフラグを立てよう！",
       "background": {
         "gradient": [
           "#050811",
@@ -1956,13 +1956,13 @@
     },
     {
       "slug": "inbound-seafood-suika",
-      "title": "1杯1万8000円のインバウンド海鮮丼！？円安160円＆観光地価格進化スイカ",
-      "subtitle": "「地元の定食屋だと思って入ったらメニューが全部英語で桁が1つ多かった件」を合体進化で生き残れ！",
-      "engine": "suika",
+      "title": "インバウンド観光地『1万8千円ウニ丼』渋滞横断！庶民価格の定食屋へ渡れフロッガー",
+      "subtitle": "円安観光バスとぼったくり海鮮トラックが猛スピードで走る道路を横切り、庶民の味方・ワンコイン定食屋へ3回到達せよ！",
+      "engine": "frogger",
       "has_timer": false,
       "bgm_preset": "stock_fever",
       "stage_style": "sushi_lane",
-      "trend_category": "インバウンド物価×円安風刺パズル",
+      "trend_category": "円安インバウンド×道路横断アクション",
       "trend_keywords": [
         "インバウンド海鮮丼",
         "円安160円",
@@ -1971,7 +1971,7 @@
       ],
       "story_intro": "※実在の店舗・市場とは無関係なフィクションです。歴史的円安で観光地の市場がバブル状態！昔は800円だった海鮮丼が、金箔とウニを乗せて『1杯1万8000円（外国人観光客「Oh, cheap!!」）』に進化！日本人観光客がメニュー表を見てそっと店を出る哀愁のインバウンド進化パズル！",
       "sns_reply_template": "外国人観光客が『1万8000円の海鮮丼安すぎ！』って笑ってる横で、日本人がそっと素うどんを食べるインバウンド格差がスイカゲームになってて泣ける😂 https://studyhelperproject.github.io/trend-minigames/games/inbound-seafood-suika/",
-      "controls_hint": "位置を合わせてタップでグルメ玉をドロップ！（時間制限なし・左上ボタンでいつでも結果判定へ）",
+      "controls_hint": "タップで前進／スワイプ・矢印キーで上下左右に1マス移動！ぼったくり屋台と観光バスを避けて上端のゴールへ3回渡ろう！",
       "background": {
         "gradient": [
           "#1e1b18",
@@ -2115,6 +2115,23 @@
           "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
           "cpa_jpy": 3000,
           "expected_cvr": 0.024
+        }
+      ],
+      "player": {
+        "emoji": "🍣",
+        "name": "庶民グルメ民",
+        "color": "#00e5ff"
+      },
+      "bad_items": [
+        {
+          "emoji": "💸",
+          "name": "1万8千円ウニ丼車",
+          "color": "#ef4444"
+        },
+        {
+          "emoji": "🚌",
+          "name": "円安観光バス",
+          "color": "#f59e0b"
         }
       ]
     },
@@ -2472,7 +2489,7 @@
         "name": "自称『神の才能』クロト社長",
         "title": "Lv.99 残機99＆土管から無限コンティニュー神",
         "max_hp": 9999,
-        "visual_type": "algo_demon",
+        "visual_type": "gamer_doctor_god",
         "avatar": "kumagaa_ceo",
         "intro_quote": "「ブハハハハ！！私の才能は神だ！！コンティニュー土管がある限り私は不멸だァーッ！！」",
         "phase2_quote": "「なぜ私が負ける！？ならばレベル10億・ゴッドマキシマム課金ガシャ形態を発動する！！」"
@@ -2649,7 +2666,7 @@
         "name": "黒革ジャン危機＆ハニトラ諜報軍",
         "title": "Lv.99 傾国の美女スパイ＆半導体ナイアガラ砲",
         "max_hp": 9800,
-        "visual_type": "ai_server_god",
+        "visual_type": "leather_jacket_ceo",
         "avatar": "kumagaa_ceo",
         "intro_quote": "「フフフ…どれほど高性能なAI半導体を作っても、人間の社長はハニートラップ1発でルート権限ごと陥落よ♡」",
         "phase2_quote": "「取締役会が独立調査を開始！！『革ジャン辞任』トレンド1位で半導体セクター全体にナイアガラ売り浴びせ発動！！」"
@@ -2765,6 +2782,456 @@
           "min_score": 8800,
           "title": "半導体ショック完全攻略のウォール街覇王",
           "comment": "見事な危機管理で資産防衛達成！次に来る急騰候補は『旬の厳選10銘柄』で無料チェック！"
+        }
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_stock_10",
+          "tag": "半導体ショック・分散投資PR",
+          "network": "A8.net",
+          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
+          "description": "米国株や半導体の急変リスクに備える！プロが厳選した旬の10銘柄レポートを無料公開中。",
+          "cta_text": "旬の厳選10銘柄を無料で見る",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "cpa_jpy": 3500,
+          "expected_cvr": 0.022
+        },
+        {
+          "offer_id": "a8_millenvpn",
+          "tag": "機密漏洩・スパイ対策PR",
+          "network": "A8.net",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "情報漏洩や通信傍受を防ぐ！ビジネス・個人利用の通信を強力に暗号化する国産VPN。",
+          "cta_text": "MillenVPNで通信を保護する",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3000,
+          "expected_cvr": 0.024
+        }
+      ]
+    },
+    {
+      "slug": "stealth-bento-breakout",
+      "title": "底上げプラスチック85%を叩き割れ！『おいしくなって新登場』ステルス値上げ破壊ブレイクアウト",
+      "subtitle": "弁当容器の上げ底プラスチックと『お客様のご要望にお応えして内容量20%減』ブロックをボールで粉砕せよ！",
+      "engine": "breakout",
+      "has_timer": false,
+      "bgm_preset": "panic_rush",
+      "stage_style": "sushi_lane",
+      "trend_category": "物価高×ブロック崩しアクション",
+      "trend_keywords": [
+        "底上げ弁当",
+        "ステルス値上げ",
+        "ブロック崩し",
+        "実質値上げ"
+      ],
+      "story_intro": "※フィクションの風刺ゲームです。見た目は豪華なのに横から見ると容器の85%がプラスチックの上げ底だった『ステルス値上げ弁当』！消費者の正論ボールを跳ね返し、上げ底ブロックをすべて叩き割れ！",
+      "sns_reply_template": "底上げプラスチック85%の弁当容器をボールで物理破壊する風刺ブロック崩しが爽快すぎてストレス発散になった😂🧱 https://studyhelperproject.github.io/trend-minigames/games/stealth-bento-breakout/",
+      "controls_hint": "左右ドラッグ／スワイプ（PCは矢印キー）でパドルを動かし、すべての底上げブロックを叩き割れ！（ライフ3制）",
+      "background": {
+        "gradient": [
+          "#2a0812",
+          "#4c0519",
+          "#1e1b4b"
+        ],
+        "board_bg": "rgba(20, 8, 16, 0.96)",
+        "border_color": "#f43f5e",
+        "accent_color": "#fde047"
+      },
+      "targets": [
+        {
+          "emoji": "🍱",
+          "name": "底上げ容器",
+          "score": 180,
+          "color": "#ef4444"
+        },
+        {
+          "emoji": "📉",
+          "name": "内容量20%減",
+          "score": 220,
+          "color": "#f59e0b"
+        },
+        {
+          "emoji": "🗯️",
+          "name": "謎の企業努力",
+          "score": 280,
+          "color": "#ec4899"
+        }
+      ],
+      "buzz_comments": [
+        "容器の底上げがエベレスト級ｗ",
+        "おいしくなって新登場（量-20%）",
+        "全部壊すとスッキリする！",
+        "※フィクションの風刺ゲームです"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "底上げ開発部",
+          "quote": "容器を斜めにカットして『食べやすさ』を追求した結果、ご飯が半分になりました！",
+          "avatar": "kumagaa_ceo",
+          "badge": "🍱 企業努力速報"
+        },
+        {
+          "speaker": "腹ペコ庶民",
+          "quote": "プラスチックの上げ底じゃなくて米を食わせろーっ！！",
+          "avatar": "kiritama_master",
+          "badge": "🔥 正論カウンター"
+        }
+      ],
+      "ranks": [
+        {
+          "min_score": 0,
+          "title": "上げ底容器に騙された腹ペコ民",
+          "comment": "プラスチックの壁を崩しきれず空腹のまま帰還…。"
+        },
+        {
+          "min_score": 2500,
+          "title": "内容量g単位チェックの主婦王",
+          "comment": "見事な反射神経でステルス値上げの壁を次々粉砕！"
+        },
+        {
+          "min_score": 5000,
+          "title": "底上げ完全粉砕の物価防衛マスター",
+          "comment": "全ブロック破壊達成！インフレに負けない資産形成は旬の厳選10銘柄をチェック！"
+        }
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_stock_10",
+          "tag": "資産防衛・注目株PR",
+          "network": "A8.net",
+          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
+          "description": "乱高下相場やインフレ・電気代高騰に負けない！プロが厳選した旬の10銘柄レポートを無料チェック。",
+          "cta_text": "旬の厳選10銘柄を無料で見る",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "cpa_jpy": 3500,
+          "expected_cvr": 0.022
+        },
+        {
+          "offer_id": "a8_fanema",
+          "tag": "公式受注グッズPR",
+          "network": "A8.net",
+          "title": "アニメ・マンガ・ゲーム等のオリジナルグッズをお届け！【FaNeMa】",
+          "description": "転売ヤーやランダム9割ハズレにサヨナラ！公式オリジナルグッズを確実に予約・お迎えしよう。",
+          "cta_text": "FaNeMa公式グッズを見る",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "cpa_jpy": 2200,
+          "expected_cvr": 0.025
+        }
+      ]
+    },
+    {
+      "slug": "impre-zombie-invaders",
+      "title": "バズったリプ欄の8割がコピペ！？青バッジ・インプレゾンビ＆詐欺広告 迎撃インベーダー",
+      "subtitle": "上から隊列を組んで押し寄せる謎アラビア語コピペゾンビと偽セキュリティ警告を自動連射で撃墜せよ！",
+      "engine": "space_invaders",
+      "has_timer": false,
+      "bgm_preset": "cyber_tension",
+      "stage_style": "neon_sns",
+      "trend_category": "SNS風刺×固定画面シューティング",
+      "trend_keywords": [
+        "インプレゾンビ",
+        "偽広告迎撃",
+        "インベーダー",
+        "リプ欄防衛"
+      ],
+      "story_intro": "※フィクションの風刺ゲームです。何気ない日常ポストがバズった瞬間、リプライ欄に青バッジを付けた『インプレゾンビ』の隊列が降ってきた！ブロック砲台を左右に動かし、18体の迷惑ゾンビをすべて撃ち落とせ！",
+      "sns_reply_template": "バズったリプ欄に隊列を組んで押し寄せる『インプレゾンビ』と『偽警告ポップ』を撃ち落とすインベーダーゲームで草😂👾 https://studyhelperproject.github.io/trend-minigames/games/impre-zombie-invaders/",
+      "controls_hint": "左右ドラッグ／スワイプ（PCは矢印キー）で移動！自動連射のブロック弾で上部のインプレゾンビを全滅させよ！",
+      "background": {
+        "gradient": [
+          "#041424",
+          "#0f172a",
+          "#311042"
+        ],
+        "board_bg": "rgba(8, 12, 24, 0.96)",
+        "border_color": "#00e5ff",
+        "accent_color": "#ff4081"
+      },
+      "player": {
+        "emoji": "🛡️",
+        "name": "リプ欄防衛砲台",
+        "color": "#00e5ff"
+      },
+      "targets": [
+        {
+          "emoji": "🧟‍♂️",
+          "name": "コピペゾンビ",
+          "score": 180,
+          "color": "#ef4444"
+        },
+        {
+          "emoji": "👁️",
+          "name": "曲解引用bot",
+          "score": 240,
+          "color": "#a855f7"
+        },
+        {
+          "emoji": "💀",
+          "name": "偽警告ポップ",
+          "score": 320,
+          "color": "#f59e0b"
+        }
+      ],
+      "buzz_comments": [
+        "なるほど興味深いですね（コピペ）",
+        "リプ欄の8割がアラビア語と猫動画",
+        "インプレゾンビ一掃するの気持ち良すぎｗ",
+        "※フィクションの風刺ゲームです"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "青バッジゾンビ",
+          "quote": "とても素晴らしい投稿ですね！ところで私のプロフのリンクを…",
+          "avatar": "kumagaa_ceo",
+          "badge": "🧟‍♂️ ゾンビ襲来"
+        },
+        {
+          "speaker": "一般ユーザー",
+          "quote": "日本語でリプライしてくれ！全員まとめてブロック砲だ！！",
+          "avatar": "kiritama_master",
+          "badge": "🛡️ 迎撃開始"
+        }
+      ],
+      "ranks": [
+        {
+          "min_score": 0,
+          "title": "リプ欄を乗っ取られたアカウント",
+          "comment": "ゾンビの物量攻撃に押されて通知が999+に…。"
+        },
+        {
+          "min_score": 2000,
+          "title": "ミュートワード職人の自衛民",
+          "comment": "次々と押し寄せるスパムを的確に撃墜！"
+        },
+        {
+          "min_score": 4500,
+          "title": "伝説のSNSクリーン防衛司令官",
+          "comment": "インプレゾンビ完全一掃！ネットの安全対策はMillenVPNでさらに万全に！"
+        }
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_millenvpn",
+          "tag": "通信暗号化・身バレ対策PR",
+          "network": "A8.net",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "巨大IT企業でも侵入に気づけない時代！フリーWi-FiやSNS利用時のIP秘匿・通信暗号化を月数百円で。",
+          "cta_text": "MillenVPNで通信を保護する",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3000,
+          "expected_cvr": 0.024
+        },
+        {
+          "offer_id": "a8_fanema",
+          "tag": "公式受注グッズPR",
+          "network": "A8.net",
+          "title": "アニメ・マンガ・ゲーム等のオリジナルグッズをお届け！【FaNeMa】",
+          "description": "転売ヤーやランダム9割ハズレにサヨナラ！公式オリジナルグッズを確実に予約・お迎えしよう。",
+          "cta_text": "FaNeMa公式グッズを見る",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "cpa_jpy": 2200,
+          "expected_cvr": 0.025
+        }
+      ]
+    },
+    {
+      "slug": "kiritama-voucher-snake",
+      "title": "キリタマ仙人・優待期限ギリギリ『飲食店はしご』爆走スネーク",
+      "subtitle": "今日23時59分が期限の株主優待券をママチャリで次々回収し、大行列を伸ばしまくれ！（壁激突厳禁）",
+      "engine": "snake",
+      "has_timer": false,
+      "bgm_preset": "stock_fever",
+      "stage_style": "stock_exchange",
+      "trend_category": "株主優待×スネークアクション",
+      "trend_keywords": [
+        "キリタマ仙人",
+        "株主優待",
+        "スネークゲーム",
+        "ママチャリ爆走"
+      ],
+      "story_intro": "※フィクションの風刺ゲームです。今月末で期限が切れる株主優待券がまだ10枚残っている！キリタマ仙人のママチャリをスワイプで操り、街中の優待グルメを回収して大行列を作れ！",
+      "sns_reply_template": "期限ギリギリの株主優待券をママチャリで回収しまくる『キリタマ仙人スネーク』、スピード感あってハマる😂🚲🍱 https://studyhelperproject.github.io/trend-minigames/games/kiritama-voucher-snake/",
+      "controls_hint": "上下左右スワイプ／矢印キーで方向転換！優待券を回収してスコアを伸ばそう（壁と自分のしっぽに注意！）",
+      "background": {
+        "gradient": [
+          "#051b14",
+          "#064e3b",
+          "#1e293b"
+        ],
+        "board_bg": "rgba(6, 22, 18, 0.96)",
+        "border_color": "#00e676",
+        "accent_color": "#fde047"
+      },
+      "player": {
+        "emoji": "🚲",
+        "name": "キリタマ仙人",
+        "color": "#38bdf8"
+      },
+      "good_items": [
+        {
+          "emoji": "🍱",
+          "name": "優待ランチ券",
+          "score": 250
+        },
+        {
+          "emoji": "🎬",
+          "name": "映画タダ券",
+          "score": 350
+        },
+        {
+          "emoji": "💎",
+          "name": "配当ボーナス",
+          "score": 500
+        }
+      ],
+      "buzz_comments": [
+        "今日期限の映画優待まだ3枚ある！",
+        "時速35kmのママチャリ爆走ｗ",
+        "現金を使わずに生きる仙人すごい",
+        "※フィクションの風刺ゲームです"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "キリタマ仙人",
+          "quote": "あと15分でランチのラストオーダーです！ペダルを全力で漕ぎます！",
+          "avatar": "kiritama_master",
+          "badge": "🚲 爆走実況"
+        }
+      ],
+      "ranks": [
+        {
+          "min_score": 0,
+          "title": "優待券を1枚失効させた見習い",
+          "comment": "角を曲がりきれず壁に激突…。期限管理は計画的に！"
+        },
+        {
+          "min_score": 1500,
+          "title": "クオカード生活の達人",
+          "comment": "軽快なハンドルさばきで優待グルメを次々制覇！"
+        },
+        {
+          "min_score": 3200,
+          "title": "伝説の優待ママチャリ覇王",
+          "comment": "驚異の連続回収！次のお宝銘柄探しは旬の厳選10銘柄をチェック！"
+        }
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_stock_10",
+          "tag": "資産防衛・注目株PR",
+          "network": "A8.net",
+          "title": "株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】",
+          "description": "乱高下相場やインフレ・電気代高騰に負けない！プロが厳選した旬の10銘柄レポートを無料チェック。",
+          "cta_text": "旬の厳選10銘柄を無料で見る",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "pixel_url": "https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I",
+          "cpa_jpy": 3500,
+          "expected_cvr": 0.022
+        },
+        {
+          "offer_id": "a8_millenvpn",
+          "tag": "通信暗号化・身バレ対策PR",
+          "network": "A8.net",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "巨大IT企業でも侵入に気づけない時代！フリーWi-FiやSNS利用時のIP秘匿・通信暗号化を月数百円で。",
+          "cta_text": "MillenVPNで通信を保護する",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3000,
+          "expected_cvr": 0.024
+        }
+      ]
+    },
+    {
+      "slug": "semicon-supply-match3",
+      "title": "AIグラボ＆半導体ウェハー争奪！3大メガテック・サプライチェーン・マッチ3パズル",
+      "subtitle": "黒革ジャン社長のGPU・冷却水・電力・半導体株を3つ揃えて連鎖させ、AI供給網のボトルネックを解消せよ！",
+      "engine": "match3",
+      "has_timer": false,
+      "bgm_preset": "cyber_tension",
+      "stage_style": "stock_exchange",
+      "trend_category": "AI半導体×マッチ3パズル",
+      "trend_keywords": [
+        "AI半導体",
+        "マッチ3パズル",
+        "黒革ジャン",
+        "GPU争奪戦"
+      ],
+      "story_intro": "※フィクションの風刺パズルです。世界中でGPUが足りない！電力も冷却水も足りない！15手の限られたターンの中で、同じリソースピースを3つ以上並べて連鎖コンボを決め、AI供給網を最適化せよ！",
+      "sns_reply_template": "AIグラボ・冷却水・原発電力・半導体株を3つ揃えて連鎖させる『半導体サプライチェーン・マッチ3』が中毒性高すぎる😂💎📈 https://studyhelperproject.github.io/trend-minigames/games/semicon-supply-match3/",
+      "controls_hint": "隣り合う2つのピースを順番にタップして入れ替え、同じ絵柄を縦・横に3つ揃えて消去！（全15手制・時間制限なし）",
+      "background": {
+        "gradient": [
+          "#041b15",
+          "#0f172a",
+          "#1e1b4b"
+        ],
+        "board_bg": "rgba(8, 22, 16, 0.96)",
+        "border_color": "#76ff03",
+        "accent_color": "#00e5ff"
+      },
+      "items": [
+        {
+          "emoji": "🧥",
+          "name": "黒革ジャン",
+          "color": "#16a34a"
+        },
+        {
+          "emoji": "💎",
+          "name": "最新GPU",
+          "color": "#00e5ff"
+        },
+        {
+          "emoji": "⚡",
+          "name": "データ電力",
+          "color": "#eab308"
+        },
+        {
+          "emoji": "📈",
+          "name": "半導体株",
+          "color": "#3b82f6"
+        },
+        {
+          "emoji": "🔥",
+          "name": "冷却水不足",
+          "color": "#ef4444"
+        }
+      ],
+      "buzz_comments": [
+        "GPUと電力が常に足りないｗ",
+        "連鎖コンボ気持ちよすぎ！",
+        "黒革ジャンが3つ揃った！",
+        "※フィクションの風刺パズルです"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "黒革ジャン社長",
+          "quote": "GPUを買えば買うほど節約になる（魔法の計算式）！！",
+          "avatar": "kumagaa_ceo",
+          "badge": "💎 供給網速報"
+        }
+      ],
+      "ranks": [
+        {
+          "min_score": 0,
+          "title": "転売GPUを高値掴みした見習い",
+          "comment": "連鎖が繋がらず15手が終了してしまった…。"
+        },
+        {
+          "min_score": 3000,
+          "title": "TS〇C工場長クラスの生産管理官",
+          "comment": "的確なピース交換で美しい連鎖コンボを連発！"
+        },
+        {
+          "min_score": 5500,
+          "title": "世界半導体サプライチェーン覇王",
+          "comment": "完璧な供給網最適化！注目の関連銘柄は『旬の厳選10銘柄』でチェック！"
         }
       ],
       "affiliate_offers": [
