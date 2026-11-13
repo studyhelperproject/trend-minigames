@@ -467,6 +467,38 @@
         }
       });
     }
+
+    // リアルタイム流入経路・訪問数・デバイス計測（本番環境のみ）
+    (function() {
+      if (window.location.hostname !== 'studyhelperproject.github.io') return;
+      const hit = (k) => fetch('https://abacus.jasoncameron.dev/hit/trendminigames2026/' + encodeURIComponent(k), { mode: 'cors', keepalive: true }).catch(() => {});
+      hit('site_pv');
+      hit('portal_pv');
+      if (!localStorage.getItem('tmg_uu_counted')) {
+        localStorage.setItem('tmg_uu_counted', '1');
+        hit('site_uu');
+      }
+      if (!sessionStorage.getItem('tmg_session_attr')) {
+        sessionStorage.setItem('tmg_session_attr', '1');
+        const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent) || window.innerWidth < 768;
+        hit(isMobile ? 'dev_mobile' : 'dev_pc');
+        const params = new URLSearchParams(window.location.search);
+        const utm = (params.get('utm_source') || '').toLowerCase();
+        const ref = (document.referrer || '').toLowerCase();
+        if (!ref.includes('studyhelperproject.github.io') || utm) {
+          let refKey = 'ref_direct';
+          if (utm === 'x' || utm === 'twitter' || ref.includes('t.co') || ref.includes('x.com') || ref.includes('twitter.com')) refKey = 'ref_x';
+          else if (utm === 'google' || ref.includes('google.')) refKey = 'ref_google';
+          else if (ref.includes('yahoo.co.jp') || ref.includes('bing.com') || ref.includes('duckduckgo.')) refKey = 'ref_search_other';
+          else if (ref.includes('github.')) refKey = 'ref_github';
+          else if (ref.length > 0) refKey = 'ref_other';
+          hit(refKey);
+        }
+      }
+      document.querySelectorAll('.sponsor-bar a, .sponsor-card a, footer ~ div a, a[href*="px.a8.net"]').forEach(a => {
+        a.addEventListener('click', () => hit('total_aff_clicks'));
+      });
+    })();
   </script>
 </body>
 </html>

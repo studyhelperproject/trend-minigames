@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13 09:59:15",
+  "updated_at": "2026-11-13 20:31:05",
   "games": {
     "dopagaki-suika": {
       "impressions": 23877,
@@ -404,24 +404,64 @@
       "timestamp": "2026-11-13 09:59:15",
       "summary": "全21本稼働 | IndexNow: HTTP 200 OK (24 URLs submitted) | WebSub: HTTP 204 OK (RSS Hub Notified)",
       "action_taken": "集客エンジン稼働：15本へ拡充、sitemap.xml/rss.xml/llms.txt/OGP画像16枚/JSON-LD生成、IndexNow＆Google WebSubへ全24 URLを即時Ping送信。"
+    },
+    {
+      "cycle": 13,
+      "timestamp": "2026-11-13 15:22:16",
+      "summary": "全21本稼働 | IndexNow: HTTP 200 OK (24 URLs submitted) | WebSub: HTTP 204 OK (RSS Hub Notified)",
+      "action_taken": "集客エンジン稼働：15本へ拡充、sitemap.xml/rss.xml/llms.txt/OGP画像16枚/JSON-LD生成、IndexNow＆Google WebSubへ全24 URLを即時Ping送信。"
+    },
+    {
+      "cycle": 14,
+      "timestamp": "2026-11-13 20:31:05",
+      "summary": "全21本稼働 | IndexNow: HTTP 200 OK (24 URLs submitted) | WebSub: HTTP 204 OK (RSS Hub Notified)",
+      "action_taken": "集客エンジン稼働：15本へ拡充、sitemap.xml/rss.xml/llms.txt/OGP画像16枚/JSON-LD生成、IndexNow＆Google WebSubへ全24 URLを即時Ping送信。"
     }
   ],
   "seo_acquisition": {
     "last_ping": {
-      "timestamp": "2026-11-13 09:59:11",
+      "timestamp": "2026-11-13 20:30:54",
       "submitted_urls_count": 24,
       "indexnow_status": "HTTP 200 OK (24 URLs submitted)",
       "google_websub_status": "HTTP 204 OK (RSS Hub Notified)",
       "github_real_traffic": {
         "views": {
-          "count": 0,
-          "uniques": 0
+          "count": 4,
+          "uniques": 1
         },
         "clones": {
-          "count": 17,
-          "uniques": 11
+          "count": 63,
+          "uniques": 31
         }
       }
     }
+  },
+  "live_telemetry": {
+    "fetched_at": "2026-11-13 20:31:05",
+    "namespace": "trendminigames2026",
+    "summary": {
+      "site_pv": 0,
+      "site_uu": 0,
+      "portal_pv": 0,
+      "total_plays": 0,
+      "total_ends": 0,
+      "total_retries": 0,
+      "total_aff_clicks": 0,
+      "total_shares": 0,
+      "total_rewards": 0
+    },
+    "traffic_sources": {
+      "X (Twitter)": 0,
+      "Google検索": 0,
+      "Yahoo/Bing他": 0,
+      "GitHub": 0,
+      "直接アクセス": 0,
+      "その他外部": 0
+    },
+    "devices": {
+      "Mobile": 0,
+      "PC": 0
+    },
+    "per_game": {}
   }
 }

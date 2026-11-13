@@ -10,8 +10,11 @@ import datetime
 import html as html_lib
 import json
 import random
+import re
 import shutil
 import subprocess
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -601,6 +604,85 @@ def execute_live_acquisition(themes: list) -> dict:
     }
 
 
+TELEMETRY_NS = "trendminigames2026"
+
+
+def get_abacus_value(key: str) -> int:
+    url = f"https://abacus.jasoncameron.dev/get/{TELEMETRY_NS}/{urllib.parse.quote(key)}"
+    for attempt in range(2):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "TrendMiniGamesCEO/2.0"})
+            with urllib.request.urlopen(req, timeout=5) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                return int(data.get("value", 0))
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return 0
+            if e.code == 429 and attempt == 0:
+                time.sleep(2.5)
+                continue
+            return 0
+        except Exception:
+            return 0
+    return 0
+
+
+def fetch_live_telemetry(themes: list, include_per_game: bool = False) -> dict:
+    """本番サイト(GitHub Pages)からリアル訪問数・流入経路・流入後動向・デバイス比率を取得する"""
+    core_keys = [
+        "site_pv", "site_uu", "portal_pv",
+        "total_plays", "total_ends", "total_retries",
+        "total_aff_clicks", "total_shares", "total_rewards",
+        "dev_mobile", "dev_pc",
+        "ref_x", "ref_google", "ref_search_other", "ref_github", "ref_direct", "ref_other",
+    ]
+    metrics = {}
+    for k in core_keys:
+        metrics[k] = get_abacus_value(k)
+        time.sleep(0.36)
+
+    per_game = {}
+    if include_per_game:
+        for t in themes:
+            s = re.sub(r"[^a-zA-Z0-9_-]", "_", t["slug"])
+            pv = get_abacus_value(f"g_{s}_pv")
+            time.sleep(0.36)
+            play = get_abacus_value(f"g_{s}_play")
+            time.sleep(0.36)
+            aff = get_abacus_value(f"g_{s}_aff")
+            time.sleep(0.36)
+            per_game[t["slug"]] = {"pv": pv, "plays": play, "aff_clicks": aff}
+
+    return {
+        "fetched_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "namespace": TELEMETRY_NS,
+        "summary": {
+            "site_pv": metrics["site_pv"],
+            "site_uu": metrics["site_uu"],
+            "portal_pv": metrics["portal_pv"],
+            "total_plays": metrics["total_plays"],
+            "total_ends": metrics["total_ends"],
+            "total_retries": metrics["total_retries"],
+            "total_aff_clicks": metrics["total_aff_clicks"],
+            "total_shares": metrics["total_shares"],
+            "total_rewards": metrics["total_rewards"],
+        },
+        "traffic_sources": {
+            "X (Twitter)": metrics["ref_x"],
+            "Google検索": metrics["ref_google"],
+            "Yahoo/Bing他": metrics["ref_search_other"],
+            "GitHub": metrics["ref_github"],
+            "直接アクセス": metrics["ref_direct"],
+            "その他外部": metrics["ref_other"],
+        },
+        "devices": {
+            "Mobile": metrics["dev_mobile"],
+            "PC": metrics["dev_pc"],
+        },
+        "per_game": per_game,
+    }
+
+
 def run_pdca_cycle(simulate_days: int = 0) -> dict:
     """効果測定・検索エンジン即時Ping・実トラフィック取得・再ビルドを実行する"""
     config = load_json(CONFIG_PATH)
@@ -648,9 +730,11 @@ def run_pdca_cycle(simulate_days: int = 0) -> dict:
                 g["ab_stats"]["B"]["result_views"] += plays // 2
                 g["ab_stats"]["B"]["clicks"] += int(aff_clicks * 0.43)
 
-    # Execute real SEO & search engine acquisition pings
+    # Execute real SEO & search engine acquisition pings + Live Telemetry fetch
     acq_result = execute_live_acquisition(themes)
     analytics["seo_acquisition"] = {"last_ping": acq_result}
+    live_telemetry = fetch_live_telemetry(themes, include_per_game=False)
+    analytics["live_telemetry"] = live_telemetry
 
     report_rows = []
     total_imp = 0
@@ -717,6 +801,7 @@ def run_pdca_cycle(simulate_days: int = 0) -> dict:
         "total_estimated_profit_jpy": total_profit,
         "target_achievement_pct": round(total_profit / target_profit * 100.0, 1),
         "live_acquisition": acq_result,
+        "live_telemetry": live_telemetry,
         "games": report_rows,
         "latest_pdca": log_entry,
     }
@@ -728,10 +813,16 @@ def main():
     sub.add_parser("build", help="全ゲーム・SEO資産・ポータル・ダッシュボードをビルド")
     p_pdca = sub.add_parser("pdca", help="集客Ping＆効果測定＆自律PDCAサイクルを実行")
     p_pdca.add_argument("--simulate-days", type=int, default=0)
+    p_tel = sub.add_parser("telemetry", help="本番サイトの実アクセス・流入経路・ゲーム別動向を取得")
+    p_tel.add_argument("--per-game", action="store_true")
 
     args = parser.parse_args()
     if args.cmd == "pdca":
         res = run_pdca_cycle(simulate_days=args.simulate_days)
+        print(json.dumps(res, ensure_ascii=False, indent=2))
+    elif args.cmd == "telemetry":
+        themes = load_json(THEMES_PATH).get("themes", [])
+        res = fetch_live_telemetry(themes, include_per_game=args.per_game)
         print(json.dumps(res, ensure_ascii=False, indent=2))
     else:
         res = build_all()
