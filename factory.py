@@ -485,7 +485,8 @@ def build_all() -> dict:
 {sitemap_entries}
 </urlset>
 """
-    (DIST_DIR / "sitemap.xml").write_text(sitemap_xml, encoding="utf-8")
+    (DIST_DIR / "sitemap.xml").write_text(sitemap_xml, encoding="utf-8", newline="\n")
+    (DIST_DIR / "sitemap.txt").write_text("\n".join(u for u, _ in sitemap_urls) + "\n", encoding="utf-8", newline="\n")
 
     # Generate robots.txt
     robots_txt = f"""User-agent: *
@@ -493,7 +494,7 @@ Allow: /
 
 Sitemap: {SITE_BASE_URL}/sitemap.xml
 """
-    (DIST_DIR / "robots.txt").write_text(robots_txt, encoding="utf-8")
+    (DIST_DIR / "robots.txt").write_text(robots_txt, encoding="utf-8", newline="\n")
 
     # Generate rss.xml
     rss_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -509,7 +510,7 @@ Sitemap: {SITE_BASE_URL}/sitemap.xml
   </channel>
 </rss>
 """
-    (DIST_DIR / "rss.xml").write_text(rss_xml, encoding="utf-8")
+    (DIST_DIR / "rss.xml").write_text(rss_xml, encoding="utf-8", newline="\n")
 
     # Generate llms.txt & IndexNow key file
     (DIST_DIR / "llms.txt").write_text("\n".join(llms_lines) + "\n", encoding="utf-8")
@@ -617,22 +618,16 @@ TELEMETRY_NS = "trendminigames2026"
 
 def get_abacus_value(key: str) -> int:
     url = f"https://abacus.jasoncameron.dev/get/{TELEMETRY_NS}/{urllib.parse.quote(key)}"
-    for attempt in range(2):
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": "TrendMiniGamesCEO/2.0"})
-            with urllib.request.urlopen(req, timeout=5) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                return int(data.get("value", 0))
-        except urllib.error.HTTPError as e:
-            if e.code == 404:
-                return 0
-            if e.code == 429 and attempt == 0:
-                time.sleep(2.5)
-                continue
-            return 0
-        except Exception:
-            return 0
-    return 0
+    try:
+        out = subprocess.check_output(
+            ["curl.exe", "-s", "--max-time", "6", url],
+            stderr=subprocess.DEVNULL,
+            text=True,
+        )
+        data = json.loads(out)
+        return int(data.get("value", 0))
+    except Exception:
+        return 0
 
 
 def fetch_live_telemetry(themes: list, include_per_game: bool = False) -> dict:
@@ -647,18 +642,18 @@ def fetch_live_telemetry(themes: list, include_per_game: bool = False) -> dict:
     metrics = {}
     for k in core_keys:
         metrics[k] = get_abacus_value(k)
-        time.sleep(0.36)
+        time.sleep(0.15)
 
     per_game = {}
     if include_per_game:
         for t in themes:
             s = re.sub(r"[^a-zA-Z0-9_-]", "_", t["slug"])
             pv = get_abacus_value(f"g_{s}_pv")
-            time.sleep(0.36)
+            time.sleep(0.15)
             play = get_abacus_value(f"g_{s}_play")
-            time.sleep(0.36)
+            time.sleep(0.15)
             aff = get_abacus_value(f"g_{s}_aff")
-            time.sleep(0.36)
+            time.sleep(0.15)
             per_game[t["slug"]] = {"pv": pv, "plays": play, "aff_clicks": aff}
 
     return {
