@@ -560,6 +560,7 @@ canvas#gameCanvas {
   <div class="top-bar">
     <a href="../../index.html" class="portal-link">⚡ 風刺ゲーム横丁一覧(23本)</a>
     <div class="top-controls">
+      <button id="btnShowStory" class="btn-icon" style="margin-right:6px;">📖 あらすじ・遊び方</button>
       <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
     </div>
   </div>
@@ -637,7 +638,7 @@ canvas#gameCanvas {
   </div>
 
   <!-- Intro Story Modal -->
-  <div id="introModal" class="modal-overlay">
+  <div id="introModal" class="modal-overlay hidden">
     <div class="modal-card">
       <span class="trend-tag">円安インバウンド×道路横断アクション</span>
       <h2 class="modal-title">インバウンド観光地『1万8千円ウニ丼』渋滞横断！庶民価格の定食屋へ渡れフロッガー</h2>
@@ -649,7 +650,7 @@ canvas#gameCanvas {
         <strong>🎮 遊び方（時間制限なし・約1分目途で決着！）</strong><br />
         タップで前進／スワイプ・矢印キーで上下左右に1マス移動！ぼったくり屋台と観光バスを避けて上端のゴールへ3回渡ろう！
       </div>
-      <button id="btnStartGame" class="btn-primary">▶ 風刺ゲームスタート！（BGM＆カットインON）</button>
+      <button id="btnStartGame" class="btn-primary">▶ ゲームに戻る（BGM ON）</button>
       <div style="margin-top:8px;font-size:0.68rem;color:#94a3b8;">
         ※登場する人物・団体・名称はすべて架空のフィクションであり、実在のものとは一切関係ありません。
       </div>
@@ -2350,15 +2351,34 @@ window.FroggerGameEngine = FroggerGameEngine;
         e.target.textContent = muted ? '🔇 BGM OFF' : '🔊 BGM ON';
       });
 
-      document.getElementById('btnStartGame').addEventListener('click', () => {
-        document.getElementById('introModal').classList.add('hidden');
+      let hasStartedPlay = false;
+      function markPlayStarted() {
+        if (hasStartedPlay) return;
+        hasStartedPlay = true;
         sdk.trackEvent('play_start');
         audio.startBgm();
-        engine.start();
+      }
+
+      engine.start();
+
+      canvas.addEventListener('pointerdown', markPlayStarted, { passive: true });
+      window.addEventListener('keydown', markPlayStarted);
+
+      const showStoryBtn = document.getElementById('btnShowStory');
+      if (showStoryBtn) {
+        showStoryBtn.addEventListener('click', () => {
+          document.getElementById('introModal').classList.remove('hidden');
+        });
+      }
+
+      document.getElementById('btnStartGame').addEventListener('click', () => {
+        document.getElementById('introModal').classList.add('hidden');
+        markPlayStarted();
       });
 
       document.getElementById('btnRetryGame').addEventListener('click', () => {
         document.getElementById('resultModal').classList.add('hidden');
+        hasStartedPlay = true;
         sdk.trackEvent('retry');
         sdk.trackEvent('play_start');
         audio.startBgm();

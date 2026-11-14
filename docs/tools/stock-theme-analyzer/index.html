@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="4_yP3JlDnuzzBHtKTU6FqpebQdQdnSecojAa_VNk_QQ" />
+  <title>【無料】新NISA・テンバガー（10倍株）資産推移＆急騰テーマ株診断シミュレーター | 週刊風刺ミニゲーム横丁・実用ツール</title>
+  <meta name="description" content="初期投資額・毎月積立額・目標金額・投資スタイルを入力して、1〜10年後の複利資産推移と目標達成に必要な年利・注目テーマの選定ポイントを即時診断します。" />
+  <meta name="keywords" content="新NISA,テンバガー,10倍株,資産推移シミュレーター,テーマ株診断,無料診断,シミュレーター,Webツール" />
+  <link rel="canonical" href="https://studyhelperproject.github.io/trend-minigames/tools/stock-theme-analyzer/" />
+  <link rel="alternate" type="application/rss+xml" title="週刊時事風刺ミニゲーム横丁 RSS" href="https://studyhelperproject.github.io/trend-minigames/rss.xml" />
+  <meta property="og:title" content="【無料】新NISA・テンバガー（10倍株）資産推移＆急騰テーマ株診断シミュレーター" />
+  <meta property="og:description" content="初期投資額・毎月積立額・目標金額・投資スタイルを入力して、1〜10年後の複利資産推移と目標達成に必要な年利・注目テーマの選定ポイントを即時診断します。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://studyhelperproject.github.io/trend-minigames/tools/stock-theme-analyzer/" />
+  <meta property="og:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/tool-stock-theme-analyzer.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="【無料】新NISA・テンバガー（10倍株）資産推移＆急騰テーマ株診断シミュレーター" />
+  <meta name="twitter:description" content="初期投資額・毎月積立額・目標金額・投資スタイルを入力して、1〜10年後の複利資産推移と目標達成に必要な年利・注目テーマの選定ポイントを即時診断します。" />
+  <meta name="twitter:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/tool-stock-theme-analyzer.svg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "【無料】新NISA・テンバガー（10倍株）資産推移＆急騰テーマ株診断シミュレーター", "description": "初期投資額・毎月積立額・目標金額・投資スタイルを入力して、1〜10年後の複利資産推移と目標達成に必要な年利・注目テーマの選定ポイントを即時診断します。", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser (PC, iOS, Android)", "url": "https://studyhelperproject.github.io/trend-minigames/tools/stock-theme-analyzer/", "image": "https://studyhelperproject.github.io/trend-minigames/ogp/tool-stock-theme-analyzer.svg", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+  <!-- 忍者AdMax 全自動広告タグ -->
+  <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      background: radial-gradient(circle at 20% 10%, #1e293b 0%, #060911 65%);
+      color: #f8fafc;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .top-bar {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .nav-link {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 800;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 6px 12px;
+      border-radius: 18px;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 18px 16px 48px; }
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.9));
+      border: 1.5px solid rgba(250, 204, 21, 0.45);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 900;
+      padding: 3px 12px;
+      border-radius: 14px;
+      margin-bottom: 8px;
+    }
+    h1 { font-size: clamp(1.25rem, 3.2vw, 1.75rem); color: #fff; line-height: 1.38; margin-bottom: 8px; }
+    .lead { font-size: 0.88rem; color: #cbd5e1; }
+    .panel {
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .panel h2 { font-size: 1.05rem; color: #fde047; margin-bottom: 12px; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .field label { display: block; font-size: 0.8rem; font-weight: 800; color: #e2e8f0; margin-bottom: 5px; }
+    .field input[type="number"], .field select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      background: #090d16;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .check-list { display: flex; flex-direction: column; gap: 10px; }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(9, 13, 22, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .check-item input { width: 18px; height: 18px; accent-color: #f97316; }
+    .btn-run {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1.5px solid #fde047;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45);
+    }
+    .btn-run:hover { filter: brightness(1.06); }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .kpi-box {
+      background: #090d16;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+    .kpi-label { font-size: 0.74rem; color: #94a3b8; font-weight: 800; }
+    .kpi-val { font-size: 1.32rem; color: #fde047; font-weight: 900; margin-top: 4px; }
+    table.sim-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.84rem; }
+    table.sim-table th, table.sim-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: right;
+    }
+    table.sim-table th:first-child, table.sim-table td:first-child { text-align: left; }
+    table.sim-table th { color: #38bdf8; font-weight: 900; }
+    .bar-row { margin-top: 8px; }
+    .bar-head { display: flex; justify-content: space-between; font-size: 0.78rem; color: #cbd5e1; margin-bottom: 3px; }
+    .bar-track { width: 100%; height: 12px; background: #090d16; border-radius: 999px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, #38bdf8, #fde047); border-radius: 999px; transition: width 0.3s ease; }
+    .env-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .env-table th, .env-table td { padding: 7px 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; word-break: break-all; }
+    .env-table th { width: 34%; color: #94a3b8; }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(127, 29, 29, 0.42), rgba(15, 23, 42, 0.96));
+      border: 2px solid #fde047;
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+    .cta-tag { display: inline-block; background: #fde047; color: #090d16; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px; }
+    .cta-title { font-size: 1.04rem; font-weight: 900; color: #fff; margin-bottom: 6px; }
+    .cta-desc { font-size: 0.83rem; color: #e2e8f0; margin-bottom: 12px; }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #facc15, #f97316);
+      color: #090d16;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 0.92rem;
+      padding: 11px 18px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(250, 204, 21, 0.35);
+    }
+    .share-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-top: 14px; }
+    .btn-share-x {
+      display: inline-block;
+      background: #0f172a;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 900;
+      padding: 8px 14px;
+      border-radius: 10px;
+    }
+    .ad-slot { display: flex; justify-content: center; margin: 12px 0; min-height: 54px; }
+    footer { text-align: center; font-size: 0.76rem; color: #64748b; padding: 24px 12px; border-top: 1px solid rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../../index.html" class="nav-link">⚡ ポータル＆風刺ゲーム(23本)へ戻る</a>
+    <a href="https://x.com/intent/post?text=%E6%96%B0NISA%E3%83%BB%E3%83%86%E3%83%B3%E3%83%90%E3%82%AC%E3%83%BC%E8%B3%87%E7%94%A3%E6%8E%A8%E7%A7%BB%EF%BC%86%E6%80%A5%E9%A8%B0%E3%83%86%E3%83%BC%E3%83%9E%E6%A0%AA%E8%A8%BA%E6%96%AD%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%A710%E5%B9%B4%E5%BE%8C%E3%81%AE%E9%81%8B%E7%94%A8%E7%9B%AE%E6%A8%99%E3%82%92%E8%A8%BA%E6%96%AD%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%23%E6%96%B0NISA%20%23%E3%83%86%E3%83%B3%E3%83%90%E3%82%AC%E3%83%BC%20%2310%E5%80%8D%E6%A0%AA%0Ahttps%3A//studyhelperproject.github.io/trend-minigames/tools/stock-theme-analyzer/%3Futm_source%3Dx" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 診断結果をシェア</a>
+  </div>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <main class="wrap">
+    <div class="hero-card">
+      <span class="badge">📈 投資・資産形成ツール</span>
+      <h1>【無料】新NISA・テンバガー（10倍株）資産推移＆急騰テーマ株診断シミュレーター</h1>
+      <p class="lead">初期投資額・毎月積立額・目標金額・投資スタイルを入力して、1〜10年後の複利資産推移と目標達成に必要な年利・注目テーマの選定ポイントを即時診断します。</p>
+    </div>
+
+    
+    <div class="panel">
+      <h2>⚙️ 資産シミュレーション条件を入力</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="stkInit">初期投資額（万円）</label>
+          <input id="stkInit" type="number" min="0" max="100000" value="50" />
+        </div>
+        <div class="field">
+          <label for="stkMonthly">毎月積立額（万円）</label>
+          <input id="stkMonthly" type="number" min="0" max="500" value="5" />
+        </div>
+        <div class="field">
+          <label for="stkTarget">目標資産額（万円）</label>
+          <input id="stkTarget" type="number" min="10" max="1000000" value="2000" />
+        </div>
+        <div class="field">
+          <label for="stkStyle">狙う投資スタイル・テーマ</label>
+          <select id="stkStyle">
+            <option value="ai_semicon">AI半導体・データセンター関連（想定年率 12%）</option>
+            <option value="defense_infra">国策防衛・電力インフラ株（想定年率 9%）</option>
+            <option value="high_dividend">高配当バリュー・NISA王道（想定年率 6%）</option>
+            <option value="small_growth">小型グロース・テンバガー候補（想定年率 18%）</option>
+          </select>
+        </div>
+      </div>
+      <button id="btnRunStock" type="button" class="btn-run">📊 資産推移＆注目銘柄テーマを診断する</button>
+    </div>
+
+    <div class="panel" id="stkResultPanel">
+      <h2>📈 シミュレーション診断結果</h2>
+      <div class="kpi-grid" id="stkKpi"></div>
+      <div id="stkAdvice" style="font-size:0.86rem;color:#e2e8f0;background:rgba(0,229,255,0.08);border:1px solid rgba(56,189,248,0.3);padding:12px;border-radius:10px;margin-bottom:12px;"></div>
+      <div id="stkBars"></div>
+      <table class="sim-table" id="stkTable"></table>
+
+      <div class="cta-box">
+        <span class="cta-tag">PR｜投資プロ厳選の情報源</span>
+        <div class="cta-title">📈 株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】</div>
+        <div class="cta-desc">個人投資家がテーマ株・成長期待銘柄を見極めるための無料厳選レポート。新NISAや成長投資枠の銘柄選びの参考情報としてご活用ください。</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+          <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I" rel="nofollow noopener noreferrer" target="_blank" class="cta-btn">銘柄レポートの詳細を見る &raquo;</a>
+          <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D" rel="nofollow noopener noreferrer" target="_blank">
+            <img border="0" width="320" height="50" alt="旬の厳選10銘柄" src="https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1" style="border-radius:6px;display:block;max-width:100%;height:auto;" />
+          </a>
+        </div>
+        <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I" alt="" />
+        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D" alt="" />
+      </div>
+    </div>
+    
+
+    <div class="panel">
+      <h2>🔗 他の無料実用ツール・風刺ミニゲーム</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="../stock-theme-analyzer/" class="nav-link">📈 新NISA・テンバガー資産推移診断</a>
+        <a href="../vpn-security-checker/" class="nav-link">🛡️ フリーWi-Fi危険度＆VPN診断</a>
+        <a href="../oshikatsu-goods-calculator/" class="nav-link">✨ 年間推し活予算＆被り損失電卓</a>
+        <a href="../../index.html" class="nav-link">🎮 風刺ミニゲーム一覧 (23本)</a>
+      </div>
+      <div class="share-bar">
+        <span style="font-size:0.78rem;color:#94a3b8;">※入力値はブラウザ内のみで計算され外部送信されません。</span>
+        <a href="https://x.com/intent/post?text=%E6%96%B0NISA%E3%83%BB%E3%83%86%E3%83%B3%E3%83%90%E3%82%AC%E3%83%BC%E8%B3%87%E7%94%A3%E6%8E%A8%E7%A7%BB%EF%BC%86%E6%80%A5%E9%A8%B0%E3%83%86%E3%83%BC%E3%83%9E%E6%A0%AA%E8%A8%BA%E6%96%AD%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%A710%E5%B9%B4%E5%BE%8C%E3%81%AE%E9%81%8B%E7%94%A8%E7%9B%AE%E6%A8%99%E3%82%92%E8%A8%BA%E6%96%AD%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%23%E6%96%B0NISA%20%23%E3%83%86%E3%83%B3%E3%83%90%E3%82%AC%E3%83%BC%20%2310%E5%80%8D%E6%A0%AA%0Ahttps%3A//studyhelperproject.github.io/trend-minigames/tools/stock-theme-analyzer/%3Futm_source%3Dx" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 このツールをシェアする</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <footer>
+    <p>TrendMiniGames Studio / 実用診断＆シミュレーターコーナー（計算結果は参考目安であり投資判断・通信契約等はご自身の責任で行ってください）</p>
+  </footer>
+
+  <script>
+    (function() {
+      const TOOL_KEY = "tool_stock";
+      const isProd = window.location.hostname === 'studyhelperproject.github.io';
+      const hit = (k) => {
+        if (!isProd) return;
+        fetch('https://abacus.jasoncameron.dev/hit/trendminigames2026/' + encodeURIComponent(k), {
+          mode: 'cors',
+          keepalive: true
+        }).catch(() => {});
+      };
+
+      hit('site_pv');
+      hit('g_' + TOOL_KEY + '_pv');
+
+      if (!localStorage.getItem('tmg_uu_counted')) {
+        localStorage.setItem('tmg_uu_counted', '1');
+        hit('site_uu');
+      }
+
+      if (!sessionStorage.getItem('tmg_session_attr')) {
+        sessionStorage.setItem('tmg_session_attr', '1');
+        const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent) || window.innerWidth < 768;
+        hit(isMobile ? 'dev_mobile' : 'dev_pc');
+        const params = new URLSearchParams(window.location.search);
+        const utm = (params.get('utm_source') || '').toLowerCase();
+        const ref = (document.referrer || '').toLowerCase();
+        if (!ref.includes('studyhelperproject.github.io') || utm) {
+          let refKey = 'ref_direct';
+          if (utm === 'x' || utm === 'twitter' || ref.includes('t.co') || ref.includes('x.com') || ref.includes('twitter.com')) refKey = 'ref_x';
+          else if (utm === 'google' || ref.includes('google.')) refKey = 'ref_google';
+          else if (ref.includes('yahoo.co.jp') || ref.includes('bing.com') || ref.includes('duckduckgo.')) refKey = 'ref_search_other';
+          else if (ref.includes('github.')) refKey = 'ref_github';
+          else if (ref.length > 0) refKey = 'ref_other';
+          hit(refKey);
+        }
+      }
+
+      let toolPlayTracked = false;
+      window.trackToolRun = function() {
+        if (toolPlayTracked) return;
+        toolPlayTracked = true;
+        hit('total_plays');
+        hit('g_' + TOOL_KEY + '_play');
+      };
+
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href*="px.a8.net"]');
+        if (a) {
+          hit('total_aff_clicks');
+          hit('g_' + TOOL_KEY + '_aff');
+        }
+      });
+    })();
+  </script>
+  <script>
+
+    (function() {
+      const styleMap = {
+        ai_semicon: { label: 'AI半導体・データセンター', rate: 0.12, note: '世界的なGPU・電力インフラ需要が牽引。値動きが大きいため、インデックス積立と組み合わせたコア・サテライト戦略が有効です。' },
+        defense_infra: { label: '国策防衛・電力インフラ', rate: 0.09, note: '防衛予算拡大とデータセンター増設による送電網更新が追い風。業績見通しが立ちやすい国策テーマです。' },
+        high_dividend: { label: '高配当バリュー・NISA王道', rate: 0.06, note: '配当再投資とNISA非課税枠の相性が抜群。下落相場でも配当利回りが下支えとなり長期保有しやすい領域です。' },
+        small_growth: { label: '小型グロース・テンバガー候補', rate: 0.18, note: '時価総額が小さく成長余地が大きい一方、個別銘柄の選定精度が成果を大きく左右します。プロの銘柄スクリーニング活用が鍵になります。' }
+      };
+
+      function calcFV(initMan, monthlyMan, annualRate, years) {
+        const r = annualRate / 12;
+        const n = years * 12;
+        const principal = initMan + monthlyMan * n;
+        if (r === 0) return { principal, total: principal };
+        const fvInit = initMan * Math.pow(1 + r, n);
+        const fvMonthly = monthlyMan * ((Math.pow(1 + r, n) - 1) / r);
+        return { principal: Math.round(principal), total: Math.round(fvInit + fvMonthly) };
+      }
+
+      function solveRequiredRate(initMan, monthlyMan, targetMan, years) {
+        let low = 0.0, high = 0.6;
+        for (let i = 0; i < 40; i++) {
+          const mid = (low + high) / 2;
+          if (calcFV(initMan, monthlyMan, mid, years).total >= targetMan) high = mid;
+          else low = mid;
+        }
+        return high;
+      }
+
+      function render(triggeredByUser) {
+        if (triggeredByUser && window.trackToolRun) window.trackToolRun();
+        const initMan = Math.max(0, Number(document.getElementById('stkInit').value) || 0);
+        const monthlyMan = Math.max(0, Number(document.getElementById('stkMonthly').value) || 0);
+        const targetMan = Math.max(1, Number(document.getElementById('stkTarget').value) || 1);
+        const st = styleMap[document.getElementById('stkStyle').value] || styleMap.ai_semicon;
+
+        const horizons = [1, 3, 5, 10];
+        const rows = horizons.map(y => ({ years: y, ...calcFV(initMan, monthlyMan, st.rate, y) }));
+        const y10 = rows[3];
+        const achievePct = Math.round((y10.total / targetMan) * 100);
+        const reqRate = solveRequiredRate(initMan, monthlyMan, targetMan, 10);
+        const reqPct = (reqRate * 100).toFixed(1);
+        const gain10 = Math.max(0, y10.total - y10.principal);
+
+        document.getElementById('stkKpi').innerHTML = `
+          <div class="kpi-box"><div class="kpi-label">10年後 想定評価額</div><div class="kpi-val">${y10.total.toLocaleString()} 万円</div></div>
+          <div class="kpi-box"><div class="kpi-label">うち運用益（複利効果）</div><div class="kpi-val">+${gain10.toLocaleString()} 万円</div></div>
+          <div class="kpi-box"><div class="kpi-label">目標(${targetMan.toLocaleString()}万) 達成率</div><div class="kpi-val">${achievePct}%</div></div>
+          <div class="kpi-box"><div class="kpi-label">10年で目標達成に必要な年利</div><div class="kpi-val">${reqRate >= 0.59 ? '60%超' : reqPct + '%'}</div></div>
+        `;
+
+        const gapMsg = y10.total >= targetMan
+          ? `<strong style="color:#4ade80;">✅ 想定年率 ${(st.rate * 100).toFixed(0)}% で10年後に目標達成見込みです！</strong>`
+          : `<strong style="color:#fbbf24;">⚠️ 目標まであと ${(targetMan - y10.total).toLocaleString()} 万円不足（必要年利 ${reqRate >= 0.59 ? '60%超' : reqPct + '%'}）</strong>。成長テーマ株の選定や積立上積みでギャップを埋められます。`;
+        document.getElementById('stkAdvice').innerHTML = `${gapMsg}<br /><span style="color:#cbd5e1;">【${st.label}の特徴】${st.note}</span>`;
+
+        const maxVal = Math.max(1, y10.total, targetMan);
+        document.getElementById('stkBars').innerHTML = rows.map(r => {
+          const pct = Math.min(100, Math.round((r.total / maxVal) * 100));
+          return `<div class="bar-row"><div class="bar-head"><span>${r.years}年後（元本 ${r.principal.toLocaleString()}万円）</span><strong>${r.total.toLocaleString()} 万円</strong></div><div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div></div>`;
+        }).join('');
+
+        document.getElementById('stkTable').innerHTML = `
+          <thead><tr><th>経過年数</th><th>積立元本累計</th><th>想定評価額</th><th>想定運用益</th></tr></thead>
+          <tbody>
+            ${rows.map(r => `<tr><td>${r.years}年後</td><td>${r.principal.toLocaleString()} 万円</td><td><strong>${r.total.toLocaleString()} 万円</strong></td><td style="color:#4ade80;">+${(r.total - r.principal).toLocaleString()} 万円</td></tr>`).join('')}
+          </tbody>
+        `;
+      }
+
+      document.getElementById('btnRunStock').addEventListener('click', () => render(true));
+      ['stkInit', 'stkMonthly', 'stkTarget', 'stkStyle'].forEach(id => {
+        document.getElementById(id).addEventListener('change', () => render(true));
+      });
+      render(false);
+    })();
+    
+  </script>
+</body>
+</html>

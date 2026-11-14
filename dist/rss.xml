@@ -8,6 +8,27 @@
     <atom:link href="https://studyhelperproject.github.io/trend-minigames/rss.xml" rel="self" type="application/rss+xml" />
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub" />
     <item>
+      <title>【無料】新NISA・テンバガー（10倍株）資産推移＆急騰テーマ株診断シミュレーター</title>
+      <link>https://studyhelperproject.github.io/trend-minigames/tools/stock-theme-analyzer/</link>
+      <guid>https://studyhelperproject.github.io/trend-minigames/tools/stock-theme-analyzer/</guid>
+      <description>初期投資額・毎月積立額・目標金額・投資スタイルを入力して、1〜10年後の複利資産推移と目標達成に必要な年利・注目テーマの選定ポイントを即時診断します。</description>
+      <category>📈 投資・資産形成ツール</category>
+    </item>
+    <item>
+      <title>【無料診断】フリーWi-Fi危険度＆ブラウザ通信セキュリティ露出チェッカー｜VPN比較シミュレーター</title>
+      <link>https://studyhelperproject.github.io/trend-minigames/tools/vpn-security-checker/</link>
+      <guid>https://studyhelperproject.github.io/trend-minigames/tools/vpn-security-checker/</guid>
+      <description>現在のブラウザ通信状態（HTTPS暗号化・OS・UA・言語・タイムゾーン等）を自動検出し、利用シーン別の情報漏洩危険度スコアと最適なVPN対策を診断します。</description>
+      <category>🛡️ 通信セキュリティ診断</category>
+    </item>
+    <item>
+      <title>【推し活電卓】年間グッズ・遠征費予算シミュレーター＆ランダム被り損失チェッカー</title>
+      <link>https://studyhelperproject.github.io/trend-minigames/tools/oshikatsu-goods-calculator/</link>
+      <guid>https://studyhelperproject.github.io/trend-minigames/tools/oshikatsu-goods-calculator/</guid>
+      <description>毎月のランダムグッズ購入額・推し排出率・年間イベント遠征費から、年間総支出と「ランダム被り・転売価格で失う年間推計ロス額」を即時計算します。</description>
+      <category>✨ 推し活・節約シミュレーター</category>
+    </item>
+    <item>
       <title>なぜ庶民がAIの電気代まで負担！？暴食AI神『チャッピー9000』討伐RPG</title>
       <link>https://studyhelperproject.github.io/trend-minigames/games/winter-power-catcher/</link>
       <guid>https://studyhelperproject.github.io/trend-minigames/games/winter-power-catcher/</guid>

@@ -226,6 +226,767 @@ def build_marketing_center_html(themes: list, seo_status: dict) -> str:
 </html>"""
 
 
+PRACTICAL_TOOLS = [
+    {
+        "slug": "stock-theme-analyzer",
+        "short_key": "tool_stock",
+        "title": "【無料】新NISA・テンバガー（10倍株）資産推移＆急騰テーマ株診断シミュレーター",
+        "short_title": "新NISA・テンバガー資産推移＆テーマ株診断",
+        "badge": "📈 投資・資産形成ツール",
+        "description": "初期投資額・毎月積立額・目標金額・投資スタイルを入力して、1〜10年後の複利資産推移と目標達成に必要な年利・注目テーマの選定ポイントを即時診断します。",
+        "keywords": ["新NISA", "テンバガー", "10倍株", "資産推移シミュレーター", "テーマ株診断"],
+        "grad": ["#090d16", "#064e3b", "#b45309"],
+        "emojis": ["📈", "💰", "🚀", "💎"],
+        "share_text": "新NISA・テンバガー資産推移＆急騰テーマ株診断シミュレーターで10年後の運用目標を診断しました！",
+    },
+    {
+        "slug": "vpn-security-checker",
+        "short_key": "tool_vpn",
+        "title": "【無料診断】フリーWi-Fi危険度＆ブラウザ通信セキュリティ露出チェッカー｜VPN比較シミュレーター",
+        "short_title": "フリーWi-Fi危険度＆通信露出チェッカー",
+        "badge": "🛡️ 通信セキュリティ診断",
+        "description": "現在のブラウザ通信状態（HTTPS暗号化・OS・UA・言語・タイムゾーン等）を自動検出し、利用シーン別の情報漏洩危険度スコアと最適なVPN対策を診断します。",
+        "keywords": ["フリーWi-Fi危険度", "通信セキュリティ診断", "VPN比較", "情報漏洩対策", "MillenVPN"],
+        "grad": ["#090d16", "#0f172a", "#0284c7"],
+        "emojis": ["🛡️", "🔒", "📶", "💻"],
+        "share_text": "フリーWi-Fi危険度＆ブラウザ通信セキュリティ露出チェッカーで現在の通信リスクを診断しました！",
+    },
+    {
+        "slug": "oshikatsu-goods-calculator",
+        "short_key": "tool_oshikatsu",
+        "title": "【推し活電卓】年間グッズ・遠征費予算シミュレーター＆ランダム被り損失チェッカー",
+        "short_title": "年間推し活予算・ランダム被り損失電卓",
+        "badge": "✨ 推し活・節約シミュレーター",
+        "description": "毎月のランダムグッズ購入額・推し排出率・年間イベント遠征費から、年間総支出と「ランダム被り・転売価格で失う年間推計ロス額」を即時計算します。",
+        "keywords": ["推し活予算", "推し活電卓", "ランダムグッズ", "排出確率", "公式受注生産"],
+        "grad": ["#090d16", "#4c1d95", "#db2777"],
+        "emojis": ["✨", "🎭", "🧮", "💸"],
+        "share_text": "推し活電卓で年間グッズ支出とランダム被り推計ロス額を計算してみました！",
+    },
+]
+
+
+def _render_tool_shell(tool: dict, body_html: str, tool_js: str, game_count: int) -> str:
+    """実用Web診断・シミュレーター用の共通HTMLシェルを生成する"""
+    slug = tool["slug"]
+    canonical_url = f"{SITE_BASE_URL}/tools/{slug}/"
+    ogp_url = f"{SITE_BASE_URL}/ogp/tool-{slug}.svg"
+    keywords_csv = ",".join(tool["keywords"])
+    hashtags = " ".join(f"#{k}" for k in tool["keywords"][:3])
+    share_url = f"{canonical_url}?utm_source=x"
+    x_intent = "https://x.com/intent/post?text=" + urllib.parse.quote(
+        f"{tool['share_text']}\n{hashtags}\n{share_url}"
+    )
+    json_ld = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": tool["title"],
+            "description": tool["description"],
+            "applicationCategory": "UtilityApplication",
+            "operatingSystem": "Web Browser (PC, iOS, Android)",
+            "url": canonical_url,
+            "image": ogp_url,
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"},
+        },
+        ensure_ascii=False,
+    )
+
+    tpl = """<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="4_yP3JlDnuzzBHtKTU6FqpebQdQdnSecojAa_VNk_QQ" />
+  <title>{{TITLE}} | 週刊風刺ミニゲーム横丁・実用ツール</title>
+  <meta name="description" content="{{DESCRIPTION}}" />
+  <meta name="keywords" content="{{KEYWORDS_CSV}},無料診断,シミュレーター,Webツール" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+  <link rel="alternate" type="application/rss+xml" title="週刊時事風刺ミニゲーム横丁 RSS" href="{{SITE_BASE_URL}}/rss.xml" />
+  <meta property="og:title" content="{{TITLE}}" />
+  <meta property="og:description" content="{{DESCRIPTION}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+  <meta property="og:image" content="{{OGP_URL}}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{TITLE}}" />
+  <meta name="twitter:description" content="{{DESCRIPTION}}" />
+  <meta name="twitter:image" content="{{OGP_URL}}" />
+  <script type="application/ld+json">{{JSON_LD}}</script>
+  <!-- 忍者AdMax 全自動広告タグ -->
+  <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      background: radial-gradient(circle at 20% 10%, #1e293b 0%, #060911 65%);
+      color: #f8fafc;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .top-bar {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .nav-link {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 800;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 6px 12px;
+      border-radius: 18px;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 18px 16px 48px; }
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.9));
+      border: 1.5px solid rgba(250, 204, 21, 0.45);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 900;
+      padding: 3px 12px;
+      border-radius: 14px;
+      margin-bottom: 8px;
+    }
+    h1 { font-size: clamp(1.25rem, 3.2vw, 1.75rem); color: #fff; line-height: 1.38; margin-bottom: 8px; }
+    .lead { font-size: 0.88rem; color: #cbd5e1; }
+    .panel {
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .panel h2 { font-size: 1.05rem; color: #fde047; margin-bottom: 12px; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .field label { display: block; font-size: 0.8rem; font-weight: 800; color: #e2e8f0; margin-bottom: 5px; }
+    .field input[type="number"], .field select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      background: #090d16;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .check-list { display: flex; flex-direction: column; gap: 10px; }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(9, 13, 22, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .check-item input { width: 18px; height: 18px; accent-color: #f97316; }
+    .btn-run {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1.5px solid #fde047;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45);
+    }
+    .btn-run:hover { filter: brightness(1.06); }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .kpi-box {
+      background: #090d16;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+    .kpi-label { font-size: 0.74rem; color: #94a3b8; font-weight: 800; }
+    .kpi-val { font-size: 1.32rem; color: #fde047; font-weight: 900; margin-top: 4px; }
+    table.sim-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.84rem; }
+    table.sim-table th, table.sim-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: right;
+    }
+    table.sim-table th:first-child, table.sim-table td:first-child { text-align: left; }
+    table.sim-table th { color: #38bdf8; font-weight: 900; }
+    .bar-row { margin-top: 8px; }
+    .bar-head { display: flex; justify-content: space-between; font-size: 0.78rem; color: #cbd5e1; margin-bottom: 3px; }
+    .bar-track { width: 100%; height: 12px; background: #090d16; border-radius: 999px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, #38bdf8, #fde047); border-radius: 999px; transition: width 0.3s ease; }
+    .env-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .env-table th, .env-table td { padding: 7px 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; word-break: break-all; }
+    .env-table th { width: 34%; color: #94a3b8; }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(127, 29, 29, 0.42), rgba(15, 23, 42, 0.96));
+      border: 2px solid #fde047;
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+    .cta-tag { display: inline-block; background: #fde047; color: #090d16; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px; }
+    .cta-title { font-size: 1.04rem; font-weight: 900; color: #fff; margin-bottom: 6px; }
+    .cta-desc { font-size: 0.83rem; color: #e2e8f0; margin-bottom: 12px; }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #facc15, #f97316);
+      color: #090d16;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 0.92rem;
+      padding: 11px 18px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(250, 204, 21, 0.35);
+    }
+    .share-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-top: 14px; }
+    .btn-share-x {
+      display: inline-block;
+      background: #0f172a;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 900;
+      padding: 8px 14px;
+      border-radius: 10px;
+    }
+    .ad-slot { display: flex; justify-content: center; margin: 12px 0; min-height: 54px; }
+    footer { text-align: center; font-size: 0.76rem; color: #64748b; padding: 24px 12px; border-top: 1px solid rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../../index.html" class="nav-link">⚡ ポータル＆風刺ゲーム({{GAME_COUNT}}本)へ戻る</a>
+    <a href="{{X_INTENT_URL}}" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 診断結果をシェア</a>
+  </div>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <main class="wrap">
+    <div class="hero-card">
+      <span class="badge">{{BADGE}}</span>
+      <h1>{{TITLE}}</h1>
+      <p class="lead">{{DESCRIPTION}}</p>
+    </div>
+
+    {{BODY_HTML}}
+
+    <div class="panel">
+      <h2>🔗 他の無料実用ツール・風刺ミニゲーム</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="../stock-theme-analyzer/" class="nav-link">📈 新NISA・テンバガー資産推移診断</a>
+        <a href="../vpn-security-checker/" class="nav-link">🛡️ フリーWi-Fi危険度＆VPN診断</a>
+        <a href="../oshikatsu-goods-calculator/" class="nav-link">✨ 年間推し活予算＆被り損失電卓</a>
+        <a href="../../index.html" class="nav-link">🎮 風刺ミニゲーム一覧 ({{GAME_COUNT}}本)</a>
+      </div>
+      <div class="share-bar">
+        <span style="font-size:0.78rem;color:#94a3b8;">※入力値はブラウザ内のみで計算され外部送信されません。</span>
+        <a href="{{X_INTENT_URL}}" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 このツールをシェアする</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <footer>
+    <p>TrendMiniGames Studio / 実用診断＆シミュレーターコーナー（計算結果は参考目安であり投資判断・通信契約等はご自身の責任で行ってください）</p>
+  </footer>
+
+  <script>
+    (function() {
+      const TOOL_KEY = "{{SHORT_KEY}}";
+      const isProd = window.location.hostname === 'studyhelperproject.github.io';
+      const hit = (k) => {
+        if (!isProd) return;
+        fetch('https://abacus.jasoncameron.dev/hit/trendminigames2026/' + encodeURIComponent(k), {
+          mode: 'cors',
+          keepalive: true
+        }).catch(() => {});
+      };
+
+      hit('site_pv');
+      hit('g_' + TOOL_KEY + '_pv');
+
+      if (!localStorage.getItem('tmg_uu_counted')) {
+        localStorage.setItem('tmg_uu_counted', '1');
+        hit('site_uu');
+      }
+
+      if (!sessionStorage.getItem('tmg_session_attr')) {
+        sessionStorage.setItem('tmg_session_attr', '1');
+        const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent) || window.innerWidth < 768;
+        hit(isMobile ? 'dev_mobile' : 'dev_pc');
+        const params = new URLSearchParams(window.location.search);
+        const utm = (params.get('utm_source') || '').toLowerCase();
+        const ref = (document.referrer || '').toLowerCase();
+        if (!ref.includes('studyhelperproject.github.io') || utm) {
+          let refKey = 'ref_direct';
+          if (utm === 'x' || utm === 'twitter' || ref.includes('t.co') || ref.includes('x.com') || ref.includes('twitter.com')) refKey = 'ref_x';
+          else if (utm === 'google' || ref.includes('google.')) refKey = 'ref_google';
+          else if (ref.includes('yahoo.co.jp') || ref.includes('bing.com') || ref.includes('duckduckgo.')) refKey = 'ref_search_other';
+          else if (ref.includes('github.')) refKey = 'ref_github';
+          else if (ref.length > 0) refKey = 'ref_other';
+          hit(refKey);
+        }
+      }
+
+      let toolPlayTracked = false;
+      window.trackToolRun = function() {
+        if (toolPlayTracked) return;
+        toolPlayTracked = true;
+        hit('total_plays');
+        hit('g_' + TOOL_KEY + '_play');
+      };
+
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href*="px.a8.net"]');
+        if (a) {
+          hit('total_aff_clicks');
+          hit('g_' + TOOL_KEY + '_aff');
+        }
+      });
+    })();
+  </script>
+  <script>
+{{TOOL_JS}}
+  </script>
+</body>
+</html>"""
+
+    replacements = {
+        "{{TITLE}}": html_lib.escape(tool["title"]),
+        "{{DESCRIPTION}}": html_lib.escape(tool["description"]),
+        "{{KEYWORDS_CSV}}": html_lib.escape(keywords_csv),
+        "{{CANONICAL_URL}}": canonical_url,
+        "{{SITE_BASE_URL}}": SITE_BASE_URL,
+        "{{OGP_URL}}": ogp_url,
+        "{{JSON_LD}}": json_ld,
+        "{{GAME_COUNT}}": str(game_count),
+        "{{X_INTENT_URL}}": x_intent,
+        "{{BADGE}}": html_lib.escape(tool["badge"]),
+        "{{BODY_HTML}}": body_html,
+        "{{SHORT_KEY}}": tool["short_key"],
+        "{{TOOL_JS}}": tool_js,
+    }
+    for k, v in replacements.items():
+        tpl = tpl.replace(k, v)
+    return tpl
+
+
+def _build_stock_tool_parts(offers: dict) -> tuple[str, str]:
+    s = offers["stocks_10"]
+    body = f"""
+    <div class="panel">
+      <h2>⚙️ 資産シミュレーション条件を入力</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="stkInit">初期投資額（万円）</label>
+          <input id="stkInit" type="number" min="0" max="100000" value="50" />
+        </div>
+        <div class="field">
+          <label for="stkMonthly">毎月積立額（万円）</label>
+          <input id="stkMonthly" type="number" min="0" max="500" value="5" />
+        </div>
+        <div class="field">
+          <label for="stkTarget">目標資産額（万円）</label>
+          <input id="stkTarget" type="number" min="10" max="1000000" value="2000" />
+        </div>
+        <div class="field">
+          <label for="stkStyle">狙う投資スタイル・テーマ</label>
+          <select id="stkStyle">
+            <option value="ai_semicon">AI半導体・データセンター関連（想定年率 12%）</option>
+            <option value="defense_infra">国策防衛・電力インフラ株（想定年率 9%）</option>
+            <option value="high_dividend">高配当バリュー・NISA王道（想定年率 6%）</option>
+            <option value="small_growth">小型グロース・テンバガー候補（想定年率 18%）</option>
+          </select>
+        </div>
+      </div>
+      <button id="btnRunStock" type="button" class="btn-run">📊 資産推移＆注目銘柄テーマを診断する</button>
+    </div>
+
+    <div class="panel" id="stkResultPanel">
+      <h2>📈 シミュレーション診断結果</h2>
+      <div class="kpi-grid" id="stkKpi"></div>
+      <div id="stkAdvice" style="font-size:0.86rem;color:#e2e8f0;background:rgba(0,229,255,0.08);border:1px solid rgba(56,189,248,0.3);padding:12px;border-radius:10px;margin-bottom:12px;"></div>
+      <div id="stkBars"></div>
+      <table class="sim-table" id="stkTable"></table>
+
+      <div class="cta-box">
+        <span class="cta-tag">PR｜投資プロ厳選の情報源</span>
+        <div class="cta-title">📈 {html_lib.escape(s["title"])}</div>
+        <div class="cta-desc">個人投資家がテーマ株・成長期待銘柄を見極めるための無料厳選レポート。新NISAや成長投資枠の銘柄選びの参考情報としてご活用ください。</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+          <a href="{s["text_link_url"]}" rel="nofollow noopener noreferrer" target="_blank" class="cta-btn">銘柄レポートの詳細を見る &raquo;</a>
+          <a href="{s["banner_320x50_url"]}" rel="nofollow noopener noreferrer" target="_blank">
+            <img border="0" width="320" height="50" alt="旬の厳選10銘柄" src="{s["banner_320x50_img"]}" style="border-radius:6px;display:block;max-width:100%;height:auto;" />
+          </a>
+        </div>
+        <img border="0" width="1" height="1" src="{s["text_link_pixel"]}" alt="" />
+        <img border="0" width="1" height="1" src="{s["banner_320x50_pixel"]}" alt="" />
+      </div>
+    </div>
+    """
+    js = """
+    (function() {
+      const styleMap = {
+        ai_semicon: { label: 'AI半導体・データセンター', rate: 0.12, note: '世界的なGPU・電力インフラ需要が牽引。値動きが大きいため、インデックス積立と組み合わせたコア・サテライト戦略が有効です。' },
+        defense_infra: { label: '国策防衛・電力インフラ', rate: 0.09, note: '防衛予算拡大とデータセンター増設による送電網更新が追い風。業績見通しが立ちやすい国策テーマです。' },
+        high_dividend: { label: '高配当バリュー・NISA王道', rate: 0.06, note: '配当再投資とNISA非課税枠の相性が抜群。下落相場でも配当利回りが下支えとなり長期保有しやすい領域です。' },
+        small_growth: { label: '小型グロース・テンバガー候補', rate: 0.18, note: '時価総額が小さく成長余地が大きい一方、個別銘柄の選定精度が成果を大きく左右します。プロの銘柄スクリーニング活用が鍵になります。' }
+      };
+
+      function calcFV(initMan, monthlyMan, annualRate, years) {
+        const r = annualRate / 12;
+        const n = years * 12;
+        const principal = initMan + monthlyMan * n;
+        if (r === 0) return { principal, total: principal };
+        const fvInit = initMan * Math.pow(1 + r, n);
+        const fvMonthly = monthlyMan * ((Math.pow(1 + r, n) - 1) / r);
+        return { principal: Math.round(principal), total: Math.round(fvInit + fvMonthly) };
+      }
+
+      function solveRequiredRate(initMan, monthlyMan, targetMan, years) {
+        let low = 0.0, high = 0.6;
+        for (let i = 0; i < 40; i++) {
+          const mid = (low + high) / 2;
+          if (calcFV(initMan, monthlyMan, mid, years).total >= targetMan) high = mid;
+          else low = mid;
+        }
+        return high;
+      }
+
+      function render(triggeredByUser) {
+        if (triggeredByUser && window.trackToolRun) window.trackToolRun();
+        const initMan = Math.max(0, Number(document.getElementById('stkInit').value) || 0);
+        const monthlyMan = Math.max(0, Number(document.getElementById('stkMonthly').value) || 0);
+        const targetMan = Math.max(1, Number(document.getElementById('stkTarget').value) || 1);
+        const st = styleMap[document.getElementById('stkStyle').value] || styleMap.ai_semicon;
+
+        const horizons = [1, 3, 5, 10];
+        const rows = horizons.map(y => ({ years: y, ...calcFV(initMan, monthlyMan, st.rate, y) }));
+        const y10 = rows[3];
+        const achievePct = Math.round((y10.total / targetMan) * 100);
+        const reqRate = solveRequiredRate(initMan, monthlyMan, targetMan, 10);
+        const reqPct = (reqRate * 100).toFixed(1);
+        const gain10 = Math.max(0, y10.total - y10.principal);
+
+        document.getElementById('stkKpi').innerHTML = `
+          <div class="kpi-box"><div class="kpi-label">10年後 想定評価額</div><div class="kpi-val">${y10.total.toLocaleString()} 万円</div></div>
+          <div class="kpi-box"><div class="kpi-label">うち運用益（複利効果）</div><div class="kpi-val">+${gain10.toLocaleString()} 万円</div></div>
+          <div class="kpi-box"><div class="kpi-label">目標(${targetMan.toLocaleString()}万) 達成率</div><div class="kpi-val">${achievePct}%</div></div>
+          <div class="kpi-box"><div class="kpi-label">10年で目標達成に必要な年利</div><div class="kpi-val">${reqRate >= 0.59 ? '60%超' : reqPct + '%'}</div></div>
+        `;
+
+        const gapMsg = y10.total >= targetMan
+          ? `<strong style="color:#4ade80;">✅ 想定年率 ${(st.rate * 100).toFixed(0)}% で10年後に目標達成見込みです！</strong>`
+          : `<strong style="color:#fbbf24;">⚠️ 目標まであと ${(targetMan - y10.total).toLocaleString()} 万円不足（必要年利 ${reqRate >= 0.59 ? '60%超' : reqPct + '%'}）</strong>。成長テーマ株の選定や積立上積みでギャップを埋められます。`;
+        document.getElementById('stkAdvice').innerHTML = `${gapMsg}<br /><span style="color:#cbd5e1;">【${st.label}の特徴】${st.note}</span>`;
+
+        const maxVal = Math.max(1, y10.total, targetMan);
+        document.getElementById('stkBars').innerHTML = rows.map(r => {
+          const pct = Math.min(100, Math.round((r.total / maxVal) * 100));
+          return `<div class="bar-row"><div class="bar-head"><span>${r.years}年後（元本 ${r.principal.toLocaleString()}万円）</span><strong>${r.total.toLocaleString()} 万円</strong></div><div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div></div>`;
+        }).join('');
+
+        document.getElementById('stkTable').innerHTML = `
+          <thead><tr><th>経過年数</th><th>積立元本累計</th><th>想定評価額</th><th>想定運用益</th></tr></thead>
+          <tbody>
+            ${rows.map(r => `<tr><td>${r.years}年後</td><td>${r.principal.toLocaleString()} 万円</td><td><strong>${r.total.toLocaleString()} 万円</strong></td><td style="color:#4ade80;">+${(r.total - r.principal).toLocaleString()} 万円</td></tr>`).join('')}
+          </tbody>
+        `;
+      }
+
+      document.getElementById('btnRunStock').addEventListener('click', () => render(true));
+      ['stkInit', 'stkMonthly', 'stkTarget', 'stkStyle'].forEach(id => {
+        document.getElementById(id).addEventListener('change', () => render(true));
+      });
+      render(false);
+    })();
+    """
+    return body, js
+
+
+def _build_vpn_tool_parts(offers: dict) -> tuple[str, str]:
+    v = offers["millenvpn"]
+    body = f"""
+    <div class="panel">
+      <h2>🔍 現在のブラウザ通信環境（自動検出）</h2>
+      <table class="env-table" id="vpnEnvTable"></table>
+    </div>
+
+    <div class="panel">
+      <h2>⚙️ 利用シーン・通信習慣チェック</h2>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox" id="chkWifi" checked /> カフェ・空港・ホテル等のフリーWi-Fiを使うことがある</label>
+        <label class="check-item"><input type="checkbox" id="chkBank" checked /> スマホ・PCでネットバンキング・クレカ決済・業務ログインをする</label>
+        <label class="check-item"><input type="checkbox" id="chkAbroad" /> 海外旅行・出張先から日本の動画配信や国内サービスを見たい</label>
+      </div>
+      <button id="btnRunVpn" type="button" class="btn-run">🛡️ セキュリティ危険度＆最適プランを診断</button>
+    </div>
+
+    <div class="panel">
+      <h2>📊 診断結果：通信セキュリティリスク判定</h2>
+      <div class="kpi-grid" id="vpnKpi"></div>
+      <div class="bar-track" style="height:16px;margin-bottom:12px;"><div id="vpnRiskBar" class="bar-fill" style="width:0%;background:linear-gradient(90deg,#22c55e,#eab308,#ef4444);"></div></div>
+      <div id="vpnDetail" style="font-size:0.86rem;color:#e2e8f0;line-height:1.65;"></div>
+
+      <div class="cta-box">
+        <span class="cta-tag">PR｜国産・総務省届出済・ノーログ推奨VPN</span>
+        <div class="cta-title">🛡️ {html_lib.escape(v["title"])}</div>
+        <div class="cta-desc">日本企業運営（アズポケット株式会社）・厳格なノーログポリシー・30日間返金保証付き。フリーWi-Fiでの盗聴防止や海外からの日本コンテンツ視聴まで、1契約でスマホ・PC同時保護できます。</div>
+        <a href="{v["url"]}" rel="nofollow noopener noreferrer" target="_blank" class="cta-btn">MillenVPN 公式サイトでセキュリティ対策を始める &raquo;</a>
+        <img border="0" width="1" height="1" src="{v["pixel"]}" alt="" />
+      </div>
+    </div>
+    """
+    js = """
+    (function() {
+      const isHttps = window.location.protocol === 'https:';
+      const tz = (Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone) || '不明';
+      const envRows = [
+        ['通信プロトコル (暗号化)', isHttps ? '🔒 HTTPS（ブラウザ〜サーバー間暗号化）' : '⚠️ HTTP（平文通信リスクあり）'],
+        ['OS / プラットフォーム', navigator.platform || '取得不可'],
+        ['使用言語 / タイムゾーン', `${navigator.language || '不明'} / ${tz}`],
+        ['画面解像度 / Cookie設定', `${screen.width}×${screen.height} / ${navigator.cookieEnabled ? '有効' : '無効'}`],
+        ['ブラウザ User-Agent', navigator.userAgent || '取得不可']
+      ];
+      document.getElementById('vpnEnvTable').innerHTML = envRows
+        .map(([k, v]) => `<tr><th>${k}</th><td>${v.replace(/</g, '&lt;')}</td></tr>`)
+        .join('');
+
+      function diagnose(triggeredByUser) {
+        if (triggeredByUser && window.trackToolRun) window.trackToolRun();
+        const useWifi = document.getElementById('chkWifi').checked;
+        const useBank = document.getElementById('chkBank').checked;
+        const useAbroad = document.getElementById('chkAbroad').checked;
+
+        let score = isHttps ? 15 : 45;
+        const findings = [
+          '現在の接続先ブラウザの User-Agent・解像度・タイムゾーン等の端末情報はアクセス先サイトから参照可能な状態です。'
+        ];
+        if (useWifi) {
+          score += 40;
+          findings.push('🔴 <strong>フリーWi-Fiリスク(+40点)</strong>：公衆Wi-Fiは中間者攻撃(MITM)や偽アクセスポイントによる通信傍受・セッション乗っ取りの主要経路です。HTTPSでも接続先ドメイン(DNS/SNI)は可視化されます。');
+        }
+        if (useBank) {
+          score += 25;
+          findings.push('🟠 <strong>金融・認証通信リスク(+25点)</strong>：外出先ネットワークでのクレカ決済・ログイン操作は、暗号化トンネル（VPN）なしでは不正アクセス被害時の影響が甚大です。');
+        }
+        if (useAbroad) {
+          score += 15;
+          findings.push('🟡 <strong>海外・ジオブロック対策(+15点)</strong>：海外回線からは地域制限でTVer/国内銀行アプリ等が遮断されるほか、現地回線の検閲・監視リスクがあります。');
+        }
+        score = Math.min(100, score);
+
+        let level = '低リスク';
+        let color = '#4ade80';
+        if (score >= 75) { level = '高リスク（要VPN対策）'; color = '#f87171'; }
+        else if (score >= 45) { level = '中〜高リスク（対策推奨）'; color = '#fbbf24'; }
+        else if (score >= 25) { level = '注意'; color = '#38bdf8'; }
+
+        document.getElementById('vpnKpi').innerHTML = `
+          <div class="kpi-box"><div class="kpi-label">情報漏洩危険度スコア</div><div class="kpi-val" style="color:${color};">${score} / 100点</div></div>
+          <div class="kpi-box"><div class="kpi-label">セキュリティ判定</div><div class="kpi-val" style="color:${color};font-size:1.05rem;">${level}</div></div>
+          <div class="kpi-box"><div class="kpi-label">VPN導入後の保護率</div><div class="kpi-val" style="color:#4ade80;">通信経路をAES-256暗号化</div></div>
+        `;
+        document.getElementById('vpnRiskBar').style.width = score + '%';
+        document.getElementById('vpnDetail').innerHTML = findings.map(f => `<p style="margin-bottom:6px;">${f}</p>`).join('');
+      }
+
+      document.getElementById('btnRunVpn').addEventListener('click', () => diagnose(true));
+      ['chkWifi', 'chkBank', 'chkAbroad'].forEach(id => {
+        document.getElementById(id).addEventListener('change', () => diagnose(true));
+      });
+      diagnose(false);
+    })();
+    """
+    return body, js
+
+
+def _build_oshikatsu_tool_parts(offers: dict) -> tuple[str, str]:
+    f_offer = offers["fanema"]
+    body = f"""
+    <div class="panel">
+      <h2>⚙️ 現在の推し活・グッズ支出条件を入力</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="oshiMonthly">月々のランダムグッズ購入費（円）</label>
+          <input id="oshiMonthly" type="number" min="0" max="1000000" step="500" value="8000" />
+        </div>
+        <div class="field">
+          <label for="oshiProb">目当ての推しキャラ排出率（%）</label>
+          <input id="oshiProb" type="number" min="1" max="100" step="1" value="10" />
+        </div>
+        <div class="field">
+          <label for="oshiTrips">年間イベント遠征回数（回）</label>
+          <input id="oshiTrips" type="number" min="0" max="100" value="4" />
+        </div>
+        <div class="field">
+          <label for="oshiTripCost">1回あたりの遠征費（円）</label>
+          <input id="oshiTripCost" type="number" min="0" max="500000" step="1000" value="25000" />
+        </div>
+      </div>
+      <button id="btnRunOshi" type="button" class="btn-run">✨ 年間推し活総額＆節約可能額を計算</button>
+    </div>
+
+    <div class="panel">
+      <h2>🧮 年間予算・ランダム被り損失シミュレーション結果</h2>
+      <div class="kpi-grid" id="oshiKpi"></div>
+      <div id="oshiNote" style="font-size:0.86rem;color:#e2e8f0;background:rgba(219,39,119,0.12);border:1px solid rgba(244,114,182,0.35);padding:12px;border-radius:10px;"></div>
+
+      <div class="cta-box">
+        <span class="cta-tag">PR｜ランダム被り・転売ヤー買い占めゼロ</span>
+        <div class="cta-title">✨ {html_lib.escape(f_offer["title"])}</div>
+        <div class="cta-desc">公式受注生産・正規流通だから「推しが出ないランダム被り」も「始発組の転売買い占め」も発生しません。無駄な被り予算を確定グッズにそのまま回せます！</div>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+          <a href="{f_offer["url"]}" rel="nofollow noopener noreferrer" target="_blank" class="cta-btn">FaNeMa 公式ストアで受注生産グッズを見る &raquo;</a>
+          <a href="{f_offer["url"]}" rel="nofollow noopener noreferrer" target="_blank">
+            <img border="0" width="160" height="600" alt="FaNeMa公式グッズ" src="{f_offer["banner_img"]}" style="max-height:110px;width:auto;border-radius:8px;display:block;" />
+          </a>
+        </div>
+        <img border="0" width="1" height="1" src="{f_offer["pixel"]}" alt="" />
+      </div>
+    </div>
+    """
+    js = """
+    (function() {
+      function calc(triggeredByUser) {
+        if (triggeredByUser && window.trackToolRun) window.trackToolRun();
+        const monthly = Math.max(0, Number(document.getElementById('oshiMonthly').value) || 0);
+        const prob = Math.min(100, Math.max(1, Number(document.getElementById('oshiProb').value) || 10));
+        const trips = Math.max(0, Number(document.getElementById('oshiTrips').value) || 0);
+        const tripCost = Math.max(0, Number(document.getElementById('oshiTripCost').value) || 0);
+
+        const yearlyGoods = monthly * 12;
+        const yearlyTrips = trips * tripCost;
+        const yearlyTotal = yearlyGoods + yearlyTrips;
+        const missLoss = Math.round(yearlyGoods * (1 - prob / 100));
+        const akustaEquiv = Math.floor(missLoss / 1650);
+        const expectedDraws = Math.round(100 / prob);
+
+        document.getElementById('oshiKpi').innerHTML = `
+          <div class="kpi-box"><div class="kpi-label">年間推し活 総支出</div><div class="kpi-val">¥${yearlyTotal.toLocaleString()}</div></div>
+          <div class="kpi-box"><div class="kpi-label">ランダム被り 年間推計ロス</div><div class="kpi-val" style="color:#f43f5e;">¥${missLoss.toLocaleString()}</div></div>
+          <div class="kpi-box"><div class="kpi-label">確定アクスタ(¥1,650)換算</div><div class="kpi-val" style="color:#4ade80;">約 ${akustaEquiv} 体分</div></div>
+          <div class="kpi-box"><div class="kpi-label">推し1個あたりの期待購入数</div><div class="kpi-val">${expectedDraws} 回</div></div>
+        `;
+
+        document.getElementById('oshiNote').innerHTML = `
+          年間グッズ費 <strong>¥${yearlyGoods.toLocaleString()}</strong> ＋ 遠征費 <strong>¥${yearlyTrips.toLocaleString()}</strong> ＝ 合計 <strong>¥${yearlyTotal.toLocaleString()}</strong>。<br />
+          目当て排出率 ${prob}% のランダム商法を続けた場合、年間で約 <strong style="color:#fda4af;">¥${missLoss.toLocaleString()}（グッズ支出の ${100 - prob}%）</strong> が推し以外・被りに消える計算です。<br />
+          公式の<strong>受注生産（指名買い）</strong>に切り替えれば、浮いた予算で確定アクスタが年間 <strong>${akustaEquiv}体</strong> 追加で迎えられます！
+        `;
+      }
+
+      document.getElementById('btnRunOshi').addEventListener('click', () => calc(true));
+      ['oshiMonthly', 'oshiProb', 'oshiTrips', 'oshiTripCost'].forEach(id => {
+        document.getElementById(id).addEventListener('change', () => calc(true));
+      });
+      calc(false);
+    })();
+    """
+    return body, js
+
+
+def build_practical_tools(config: dict, dist_dir: Path, ogp_dist: Path, game_count: int) -> tuple[list, list, list, str]:
+    """高CPAアフィリエイト直結の実用Web診断・シミュレーター3本を生成する"""
+    offers = config["ad_networks"]["a8_net"]["live_offers"]
+    builders = {
+        "stock-theme-analyzer": _build_stock_tool_parts,
+        "vpn-security-checker": _build_vpn_tool_parts,
+        "oshikatsu-goods-calculator": _build_oshikatsu_tool_parts,
+    }
+    tools_dir = dist_dir / "tools"
+    tools_dir.mkdir(parents=True, exist_ok=True)
+
+    sitemap_entries = []
+    rss_entries = []
+    llms_entries = ["## 実用無料Web診断・シミュレーター (Interactive Utility Tools)"]
+    showcase_cards = []
+
+    for tool in PRACTICAL_TOOLS:
+        slug = tool["slug"]
+        url = f"{SITE_BASE_URL}/tools/{slug}/"
+        (ogp_dist / f"tool-{slug}.svg").write_text(
+            generate_ogp_svg(tool["short_title"], tool["description"], tool["badge"], tool["emojis"], tool["grad"]),
+            encoding="utf-8",
+        )
+        body_html, tool_js = builders[slug](offers)
+        page_html = _render_tool_shell(tool, body_html, tool_js, game_count)
+
+        t_dir = tools_dir / slug
+        t_dir.mkdir(parents=True, exist_ok=True)
+        (t_dir / "index.html").write_text(page_html, encoding="utf-8", newline="\n")
+
+        sitemap_entries.append((url, "1.0"))
+        rss_entries.append(
+            f"""    <item>
+      <title>{html_lib.escape(tool["title"])}</title>
+      <link>{url}</link>
+      <guid>{url}</guid>
+      <description>{html_lib.escape(tool["description"])}</description>
+      <category>{html_lib.escape(tool["badge"])}</category>
+    </item>"""
+        )
+        llms_entries.append(f"- [{tool['title']}]({url}): {tool['description']}")
+
+        grad = tool["grad"]
+        showcase_cards.append(f"""
+        <div style="background:linear-gradient(155deg,{grad[1]},{grad[0]});border:2px solid #fde047;border-radius:16px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 26px rgba(0,0,0,0.55);">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:8px;">
+              <span style="background:#e11d48;color:#fff;font-size:0.7rem;font-weight:900;padding:3px 10px;border-radius:12px;">{html_lib.escape(tool["badge"])}</span>
+              <span style="font-size:1.35rem;">{tool["emojis"][0]} {tool["emojis"][1]}</span>
+            </div>
+            <h3 style="font-size:1rem;color:#fff;font-weight:900;margin-bottom:6px;line-height:1.4;">{html_lib.escape(tool["short_title"])}</h3>
+            <p style="font-size:0.78rem;color:#cbd5e1;margin-bottom:12px;line-height:1.5;">{html_lib.escape(tool["description"])}</p>
+          </div>
+          <a href="tools/{slug}/index.html" style="display:block;text-align:center;text-decoration:none;background:linear-gradient(90deg,#facc15,#f97316);color:#090d16;font-weight:900;font-size:0.88rem;padding:10px 12px;border-radius:10px;">▶ 無料で診断・計算する &raquo;</a>
+        </div>""")
+
+    showcase_html = f"""
+    <section id="practicalTools" style="margin-bottom:26px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+        <h2 style="font-size:1.22rem;color:#fde047;font-weight:900;">🧮 無料Web診断・シミュレーター（即時判定ツール）</h2>
+        <span style="font-size:0.74rem;color:#38bdf8;font-weight:800;">PC・スマホ対応 / 登録不要</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;">
+        {"".join(showcase_cards)}
+      </div>
+    </section>"""
+
+    return sitemap_entries, rss_entries, llms_entries, showcase_html
+
+
 def build_all() -> dict:
     """全時事ミニゲーム、SEO/OGP/RSS/AI検索ファイル、集客センター、ポータル、ダッシュボードをビルドする"""
     config = load_json(CONFIG_PATH)
@@ -273,16 +1034,22 @@ def build_all() -> dict:
         encoding="utf-8",
     )
 
+    tool_sitemaps, tool_rss, tool_llms, tools_showcase_html = build_practical_tools(
+        config, DIST_DIR, ogp_dist, len(themes)
+    )
+
     cards_html_list = []
     sitemap_urls = [
         (f"{SITE_BASE_URL}/", "1.0"),
-    ]
-    rss_items = []
+    ] + tool_sitemaps
+    rss_items = list(tool_rss)
     llms_lines = [
-        "# 週刊時事風刺ミニゲーム横丁 (Weekly Buzz Satire Mini-Games 2026)",
+        "# 週刊時事風刺ミニゲーム横丁 & 無料実用診断ツール (Weekly Buzz Studio 2026)",
         "",
-        f"> 1分で遊べる無料HTML5ブラウザ風刺ミニゲーム集（全{len(themes)}タイトル・PC/スマホ対応・インストール不要）。",
+        f"> 無料Web診断・シミュレーター（{len(PRACTICAL_TOOLS)}本）＆1分で遊べる無料HTML5風刺ミニゲーム集（{len(themes)}タイトル・PC/スマホ対応）。",
         f"> ポータルURL: {SITE_BASE_URL}/",
+        "",
+    ] + tool_llms + [
         "",
         "## ゲーム一覧 (Playable Browser Mini-Games)",
     ]
@@ -452,6 +1219,7 @@ def build_all() -> dict:
     portal_html = (
         portal_tpl.replace("{{GAME_COUNT}}", str(len(themes)))
         .replace("{{PORTAL_JSON_LD}}", portal_json_ld)
+        .replace("{{TOOLS_SHOWCASE_HTML}}", tools_showcase_html)
         .replace("{{GAME_CARDS_HTML}}", "\n".join(cards_html_list))
     )
     (DIST_DIR / "index.html").write_text(portal_html, encoding="utf-8")
@@ -523,6 +1291,7 @@ Sitemap: {SITE_BASE_URL}/sitemap.xml
 
     return {
         "built_games": len(themes),
+        "built_tools": len(PRACTICAL_TOOLS),
         "sitemap_urls": len(sitemap_urls),
         "dist_dir": str(DIST_DIR),
         "docs_dir": str(DOCS_DIR),
@@ -532,11 +1301,15 @@ Sitemap: {SITE_BASE_URL}/sitemap.xml
 def execute_live_acquisition(themes: list) -> dict:
     """検索エンジンへの即時インデックス送信（IndexNow / WebSub）およびGitHub実トラフィック計測を実行する"""
     now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    url_list = [
-        f"{SITE_BASE_URL}/",
-        f"{SITE_BASE_URL}/sitemap.xml",
-        f"{SITE_BASE_URL}/rss.xml",
-    ] + [f"{SITE_BASE_URL}/games/{t['slug']}/" for t in themes]
+    url_list = (
+        [
+            f"{SITE_BASE_URL}/",
+            f"{SITE_BASE_URL}/sitemap.xml",
+            f"{SITE_BASE_URL}/rss.xml",
+        ]
+        + [f"{SITE_BASE_URL}/tools/{t['slug']}/" for t in PRACTICAL_TOOLS]
+        + [f"{SITE_BASE_URL}/games/{t['slug']}/" for t in themes]
+    )
 
     # 1. IndexNow API Instant Submission (Bing, Yahoo! Japan backend, Yandex, Naver, Seznam)
     indexnow_status = "未送信"
@@ -642,18 +1415,35 @@ def fetch_live_telemetry(themes: list, include_per_game: bool = False) -> dict:
     metrics = {}
     for k in core_keys:
         metrics[k] = get_abacus_value(k)
-        time.sleep(0.15)
+        time.sleep(0.12)
+
+    tools_metrics = {}
+    for tool in PRACTICAL_TOOLS:
+        tkey = tool["short_key"]
+        pv = get_abacus_value(f"g_{tkey}_pv")
+        time.sleep(0.12)
+        play = get_abacus_value(f"g_{tkey}_play")
+        time.sleep(0.12)
+        aff = get_abacus_value(f"g_{tkey}_aff")
+        time.sleep(0.12)
+        tools_metrics[tool["slug"]] = {
+            "key": tkey,
+            "title": tool["short_title"],
+            "pv": pv,
+            "plays": play,
+            "aff_clicks": aff,
+        }
 
     per_game = {}
     if include_per_game:
         for t in themes:
             s = re.sub(r"[^a-zA-Z0-9_-]", "_", t["slug"])
             pv = get_abacus_value(f"g_{s}_pv")
-            time.sleep(0.15)
+            time.sleep(0.12)
             play = get_abacus_value(f"g_{s}_play")
-            time.sleep(0.15)
+            time.sleep(0.12)
             aff = get_abacus_value(f"g_{s}_aff")
-            time.sleep(0.15)
+            time.sleep(0.12)
             per_game[t["slug"]] = {"pv": pv, "plays": play, "aff_clicks": aff}
 
     return {
@@ -682,6 +1472,7 @@ def fetch_live_telemetry(themes: list, include_per_game: bool = False) -> dict:
             "Mobile": metrics["dev_mobile"],
             "PC": metrics["dev_pc"],
         },
+        "tools": tools_metrics,
         "per_game": per_game,
     }
 
@@ -826,6 +1617,49 @@ def main():
     elif args.cmd == "telemetry":
         themes = load_json(THEMES_PATH).get("themes", [])
         res = fetch_live_telemetry(themes, include_per_game=args.per_game)
+        analytics = load_json(ANALYTICS_PATH) if ANALYTICS_PATH.exists() else {"games": {}, "pdca_logs": []}
+        history = analytics.setdefault("telemetry_history", [])
+        cur_sum = res["summary"]
+        prev = history[-1] if history else None
+        prev_sum = (prev or {}).get("summary", {})
+        delta_from_previous = {
+            "previous_fetched_at": prev.get("fetched_at") if prev else None,
+            "site_pv": cur_sum["site_pv"] - prev_sum.get("site_pv", 0) if prev else 0,
+            "site_uu": cur_sum["site_uu"] - prev_sum.get("site_uu", 0) if prev else 0,
+            "total_plays": cur_sum["total_plays"] - prev_sum.get("total_plays", 0) if prev else 0,
+            "total_aff_clicks": cur_sum["total_aff_clicks"] - prev_sum.get("total_aff_clicks", 0) if prev else 0,
+        }
+        today_str = res["fetched_at"][:10]
+        prev_day = next((h for h in reversed(history) if (h.get("fetched_at") or "")[:10] < today_str), None)
+        if prev_day:
+            pd_sum = prev_day.get("summary", {})
+            delta_from_previous_day = {
+                "previous_day_fetched_at": prev_day.get("fetched_at"),
+                "site_pv": cur_sum["site_pv"] - pd_sum.get("site_pv", 0),
+                "site_uu": cur_sum["site_uu"] - pd_sum.get("site_uu", 0),
+                "total_plays": cur_sum["total_plays"] - pd_sum.get("total_plays", 0),
+                "total_aff_clicks": cur_sum["total_aff_clicks"] - pd_sum.get("total_aff_clicks", 0),
+            }
+        else:
+            delta_from_previous_day = None
+
+        history.append(
+            {
+                "fetched_at": res["fetched_at"],
+                "summary": cur_sum,
+                "tools": res.get("tools", {}),
+                "traffic_sources": res.get("traffic_sources", {}),
+                "devices": res.get("devices", {}),
+            }
+        )
+        if len(history) > 60:
+            analytics["telemetry_history"] = history[-60:]
+        analytics["updated_at"] = res["fetched_at"]
+        save_json(ANALYTICS_PATH, analytics)
+
+        res["delta_from_previous"] = delta_from_previous
+        if delta_from_previous_day is not None:
+            res["delta_from_previous_day"] = delta_from_previous_day
         print(json.dumps(res, ensure_ascii=False, indent=2))
     else:
         res = build_all()

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14 21:22:22",
+  "updated_at": "2026-11-15 00:25:21",
   "games": {},
   "pdca_logs": [
     {
@@ -26,5 +26,56 @@
         }
       }
     }
-  }
+  },
+  "telemetry_history": [
+    {
+      "fetched_at": "2026-11-15 00:25:21",
+      "summary": {
+        "site_pv": 9,
+        "site_uu": 8,
+        "portal_pv": 7,
+        "total_plays": 0,
+        "total_ends": 0,
+        "total_retries": 0,
+        "total_aff_clicks": 0,
+        "total_shares": 0,
+        "total_rewards": 0
+      },
+      "tools": {
+        "stock-theme-analyzer": {
+          "key": "tool_stock",
+          "title": "新NISA・テンバガー資産推移＆テーマ株診断",
+          "pv": 0,
+          "plays": 0,
+          "aff_clicks": 0
+        },
+        "vpn-security-checker": {
+          "key": "tool_vpn",
+          "title": "フリーWi-Fi危険度＆通信露出チェッカー",
+          "pv": 0,
+          "plays": 0,
+          "aff_clicks": 0
+        },
+        "oshikatsu-goods-calculator": {
+          "key": "tool_oshikatsu",
+          "title": "年間推し活予算・ランダム被り損失電卓",
+          "pv": 0,
+          "plays": 0,
+          "aff_clicks": 0
+        }
+      },
+      "traffic_sources": {
+        "X (Twitter)": 0,
+        "Google検索": 0,
+        "Yahoo/Bing他": 0,
+        "GitHub": 0,
+        "直接アクセス": 8,
+        "その他外部": 0
+      },
+      "devices": {
+        "Mobile": 2,
+        "PC": 6
+      }
+    }
+  ]
 }

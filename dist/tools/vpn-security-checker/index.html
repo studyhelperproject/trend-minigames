@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="4_yP3JlDnuzzBHtKTU6FqpebQdQdnSecojAa_VNk_QQ" />
+  <title>【無料診断】フリーWi-Fi危険度＆ブラウザ通信セキュリティ露出チェッカー｜VPN比較シミュレーター | 週刊風刺ミニゲーム横丁・実用ツール</title>
+  <meta name="description" content="現在のブラウザ通信状態（HTTPS暗号化・OS・UA・言語・タイムゾーン等）を自動検出し、利用シーン別の情報漏洩危険度スコアと最適なVPN対策を診断します。" />
+  <meta name="keywords" content="フリーWi-Fi危険度,通信セキュリティ診断,VPN比較,情報漏洩対策,MillenVPN,無料診断,シミュレーター,Webツール" />
+  <link rel="canonical" href="https://studyhelperproject.github.io/trend-minigames/tools/vpn-security-checker/" />
+  <link rel="alternate" type="application/rss+xml" title="週刊時事風刺ミニゲーム横丁 RSS" href="https://studyhelperproject.github.io/trend-minigames/rss.xml" />
+  <meta property="og:title" content="【無料診断】フリーWi-Fi危険度＆ブラウザ通信セキュリティ露出チェッカー｜VPN比較シミュレーター" />
+  <meta property="og:description" content="現在のブラウザ通信状態（HTTPS暗号化・OS・UA・言語・タイムゾーン等）を自動検出し、利用シーン別の情報漏洩危険度スコアと最適なVPN対策を診断します。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://studyhelperproject.github.io/trend-minigames/tools/vpn-security-checker/" />
+  <meta property="og:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/tool-vpn-security-checker.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="【無料診断】フリーWi-Fi危険度＆ブラウザ通信セキュリティ露出チェッカー｜VPN比較シミュレーター" />
+  <meta name="twitter:description" content="現在のブラウザ通信状態（HTTPS暗号化・OS・UA・言語・タイムゾーン等）を自動検出し、利用シーン別の情報漏洩危険度スコアと最適なVPN対策を診断します。" />
+  <meta name="twitter:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/tool-vpn-security-checker.svg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "【無料診断】フリーWi-Fi危険度＆ブラウザ通信セキュリティ露出チェッカー｜VPN比較シミュレーター", "description": "現在のブラウザ通信状態（HTTPS暗号化・OS・UA・言語・タイムゾーン等）を自動検出し、利用シーン別の情報漏洩危険度スコアと最適なVPN対策を診断します。", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser (PC, iOS, Android)", "url": "https://studyhelperproject.github.io/trend-minigames/tools/vpn-security-checker/", "image": "https://studyhelperproject.github.io/trend-minigames/ogp/tool-vpn-security-checker.svg", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+  <!-- 忍者AdMax 全自動広告タグ -->
+  <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      background: radial-gradient(circle at 20% 10%, #1e293b 0%, #060911 65%);
+      color: #f8fafc;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .top-bar {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .nav-link {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 800;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 6px 12px;
+      border-radius: 18px;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 18px 16px 48px; }
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.9));
+      border: 1.5px solid rgba(250, 204, 21, 0.45);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 900;
+      padding: 3px 12px;
+      border-radius: 14px;
+      margin-bottom: 8px;
+    }
+    h1 { font-size: clamp(1.25rem, 3.2vw, 1.75rem); color: #fff; line-height: 1.38; margin-bottom: 8px; }
+    .lead { font-size: 0.88rem; color: #cbd5e1; }
+    .panel {
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .panel h2 { font-size: 1.05rem; color: #fde047; margin-bottom: 12px; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .field label { display: block; font-size: 0.8rem; font-weight: 800; color: #e2e8f0; margin-bottom: 5px; }
+    .field input[type="number"], .field select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      background: #090d16;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .check-list { display: flex; flex-direction: column; gap: 10px; }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(9, 13, 22, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .check-item input { width: 18px; height: 18px; accent-color: #f97316; }
+    .btn-run {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1.5px solid #fde047;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45);
+    }
+    .btn-run:hover { filter: brightness(1.06); }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .kpi-box {
+      background: #090d16;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+    .kpi-label { font-size: 0.74rem; color: #94a3b8; font-weight: 800; }
+    .kpi-val { font-size: 1.32rem; color: #fde047; font-weight: 900; margin-top: 4px; }
+    table.sim-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.84rem; }
+    table.sim-table th, table.sim-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: right;
+    }
+    table.sim-table th:first-child, table.sim-table td:first-child { text-align: left; }
+    table.sim-table th { color: #38bdf8; font-weight: 900; }
+    .bar-row { margin-top: 8px; }
+    .bar-head { display: flex; justify-content: space-between; font-size: 0.78rem; color: #cbd5e1; margin-bottom: 3px; }
+    .bar-track { width: 100%; height: 12px; background: #090d16; border-radius: 999px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, #38bdf8, #fde047); border-radius: 999px; transition: width 0.3s ease; }
+    .env-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .env-table th, .env-table td { padding: 7px 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; word-break: break-all; }
+    .env-table th { width: 34%; color: #94a3b8; }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(127, 29, 29, 0.42), rgba(15, 23, 42, 0.96));
+      border: 2px solid #fde047;
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+    .cta-tag { display: inline-block; background: #fde047; color: #090d16; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px; }
+    .cta-title { font-size: 1.04rem; font-weight: 900; color: #fff; margin-bottom: 6px; }
+    .cta-desc { font-size: 0.83rem; color: #e2e8f0; margin-bottom: 12px; }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #facc15, #f97316);
+      color: #090d16;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 0.92rem;
+      padding: 11px 18px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(250, 204, 21, 0.35);
+    }
+    .share-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-top: 14px; }
+    .btn-share-x {
+      display: inline-block;
+      background: #0f172a;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 900;
+      padding: 8px 14px;
+      border-radius: 10px;
+    }
+    .ad-slot { display: flex; justify-content: center; margin: 12px 0; min-height: 54px; }
+    footer { text-align: center; font-size: 0.76rem; color: #64748b; padding: 24px 12px; border-top: 1px solid rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../../index.html" class="nav-link">⚡ ポータル＆風刺ゲーム(23本)へ戻る</a>
+    <a href="https://x.com/intent/post?text=%E3%83%95%E3%83%AA%E3%83%BCWi-Fi%E5%8D%B1%E9%99%BA%E5%BA%A6%EF%BC%86%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E9%80%9A%E4%BF%A1%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E9%9C%B2%E5%87%BA%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC%E3%81%A7%E7%8F%BE%E5%9C%A8%E3%81%AE%E9%80%9A%E4%BF%A1%E3%83%AA%E3%82%B9%E3%82%AF%E3%82%92%E8%A8%BA%E6%96%AD%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%23%E3%83%95%E3%83%AA%E3%83%BCWi-Fi%E5%8D%B1%E9%99%BA%E5%BA%A6%20%23%E9%80%9A%E4%BF%A1%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E8%A8%BA%E6%96%AD%20%23VPN%E6%AF%94%E8%BC%83%0Ahttps%3A//studyhelperproject.github.io/trend-minigames/tools/vpn-security-checker/%3Futm_source%3Dx" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 診断結果をシェア</a>
+  </div>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <main class="wrap">
+    <div class="hero-card">
+      <span class="badge">🛡️ 通信セキュリティ診断</span>
+      <h1>【無料診断】フリーWi-Fi危険度＆ブラウザ通信セキュリティ露出チェッカー｜VPN比較シミュレーター</h1>
+      <p class="lead">現在のブラウザ通信状態（HTTPS暗号化・OS・UA・言語・タイムゾーン等）を自動検出し、利用シーン別の情報漏洩危険度スコアと最適なVPN対策を診断します。</p>
+    </div>
+
+    
+    <div class="panel">
+      <h2>🔍 現在のブラウザ通信環境（自動検出）</h2>
+      <table class="env-table" id="vpnEnvTable"></table>
+    </div>
+
+    <div class="panel">
+      <h2>⚙️ 利用シーン・通信習慣チェック</h2>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox" id="chkWifi" checked /> カフェ・空港・ホテル等のフリーWi-Fiを使うことがある</label>
+        <label class="check-item"><input type="checkbox" id="chkBank" checked /> スマホ・PCでネットバンキング・クレカ決済・業務ログインをする</label>
+        <label class="check-item"><input type="checkbox" id="chkAbroad" /> 海外旅行・出張先から日本の動画配信や国内サービスを見たい</label>
+      </div>
+      <button id="btnRunVpn" type="button" class="btn-run">🛡️ セキュリティ危険度＆最適プランを診断</button>
+    </div>
+
+    <div class="panel">
+      <h2>📊 診断結果：通信セキュリティリスク判定</h2>
+      <div class="kpi-grid" id="vpnKpi"></div>
+      <div class="bar-track" style="height:16px;margin-bottom:12px;"><div id="vpnRiskBar" class="bar-fill" style="width:0%;background:linear-gradient(90deg,#22c55e,#eab308,#ef4444);"></div></div>
+      <div id="vpnDetail" style="font-size:0.86rem;color:#e2e8f0;line-height:1.65;"></div>
+
+      <div class="cta-box">
+        <span class="cta-tag">PR｜国産・総務省届出済・ノーログ推奨VPN</span>
+        <div class="cta-title">🛡️ MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！</div>
+        <div class="cta-desc">日本企業運営（アズポケット株式会社）・厳格なノーログポリシー・30日間返金保証付き。フリーWi-Fiでの盗聴防止や海外からの日本コンテンツ視聴まで、1契約でスマホ・PC同時保護できます。</div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6" rel="nofollow noopener noreferrer" target="_blank" class="cta-btn">MillenVPN 公式サイトでセキュリティ対策を始める &raquo;</a>
+        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6" alt="" />
+      </div>
+    </div>
+    
+
+    <div class="panel">
+      <h2>🔗 他の無料実用ツール・風刺ミニゲーム</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="../stock-theme-analyzer/" class="nav-link">📈 新NISA・テンバガー資産推移診断</a>
+        <a href="../vpn-security-checker/" class="nav-link">🛡️ フリーWi-Fi危険度＆VPN診断</a>
+        <a href="../oshikatsu-goods-calculator/" class="nav-link">✨ 年間推し活予算＆被り損失電卓</a>
+        <a href="../../index.html" class="nav-link">🎮 風刺ミニゲーム一覧 (23本)</a>
+      </div>
+      <div class="share-bar">
+        <span style="font-size:0.78rem;color:#94a3b8;">※入力値はブラウザ内のみで計算され外部送信されません。</span>
+        <a href="https://x.com/intent/post?text=%E3%83%95%E3%83%AA%E3%83%BCWi-Fi%E5%8D%B1%E9%99%BA%E5%BA%A6%EF%BC%86%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E9%80%9A%E4%BF%A1%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E9%9C%B2%E5%87%BA%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC%E3%81%A7%E7%8F%BE%E5%9C%A8%E3%81%AE%E9%80%9A%E4%BF%A1%E3%83%AA%E3%82%B9%E3%82%AF%E3%82%92%E8%A8%BA%E6%96%AD%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%23%E3%83%95%E3%83%AA%E3%83%BCWi-Fi%E5%8D%B1%E9%99%BA%E5%BA%A6%20%23%E9%80%9A%E4%BF%A1%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E8%A8%BA%E6%96%AD%20%23VPN%E6%AF%94%E8%BC%83%0Ahttps%3A//studyhelperproject.github.io/trend-minigames/tools/vpn-security-checker/%3Futm_source%3Dx" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 このツールをシェアする</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <footer>
+    <p>TrendMiniGames Studio / 実用診断＆シミュレーターコーナー（計算結果は参考目安であり投資判断・通信契約等はご自身の責任で行ってください）</p>
+  </footer>
+
+  <script>
+    (function() {
+      const TOOL_KEY = "tool_vpn";
+      const isProd = window.location.hostname === 'studyhelperproject.github.io';
+      const hit = (k) => {
+        if (!isProd) return;
+        fetch('https://abacus.jasoncameron.dev/hit/trendminigames2026/' + encodeURIComponent(k), {
+          mode: 'cors',
+          keepalive: true
+        }).catch(() => {});
+      };
+
+      hit('site_pv');
+      hit('g_' + TOOL_KEY + '_pv');
+
+      if (!localStorage.getItem('tmg_uu_counted')) {
+        localStorage.setItem('tmg_uu_counted', '1');
+        hit('site_uu');
+      }
+
+      if (!sessionStorage.getItem('tmg_session_attr')) {
+        sessionStorage.setItem('tmg_session_attr', '1');
+        const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent) || window.innerWidth < 768;
+        hit(isMobile ? 'dev_mobile' : 'dev_pc');
+        const params = new URLSearchParams(window.location.search);
+        const utm = (params.get('utm_source') || '').toLowerCase();
+        const ref = (document.referrer || '').toLowerCase();
+        if (!ref.includes('studyhelperproject.github.io') || utm) {
+          let refKey = 'ref_direct';
+          if (utm === 'x' || utm === 'twitter' || ref.includes('t.co') || ref.includes('x.com') || ref.includes('twitter.com')) refKey = 'ref_x';
+          else if (utm === 'google' || ref.includes('google.')) refKey = 'ref_google';
+          else if (ref.includes('yahoo.co.jp') || ref.includes('bing.com') || ref.includes('duckduckgo.')) refKey = 'ref_search_other';
+          else if (ref.includes('github.')) refKey = 'ref_github';
+          else if (ref.length > 0) refKey = 'ref_other';
+          hit(refKey);
+        }
+      }
+
+      let toolPlayTracked = false;
+      window.trackToolRun = function() {
+        if (toolPlayTracked) return;
+        toolPlayTracked = true;
+        hit('total_plays');
+        hit('g_' + TOOL_KEY + '_play');
+      };
+
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href*="px.a8.net"]');
+        if (a) {
+          hit('total_aff_clicks');
+          hit('g_' + TOOL_KEY + '_aff');
+        }
+      });
+    })();
+  </script>
+  <script>
+
+    (function() {
+      const isHttps = window.location.protocol === 'https:';
+      const tz = (Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone) || '不明';
+      const envRows = [
+        ['通信プロトコル (暗号化)', isHttps ? '🔒 HTTPS（ブラウザ〜サーバー間暗号化）' : '⚠️ HTTP（平文通信リスクあり）'],
+        ['OS / プラットフォーム', navigator.platform || '取得不可'],
+        ['使用言語 / タイムゾーン', `${navigator.language || '不明'} / ${tz}`],
+        ['画面解像度 / Cookie設定', `${screen.width}×${screen.height} / ${navigator.cookieEnabled ? '有効' : '無効'}`],
+        ['ブラウザ User-Agent', navigator.userAgent || '取得不可']
+      ];
+      document.getElementById('vpnEnvTable').innerHTML = envRows
+        .map(([k, v]) => `<tr><th>${k}</th><td>${v.replace(/</g, '&lt;')}</td></tr>`)
+        .join('');
+
+      function diagnose(triggeredByUser) {
+        if (triggeredByUser && window.trackToolRun) window.trackToolRun();
+        const useWifi = document.getElementById('chkWifi').checked;
+        const useBank = document.getElementById('chkBank').checked;
+        const useAbroad = document.getElementById('chkAbroad').checked;
+
+        let score = isHttps ? 15 : 45;
+        const findings = [
+          '現在の接続先ブラウザの User-Agent・解像度・タイムゾーン等の端末情報はアクセス先サイトから参照可能な状態です。'
+        ];
+        if (useWifi) {
+          score += 40;
+          findings.push('🔴 <strong>フリーWi-Fiリスク(+40点)</strong>：公衆Wi-Fiは中間者攻撃(MITM)や偽アクセスポイントによる通信傍受・セッション乗っ取りの主要経路です。HTTPSでも接続先ドメイン(DNS/SNI)は可視化されます。');
+        }
+        if (useBank) {
+          score += 25;
+          findings.push('🟠 <strong>金融・認証通信リスク(+25点)</strong>：外出先ネットワークでのクレカ決済・ログイン操作は、暗号化トンネル（VPN）なしでは不正アクセス被害時の影響が甚大です。');
+        }
+        if (useAbroad) {
+          score += 15;
+          findings.push('🟡 <strong>海外・ジオブロック対策(+15点)</strong>：海外回線からは地域制限でTVer/国内銀行アプリ等が遮断されるほか、現地回線の検閲・監視リスクがあります。');
+        }
+        score = Math.min(100, score);
+
+        let level = '低リスク';
+        let color = '#4ade80';
+        if (score >= 75) { level = '高リスク（要VPN対策）'; color = '#f87171'; }
+        else if (score >= 45) { level = '中〜高リスク（対策推奨）'; color = '#fbbf24'; }
+        else if (score >= 25) { level = '注意'; color = '#38bdf8'; }
+
+        document.getElementById('vpnKpi').innerHTML = `
+          <div class="kpi-box"><div class="kpi-label">情報漏洩危険度スコア</div><div class="kpi-val" style="color:${color};">${score} / 100点</div></div>
+          <div class="kpi-box"><div class="kpi-label">セキュリティ判定</div><div class="kpi-val" style="color:${color};font-size:1.05rem;">${level}</div></div>
+          <div class="kpi-box"><div class="kpi-label">VPN導入後の保護率</div><div class="kpi-val" style="color:#4ade80;">通信経路をAES-256暗号化</div></div>
+        `;
+        document.getElementById('vpnRiskBar').style.width = score + '%';
+        document.getElementById('vpnDetail').innerHTML = findings.map(f => `<p style="margin-bottom:6px;">${f}</p>`).join('');
+      }
+
+      document.getElementById('btnRunVpn').addEventListener('click', () => diagnose(true));
+      ['chkWifi', 'chkBank', 'chkAbroad'].forEach(id => {
+        document.getElementById(id).addEventListener('change', () => diagnose(true));
+      });
+      diagnose(false);
+    })();
+    
+  </script>
+</body>
+</html>

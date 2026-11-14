@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="4_yP3JlDnuzzBHtKTU6FqpebQdQdnSecojAa_VNk_QQ" />
+  <title>【推し活電卓】年間グッズ・遠征費予算シミュレーター＆ランダム被り損失チェッカー | 週刊風刺ミニゲーム横丁・実用ツール</title>
+  <meta name="description" content="毎月のランダムグッズ購入額・推し排出率・年間イベント遠征費から、年間総支出と「ランダム被り・転売価格で失う年間推計ロス額」を即時計算します。" />
+  <meta name="keywords" content="推し活予算,推し活電卓,ランダムグッズ,排出確率,公式受注生産,無料診断,シミュレーター,Webツール" />
+  <link rel="canonical" href="https://studyhelperproject.github.io/trend-minigames/tools/oshikatsu-goods-calculator/" />
+  <link rel="alternate" type="application/rss+xml" title="週刊時事風刺ミニゲーム横丁 RSS" href="https://studyhelperproject.github.io/trend-minigames/rss.xml" />
+  <meta property="og:title" content="【推し活電卓】年間グッズ・遠征費予算シミュレーター＆ランダム被り損失チェッカー" />
+  <meta property="og:description" content="毎月のランダムグッズ購入額・推し排出率・年間イベント遠征費から、年間総支出と「ランダム被り・転売価格で失う年間推計ロス額」を即時計算します。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://studyhelperproject.github.io/trend-minigames/tools/oshikatsu-goods-calculator/" />
+  <meta property="og:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/tool-oshikatsu-goods-calculator.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="【推し活電卓】年間グッズ・遠征費予算シミュレーター＆ランダム被り損失チェッカー" />
+  <meta name="twitter:description" content="毎月のランダムグッズ購入額・推し排出率・年間イベント遠征費から、年間総支出と「ランダム被り・転売価格で失う年間推計ロス額」を即時計算します。" />
+  <meta name="twitter:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/tool-oshikatsu-goods-calculator.svg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "【推し活電卓】年間グッズ・遠征費予算シミュレーター＆ランダム被り損失チェッカー", "description": "毎月のランダムグッズ購入額・推し排出率・年間イベント遠征費から、年間総支出と「ランダム被り・転売価格で失う年間推計ロス額」を即時計算します。", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser (PC, iOS, Android)", "url": "https://studyhelperproject.github.io/trend-minigames/tools/oshikatsu-goods-calculator/", "image": "https://studyhelperproject.github.io/trend-minigames/ogp/tool-oshikatsu-goods-calculator.svg", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+  <!-- 忍者AdMax 全自動広告タグ -->
+  <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      background: radial-gradient(circle at 20% 10%, #1e293b 0%, #060911 65%);
+      color: #f8fafc;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .top-bar {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .nav-link {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 800;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 6px 12px;
+      border-radius: 18px;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 18px 16px 48px; }
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.9));
+      border: 1.5px solid rgba(250, 204, 21, 0.45);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 900;
+      padding: 3px 12px;
+      border-radius: 14px;
+      margin-bottom: 8px;
+    }
+    h1 { font-size: clamp(1.25rem, 3.2vw, 1.75rem); color: #fff; line-height: 1.38; margin-bottom: 8px; }
+    .lead { font-size: 0.88rem; color: #cbd5e1; }
+    .panel {
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .panel h2 { font-size: 1.05rem; color: #fde047; margin-bottom: 12px; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .field label { display: block; font-size: 0.8rem; font-weight: 800; color: #e2e8f0; margin-bottom: 5px; }
+    .field input[type="number"], .field select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      background: #090d16;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .check-list { display: flex; flex-direction: column; gap: 10px; }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(9, 13, 22, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .check-item input { width: 18px; height: 18px; accent-color: #f97316; }
+    .btn-run {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1.5px solid #fde047;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45);
+    }
+    .btn-run:hover { filter: brightness(1.06); }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .kpi-box {
+      background: #090d16;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+    .kpi-label { font-size: 0.74rem; color: #94a3b8; font-weight: 800; }
+    .kpi-val { font-size: 1.32rem; color: #fde047; font-weight: 900; margin-top: 4px; }
+    table.sim-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.84rem; }
+    table.sim-table th, table.sim-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: right;
+    }
+    table.sim-table th:first-child, table.sim-table td:first-child { text-align: left; }
+    table.sim-table th { color: #38bdf8; font-weight: 900; }
+    .bar-row { margin-top: 8px; }
+    .bar-head { display: flex; justify-content: space-between; font-size: 0.78rem; color: #cbd5e1; margin-bottom: 3px; }
+    .bar-track { width: 100%; height: 12px; background: #090d16; border-radius: 999px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, #38bdf8, #fde047); border-radius: 999px; transition: width 0.3s ease; }
+    .env-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .env-table th, .env-table td { padding: 7px 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; word-break: break-all; }
+    .env-table th { width: 34%; color: #94a3b8; }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(127, 29, 29, 0.42), rgba(15, 23, 42, 0.96));
+      border: 2px solid #fde047;
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+    .cta-tag { display: inline-block; background: #fde047; color: #090d16; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px; }
+    .cta-title { font-size: 1.04rem; font-weight: 900; color: #fff; margin-bottom: 6px; }
+    .cta-desc { font-size: 0.83rem; color: #e2e8f0; margin-bottom: 12px; }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #facc15, #f97316);
+      color: #090d16;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 0.92rem;
+      padding: 11px 18px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(250, 204, 21, 0.35);
+    }
+    .share-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-top: 14px; }
+    .btn-share-x {
+      display: inline-block;
+      background: #0f172a;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 900;
+      padding: 8px 14px;
+      border-radius: 10px;
+    }
+    .ad-slot { display: flex; justify-content: center; margin: 12px 0; min-height: 54px; }
+    footer { text-align: center; font-size: 0.76rem; color: #64748b; padding: 24px 12px; border-top: 1px solid rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../../index.html" class="nav-link">⚡ ポータル＆風刺ゲーム(23本)へ戻る</a>
+    <a href="https://x.com/intent/post?text=%E6%8E%A8%E3%81%97%E6%B4%BB%E9%9B%BB%E5%8D%93%E3%81%A7%E5%B9%B4%E9%96%93%E3%82%B0%E3%83%83%E3%82%BA%E6%94%AF%E5%87%BA%E3%81%A8%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E8%A2%AB%E3%82%8A%E6%8E%A8%E8%A8%88%E3%83%AD%E3%82%B9%E9%A1%8D%E3%82%92%E8%A8%88%E7%AE%97%E3%81%97%E3%81%A6%E3%81%BF%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%23%E6%8E%A8%E3%81%97%E6%B4%BB%E4%BA%88%E7%AE%97%20%23%E6%8E%A8%E3%81%97%E6%B4%BB%E9%9B%BB%E5%8D%93%20%23%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%82%B0%E3%83%83%E3%82%BA%0Ahttps%3A//studyhelperproject.github.io/trend-minigames/tools/oshikatsu-goods-calculator/%3Futm_source%3Dx" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 診断結果をシェア</a>
+  </div>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <main class="wrap">
+    <div class="hero-card">
+      <span class="badge">✨ 推し活・節約シミュレーター</span>
+      <h1>【推し活電卓】年間グッズ・遠征費予算シミュレーター＆ランダム被り損失チェッカー</h1>
+      <p class="lead">毎月のランダムグッズ購入額・推し排出率・年間イベント遠征費から、年間総支出と「ランダム被り・転売価格で失う年間推計ロス額」を即時計算します。</p>
+    </div>
+
+    
+    <div class="panel">
+      <h2>⚙️ 現在の推し活・グッズ支出条件を入力</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="oshiMonthly">月々のランダムグッズ購入費（円）</label>
+          <input id="oshiMonthly" type="number" min="0" max="1000000" step="500" value="8000" />
+        </div>
+        <div class="field">
+          <label for="oshiProb">目当ての推しキャラ排出率（%）</label>
+          <input id="oshiProb" type="number" min="1" max="100" step="1" value="10" />
+        </div>
+        <div class="field">
+          <label for="oshiTrips">年間イベント遠征回数（回）</label>
+          <input id="oshiTrips" type="number" min="0" max="100" value="4" />
+        </div>
+        <div class="field">
+          <label for="oshiTripCost">1回あたりの遠征費（円）</label>
+          <input id="oshiTripCost" type="number" min="0" max="500000" step="1000" value="25000" />
+        </div>
+      </div>
+      <button id="btnRunOshi" type="button" class="btn-run">✨ 年間推し活総額＆節約可能額を計算</button>
+    </div>
+
+    <div class="panel">
+      <h2>🧮 年間予算・ランダム被り損失シミュレーション結果</h2>
+      <div class="kpi-grid" id="oshiKpi"></div>
+      <div id="oshiNote" style="font-size:0.86rem;color:#e2e8f0;background:rgba(219,39,119,0.12);border:1px solid rgba(244,114,182,0.35);padding:12px;border-radius:10px;"></div>
+
+      <div class="cta-box">
+        <span class="cta-tag">PR｜ランダム被り・転売ヤー買い占めゼロ</span>
+        <div class="cta-title">✨ アニメ・マンガ・ゲーム等のオリジナルグッズをお届け【FaNeMa】</div>
+        <div class="cta-desc">公式受注生産・正規流通だから「推しが出ないランダム被り」も「始発組の転売買い占め」も発生しません。無駄な被り予算を確定グッズにそのまま回せます！</div>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+          <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP" rel="nofollow noopener noreferrer" target="_blank" class="cta-btn">FaNeMa 公式ストアで受注生産グッズを見る &raquo;</a>
+          <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP" rel="nofollow noopener noreferrer" target="_blank">
+            <img border="0" width="160" height="600" alt="FaNeMa公式グッズ" src="https://www21.a8.net/svt/bgt?aid=261112167571&wid=001&eno=01&mid=s00000025309001005000&mc=1" style="max-height:110px;width:auto;border-radius:8px;display:block;" />
+          </a>
+        </div>
+        <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP" alt="" />
+      </div>
+    </div>
+    
+
+    <div class="panel">
+      <h2>🔗 他の無料実用ツール・風刺ミニゲーム</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="../stock-theme-analyzer/" class="nav-link">📈 新NISA・テンバガー資産推移診断</a>
+        <a href="../vpn-security-checker/" class="nav-link">🛡️ フリーWi-Fi危険度＆VPN診断</a>
+        <a href="../oshikatsu-goods-calculator/" class="nav-link">✨ 年間推し活予算＆被り損失電卓</a>
+        <a href="../../index.html" class="nav-link">🎮 風刺ミニゲーム一覧 (23本)</a>
+      </div>
+      <div class="share-bar">
+        <span style="font-size:0.78rem;color:#94a3b8;">※入力値はブラウザ内のみで計算され外部送信されません。</span>
+        <a href="https://x.com/intent/post?text=%E6%8E%A8%E3%81%97%E6%B4%BB%E9%9B%BB%E5%8D%93%E3%81%A7%E5%B9%B4%E9%96%93%E3%82%B0%E3%83%83%E3%82%BA%E6%94%AF%E5%87%BA%E3%81%A8%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E8%A2%AB%E3%82%8A%E6%8E%A8%E8%A8%88%E3%83%AD%E3%82%B9%E9%A1%8D%E3%82%92%E8%A8%88%E7%AE%97%E3%81%97%E3%81%A6%E3%81%BF%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%23%E6%8E%A8%E3%81%97%E6%B4%BB%E4%BA%88%E7%AE%97%20%23%E6%8E%A8%E3%81%97%E6%B4%BB%E9%9B%BB%E5%8D%93%20%23%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%82%B0%E3%83%83%E3%82%BA%0Ahttps%3A//studyhelperproject.github.io/trend-minigames/tools/oshikatsu-goods-calculator/%3Futm_source%3Dx" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 このツールをシェアする</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <footer>
+    <p>TrendMiniGames Studio / 実用診断＆シミュレーターコーナー（計算結果は参考目安であり投資判断・通信契約等はご自身の責任で行ってください）</p>
+  </footer>
+
+  <script>
+    (function() {
+      const TOOL_KEY = "tool_oshikatsu";
+      const isProd = window.location.hostname === 'studyhelperproject.github.io';
+      const hit = (k) => {
+        if (!isProd) return;
+        fetch('https://abacus.jasoncameron.dev/hit/trendminigames2026/' + encodeURIComponent(k), {
+          mode: 'cors',
+          keepalive: true
+        }).catch(() => {});
+      };
+
+      hit('site_pv');
+      hit('g_' + TOOL_KEY + '_pv');
+
+      if (!localStorage.getItem('tmg_uu_counted')) {
+        localStorage.setItem('tmg_uu_counted', '1');
+        hit('site_uu');
+      }
+
+      if (!sessionStorage.getItem('tmg_session_attr')) {
+        sessionStorage.setItem('tmg_session_attr', '1');
+        const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent) || window.innerWidth < 768;
+        hit(isMobile ? 'dev_mobile' : 'dev_pc');
+        const params = new URLSearchParams(window.location.search);
+        const utm = (params.get('utm_source') || '').toLowerCase();
+        const ref = (document.referrer || '').toLowerCase();
+        if (!ref.includes('studyhelperproject.github.io') || utm) {
+          let refKey = 'ref_direct';
+          if (utm === 'x' || utm === 'twitter' || ref.includes('t.co') || ref.includes('x.com') || ref.includes('twitter.com')) refKey = 'ref_x';
+          else if (utm === 'google' || ref.includes('google.')) refKey = 'ref_google';
+          else if (ref.includes('yahoo.co.jp') || ref.includes('bing.com') || ref.includes('duckduckgo.')) refKey = 'ref_search_other';
+          else if (ref.includes('github.')) refKey = 'ref_github';
+          else if (ref.length > 0) refKey = 'ref_other';
+          hit(refKey);
+        }
+      }
+
+      let toolPlayTracked = false;
+      window.trackToolRun = function() {
+        if (toolPlayTracked) return;
+        toolPlayTracked = true;
+        hit('total_plays');
+        hit('g_' + TOOL_KEY + '_play');
+      };
+
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href*="px.a8.net"]');
+        if (a) {
+          hit('total_aff_clicks');
+          hit('g_' + TOOL_KEY + '_aff');
+        }
+      });
+    })();
+  </script>
+  <script>
+
+    (function() {
+      function calc(triggeredByUser) {
+        if (triggeredByUser && window.trackToolRun) window.trackToolRun();
+        const monthly = Math.max(0, Number(document.getElementById('oshiMonthly').value) || 0);
+        const prob = Math.min(100, Math.max(1, Number(document.getElementById('oshiProb').value) || 10));
+        const trips = Math.max(0, Number(document.getElementById('oshiTrips').value) || 0);
+        const tripCost = Math.max(0, Number(document.getElementById('oshiTripCost').value) || 0);
+
+        const yearlyGoods = monthly * 12;
+        const yearlyTrips = trips * tripCost;
+        const yearlyTotal = yearlyGoods + yearlyTrips;
+        const missLoss = Math.round(yearlyGoods * (1 - prob / 100));
+        const akustaEquiv = Math.floor(missLoss / 1650);
+        const expectedDraws = Math.round(100 / prob);
+
+        document.getElementById('oshiKpi').innerHTML = `
+          <div class="kpi-box"><div class="kpi-label">年間推し活 総支出</div><div class="kpi-val">¥${yearlyTotal.toLocaleString()}</div></div>
+          <div class="kpi-box"><div class="kpi-label">ランダム被り 年間推計ロス</div><div class="kpi-val" style="color:#f43f5e;">¥${missLoss.toLocaleString()}</div></div>
+          <div class="kpi-box"><div class="kpi-label">確定アクスタ(¥1,650)換算</div><div class="kpi-val" style="color:#4ade80;">約 ${akustaEquiv} 体分</div></div>
+          <div class="kpi-box"><div class="kpi-label">推し1個あたりの期待購入数</div><div class="kpi-val">${expectedDraws} 回</div></div>
+        `;
+
+        document.getElementById('oshiNote').innerHTML = `
+          年間グッズ費 <strong>¥${yearlyGoods.toLocaleString()}</strong> ＋ 遠征費 <strong>¥${yearlyTrips.toLocaleString()}</strong> ＝ 合計 <strong>¥${yearlyTotal.toLocaleString()}</strong>。<br />
+          目当て排出率 ${prob}% のランダム商法を続けた場合、年間で約 <strong style="color:#fda4af;">¥${missLoss.toLocaleString()}（グッズ支出の ${100 - prob}%）</strong> が推し以外・被りに消える計算です。<br />
+          公式の<strong>受注生産（指名買い）</strong>に切り替えれば、浮いた予算で確定アクスタが年間 <strong>${akustaEquiv}体</strong> 追加で迎えられます！
+        `;
+      }
+
+      document.getElementById('btnRunOshi').addEventListener('click', () => calc(true));
+      ['oshiMonthly', 'oshiProb', 'oshiTrips', 'oshiTripCost'].forEach(id => {
+        document.getElementById(id).addEventListener('change', () => calc(true));
+      });
+      calc(false);
+    })();
+    
+  </script>
+</body>
+</html>
