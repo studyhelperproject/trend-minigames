@@ -87,6 +87,8 @@ ENGINE_LABELS = {
     "snake": "🐍 爆走スネーク",
     "match3": "💎 連鎖マッチ3パズル",
     "frogger": "🏃 道路横断フロッガー",
+    "lights_out": "💡 論理反転パズル",
+    "reversi": "⚫ AI対戦リバーシ",
 }
 
 SEARCH_QUERY_MAP = {

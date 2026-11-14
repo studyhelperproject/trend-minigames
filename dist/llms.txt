@@ -1,6 +1,6 @@
 # 週刊時事風刺ミニゲーム横丁 (Weekly Buzz Satire Mini-Games 2026)
 
-> 1分で遊べる無料HTML5ブラウザ風刺ミニゲーム集（全21タイトル・PC/スマホ対応・インストール不要）。
+> 1分で遊べる無料HTML5ブラウザ風刺ミニゲーム集（全23タイトル・PC/スマホ対応・インストール不要）。
 > ポータルURL: https://studyhelperproject.github.io/trend-minigames/
 
 ## ゲーム一覧 (Playable Browser Mini-Games)
@@ -25,3 +25,5 @@
 - [バズったリプ欄の8割がコピペ！？青バッジ・インプレゾンビ＆詐欺広告 迎撃インベーダー](https://studyhelperproject.github.io/trend-minigames/games/impre-zombie-invaders/): 上から隊列を組んで押し寄せる謎アラビア語コピペゾンビと偽セキュリティ警告を自動連射で撃墜せよ！ (👾 固定画面インベーダー)
 - [キリタマ仙人・優待期限ギリギリ『飲食店はしご』爆走スネーク](https://studyhelperproject.github.io/trend-minigames/games/kiritama-voucher-snake/): 今日23時59分が期限の株主優待券をママチャリで次々回収し、大行列を伸ばしまくれ！（壁激突厳禁） (🐍 爆走スネーク)
 - [AIグラボ＆半導体ウェハー争奪！3大メガテック・サプライチェーン・マッチ3パズル](https://studyhelperproject.github.io/trend-minigames/games/semicon-supply-match3/): 黒革ジャン社長のGPU・冷却水・電力・半導体株を3つ揃えて連鎖させ、AI供給網のボトルネックを解消せよ！ (💎 連鎖マッチ3パズル)
+- [スレッズ新機能『カスタムいいね』炎上鎮火！上下左右が反転する論理パズル（Lights Out）](https://studyhelperproject.github.io/trend-minigames/games/threads-custom-like-lightsout/): 話題のカスタムいいね機能で通知が炎上連鎖！タップすると上下左右も反転する4×4盤面をすべて鎮火せよ！ (💡 論理反転パズル)
+- [SNS流行語大賞2026！『別班・ドパガキ・フレネミー』世論ひっくり返しリバーシ（AI対戦）](https://studyhelperproject.github.io/trend-minigames/games/sns-buzzword-reversi/): 2026年11月発表のSNS流行語ノミネートが激突！6×6高速オセロ盤面で相手の流行語を挟んでひっくり返せ！ (⚫ AI対戦リバーシ)

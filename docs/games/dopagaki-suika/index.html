@@ -557,7 +557,7 @@ canvas#gameCanvas {
 
   <!-- Top Navigation -->
   <div class="top-bar">
-    <a href="../../index.html" class="portal-link">⚡ 風刺ゲーム横丁一覧(21本)</a>
+    <a href="../../index.html" class="portal-link">⚡ 風刺ゲーム横丁一覧(23本)</a>
     <div class="top-controls">
       <button id="btnMuteToggle" class="btn-icon">🔊 BGM ON</button>
     </div>
@@ -2501,7 +2501,9 @@ window.SuikaGameEngine = SuikaGameEngine;
         space_invaders: window.SpaceInvadersGameEngine,
         snake: window.SnakeGameEngine,
         match3: window.Match3GameEngine,
-        frogger: window.FroggerGameEngine
+        frogger: window.FroggerGameEngine,
+        lights_out: window.LightsOutGameEngine,
+        reversi: window.ReversiGameEngine
       };
       const EngineClass = engineMap[theme.engine] || window.SuikaGameEngine;
 

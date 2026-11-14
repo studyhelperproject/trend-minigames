@@ -3260,6 +3260,186 @@
           "expected_cvr": 0.024
         }
       ]
+    },
+    {
+      "slug": "threads-custom-like-lightsout",
+      "title": "スレッズ新機能『カスタムいいね』炎上鎮火！上下左右が反転する論理パズル（Lights Out）",
+      "subtitle": "話題のカスタムいいね機能で通知が炎上連鎖！タップすると上下左右も反転する4×4盤面をすべて鎮火せよ！",
+      "engine": "lights_out",
+      "has_timer": false,
+      "bgm_preset": "cyber_tension",
+      "stage_style": "neon_sns",
+      "trend_category": "SNS最新機能×論理パズル",
+      "trend_keywords": [
+        "カスタムいいね",
+        "Threads新機能",
+        "ライツアウト",
+        "論理パズル"
+      ],
+      "story_intro": "※フィクションの風刺パズルです。2026年11月話題の新機能『カスタムいいね』を付けまくったら、なぜかタイムラインの炎上通知が上下左右に連鎖し始めた！すべての炎上マスを✅に変えて鎮火せよ！",
+      "sns_reply_template": "話題の『カスタムいいね』炎上通知を上下左右反転パズル(Lights Out)で全部鎮火させるゲーム、頭使うけど全部消えるとスッキリする😂💡 https://studyhelperproject.github.io/trend-minigames/games/threads-custom-like-lightsout/",
+      "controls_hint": "マスをタップするとそのマスと上下左右が反転！すべての🔥を✅に変えれば完全クリア（時間制限なし）！",
+      "background": {
+        "gradient": [
+          "#1a0b2e",
+          "#311042",
+          "#0f172a"
+        ],
+        "board_bg": "rgba(18, 10, 32, 0.96)",
+        "border_color": "#ec4899",
+        "accent_color": "#00e5ff"
+      },
+      "player": {
+        "emoji": "🔥",
+        "name": "炎上通知"
+      },
+      "buzz_comments": [
+        "カスタムいいね機能おもろすぎｗ",
+        "あと1マスだけ消えない現象！",
+        "SNSの通知オフが一番平和",
+        "※フィクションの風刺パズルです"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "SNS民",
+          "quote": "カスタムいいね連打したら通知欄が花火大会になったｗ",
+          "avatar": "kumagaa_ceo",
+          "badge": "💡 トレンド速報"
+        }
+      ],
+      "ranks": [
+        {
+          "min_score": 0,
+          "title": "通知オフに逃げた小市民",
+          "comment": "論理の迷宮にハマってしまった…もう1回リベンジ！"
+        },
+        {
+          "min_score": 2000,
+          "title": "スマート炎上鎮火マスター",
+          "comment": "見事な手数で全マス鎮火達成！"
+        },
+        {
+          "min_score": 4000,
+          "title": "最短手数の論理パズル神",
+          "comment": "完璧な鎮火！ネットのプライバシー保護はMillenVPNもチェック！"
+        }
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_millenvpn",
+          "tag": "通信暗号化・身バレ対策PR",
+          "network": "A8.net",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "巨大IT企業でも侵入に気づけない時代！フリーWi-FiやSNS利用時のIP秘匿・通信暗号化を月数百円で。",
+          "cta_text": "MillenVPNで通信を保護する",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3000,
+          "expected_cvr": 0.024
+        },
+        {
+          "offer_id": "a8_fanema",
+          "tag": "公式受注グッズPR",
+          "network": "A8.net",
+          "title": "アニメ・マンガ・ゲーム等のオリジナルグッズをお届け！【FaNeMa】",
+          "description": "転売ヤーやランダム9割ハズレにサヨナラ！公式オリジナルグッズを確実に予約・お迎えしよう。",
+          "cta_text": "FaNeMa公式グッズを見る",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "cpa_jpy": 2200,
+          "expected_cvr": 0.025
+        }
+      ]
+    },
+    {
+      "slug": "sns-buzzword-reversi",
+      "title": "SNS流行語大賞2026！『別班・ドパガキ・フレネミー』世論ひっくり返しリバーシ（AI対戦）",
+      "subtitle": "2026年11月発表のSNS流行語ノミネートが激突！6×6高速オセロ盤面で相手の流行語を挟んでひっくり返せ！",
+      "engine": "reversi",
+      "has_timer": false,
+      "bgm_preset": "upbeat_pop",
+      "stage_style": "press_conference",
+      "trend_category": "SNS流行語2026×AI対戦リバーシ",
+      "trend_keywords": [
+        "SNS流行語大賞2026",
+        "ドパガキ",
+        "オセロAI",
+        "陣取り対決"
+      ],
+      "story_intro": "※フィクションの風刺ボードゲームです。『SNS流行語大賞2026』ノミネート発表でタイムラインが大論争！あなたの推し流行語石でAIアルゴリズムの石を挟み、世論の盤面をひっくり返せ！",
+      "sns_reply_template": "『SNS流行語大賞2026』の世論を6×6高速オセロ(リバーシ)でAIと取り合うゲーム、角を取った瞬間の逆転が気持ち良すぎ😂⚫⚪ https://studyhelperproject.github.io/trend-minigames/games/sns-buzzword-reversi/",
+      "controls_hint": "光っているマスをタップして石を置き、相手の石を挟んでひっくり返そう！四隅の角を取るのが必勝のコツ！",
+      "background": {
+        "gradient": [
+          "#041b15",
+          "#064e3b",
+          "#0f172a"
+        ],
+        "board_bg": "rgba(6, 22, 18, 0.96)",
+        "border_color": "#00e676",
+        "accent_color": "#fde047"
+      },
+      "player": {
+        "emoji": "🛡️",
+        "name": "あなた"
+      },
+      "buzz_comments": [
+        "ドパガキもフレネミーも今年っぽいｗ",
+        "オセロは角を取ったら勝ち！",
+        "AI意外と強くて草",
+        "※フィクションのボードゲームです"
+      ],
+      "buzz_cutins": [
+        {
+          "speaker": "流行語コメンテーター",
+          "quote": "今年のSNS流行語は『自虐とネットミーム』が独占しましたね！",
+          "avatar": "uedaa_gov",
+          "badge": "⚫ 流行語速報"
+        }
+      ],
+      "ranks": [
+        {
+          "min_score": 0,
+          "title": "角をAIに奪われたチャレンジャー",
+          "comment": "中盤までは優勢だったのに角を取られて大逆転された…！"
+        },
+        {
+          "min_score": 3000,
+          "title": "トレンド世論の盤面師",
+          "comment": "堅実な打ち回しでAIに勝利！"
+        },
+        {
+          "min_score": 5500,
+          "title": "SNS流行語2026完全制覇のオセロ王",
+          "comment": "圧倒的石数で完全勝利！推し活グッズはFaNeMaでチェック！"
+        }
+      ],
+      "affiliate_offers": [
+        {
+          "offer_id": "a8_fanema",
+          "tag": "公式受注グッズPR",
+          "network": "A8.net",
+          "title": "アニメ・マンガ・ゲーム等のオリジナルグッズをお届け！【FaNeMa】",
+          "description": "転売ヤーやランダム9割ハズレにサヨナラ！公式オリジナルグッズを確実に予約・お迎えしよう。",
+          "cta_text": "FaNeMa公式グッズを見る",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "pixel_url": "https://www19.a8.net/0.gif?a8mat=4BGJFR+9FYJ76+5FAA+5ZEMP",
+          "cpa_jpy": 2200,
+          "expected_cvr": 0.025
+        },
+        {
+          "offer_id": "a8_millenvpn",
+          "tag": "通信暗号化・身バレ対策PR",
+          "network": "A8.net",
+          "title": "MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！",
+          "description": "巨大IT企業でも侵入に気づけない時代！フリーWi-FiやSNS利用時のIP秘匿・通信暗号化を月数百円で。",
+          "cta_text": "MillenVPNで通信を保護する",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "pixel_url": "https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6",
+          "cpa_jpy": 3000,
+          "expected_cvr": 0.024
+        }
+      ]
     }
   ]
 }

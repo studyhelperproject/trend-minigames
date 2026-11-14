@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13 20:31:05",
+  "updated_at": "2026-11-14 09:23:38",
   "games": {
     "dopagaki-suika": {
       "impressions": 23877,
@@ -416,13 +416,37 @@
       "timestamp": "2026-11-13 20:31:05",
       "summary": "全21本稼働 | IndexNow: HTTP 200 OK (24 URLs submitted) | WebSub: HTTP 204 OK (RSS Hub Notified)",
       "action_taken": "集客エンジン稼働：15本へ拡充、sitemap.xml/rss.xml/llms.txt/OGP画像16枚/JSON-LD生成、IndexNow＆Google WebSubへ全24 URLを即時Ping送信。"
+    },
+    {
+      "cycle": 15,
+      "timestamp": "2026-11-13 21:22:22",
+      "summary": "全21本稼働 | IndexNow: HTTP 200 OK (24 URLs submitted) | WebSub: HTTP 204 OK (RSS Hub Notified)",
+      "action_taken": "集客エンジン稼働：15本へ拡充、sitemap.xml/rss.xml/llms.txt/OGP画像16枚/JSON-LD生成、IndexNow＆Google WebSubへ全24 URLを即時Ping送信。"
+    },
+    {
+      "cycle": 16,
+      "timestamp": "2026-11-14 03:22:24",
+      "summary": "全21本稼働 | IndexNow: HTTP 200 OK (24 URLs submitted) | WebSub: HTTP 204 OK (RSS Hub Notified)",
+      "action_taken": "集客エンジン稼働：15本へ拡充、sitemap.xml/rss.xml/llms.txt/OGP画像16枚/JSON-LD生成、IndexNow＆Google WebSubへ全24 URLを即時Ping送信。"
+    },
+    {
+      "cycle": 17,
+      "timestamp": "2026-11-14 09:22:24",
+      "summary": "全21本稼働 | IndexNow: HTTP 200 OK (24 URLs submitted) | WebSub: HTTP 204 OK (RSS Hub Notified)",
+      "action_taken": "集客エンジン稼働：15本へ拡充、sitemap.xml/rss.xml/llms.txt/OGP画像16枚/JSON-LD生成、IndexNow＆Google WebSubへ全24 URLを即時Ping送信。"
+    },
+    {
+      "cycle": 18,
+      "timestamp": "2026-11-14 09:23:38",
+      "summary": "全23本稼働 | IndexNow: HTTP 200 OK (26 URLs submitted) | WebSub: HTTP 204 OK (RSS Hub Notified)",
+      "action_taken": "集客エンジン稼働：15本へ拡充、sitemap.xml/rss.xml/llms.txt/OGP画像16枚/JSON-LD生成、IndexNow＆Google WebSubへ全26 URLを即時Ping送信。"
     }
   ],
   "seo_acquisition": {
     "last_ping": {
-      "timestamp": "2026-11-13 20:30:54",
-      "submitted_urls_count": 24,
-      "indexnow_status": "HTTP 200 OK (24 URLs submitted)",
+      "timestamp": "2026-11-14 09:23:28",
+      "submitted_urls_count": 26,
+      "indexnow_status": "HTTP 200 OK (26 URLs submitted)",
       "google_websub_status": "HTTP 204 OK (RSS Hub Notified)",
       "github_real_traffic": {
         "views": {
@@ -437,7 +461,7 @@
     }
   },
   "live_telemetry": {
-    "fetched_at": "2026-11-13 20:31:05",
+    "fetched_at": "2026-11-14 09:23:38",
     "namespace": "trendminigames2026",
     "summary": {
       "site_pv": 0,
