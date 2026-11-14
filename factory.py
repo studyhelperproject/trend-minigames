@@ -255,6 +255,12 @@ def build_all() -> dict:
     if credits_src.exists():
         shutil.copyfile(credits_src, DIST_DIR / "CREDITS.txt")
 
+    static_src = SRC_DIR / "static"
+    if static_src.exists():
+        for sp in static_src.iterdir():
+            if sp.is_file():
+                shutil.copyfile(sp, DIST_DIR / sp.name)
+
     # Portal OGP SVG
     (ogp_dist / "portal.svg").write_text(
         generate_ogp_svg(
