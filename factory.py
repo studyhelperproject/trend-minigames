@@ -579,6 +579,7 @@ def _render_tool_shell(tool: dict, body_html: str, tool_js: str, game_count: int
   <script>
 {{TOOL_JS}}
   </script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0ec3287332604ee58676804a94371bdb"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>"""
 
@@ -1389,18 +1390,35 @@ def execute_live_acquisition(themes: list) -> dict:
 TELEMETRY_NS = "trendminigames2026"
 
 
-def get_abacus_value(key: str) -> int:
+def fetch_abacus_metric(key: str):
+    """Abacus APIから数値を取得する。404(未生成)は0、通信失敗・5xx等はNoneを返す。"""
     url = f"https://abacus.jasoncameron.dev/get/{TELEMETRY_NS}/{urllib.parse.quote(key)}"
-    try:
-        out = subprocess.check_output(
-            ["curl.exe", "-s", "--max-time", "6", url],
-            stderr=subprocess.DEVNULL,
-            text=True,
-        )
-        data = json.loads(out)
-        return int(data.get("value", 0))
-    except Exception:
-        return 0
+    for attempt in range(2):
+        try:
+            out = subprocess.check_output(
+                ["curl.exe", "-s", "--max-time", "5", "-w", "\n%{http_code}", url],
+                stderr=subprocess.DEVNULL,
+                text=True,
+            )
+            lines = out.rstrip("\r\n").rsplit("\n", 1)
+            body = lines[0] if len(lines) == 2 else out
+            code = lines[1].strip() if len(lines) == 2 else ""
+            if code == "200":
+                data = json.loads(body)
+                if "value" in data:
+                    return int(data["value"])
+            elif code == "404":
+                return 0
+        except Exception:
+            pass
+        if attempt == 0:
+            time.sleep(0.3)
+    return None
+
+
+def get_abacus_value(key: str) -> int:
+    val = fetch_abacus_metric(key)
+    return 0 if val is None else val
 
 
 def fetch_live_telemetry(themes: list, include_per_game: bool = False) -> dict:
@@ -1412,19 +1430,30 @@ def fetch_live_telemetry(themes: list, include_per_game: bool = False) -> dict:
         "dev_mobile", "dev_pc",
         "ref_x", "ref_google", "ref_search_other", "ref_github", "ref_direct", "ref_other",
     ]
+    failed_keys = []
     metrics = {}
     for k in core_keys:
-        metrics[k] = get_abacus_value(k)
+        val = fetch_abacus_metric(k)
+        if val is None:
+            failed_keys.append(k)
+        metrics[k] = val
         time.sleep(0.12)
 
     tools_metrics = {}
     for tool in PRACTICAL_TOOLS:
         tkey = tool["short_key"]
-        pv = get_abacus_value(f"g_{tkey}_pv")
+        pv_k, play_k, aff_k = f"g_{tkey}_pv", f"g_{tkey}_play", f"g_{tkey}_aff"
+        pv = fetch_abacus_metric(pv_k)
+        if pv is None:
+            failed_keys.append(pv_k)
         time.sleep(0.12)
-        play = get_abacus_value(f"g_{tkey}_play")
+        play = fetch_abacus_metric(play_k)
+        if play is None:
+            failed_keys.append(play_k)
         time.sleep(0.12)
-        aff = get_abacus_value(f"g_{tkey}_aff")
+        aff = fetch_abacus_metric(aff_k)
+        if aff is None:
+            failed_keys.append(aff_k)
         time.sleep(0.12)
         tools_metrics[tool["slug"]] = {
             "key": tkey,
@@ -1438,17 +1467,26 @@ def fetch_live_telemetry(themes: list, include_per_game: bool = False) -> dict:
     if include_per_game:
         for t in themes:
             s = re.sub(r"[^a-zA-Z0-9_-]", "_", t["slug"])
-            pv = get_abacus_value(f"g_{s}_pv")
+            pv_k, play_k, aff_k = f"g_{s}_pv", f"g_{s}_play", f"g_{s}_aff"
+            pv = fetch_abacus_metric(pv_k)
+            if pv is None:
+                failed_keys.append(pv_k)
             time.sleep(0.12)
-            play = get_abacus_value(f"g_{s}_play")
+            play = fetch_abacus_metric(play_k)
+            if play is None:
+                failed_keys.append(play_k)
             time.sleep(0.12)
-            aff = get_abacus_value(f"g_{s}_aff")
+            aff = fetch_abacus_metric(aff_k)
+            if aff is None:
+                failed_keys.append(aff_k)
             time.sleep(0.12)
             per_game[t["slug"]] = {"pv": pv, "plays": play, "aff_clicks": aff}
 
     return {
         "fetched_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "namespace": TELEMETRY_NS,
+        "telemetry_health": "ok" if not failed_keys else "degraded",
+        "failed_keys": failed_keys,
         "summary": {
             "site_pv": metrics["site_pv"],
             "site_uu": metrics["site_uu"],
@@ -1620,43 +1658,54 @@ def main():
         analytics = load_json(ANALYTICS_PATH) if ANALYTICS_PATH.exists() else {"games": {}, "pdca_logs": []}
         history = analytics.setdefault("telemetry_history", [])
         cur_sum = res["summary"]
-        prev = history[-1] if history else None
+
+        def _safe_delta(cur_val, prev_val):
+            if cur_val is None or prev_val is None:
+                return None
+            return cur_val - prev_val
+
+        valid_hist = [h for h in history if (h.get("summary") or {}).get("site_pv") is not None]
+        prev = valid_hist[-1] if valid_hist else None
         prev_sum = (prev or {}).get("summary", {})
         delta_from_previous = {
             "previous_fetched_at": prev.get("fetched_at") if prev else None,
-            "site_pv": cur_sum["site_pv"] - prev_sum.get("site_pv", 0) if prev else 0,
-            "site_uu": cur_sum["site_uu"] - prev_sum.get("site_uu", 0) if prev else 0,
-            "total_plays": cur_sum["total_plays"] - prev_sum.get("total_plays", 0) if prev else 0,
-            "total_aff_clicks": cur_sum["total_aff_clicks"] - prev_sum.get("total_aff_clicks", 0) if prev else 0,
+            "site_pv": _safe_delta(cur_sum["site_pv"], prev_sum.get("site_pv")) if prev else None,
+            "site_uu": _safe_delta(cur_sum["site_uu"], prev_sum.get("site_uu")) if prev else None,
+            "total_plays": _safe_delta(cur_sum["total_plays"], prev_sum.get("total_plays")) if prev else None,
+            "total_aff_clicks": _safe_delta(cur_sum["total_aff_clicks"], prev_sum.get("total_aff_clicks")) if prev else None,
         }
         today_str = res["fetched_at"][:10]
-        prev_day = next((h for h in reversed(history) if (h.get("fetched_at") or "")[:10] < today_str), None)
+        prev_day = next((h for h in reversed(valid_hist) if (h.get("fetched_at") or "")[:10] < today_str), None)
         if prev_day:
             pd_sum = prev_day.get("summary", {})
             delta_from_previous_day = {
                 "previous_day_fetched_at": prev_day.get("fetched_at"),
-                "site_pv": cur_sum["site_pv"] - pd_sum.get("site_pv", 0),
-                "site_uu": cur_sum["site_uu"] - pd_sum.get("site_uu", 0),
-                "total_plays": cur_sum["total_plays"] - pd_sum.get("total_plays", 0),
-                "total_aff_clicks": cur_sum["total_aff_clicks"] - pd_sum.get("total_aff_clicks", 0),
+                "site_pv": _safe_delta(cur_sum["site_pv"], pd_sum.get("site_pv")),
+                "site_uu": _safe_delta(cur_sum["site_uu"], pd_sum.get("site_uu")),
+                "total_plays": _safe_delta(cur_sum["total_plays"], pd_sum.get("total_plays")),
+                "total_aff_clicks": _safe_delta(cur_sum["total_aff_clicks"], pd_sum.get("total_aff_clicks")),
             }
         else:
             delta_from_previous_day = None
 
-        history.append(
-            {
-                "fetched_at": res["fetched_at"],
-                "summary": cur_sum,
-                "tools": res.get("tools", {}),
-                "traffic_sources": res.get("traffic_sources", {}),
-                "devices": res.get("devices", {}),
-            }
-        )
-        if len(history) > 60:
-            analytics["telemetry_history"] = history[-60:]
-        analytics["updated_at"] = res["fetched_at"]
-        save_json(ANALYTICS_PATH, analytics)
+        history_saved = False
+        if res.get("telemetry_health") == "ok" and cur_sum.get("site_pv") is not None:
+            history.append(
+                {
+                    "fetched_at": res["fetched_at"],
+                    "summary": cur_sum,
+                    "tools": res.get("tools", {}),
+                    "traffic_sources": res.get("traffic_sources", {}),
+                    "devices": res.get("devices", {}),
+                }
+            )
+            if len(history) > 60:
+                analytics["telemetry_history"] = history[-60:]
+            analytics["updated_at"] = res["fetched_at"]
+            save_json(ANALYTICS_PATH, analytics)
+            history_saved = True
 
+        res["history_saved"] = history_saved
         res["delta_from_previous"] = delta_from_previous
         if delta_from_previous_day is not None:
             res["delta_from_previous_day"] = delta_from_previous_day

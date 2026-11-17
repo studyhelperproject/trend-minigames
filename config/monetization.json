@@ -73,5 +73,10 @@
     "target_ad_ctr_percent": 3.5,
     "target_retry_rate_percent": 45.0,
     "auto_optimize_enabled": true
+  },
+  "cloudflare_web_analytics": {
+    "account_id": "f061cc47d05c6927f89d5d8c4162996a",
+    "site_tag": "2054230ae4774e0b9e1f01f2d69348fd",
+    "token": "0ec3287332604ee58676804a94371bdb"
   }
 }
