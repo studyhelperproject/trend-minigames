@@ -18,6 +18,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
+from PIL import Image, ImageDraw, ImageFont
 
 BASE_DIR = Path(__file__).resolve().parent
 CONFIG_PATH = BASE_DIR / "config" / "monetization.json"
@@ -110,33 +111,104 @@ SEARCH_QUERY_MAP = {
 }
 
 
-def generate_ogp_svg(title: str, subtitle: str, category: str, emojis: list, grad: list) -> str:
-    t1 = html_lib.escape(title[:22])
-    t2 = html_lib.escape(title[22:44])
-    sub = html_lib.escape(subtitle[:38]) + ("..." if len(subtitle) > 38 else "")
-    cat = html_lib.escape(category)
-    em_str = " ".join(emojis[:4])
-    c1 = grad[0] if len(grad) > 0 else "#090d16"
-    c2 = grad[1] if len(grad) > 1 else "#1e293b"
-    c3 = grad[-1] if len(grad) > 2 else "#7f1d1d"
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="{c1}"/>
-      <stop offset="50%" stop-color="{c2}"/>
-      <stop offset="100%" stop-color="{c3}"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect x="28" y="28" width="1144" height="574" rx="28" fill="rgba(6,9,17,0.78)" stroke="#fde047" stroke-width="5"/>
-  <rect x="64" y="64" width="420" height="48" rx="24" fill="#e11d48"/>
-  <text x="274" y="96" font-family="sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">🔥 {cat}</text>
-  <text x="600" y="220" font-family="sans-serif" font-size="96" text-anchor="middle">{em_str}</text>
-  <text x="600" y="340" font-family="sans-serif" font-size="48" font-weight="bold" fill="#ffffff" text-anchor="middle">{t1}</text>
-  <text x="600" y="405" font-family="sans-serif" font-size="46" font-weight="bold" fill="#fde047" text-anchor="middle">{t2}</text>
-  <text x="600" y="475" font-family="sans-serif" font-size="26" font-weight="bold" fill="#38bdf8" text-anchor="middle">{sub}</text>
-  <text x="600" y="555" font-family="sans-serif" font-size="22" fill="#94a3b8" text-anchor="middle">🎮 週刊時事風刺ミニゲーム横丁（無料ブラウザゲーム・※完全フィクション）</text>
-</svg>"""
+def _hex_to_rgb(hex_color: str, fallback: tuple = (15, 23, 42)) -> tuple:
+    h = (hex_color or "").strip().lstrip("#")
+    if len(h) == 6:
+        try:
+            return tuple(int(h[i : i + 2], 16) for i in (0, 2, 4))
+        except ValueError:
+            pass
+    return fallback
+
+
+def _strip_emoji_for_font(text: str) -> str:
+    return re.sub(r"[\U00010000-\U0010ffff\u2600-\u27bf\ufe0f]", "", text or "").strip()
+
+
+def _load_jp_font(size: int):
+    for fp in (
+        "C:/Windows/Fonts/meiryob.ttc",
+        "C:/Windows/Fonts/YuGothB.ttc",
+        "C:/Windows/Fonts/msgothic.ttc",
+    ):
+        if Path(fp).exists():
+            try:
+                return ImageFont.truetype(fp, size)
+            except Exception:
+                pass
+    return ImageFont.load_default()
+
+
+def _wrap_text_lines(draw: ImageDraw.ImageDraw, text: str, font, max_width: int, max_lines: int) -> list:
+    lines = []
+    cur = ""
+    for ch in text:
+        if ch in ("\n", "\r"):
+            if cur:
+                lines.append(cur)
+                cur = ""
+            continue
+        test = cur + ch
+        bbox = draw.textbbox((0, 0), test, font=font)
+        if bbox[2] - bbox[0] <= max_width:
+            cur = test
+        else:
+            if cur:
+                lines.append(cur)
+            cur = ch
+        if len(lines) >= max_lines:
+            break
+    if cur and len(lines) < max_lines:
+        lines.append(cur)
+    return lines
+
+
+def generate_ogp_png(out_path: Path, title: str, subtitle: str, category: str, grad: list) -> None:
+    """X/SNSカード表示用の1200x630 PNG形式OGP画像を生成する"""
+    width, height = 1200, 630
+    c1 = _hex_to_rgb(grad[0] if len(grad) > 0 else "#090d16", (9, 13, 22))
+    c3 = _hex_to_rgb(grad[-1] if len(grad) > 1 else "#7f1d1d", (127, 29, 29))
+
+    img = Image.new("RGB", (width, height), c1)
+    draw = ImageDraw.Draw(img)
+    for y in range(height):
+        t = y / max(1, height - 1)
+        row_col = tuple(int(c1[i] * (1 - t) + c3[i] * t) for i in range(3))
+        draw.line([(0, y), (width, y)], fill=row_col)
+
+    draw.rounded_rectangle([32, 32, width - 32, height - 32], radius=24, fill=(10, 15, 28), outline=(253, 224, 71), width=5)
+
+    font_cat = _load_jp_font(28)
+    font_title = _load_jp_font(48)
+    font_sub = _load_jp_font(27)
+    font_footer = _load_jp_font(22)
+
+    cat_clean = _strip_emoji_for_font(category) or "FREE WEB TOOL"
+    cat_bbox = draw.textbbox((0, 0), cat_clean, font=font_cat)
+    cat_w = max(220, (cat_bbox[2] - cat_bbox[0]) + 56)
+    draw.rounded_rectangle([72, 68, min(width - 72, 72 + cat_w), 124], radius=24, fill=(225, 29, 72))
+    draw.text((100, 80), cat_clean, font=font_cat, fill=(255, 255, 255))
+
+    title_clean = _strip_emoji_for_font(title)
+    title_lines = _wrap_text_lines(draw, title_clean, font_title, width - 160, 3)
+    y_pos = 165
+    for idx, line in enumerate(title_lines):
+        color = (255, 255, 255) if idx == 0 else (253, 224, 71)
+        draw.text((76, y_pos), line, font=font_title, fill=color)
+        y_pos += 68
+
+    sub_clean = _strip_emoji_for_font(subtitle)
+    sub_lines = _wrap_text_lines(draw, sub_clean, font_sub, width - 160, 2)
+    y_sub = max(y_pos + 18, 390)
+    for line in sub_lines:
+        draw.text((76, y_sub), line, font=font_sub, fill=(56, 189, 248))
+        y_sub += 42
+
+    draw.line([(72, 520), (width - 72, 520)], fill=(51, 65, 85), width=2)
+    draw.text((76, 540), "週刊時事風刺ミニゲーム横丁 & 無料Web診断ツール（PC・スマホ対応 / 登録不要）", font=font_footer, fill=(148, 163, 184))
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    img.save(out_path, format="PNG", optimize=True)
 
 
 def build_marketing_center_html(themes: list, seo_status: dict) -> str:
@@ -238,6 +310,26 @@ PRACTICAL_TOOLS = [
         "grad": ["#090d16", "#064e3b", "#b45309"],
         "emojis": ["📈", "💰", "🚀", "💎"],
         "share_text": "新NISA・テンバガー資産推移＆急騰テーマ株診断シミュレーターで10年後の運用目標を診断しました！",
+        "faqs": [
+            {"q": "新NISAの成長投資枠で高い利回りを狙うにはどうすればよいですか？", "a": "つみたて投資枠で全世界株やS&P500等のインデックス積立を土台にしつつ、成長投資枠の一部でAI半導体・国策防衛・小型成長株などのテーマ銘柄を組み合わせるコア・サテライト戦略が一般的です。"},
+            {"q": "シミュレーターの入力値は外部サーバーに送信されますか？", "a": "いいえ、初期投資額や目標金額などの入力値はすべてお使いのブラウザ上でのみ計算され、外部へ保存・送信されることはありません。"},
+        ],
+    },
+    {
+        "slug": "dividend-fire-simulator",
+        "short_key": "tool_dividend",
+        "title": "【無料】高配当株・新NISA「月3万円・月10万円」配当生活＆必要元本シミュレーター",
+        "short_title": "高配当株・新NISA「月3万・月10万」配当生活試算",
+        "badge": "💰 配当・FIRE計算ツール",
+        "description": "目標の毎月配当金（手取り）・想定配当利回り・現在の投資元本から、必要資金・新NISA非課税（20.315%）の節税額・目標達成までの年数を1秒で試算します。",
+        "keywords": ["高配当株", "配当金生活", "新NISA 配当金", "月3万円 配当", "FIRE シミュレーター"],
+        "grad": ["#090d16", "#78350f", "#b91c1c"],
+        "emojis": ["💰", "📊", "🏦", "✨"],
+        "share_text": "高配当株・新NISA配当生活シミュレーターで「目標の毎月配当金に必要な元本と節税額」を試算しました！",
+        "faqs": [
+            {"q": "月3万円・月10万円の配当金を得るにはいくら元本が必要ですか？", "a": "配当利回り4%（NISA非課税）の場合、年間36万円（月3万円）に必要な元本は900万円、年間120万円（月10万円）には3,000万円が目安になります。特定口座の場合は20.315%課税されるため約1.25倍の元本が必要です。"},
+            {"q": "NISA非課税枠を使うと税金はどれくらい得しますか？", "a": "通常は配当金に対して20.315%（所得税・住民税・復興特別所得税）が源泉徴収されますが、NISA口座ではそのまま満額受け取れるため長期になるほど大きな複利差が生まれます。"},
+        ],
     },
     {
         "slug": "vpn-security-checker",
@@ -250,6 +342,26 @@ PRACTICAL_TOOLS = [
         "grad": ["#090d16", "#0f172a", "#0284c7"],
         "emojis": ["🛡️", "🔒", "📶", "💻"],
         "share_text": "フリーWi-Fi危険度＆ブラウザ通信セキュリティ露出チェッカーで現在の通信リスクを診断しました！",
+        "faqs": [
+            {"q": "HTTPSのサイトならカフェやホテルのフリーWi-FiでもVPNは不要ですか？", "a": "HTTPSはサイトとの通信内容を暗号化しますが、偽アクセスポイント（Evil Twin）への接続誘導やDNS/接続先ドメインの露出、同一LAN内の他端末からの攻撃リスクは残るため、銀行・決済利用時はVPN併用が推奨されます。"},
+            {"q": "国産VPNを選ぶメリットは何ですか？", "a": "日本語サポートや日本の電気通信事業法に基づく信頼性に加え、海外渡航時にTVerや日本のネットバンキング等の日本限定サービスへ接続しやすい点が強みです。"},
+        ],
+    },
+    {
+        "slug": "subsc-vpn-cost-calculator",
+        "short_key": "tool_subsc",
+        "title": "【固定費＆通信セキュリティ診断】月額サブスク無駄遣い電卓＆安全ネット環境チェッカー",
+        "short_title": "月額サブスク無駄遣い電卓＆固定費削減試算",
+        "badge": "💳 固定費削減・VPNツール",
+        "description": "毎月払っている動画・音楽・クラウド・通信サブスクの金額と未使用サービスを入力し、見直しで浮く年間節約額と暗号化VPN導入後の実質お釣り額を計算します。",
+        "keywords": ["サブスク 整理 電卓", "固定費 見直し", "月額サブスク 計算", "年間支出", "VPN コスト"],
+        "grad": ["#090d16", "#1e3a8a", "#0f766e"],
+        "emojis": ["💳", "🧾", "🛡️", "📉"],
+        "share_text": "月額サブスク無駄遣い電卓で「見直しで年間いくら固定費が浮くか」を計算しました！",
+        "faqs": [
+            {"q": "サブスク整理で見落としがちな支出は何ですか？", "a": "初月無料後に放置された動画配信・クラウド容量・アプリ内課金に加え、海外渡航や公衆Wi-Fi対策のための高額な一時モバイルWi-Fiレンタル料金も見直し対象になりやすい固定費です。"},
+            {"q": "計算結果の保存や個人情報入力は必要ですか？", "a": "いいえ、登録不要・ブラウザ内完結で、メールアドレス等の個人情報を一切入力せずにその場で年間節約額を試算できます。"},
+        ],
     },
     {
         "slug": "oshikatsu-goods-calculator",
@@ -262,6 +374,10 @@ PRACTICAL_TOOLS = [
         "grad": ["#090d16", "#4c1d95", "#db2777"],
         "emojis": ["✨", "🎭", "🧮", "💸"],
         "share_text": "推し活電卓で年間グッズ支出とランダム被り推計ロス額を計算してみました！",
+        "faqs": [
+            {"q": "ランダムグッズの被り損失を減らす最も確実な方法は？", "a": "トレーディングブラインド商品への課金額を把握し、事前予約可能な公式受注生産アイテムやキャラクター指定購入できる正規ストアを中心に予算配分することです。"},
+            {"q": "確定アクスタ換算はいくらで計算していますか？", "a": "一般的なアニメ・ゲーム公式アクリルスタンドの平均価格帯である1体1,650円（税込）を基準に換算しています。"},
+        ],
     },
 ]
 
@@ -270,7 +386,7 @@ def _render_tool_shell(tool: dict, body_html: str, tool_js: str, game_count: int
     """実用Web診断・シミュレーター用の共通HTMLシェルを生成する"""
     slug = tool["slug"]
     canonical_url = f"{SITE_BASE_URL}/tools/{slug}/"
-    ogp_url = f"{SITE_BASE_URL}/ogp/tool-{slug}.svg"
+    ogp_url = f"{SITE_BASE_URL}/ogp/tool-{slug}.png"
     keywords_csv = ",".join(tool["keywords"])
     hashtags = " ".join(f"#{k}" for k in tool["keywords"][:3])
     share_url = f"{canonical_url}?utm_source=x"
@@ -290,6 +406,33 @@ def _render_tool_shell(tool: dict, body_html: str, tool_js: str, game_count: int
             "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"},
         },
         ensure_ascii=False,
+    )
+    faqs = tool.get("faqs", [])
+    faq_json_ld = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": item["q"],
+                    "acceptedAnswer": {"@type": "Answer", "text": item["a"]},
+                }
+                for item in faqs
+            ],
+        },
+        ensure_ascii=False,
+    )
+    faq_html = "".join(
+        f'<div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.08);">'
+        f'<div style="font-weight:900;color:#38bdf8;font-size:0.86rem;margin-bottom:3px;">Q. {html_lib.escape(item["q"])}</div>'
+        f'<div style="font-size:0.82rem;color:#cbd5e1;line-height:1.55;">A. {html_lib.escape(item["a"])}</div>'
+        f"</div>"
+        for item in faqs
+    )
+    nav_tools_html = "".join(
+        f'<a href="../{t["slug"]}/" class="nav-link">{t["emojis"][0]} {html_lib.escape(t["short_title"][:18])}</a>'
+        for t in PRACTICAL_TOOLS
     )
 
     tpl = """<!DOCTYPE html>
@@ -313,6 +456,7 @@ def _render_tool_shell(tool: dict, body_html: str, tool_js: str, game_count: int
   <meta name="twitter:description" content="{{DESCRIPTION}}" />
   <meta name="twitter:image" content="{{OGP_URL}}" />
   <script type="application/ld+json">{{JSON_LD}}</script>
+  <script type="application/ld+json">{{FAQ_JSON_LD}}</script>
   <!-- 忍者AdMax 全自動広告タグ -->
   <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
   <style>
@@ -497,11 +641,14 @@ def _render_tool_shell(tool: dict, body_html: str, tool_js: str, game_count: int
     {{BODY_HTML}}
 
     <div class="panel">
+      <h2>❓ よくある質問（FAQ）</h2>
+      {{FAQ_HTML}}
+    </div>
+
+    <div class="panel">
       <h2>🔗 他の無料実用ツール・風刺ミニゲーム</h2>
       <div style="display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="../stock-theme-analyzer/" class="nav-link">📈 新NISA・テンバガー資産推移診断</a>
-        <a href="../vpn-security-checker/" class="nav-link">🛡️ フリーWi-Fi危険度＆VPN診断</a>
-        <a href="../oshikatsu-goods-calculator/" class="nav-link">✨ 年間推し活予算＆被り損失電卓</a>
+        {{NAV_TOOLS_HTML}}
         <a href="../../index.html" class="nav-link">🎮 風刺ミニゲーム一覧 ({{GAME_COUNT}}本)</a>
       </div>
       <div class="share-bar">
@@ -523,55 +670,56 @@ def _render_tool_shell(tool: dict, body_html: str, tool_js: str, game_count: int
 
   <script>
     (function() {
-      const TOOL_KEY = "{{SHORT_KEY}}";
+      const TOOL_SLUG = "{{TOOL_SLUG}}";
       const isProd = window.location.hostname === 'studyhelperproject.github.io';
-      const hit = (k) => {
+
+      window.cfTrackEvent = function(evType, evSlug) {
         if (!isProd) return;
-        fetch('https://abacus.jasoncameron.dev/hit/trendminigames2026/' + encodeURIComponent(k), {
-          mode: 'cors',
-          keepalive: true
-        }).catch(() => {});
+        try {
+          const uid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+            const r = Math.random() * 16 | 0;
+            return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+          });
+          const url = 'https://cloudflareinsights.com/cdn-cgi/rum';
+          const base = {
+            memory: {},
+            timings: {},
+            firstPaint: 0,
+            firstContentfulPaint: 0,
+            startTime: Math.ceil(performance.timeOrigin + performance.now()),
+            pageloadId: uid,
+            eventType: 1,
+            nt: 'routing-apis',
+            ntapi: 1,
+            location: 'https://studyhelperproject.github.io/trend-minigames/ev/' + evType + '/' + evSlug,
+            referrer: window.location.origin + window.location.pathname,
+            versions: { fl: '', js: '2026.10.1', timings: 1 },
+            siteToken: '0ec3287332604ee58676804a94371bdb'
+          };
+          if (navigator.sendBeacon) {
+            base.st = 1;
+            navigator.sendBeacon(url, new Blob([JSON.stringify(base)], { type: 'application/json' }));
+          } else {
+            base.st = 2;
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('content-type', 'application/json');
+            xhr.send(JSON.stringify(base));
+          }
+        } catch (e) {}
       };
-
-      hit('site_pv');
-      hit('g_' + TOOL_KEY + '_pv');
-
-      if (!localStorage.getItem('tmg_uu_counted')) {
-        localStorage.setItem('tmg_uu_counted', '1');
-        hit('site_uu');
-      }
-
-      if (!sessionStorage.getItem('tmg_session_attr')) {
-        sessionStorage.setItem('tmg_session_attr', '1');
-        const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent) || window.innerWidth < 768;
-        hit(isMobile ? 'dev_mobile' : 'dev_pc');
-        const params = new URLSearchParams(window.location.search);
-        const utm = (params.get('utm_source') || '').toLowerCase();
-        const ref = (document.referrer || '').toLowerCase();
-        if (!ref.includes('studyhelperproject.github.io') || utm) {
-          let refKey = 'ref_direct';
-          if (utm === 'x' || utm === 'twitter' || ref.includes('t.co') || ref.includes('x.com') || ref.includes('twitter.com')) refKey = 'ref_x';
-          else if (utm === 'google' || ref.includes('google.')) refKey = 'ref_google';
-          else if (ref.includes('yahoo.co.jp') || ref.includes('bing.com') || ref.includes('duckduckgo.')) refKey = 'ref_search_other';
-          else if (ref.includes('github.')) refKey = 'ref_github';
-          else if (ref.length > 0) refKey = 'ref_other';
-          hit(refKey);
-        }
-      }
 
       let toolPlayTracked = false;
       window.trackToolRun = function() {
         if (toolPlayTracked) return;
         toolPlayTracked = true;
-        hit('total_plays');
-        hit('g_' + TOOL_KEY + '_play');
+        window.cfTrackEvent('play', TOOL_SLUG);
       };
 
       document.addEventListener('click', (e) => {
         const a = e.target.closest('a[href*="px.a8.net"]');
         if (a) {
-          hit('total_aff_clicks');
-          hit('g_' + TOOL_KEY + '_aff');
+          window.cfTrackEvent('aff', TOOL_SLUG);
         }
       });
     })();
@@ -591,11 +739,14 @@ def _render_tool_shell(tool: dict, body_html: str, tool_js: str, game_count: int
         "{{SITE_BASE_URL}}": SITE_BASE_URL,
         "{{OGP_URL}}": ogp_url,
         "{{JSON_LD}}": json_ld,
+        "{{FAQ_JSON_LD}}": faq_json_ld,
+        "{{FAQ_HTML}}": faq_html,
+        "{{NAV_TOOLS_HTML}}": nav_tools_html,
         "{{GAME_COUNT}}": str(game_count),
         "{{X_INTENT_URL}}": x_intent,
         "{{BADGE}}": html_lib.escape(tool["badge"]),
         "{{BODY_HTML}}": body_html,
-        "{{SHORT_KEY}}": tool["short_key"],
+        "{{TOOL_SLUG}}": slug,
         "{{TOOL_JS}}": tool_js,
     }
     for k, v in replacements.items():
@@ -709,8 +860,8 @@ def _build_stock_tool_parts(offers: dict) -> tuple[str, str]:
 
         const gapMsg = y10.total >= targetMan
           ? `<strong style="color:#4ade80;">✅ 想定年率 ${(st.rate * 100).toFixed(0)}% で10年後に目標達成見込みです！</strong>`
-          : `<strong style="color:#fbbf24;">⚠️ 目標まであと ${(targetMan - y10.total).toLocaleString()} 万円不足（必要年利 ${reqRate >= 0.59 ? '60%超' : reqPct + '%'}）</strong>。成長テーマ株の選定や積立上積みでギャップを埋められます。`;
-        document.getElementById('stkAdvice').innerHTML = `${gapMsg}<br /><span style="color:#cbd5e1;">【${st.label}の特徴】${st.note}</span>`;
+          : `<strong style="color:#fbbf24;">⚠️ 目標まであと ${(targetMan - y10.total).toLocaleString()} 万円不足（必要年利 ${reqRate >= 0.59 ? '60%超' : reqPct + '%'}）</strong>。成長テーマ株の選定でギャップを埋められます。`;
+        document.getElementById('stkAdvice').innerHTML = `${gapMsg}<br /><span style="color:#cbd5e1;">【${st.label}の特徴】${st.note}</span><br /><a href="__AFF_URL__" rel="nofollow noopener noreferrer" target="_blank" class="inline-aff-link" style="color:#fde047;font-weight:900;text-decoration:underline;display:inline-block;margin-top:6px;">📈 【無料】プロ厳選の「高騰期待・旬の厳選10銘柄」を今すぐチェック &raquo;</a>`;
 
         const maxVal = Math.max(1, y10.total, targetMan);
         document.getElementById('stkBars').innerHTML = rows.map(r => {
@@ -732,7 +883,7 @@ def _build_stock_tool_parts(offers: dict) -> tuple[str, str]:
       });
       render(false);
     })();
-    """
+    """.replace("__AFF_URL__", s["text_link_url"])
     return body, js
 
 
@@ -820,7 +971,8 @@ def _build_vpn_tool_parts(offers: dict) -> tuple[str, str]:
           <div class="kpi-box"><div class="kpi-label">VPN導入後の保護率</div><div class="kpi-val" style="color:#4ade80;">通信経路をAES-256暗号化</div></div>
         `;
         document.getElementById('vpnRiskBar').style.width = score + '%';
-        document.getElementById('vpnDetail').innerHTML = findings.map(f => `<p style="margin-bottom:6px;">${f}</p>`).join('');
+        document.getElementById('vpnDetail').innerHTML = findings.map(f => `<p style="margin-bottom:6px;">${f}</p>`).join('') +
+          `<p style="margin-top:8px;"><a href="__AFF_URL__" rel="nofollow noopener noreferrer" target="_blank" class="inline-aff-link" style="color:#fde047;font-weight:900;text-decoration:underline;">🛡️ 危険度 ${score}点 の通信対策：国産ノーログ『MillenVPN』の詳細・月額料金を見る &raquo;</a></p>`;
       }
 
       document.getElementById('btnRunVpn').addEventListener('click', () => diagnose(true));
@@ -829,7 +981,7 @@ def _build_vpn_tool_parts(offers: dict) -> tuple[str, str]:
       });
       diagnose(false);
     })();
-    """
+    """.replace("__AFF_URL__", v["url"])
     return body, js
 
 
@@ -904,7 +1056,8 @@ def _build_oshikatsu_tool_parts(offers: dict) -> tuple[str, str]:
         document.getElementById('oshiNote').innerHTML = `
           年間グッズ費 <strong>¥${yearlyGoods.toLocaleString()}</strong> ＋ 遠征費 <strong>¥${yearlyTrips.toLocaleString()}</strong> ＝ 合計 <strong>¥${yearlyTotal.toLocaleString()}</strong>。<br />
           目当て排出率 ${prob}% のランダム商法を続けた場合、年間で約 <strong style="color:#fda4af;">¥${missLoss.toLocaleString()}（グッズ支出の ${100 - prob}%）</strong> が推し以外・被りに消える計算です。<br />
-          公式の<strong>受注生産（指名買い）</strong>に切り替えれば、浮いた予算で確定アクスタが年間 <strong>${akustaEquiv}体</strong> 追加で迎えられます！
+          公式の<strong>受注生産（指名買い）</strong>に切り替えれば、浮いた予算で確定アクスタが年間 <strong>${akustaEquiv}体</strong> 追加で迎えられます！<br />
+          <a href="__AFF_URL__" rel="nofollow noopener noreferrer" target="_blank" class="inline-aff-link" style="color:#fde047;font-weight:900;text-decoration:underline;display:inline-block;margin-top:6px;">✨ 被り・転売ロスゼロの公式受注生産ストア『FaNeMa』で推し確定グッズを見る &raquo;</a>
         `;
       }
 
@@ -914,16 +1067,198 @@ def _build_oshikatsu_tool_parts(offers: dict) -> tuple[str, str]:
       });
       calc(false);
     })();
+    """.replace("__AFF_URL__", f_offer["url"])
+    return body, js
+
+
+def _build_dividend_tool_parts(offers: dict) -> tuple[str, str]:
+    s = offers["stocks_10"]
+    body = f"""
+    <div class="panel">
+      <h2>⚙️ 高配当株・新NISA 配当目標条件を入力</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="divMonthlyTarget">目標の毎月配当金（手取り・万円）</label>
+          <input id="divMonthlyTarget" type="number" min="1" max="500" step="1" value="5" />
+        </div>
+        <div class="field">
+          <label for="divYield">想定配当利回り（税引前・%）</label>
+          <input id="divYield" type="number" min="0.5" max="15" step="0.1" value="4.2" />
+        </div>
+        <div class="field">
+          <label for="divCurrent">現在の配当株元本（万円）</label>
+          <input id="divCurrent" type="number" min="0" max="100000" step="10" value="100" />
+        </div>
+        <div class="field">
+          <label for="divMonthlyAdd">毎月の追加投資額（万円）</label>
+          <input id="divMonthlyAdd" type="number" min="0" max="500" step="1" value="5" />
+        </div>
+      </div>
+      <button id="btnRunDiv" type="button" class="btn-run">💰 配当生活＆必要元本を計算する</button>
+    </div>
+
+    <div class="panel">
+      <h2>📊 配当シミュレーション＆NISA節税試算結果</h2>
+      <div class="kpi-grid" id="divKpi"></div>
+      <div id="divAdvice" style="font-size:0.86rem;color:#e2e8f0;background:rgba(245,158,11,0.12);border:1px solid rgba(251,191,36,0.4);padding:12px;border-radius:10px;margin-bottom:12px;"></div>
+      <table class="sim-table" id="divTable"></table>
+
+      <div class="cta-box">
+        <span class="cta-tag">PR｜利回り×成長性を狙う銘柄選び</span>
+        <div class="cta-title">📈 {html_lib.escape(s["title"])}</div>
+        <div class="cta-desc">高配当株や成長期待株を自力で全銘柄スクリーニングする時間を短縮！投資のプロが絞り込んだ厳選10銘柄レポート（無料）で、次のNISA候補をチェックできます。</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+          <a href="{s["text_link_url"]}" rel="nofollow noopener noreferrer" target="_blank" class="cta-btn">旬の厳選10銘柄レポートを無料で確認 &raquo;</a>
+          <a href="{s["banner_320x50_url"]}" rel="nofollow noopener noreferrer" target="_blank">
+            <img border="0" width="320" height="50" alt="旬の厳選10銘柄" src="{s["banner_320x50_img"]}" style="border-radius:6px;display:block;max-width:100%;height:auto;" />
+          </a>
+        </div>
+        <img border="0" width="1" height="1" src="{s["text_link_pixel"]}" alt="" />
+        <img border="0" width="1" height="1" src="{s["banner_320x50_pixel"]}" alt="" />
+      </div>
+    </div>
     """
+    js = """
+    (function() {
+      function calc(triggeredByUser) {
+        if (triggeredByUser && window.trackToolRun) window.trackToolRun();
+        const monthlyTarget = Math.max(1, Number(document.getElementById('divMonthlyTarget').value) || 5);
+        const grossYield = Math.max(0.5, Number(document.getElementById('divYield').value) || 4.2) / 100;
+        const currentMan = Math.max(0, Number(document.getElementById('divCurrent').value) || 0);
+        const monthlyAdd = Math.max(0, Number(document.getElementById('divMonthlyAdd').value) || 0);
+
+        const yearlyTargetMan = monthlyTarget * 12;
+        const reqNisaMan = Math.round(yearlyTargetMan / grossYield);
+        const reqTaxedMan = Math.round(yearlyTargetMan / (grossYield * 0.79685));
+        const annualTaxSavedMan = +(yearlyTargetMan * 0.20315 / 0.79685).toFixed(1);
+
+        const gapMan = Math.max(0, reqNisaMan - currentMan);
+        const yearsLeft = monthlyAdd > 0 ? +(gapMan / (monthlyAdd * 12)).toFixed(1) : null;
+
+        document.getElementById('divKpi').innerHTML = `
+          <div class="kpi-box"><div class="kpi-label">新NISA非課税 必要元本</div><div class="kpi-val">${reqNisaMan.toLocaleString()} 万円</div></div>
+          <div class="kpi-box"><div class="kpi-label">特定口座(課税後) 必要元本</div><div class="kpi-val" style="color:#f87171;">${reqTaxedMan.toLocaleString()} 万円</div></div>
+          <div class="kpi-box"><div class="kpi-label">NISA非課税の年間節税効果</div><div class="kpi-val" style="color:#4ade80;">約 ${annualTaxSavedMan} 万円/年</div></div>
+          <div class="kpi-box"><div class="kpi-label">現在元本からの到達目安(単利積立)</div><div class="kpi-val">${yearsLeft === null ? '積立0円' : '約 ' + yearsLeft + ' 年'}</div></div>
+        `;
+
+        document.getElementById('divAdvice').innerHTML = `
+          毎月 <strong>${monthlyTarget}万円（年間${yearlyTargetMan}万円）</strong> を利回り <strong>${(grossYield * 100).toFixed(1)}%</strong> で得るには、新NISA枠なら <strong>${reqNisaMan.toLocaleString()}万円</strong> で達成可能（特定口座より元本 <strong>${(reqTaxedMan - reqNisaMan).toLocaleString()}万円</strong> 節約）。<br />
+          より高い増配・成長ポテンシャル銘柄を組み込めば達成年数をさらに短縮できます：<br />
+          <a href="__AFF_URL__" rel="nofollow noopener noreferrer" target="_blank" class="inline-aff-link" style="color:#fde047;font-weight:900;text-decoration:underline;display:inline-block;margin-top:6px;">📈 【無料】プロ注目の成長期待株『旬の厳選10銘柄』で高利回り候補を見る &raquo;</a>
+        `;
+
+        const targets = [3, 5, 10, 20];
+        document.getElementById('divTable').innerHTML = `
+          <thead><tr><th>目標月額配当</th><th>年間受取額</th><th>新NISA必要元本</th><th>特定口座必要元本</th></tr></thead>
+          <tbody>
+            ${targets.map(m => {
+              const yr = m * 12;
+              const nisa = Math.round(yr / grossYield);
+              const tax = Math.round(yr / (grossYield * 0.79685));
+              return `<tr><td>月 ${m} 万円</td><td>${yr} 万円</td><td><strong style="color:#4ade80;">${nisa.toLocaleString()} 万円</strong></td><td>${tax.toLocaleString()} 万円</td></tr>`;
+            }).join('')}
+          </tbody>
+        `;
+      }
+
+      document.getElementById('btnRunDiv').addEventListener('click', () => calc(true));
+      ['divMonthlyTarget', 'divYield', 'divCurrent', 'divMonthlyAdd'].forEach(id => {
+        document.getElementById(id).addEventListener('change', () => calc(true));
+      });
+      calc(false);
+    })();
+    """.replace("__AFF_URL__", s["text_link_url"])
+    return body, js
+
+
+def _build_subsc_tool_parts(offers: dict) -> tuple[str, str]:
+    v = offers["millenvpn"]
+    body = f"""
+    <div class="panel">
+      <h2>⚙️ 毎月のサブスク支出・通信固定費を入力</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="subVideo">動画・アニメ配信サブスク合計（月額・円）</label>
+          <input id="subVideo" type="number" min="0" max="50000" step="100" value="2500" />
+        </div>
+        <div class="field">
+          <label for="subMusicCloud">音楽・クラウド・アプリ課金合計（月額・円）</label>
+          <input id="subMusicCloud" type="number" min="0" max="50000" step="100" value="1800" />
+        </div>
+        <div class="field">
+          <label for="subUnused">あまり使っていない整理対象額（月額・円）</label>
+          <input id="subUnused" type="number" min="0" max="50000" step="100" value="1500" />
+        </div>
+        <div class="field">
+          <label for="subWifiDays">外での作業・フリーWi-Fi/モバイルWi-Fi利用（月日数）</label>
+          <input id="subWifiDays" type="number" min="0" max="31" step="1" value="8" />
+        </div>
+      </div>
+      <button id="btnRunSub" type="button" class="btn-run">💳 年間サブスク削減額＆通信安全コストを試算する</button>
+    </div>
+
+    <div class="panel">
+      <h2>📉 固定費削減＆通信セキュリティ試算結果</h2>
+      <div class="kpi-grid" id="subKpi"></div>
+      <div id="subAdvice" style="font-size:0.86rem;color:#e2e8f0;background:rgba(14,165,233,0.12);border:1px solid rgba(56,189,248,0.35);padding:12px;border-radius:10px;"></div>
+
+      <div class="cta-box">
+        <span class="cta-tag">PR｜浮いた固定費で月額ワンコイン未満の安全対策</span>
+        <div class="cta-title">🛡️ {html_lib.escape(v["title"])}</div>
+        <div class="cta-desc">使わないサブスクを1つ解約した節約額だけで、国産ノーログVPN（2年プラン時 月額約396円相当〜）を契約して余りあるお釣りが残ります。フリーWi-Fiの安全化や海外版配信サービス対策にも活用可能です。</div>
+        <a href="{v["url"]}" rel="nofollow noopener noreferrer" target="_blank" class="cta-btn">MillenVPN の料金プラン・30日間返金保証を見る &raquo;</a>
+        <img border="0" width="1" height="1" src="{v["pixel"]}" alt="" />
+      </div>
+    </div>
+    """
+    js = """
+    (function() {
+      function calc(triggeredByUser) {
+        if (triggeredByUser && window.trackToolRun) window.trackToolRun();
+        const video = Math.max(0, Number(document.getElementById('subVideo').value) || 0);
+        const music = Math.max(0, Number(document.getElementById('subMusicCloud').value) || 0);
+        const unused = Math.max(0, Number(document.getElementById('subUnused').value) || 0);
+        const wifiDays = Math.min(31, Math.max(0, Number(document.getElementById('subWifiDays').value) || 0));
+
+        const monthlyTotal = video + music;
+        const yearlyTotal = monthlyTotal * 12;
+        const yearlySaved = unused * 12;
+        const vpnAnnualRef = 4752; // 年間約4,752円目安(月396円換算)
+        const netSurplus = yearlySaved - vpnAnnualRef;
+
+        document.getElementById('subKpi').innerHTML = `
+          <div class="kpi-box"><div class="kpi-label">現在の年間サブスク支出</div><div class="kpi-val">¥${yearlyTotal.toLocaleString()}</div></div>
+          <div class="kpi-box"><div class="kpi-label">見直しで浮く年間節約額</div><div class="kpi-val" style="color:#4ade80;">+¥${yearlySaved.toLocaleString()}</div></div>
+          <div class="kpi-box"><div class="kpi-label">外Wi-Fi露出リスク頻度</div><div class="kpi-val" style="color:${wifiDays >= 5 ? '#f87171' : '#fde047'};">月 ${wifiDays} 日</div></div>
+          <div class="kpi-box"><div class="kpi-label">VPN導入後の実質年間収支</div><div class="kpi-val" style="color:${netSurplus >= 0 ? '#4ade80' : '#fbbf24'};">${netSurplus >= 0 ? '+' : ''}¥${netSurplus.toLocaleString()}</div></div>
+        `;
+
+        document.getElementById('subAdvice').innerHTML = `
+          未使用サブスク（月 <strong>¥${unused.toLocaleString()}</strong>）を整理すると年間 <strong style="color:#4ade80;">¥${yearlySaved.toLocaleString()}</strong> の固定費が削減できます。<br />
+          ${wifiDays > 0 ? `外出先Wi-Fi利用（月${wifiDays}日）のセキュリティ対策として国産VPNを導入しても、年間差引 <strong style="color:#fde047;">${netSurplus >= 0 ? '+' : ''}¥${netSurplus.toLocaleString()}</strong> でお釣りが来る計算です。` : '浮いた固定費をセキュリティ強化やNISA積立へ回せます。'}<br />
+          <a href="__AFF_URL__" rel="nofollow noopener noreferrer" target="_blank" class="inline-aff-link" style="color:#fde047;font-weight:900;text-decoration:underline;display:inline-block;margin-top:6px;">🛡️ 浮いたサブスク代で安心を手に入れる：国産『MillenVPN』公式プランを見る &raquo;</a>
+        `;
+      }
+
+      document.getElementById('btnRunSub').addEventListener('click', () => calc(true));
+      ['subVideo', 'subMusicCloud', 'subUnused', 'subWifiDays'].forEach(id => {
+        document.getElementById(id).addEventListener('change', () => calc(true));
+      });
+      calc(false);
+    })();
+    """.replace("__AFF_URL__", v["url"])
     return body, js
 
 
 def build_practical_tools(config: dict, dist_dir: Path, ogp_dist: Path, game_count: int) -> tuple[list, list, list, str]:
-    """高CPAアフィリエイト直結の実用Web診断・シミュレーター3本を生成する"""
+    """高CPAアフィリエイト直結の実用Web診断・シミュレーター5本を生成する"""
     offers = config["ad_networks"]["a8_net"]["live_offers"]
     builders = {
         "stock-theme-analyzer": _build_stock_tool_parts,
+        "dividend-fire-simulator": _build_dividend_tool_parts,
         "vpn-security-checker": _build_vpn_tool_parts,
+        "subsc-vpn-cost-calculator": _build_subsc_tool_parts,
         "oshikatsu-goods-calculator": _build_oshikatsu_tool_parts,
     }
     tools_dir = dist_dir / "tools"
@@ -937,9 +1272,12 @@ def build_practical_tools(config: dict, dist_dir: Path, ogp_dist: Path, game_cou
     for tool in PRACTICAL_TOOLS:
         slug = tool["slug"]
         url = f"{SITE_BASE_URL}/tools/{slug}/"
-        (ogp_dist / f"tool-{slug}.svg").write_text(
-            generate_ogp_svg(tool["short_title"], tool["description"], tool["badge"], tool["emojis"], tool["grad"]),
-            encoding="utf-8",
+        generate_ogp_png(
+            ogp_dist / f"tool-{slug}.png",
+            tool["short_title"],
+            tool["description"],
+            tool["badge"],
+            tool["grad"],
         )
         body_html, tool_js = builders[slug](offers)
         page_html = _render_tool_shell(tool, body_html, tool_js, game_count)
@@ -1023,16 +1361,13 @@ def build_all() -> dict:
             if sp.is_file():
                 shutil.copyfile(sp, DIST_DIR / sp.name)
 
-    # Portal OGP SVG
-    (ogp_dist / "portal.svg").write_text(
-        generate_ogp_svg(
-            "週刊時事風刺ミニゲーム横丁",
-            f"SNSの万バズ皮肉・風刺ネタを1分で遊べる無料ブラウザゲーム集（全{len(themes)}本）",
-            "無料ブラウザ風刺アーケード",
-            ["⚔️", "🤖", "🎙️", "🍱"],
-            ["#090d16", "#1e293b", "#e11d48"],
-        ),
-        encoding="utf-8",
+    # Portal OGP PNG
+    generate_ogp_png(
+        ogp_dist / "portal.png",
+        "週刊時事風刺ミニゲーム横丁 & 無料Web診断ツール",
+        f"実用資産・セキュリティ診断({len(PRACTICAL_TOOLS)}本)＋無料風刺ゲーム({len(themes)}本)",
+        "無料Webツール＆ブラウザゲーム",
+        ["#090d16", "#1e293b", "#e11d48"],
     )
 
     tool_sitemaps, tool_rss, tool_llms, tools_showcase_html = build_practical_tools(
@@ -1064,17 +1399,20 @@ def build_all() -> dict:
         engine_js = engine_file.read_text(encoding="utf-8")
 
         canonical_url = f"{SITE_BASE_URL}/games/{slug}/"
-        ogp_image_url = f"{SITE_BASE_URL}/ogp/{slug}.svg"
+        ogp_image_url = f"{SITE_BASE_URL}/ogp/{slug}.png"
         sitemap_urls.append((canonical_url, "0.9"))
 
         bg = theme.get("background", {})
         grad = bg.get("gradient", ["#141e30", "#243b55", "#7f1d1d"])
         cast = extract_cast_emojis(theme)
 
-        # Generate per-game OGP SVG
-        (ogp_dist / f"{slug}.svg").write_text(
-            generate_ogp_svg(theme["title"], theme["subtitle"], theme["trend_category"], cast, grad),
-            encoding="utf-8",
+        # Generate per-game OGP PNG
+        generate_ogp_png(
+            ogp_dist / f"{slug}.png",
+            theme["title"],
+            theme["subtitle"],
+            theme["trend_category"],
+            grad,
         )
 
         sns_reply = theme.get(

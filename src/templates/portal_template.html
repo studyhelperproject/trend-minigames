@@ -13,8 +13,9 @@
   <meta property="og:description" content="SNSの万バズ皮肉・風刺ネタを約1分で遊べる無料ブラウザゲーム集（全{{GAME_COUNT}}本）" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://studyhelperproject.github.io/trend-minigames/" />
-  <meta property="og:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/portal.svg" />
+  <meta property="og:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/portal.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/portal.png" />
   <script type="application/ld+json">
 {{PORTAL_JSON_LD}}
   </script>
@@ -470,35 +471,39 @@
       });
     }
 
-    // リアルタイム流入経路・訪問数・デバイス計測（本番環境のみ）
+    // 広告クリックイベント計測（Cloudflare Web Analytics RUM仮想イベント・本番のみ）
     (function() {
       if (window.location.hostname !== 'studyhelperproject.github.io') return;
-      const hit = (k) => fetch('https://abacus.jasoncameron.dev/hit/trendminigames2026/' + encodeURIComponent(k), { mode: 'cors', keepalive: true }).catch(() => {});
-      hit('site_pv');
-      hit('portal_pv');
-      if (!localStorage.getItem('tmg_uu_counted')) {
-        localStorage.setItem('tmg_uu_counted', '1');
-        hit('site_uu');
-      }
-      if (!sessionStorage.getItem('tmg_session_attr')) {
-        sessionStorage.setItem('tmg_session_attr', '1');
-        const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent) || window.innerWidth < 768;
-        hit(isMobile ? 'dev_mobile' : 'dev_pc');
-        const params = new URLSearchParams(window.location.search);
-        const utm = (params.get('utm_source') || '').toLowerCase();
-        const ref = (document.referrer || '').toLowerCase();
-        if (!ref.includes('studyhelperproject.github.io') || utm) {
-          let refKey = 'ref_direct';
-          if (utm === 'x' || utm === 'twitter' || ref.includes('t.co') || ref.includes('x.com') || ref.includes('twitter.com')) refKey = 'ref_x';
-          else if (utm === 'google' || ref.includes('google.')) refKey = 'ref_google';
-          else if (ref.includes('yahoo.co.jp') || ref.includes('bing.com') || ref.includes('duckduckgo.')) refKey = 'ref_search_other';
-          else if (ref.includes('github.')) refKey = 'ref_github';
-          else if (ref.length > 0) refKey = 'ref_other';
-          hit(refKey);
-        }
+      function sendCfAffEvent(label) {
+        try {
+          const uid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+            const r = Math.random() * 16 | 0;
+            return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+          });
+          const payload = {
+            memory: {},
+            timings: {},
+            firstPaint: 0,
+            firstContentfulPaint: 0,
+            startTime: Math.ceil(performance.timeOrigin + performance.now()),
+            pageloadId: uid,
+            eventType: 1,
+            nt: 'routing-apis',
+            ntapi: 1,
+            location: 'https://studyhelperproject.github.io/trend-minigames/ev/aff/' + label,
+            referrer: window.location.origin + window.location.pathname,
+            versions: { fl: '', js: '2026.10.1', timings: 1 },
+            siteToken: '0ec3287332604ee58676804a94371bdb',
+            st: 2
+          };
+          const xhr = new XMLHttpRequest();
+          xhr.open('POST', 'https://cloudflareinsights.com/cdn-cgi/rum', true);
+          xhr.setRequestHeader('content-type', 'application/json');
+          xhr.send(JSON.stringify(payload));
+        } catch (e) {}
       }
       document.querySelectorAll('.sponsor-bar a, .sponsor-card a, footer ~ div a, a[href*="px.a8.net"]').forEach(a => {
-        a.addEventListener('click', () => hit('total_aff_clicks'));
+        a.addEventListener('click', () => sendCfAffEvent('portal'));
       });
     })();
   </script>

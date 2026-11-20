@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="4_yP3JlDnuzzBHtKTU6FqpebQdQdnSecojAa_VNk_QQ" />
+  <title>【無料】高配当株・新NISA「月3万円・月10万円」配当生活＆必要元本シミュレーター | 週刊風刺ミニゲーム横丁・実用ツール</title>
+  <meta name="description" content="目標の毎月配当金（手取り）・想定配当利回り・現在の投資元本から、必要資金・新NISA非課税（20.315%）の節税額・目標達成までの年数を1秒で試算します。" />
+  <meta name="keywords" content="高配当株,配当金生活,新NISA 配当金,月3万円 配当,FIRE シミュレーター,無料診断,シミュレーター,Webツール" />
+  <link rel="canonical" href="https://studyhelperproject.github.io/trend-minigames/tools/dividend-fire-simulator/" />
+  <link rel="alternate" type="application/rss+xml" title="週刊時事風刺ミニゲーム横丁 RSS" href="https://studyhelperproject.github.io/trend-minigames/rss.xml" />
+  <meta property="og:title" content="【無料】高配当株・新NISA「月3万円・月10万円」配当生活＆必要元本シミュレーター" />
+  <meta property="og:description" content="目標の毎月配当金（手取り）・想定配当利回り・現在の投資元本から、必要資金・新NISA非課税（20.315%）の節税額・目標達成までの年数を1秒で試算します。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://studyhelperproject.github.io/trend-minigames/tools/dividend-fire-simulator/" />
+  <meta property="og:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/tool-dividend-fire-simulator.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="【無料】高配当株・新NISA「月3万円・月10万円」配当生活＆必要元本シミュレーター" />
+  <meta name="twitter:description" content="目標の毎月配当金（手取り）・想定配当利回り・現在の投資元本から、必要資金・新NISA非課税（20.315%）の節税額・目標達成までの年数を1秒で試算します。" />
+  <meta name="twitter:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/tool-dividend-fire-simulator.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "【無料】高配当株・新NISA「月3万円・月10万円」配当生活＆必要元本シミュレーター", "description": "目標の毎月配当金（手取り）・想定配当利回り・現在の投資元本から、必要資金・新NISA非課税（20.315%）の節税額・目標達成までの年数を1秒で試算します。", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser (PC, iOS, Android)", "url": "https://studyhelperproject.github.io/trend-minigames/tools/dividend-fire-simulator/", "image": "https://studyhelperproject.github.io/trend-minigames/ogp/tool-dividend-fire-simulator.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "月3万円・月10万円の配当金を得るにはいくら元本が必要ですか？", "acceptedAnswer": {"@type": "Answer", "text": "配当利回り4%（NISA非課税）の場合、年間36万円（月3万円）に必要な元本は900万円、年間120万円（月10万円）には3,000万円が目安になります。特定口座の場合は20.315%課税されるため約1.25倍の元本が必要です。"}}, {"@type": "Question", "name": "NISA非課税枠を使うと税金はどれくらい得しますか？", "acceptedAnswer": {"@type": "Answer", "text": "通常は配当金に対して20.315%（所得税・住民税・復興特別所得税）が源泉徴収されますが、NISA口座ではそのまま満額受け取れるため長期になるほど大きな複利差が生まれます。"}}]}</script>
+  <!-- 忍者AdMax 全自動広告タグ -->
+  <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      background: radial-gradient(circle at 20% 10%, #1e293b 0%, #060911 65%);
+      color: #f8fafc;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .top-bar {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .nav-link {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 800;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 6px 12px;
+      border-radius: 18px;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 18px 16px 48px; }
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.9));
+      border: 1.5px solid rgba(250, 204, 21, 0.45);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 900;
+      padding: 3px 12px;
+      border-radius: 14px;
+      margin-bottom: 8px;
+    }
+    h1 { font-size: clamp(1.25rem, 3.2vw, 1.75rem); color: #fff; line-height: 1.38; margin-bottom: 8px; }
+    .lead { font-size: 0.88rem; color: #cbd5e1; }
+    .panel {
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .panel h2 { font-size: 1.05rem; color: #fde047; margin-bottom: 12px; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .field label { display: block; font-size: 0.8rem; font-weight: 800; color: #e2e8f0; margin-bottom: 5px; }
+    .field input[type="number"], .field select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      background: #090d16;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .check-list { display: flex; flex-direction: column; gap: 10px; }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(9, 13, 22, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .check-item input { width: 18px; height: 18px; accent-color: #f97316; }
+    .btn-run {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1.5px solid #fde047;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45);
+    }
+    .btn-run:hover { filter: brightness(1.06); }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .kpi-box {
+      background: #090d16;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+    .kpi-label { font-size: 0.74rem; color: #94a3b8; font-weight: 800; }
+    .kpi-val { font-size: 1.32rem; color: #fde047; font-weight: 900; margin-top: 4px; }
+    table.sim-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.84rem; }
+    table.sim-table th, table.sim-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: right;
+    }
+    table.sim-table th:first-child, table.sim-table td:first-child { text-align: left; }
+    table.sim-table th { color: #38bdf8; font-weight: 900; }
+    .bar-row { margin-top: 8px; }
+    .bar-head { display: flex; justify-content: space-between; font-size: 0.78rem; color: #cbd5e1; margin-bottom: 3px; }
+    .bar-track { width: 100%; height: 12px; background: #090d16; border-radius: 999px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, #38bdf8, #fde047); border-radius: 999px; transition: width 0.3s ease; }
+    .env-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .env-table th, .env-table td { padding: 7px 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; word-break: break-all; }
+    .env-table th { width: 34%; color: #94a3b8; }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(127, 29, 29, 0.42), rgba(15, 23, 42, 0.96));
+      border: 2px solid #fde047;
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+    .cta-tag { display: inline-block; background: #fde047; color: #090d16; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px; }
+    .cta-title { font-size: 1.04rem; font-weight: 900; color: #fff; margin-bottom: 6px; }
+    .cta-desc { font-size: 0.83rem; color: #e2e8f0; margin-bottom: 12px; }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #facc15, #f97316);
+      color: #090d16;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 0.92rem;
+      padding: 11px 18px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(250, 204, 21, 0.35);
+    }
+    .share-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-top: 14px; }
+    .btn-share-x {
+      display: inline-block;
+      background: #0f172a;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 900;
+      padding: 8px 14px;
+      border-radius: 10px;
+    }
+    .ad-slot { display: flex; justify-content: center; margin: 12px 0; min-height: 54px; }
+    footer { text-align: center; font-size: 0.76rem; color: #64748b; padding: 24px 12px; border-top: 1px solid rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../../index.html" class="nav-link">⚡ ポータル＆風刺ゲーム(23本)へ戻る</a>
+    <a href="https://x.com/intent/post?text=%E9%AB%98%E9%85%8D%E5%BD%93%E6%A0%AA%E3%83%BB%E6%96%B0NISA%E9%85%8D%E5%BD%93%E7%94%9F%E6%B4%BB%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%A7%E3%80%8C%E7%9B%AE%E6%A8%99%E3%81%AE%E6%AF%8E%E6%9C%88%E9%85%8D%E5%BD%93%E9%87%91%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E5%85%83%E6%9C%AC%E3%81%A8%E7%AF%80%E7%A8%8E%E9%A1%8D%E3%80%8D%E3%82%92%E8%A9%A6%E7%AE%97%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%23%E9%AB%98%E9%85%8D%E5%BD%93%E6%A0%AA%20%23%E9%85%8D%E5%BD%93%E9%87%91%E7%94%9F%E6%B4%BB%20%23%E6%96%B0NISA%20%E9%85%8D%E5%BD%93%E9%87%91%0Ahttps%3A//studyhelperproject.github.io/trend-minigames/tools/dividend-fire-simulator/%3Futm_source%3Dx" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 診断結果をシェア</a>
+  </div>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <main class="wrap">
+    <div class="hero-card">
+      <span class="badge">💰 配当・FIRE計算ツール</span>
+      <h1>【無料】高配当株・新NISA「月3万円・月10万円」配当生活＆必要元本シミュレーター</h1>
+      <p class="lead">目標の毎月配当金（手取り）・想定配当利回り・現在の投資元本から、必要資金・新NISA非課税（20.315%）の節税額・目標達成までの年数を1秒で試算します。</p>
+    </div>
+
+    
+    <div class="panel">
+      <h2>⚙️ 高配当株・新NISA 配当目標条件を入力</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="divMonthlyTarget">目標の毎月配当金（手取り・万円）</label>
+          <input id="divMonthlyTarget" type="number" min="1" max="500" step="1" value="5" />
+        </div>
+        <div class="field">
+          <label for="divYield">想定配当利回り（税引前・%）</label>
+          <input id="divYield" type="number" min="0.5" max="15" step="0.1" value="4.2" />
+        </div>
+        <div class="field">
+          <label for="divCurrent">現在の配当株元本（万円）</label>
+          <input id="divCurrent" type="number" min="0" max="100000" step="10" value="100" />
+        </div>
+        <div class="field">
+          <label for="divMonthlyAdd">毎月の追加投資額（万円）</label>
+          <input id="divMonthlyAdd" type="number" min="0" max="500" step="1" value="5" />
+        </div>
+      </div>
+      <button id="btnRunDiv" type="button" class="btn-run">💰 配当生活＆必要元本を計算する</button>
+    </div>
+
+    <div class="panel">
+      <h2>📊 配当シミュレーション＆NISA節税試算結果</h2>
+      <div class="kpi-grid" id="divKpi"></div>
+      <div id="divAdvice" style="font-size:0.86rem;color:#e2e8f0;background:rgba(245,158,11,0.12);border:1px solid rgba(251,191,36,0.4);padding:12px;border-radius:10px;margin-bottom:12px;"></div>
+      <table class="sim-table" id="divTable"></table>
+
+      <div class="cta-box">
+        <span class="cta-tag">PR｜利回り×成長性を狙う銘柄選び</span>
+        <div class="cta-title">📈 株式投資のプロが高騰期待銘柄を絞り込み【旬の厳選10銘柄】</div>
+        <div class="cta-desc">高配当株や成長期待株を自力で全銘柄スクリーニングする時間を短縮！投資のプロが絞り込んだ厳選10銘柄レポート（無料）で、次のNISA候補をチェックできます。</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+          <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I" rel="nofollow noopener noreferrer" target="_blank" class="cta-btn">旬の厳選10銘柄レポートを無料で確認 &raquo;</a>
+          <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TT69D" rel="nofollow noopener noreferrer" target="_blank">
+            <img border="0" width="320" height="50" alt="旬の厳選10銘柄" src="https://www24.a8.net/svt/bgt?aid=261112167281&wid=001&eno=01&mid=s00000003196005007000&mc=1" style="border-radius:6px;display:block;max-width:100%;height:auto;" />
+          </a>
+        </div>
+        <img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TXW0I" alt="" />
+        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+4NATRM+ONS+TT69D" alt="" />
+      </div>
+    </div>
+    
+
+    <div class="panel">
+      <h2>❓ よくある質問（FAQ）</h2>
+      <div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.08);"><div style="font-weight:900;color:#38bdf8;font-size:0.86rem;margin-bottom:3px;">Q. 月3万円・月10万円の配当金を得るにはいくら元本が必要ですか？</div><div style="font-size:0.82rem;color:#cbd5e1;line-height:1.55;">A. 配当利回り4%（NISA非課税）の場合、年間36万円（月3万円）に必要な元本は900万円、年間120万円（月10万円）には3,000万円が目安になります。特定口座の場合は20.315%課税されるため約1.25倍の元本が必要です。</div></div><div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.08);"><div style="font-weight:900;color:#38bdf8;font-size:0.86rem;margin-bottom:3px;">Q. NISA非課税枠を使うと税金はどれくらい得しますか？</div><div style="font-size:0.82rem;color:#cbd5e1;line-height:1.55;">A. 通常は配当金に対して20.315%（所得税・住民税・復興特別所得税）が源泉徴収されますが、NISA口座ではそのまま満額受け取れるため長期になるほど大きな複利差が生まれます。</div></div>
+    </div>
+
+    <div class="panel">
+      <h2>🔗 他の無料実用ツール・風刺ミニゲーム</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="../stock-theme-analyzer/" class="nav-link">📈 新NISA・テンバガー資産推移＆テー</a><a href="../dividend-fire-simulator/" class="nav-link">💰 高配当株・新NISA「月3万・月10</a><a href="../vpn-security-checker/" class="nav-link">🛡️ フリーWi-Fi危険度＆通信露出チェ</a><a href="../subsc-vpn-cost-calculator/" class="nav-link">💳 月額サブスク無駄遣い電卓＆固定費削減</a><a href="../oshikatsu-goods-calculator/" class="nav-link">✨ 年間推し活予算・ランダム被り損失電卓</a>
+        <a href="../../index.html" class="nav-link">🎮 風刺ミニゲーム一覧 (23本)</a>
+      </div>
+      <div class="share-bar">
+        <span style="font-size:0.78rem;color:#94a3b8;">※入力値はブラウザ内のみで計算され外部送信されません。</span>
+        <a href="https://x.com/intent/post?text=%E9%AB%98%E9%85%8D%E5%BD%93%E6%A0%AA%E3%83%BB%E6%96%B0NISA%E9%85%8D%E5%BD%93%E7%94%9F%E6%B4%BB%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%BF%E3%83%BC%E3%81%A7%E3%80%8C%E7%9B%AE%E6%A8%99%E3%81%AE%E6%AF%8E%E6%9C%88%E9%85%8D%E5%BD%93%E9%87%91%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E5%85%83%E6%9C%AC%E3%81%A8%E7%AF%80%E7%A8%8E%E9%A1%8D%E3%80%8D%E3%82%92%E8%A9%A6%E7%AE%97%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%23%E9%AB%98%E9%85%8D%E5%BD%93%E6%A0%AA%20%23%E9%85%8D%E5%BD%93%E9%87%91%E7%94%9F%E6%B4%BB%20%23%E6%96%B0NISA%20%E9%85%8D%E5%BD%93%E9%87%91%0Ahttps%3A//studyhelperproject.github.io/trend-minigames/tools/dividend-fire-simulator/%3Futm_source%3Dx" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 このツールをシェアする</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <footer>
+    <p>TrendMiniGames Studio / 実用診断＆シミュレーターコーナー（計算結果は参考目安であり投資判断・通信契約等はご自身の責任で行ってください）</p>
+  </footer>
+
+  <script>
+    (function() {
+      const TOOL_SLUG = "dividend-fire-simulator";
+      const isProd = window.location.hostname === 'studyhelperproject.github.io';
+
+      window.cfTrackEvent = function(evType, evSlug) {
+        if (!isProd) return;
+        try {
+          const uid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+            const r = Math.random() * 16 | 0;
+            return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+          });
+          const url = 'https://cloudflareinsights.com/cdn-cgi/rum';
+          const base = {
+            memory: {},
+            timings: {},
+            firstPaint: 0,
+            firstContentfulPaint: 0,
+            startTime: Math.ceil(performance.timeOrigin + performance.now()),
+            pageloadId: uid,
+            eventType: 1,
+            nt: 'routing-apis',
+            ntapi: 1,
+            location: 'https://studyhelperproject.github.io/trend-minigames/ev/' + evType + '/' + evSlug,
+            referrer: window.location.origin + window.location.pathname,
+            versions: { fl: '', js: '2026.10.1', timings: 1 },
+            siteToken: '0ec3287332604ee58676804a94371bdb'
+          };
+          if (navigator.sendBeacon) {
+            base.st = 1;
+            navigator.sendBeacon(url, new Blob([JSON.stringify(base)], { type: 'application/json' }));
+          } else {
+            base.st = 2;
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('content-type', 'application/json');
+            xhr.send(JSON.stringify(base));
+          }
+        } catch (e) {}
+      };
+
+      let toolPlayTracked = false;
+      window.trackToolRun = function() {
+        if (toolPlayTracked) return;
+        toolPlayTracked = true;
+        window.cfTrackEvent('play', TOOL_SLUG);
+      };
+
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href*="px.a8.net"]');
+        if (a) {
+          window.cfTrackEvent('aff', TOOL_SLUG);
+        }
+      });
+    })();
+  </script>
+  <script>
+
+    (function() {
+      function calc(triggeredByUser) {
+        if (triggeredByUser && window.trackToolRun) window.trackToolRun();
+        const monthlyTarget = Math.max(1, Number(document.getElementById('divMonthlyTarget').value) || 5);
+        const grossYield = Math.max(0.5, Number(document.getElementById('divYield').value) || 4.2) / 100;
+        const currentMan = Math.max(0, Number(document.getElementById('divCurrent').value) || 0);
+        const monthlyAdd = Math.max(0, Number(document.getElementById('divMonthlyAdd').value) || 0);
+
+        const yearlyTargetMan = monthlyTarget * 12;
+        const reqNisaMan = Math.round(yearlyTargetMan / grossYield);
+        const reqTaxedMan = Math.round(yearlyTargetMan / (grossYield * 0.79685));
+        const annualTaxSavedMan = +(yearlyTargetMan * 0.20315 / 0.79685).toFixed(1);
+
+        const gapMan = Math.max(0, reqNisaMan - currentMan);
+        const yearsLeft = monthlyAdd > 0 ? +(gapMan / (monthlyAdd * 12)).toFixed(1) : null;
+
+        document.getElementById('divKpi').innerHTML = `
+          <div class="kpi-box"><div class="kpi-label">新NISA非課税 必要元本</div><div class="kpi-val">${reqNisaMan.toLocaleString()} 万円</div></div>
+          <div class="kpi-box"><div class="kpi-label">特定口座(課税後) 必要元本</div><div class="kpi-val" style="color:#f87171;">${reqTaxedMan.toLocaleString()} 万円</div></div>
+          <div class="kpi-box"><div class="kpi-label">NISA非課税の年間節税効果</div><div class="kpi-val" style="color:#4ade80;">約 ${annualTaxSavedMan} 万円/年</div></div>
+          <div class="kpi-box"><div class="kpi-label">現在元本からの到達目安(単利積立)</div><div class="kpi-val">${yearsLeft === null ? '積立0円' : '約 ' + yearsLeft + ' 年'}</div></div>
+        `;
+
+        document.getElementById('divAdvice').innerHTML = `
+          毎月 <strong>${monthlyTarget}万円（年間${yearlyTargetMan}万円）</strong> を利回り <strong>${(grossYield * 100).toFixed(1)}%</strong> で得るには、新NISA枠なら <strong>${reqNisaMan.toLocaleString()}万円</strong> で達成可能（特定口座より元本 <strong>${(reqTaxedMan - reqNisaMan).toLocaleString()}万円</strong> 節約）。<br />
+          より高い増配・成長ポテンシャル銘柄を組み込めば達成年数をさらに短縮できます：<br />
+          <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+4NATRM+ONS+TXW0I" rel="nofollow noopener noreferrer" target="_blank" class="inline-aff-link" style="color:#fde047;font-weight:900;text-decoration:underline;display:inline-block;margin-top:6px;">📈 【無料】プロ注目の成長期待株『旬の厳選10銘柄』で高利回り候補を見る &raquo;</a>
+        `;
+
+        const targets = [3, 5, 10, 20];
+        document.getElementById('divTable').innerHTML = `
+          <thead><tr><th>目標月額配当</th><th>年間受取額</th><th>新NISA必要元本</th><th>特定口座必要元本</th></tr></thead>
+          <tbody>
+            ${targets.map(m => {
+              const yr = m * 12;
+              const nisa = Math.round(yr / grossYield);
+              const tax = Math.round(yr / (grossYield * 0.79685));
+              return `<tr><td>月 ${m} 万円</td><td>${yr} 万円</td><td><strong style="color:#4ade80;">${nisa.toLocaleString()} 万円</strong></td><td>${tax.toLocaleString()} 万円</td></tr>`;
+            }).join('')}
+          </tbody>
+        `;
+      }
+
+      document.getElementById('btnRunDiv').addEventListener('click', () => calc(true));
+      ['divMonthlyTarget', 'divYield', 'divCurrent', 'divMonthlyAdd'].forEach(id => {
+        document.getElementById(id).addEventListener('change', () => calc(true));
+      });
+      calc(false);
+    })();
+    
+  </script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0ec3287332604ee58676804a94371bdb"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

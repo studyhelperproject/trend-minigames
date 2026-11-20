@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="4_yP3JlDnuzzBHtKTU6FqpebQdQdnSecojAa_VNk_QQ" />
+  <title>【固定費＆通信セキュリティ診断】月額サブスク無駄遣い電卓＆安全ネット環境チェッカー | 週刊風刺ミニゲーム横丁・実用ツール</title>
+  <meta name="description" content="毎月払っている動画・音楽・クラウド・通信サブスクの金額と未使用サービスを入力し、見直しで浮く年間節約額と暗号化VPN導入後の実質お釣り額を計算します。" />
+  <meta name="keywords" content="サブスク 整理 電卓,固定費 見直し,月額サブスク 計算,年間支出,VPN コスト,無料診断,シミュレーター,Webツール" />
+  <link rel="canonical" href="https://studyhelperproject.github.io/trend-minigames/tools/subsc-vpn-cost-calculator/" />
+  <link rel="alternate" type="application/rss+xml" title="週刊時事風刺ミニゲーム横丁 RSS" href="https://studyhelperproject.github.io/trend-minigames/rss.xml" />
+  <meta property="og:title" content="【固定費＆通信セキュリティ診断】月額サブスク無駄遣い電卓＆安全ネット環境チェッカー" />
+  <meta property="og:description" content="毎月払っている動画・音楽・クラウド・通信サブスクの金額と未使用サービスを入力し、見直しで浮く年間節約額と暗号化VPN導入後の実質お釣り額を計算します。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://studyhelperproject.github.io/trend-minigames/tools/subsc-vpn-cost-calculator/" />
+  <meta property="og:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/tool-subsc-vpn-cost-calculator.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="【固定費＆通信セキュリティ診断】月額サブスク無駄遣い電卓＆安全ネット環境チェッカー" />
+  <meta name="twitter:description" content="毎月払っている動画・音楽・クラウド・通信サブスクの金額と未使用サービスを入力し、見直しで浮く年間節約額と暗号化VPN導入後の実質お釣り額を計算します。" />
+  <meta name="twitter:image" content="https://studyhelperproject.github.io/trend-minigames/ogp/tool-subsc-vpn-cost-calculator.png" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "【固定費＆通信セキュリティ診断】月額サブスク無駄遣い電卓＆安全ネット環境チェッカー", "description": "毎月払っている動画・音楽・クラウド・通信サブスクの金額と未使用サービスを入力し、見直しで浮く年間節約額と暗号化VPN導入後の実質お釣り額を計算します。", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser (PC, iOS, Android)", "url": "https://studyhelperproject.github.io/trend-minigames/tools/subsc-vpn-cost-calculator/", "image": "https://studyhelperproject.github.io/trend-minigames/ogp/tool-subsc-vpn-cost-calculator.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "サブスク整理で見落としがちな支出は何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "初月無料後に放置された動画配信・クラウド容量・アプリ内課金に加え、海外渡航や公衆Wi-Fi対策のための高額な一時モバイルWi-Fiレンタル料金も見直し対象になりやすい固定費です。"}}, {"@type": "Question", "name": "計算結果の保存や個人情報入力は必要ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ、登録不要・ブラウザ内完結で、メールアドレス等の個人情報を一切入力せずにその場で年間節約額を試算できます。"}}]}</script>
+  <!-- 忍者AdMax 全自動広告タグ -->
+  <script async src="https://adm.shinobi.jp/st/auto.js" data-admax-id="59519514442d60e1492d52de2c0f401b"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      background: radial-gradient(circle at 20% 10%, #1e293b 0%, #060911 65%);
+      color: #f8fafc;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .top-bar {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .nav-link {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 800;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      padding: 6px 12px;
+      border-radius: 18px;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 18px 16px 48px; }
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.9));
+      border: 1.5px solid rgba(250, 204, 21, 0.45);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 900;
+      padding: 3px 12px;
+      border-radius: 14px;
+      margin-bottom: 8px;
+    }
+    h1 { font-size: clamp(1.25rem, 3.2vw, 1.75rem); color: #fff; line-height: 1.38; margin-bottom: 8px; }
+    .lead { font-size: 0.88rem; color: #cbd5e1; }
+    .panel {
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .panel h2 { font-size: 1.05rem; color: #fde047; margin-bottom: 12px; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .field label { display: block; font-size: 0.8rem; font-weight: 800; color: #e2e8f0; margin-bottom: 5px; }
+    .field input[type="number"], .field select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      background: #090d16;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .check-list { display: flex; flex-direction: column; gap: 10px; }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(9, 13, 22, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .check-item input { width: 18px; height: 18px; accent-color: #f97316; }
+    .btn-run {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1.5px solid #fde047;
+      background: linear-gradient(90deg, #e11d48, #f97316);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45);
+    }
+    .btn-run:hover { filter: brightness(1.06); }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin-bottom: 14px; }
+    .kpi-box {
+      background: #090d16;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+    .kpi-label { font-size: 0.74rem; color: #94a3b8; font-weight: 800; }
+    .kpi-val { font-size: 1.32rem; color: #fde047; font-weight: 900; margin-top: 4px; }
+    table.sim-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.84rem; }
+    table.sim-table th, table.sim-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: right;
+    }
+    table.sim-table th:first-child, table.sim-table td:first-child { text-align: left; }
+    table.sim-table th { color: #38bdf8; font-weight: 900; }
+    .bar-row { margin-top: 8px; }
+    .bar-head { display: flex; justify-content: space-between; font-size: 0.78rem; color: #cbd5e1; margin-bottom: 3px; }
+    .bar-track { width: 100%; height: 12px; background: #090d16; border-radius: 999px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, #38bdf8, #fde047); border-radius: 999px; transition: width 0.3s ease; }
+    .env-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .env-table th, .env-table td { padding: 7px 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; word-break: break-all; }
+    .env-table th { width: 34%; color: #94a3b8; }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(127, 29, 29, 0.42), rgba(15, 23, 42, 0.96));
+      border: 2px solid #fde047;
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+    .cta-tag { display: inline-block; background: #fde047; color: #090d16; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px; }
+    .cta-title { font-size: 1.04rem; font-weight: 900; color: #fff; margin-bottom: 6px; }
+    .cta-desc { font-size: 0.83rem; color: #e2e8f0; margin-bottom: 12px; }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #facc15, #f97316);
+      color: #090d16;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 0.92rem;
+      padding: 11px 18px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(250, 204, 21, 0.35);
+    }
+    .share-bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-top: 14px; }
+    .btn-share-x {
+      display: inline-block;
+      background: #0f172a;
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 900;
+      padding: 8px 14px;
+      border-radius: 10px;
+    }
+    .ad-slot { display: flex; justify-content: center; margin: 12px 0; min-height: 54px; }
+    footer { text-align: center; font-size: 0.76rem; color: #64748b; padding: 24px 12px; border-top: 1px solid rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="../../index.html" class="nav-link">⚡ ポータル＆風刺ゲーム(23本)へ戻る</a>
+    <a href="https://x.com/intent/post?text=%E6%9C%88%E9%A1%8D%E3%82%B5%E3%83%96%E3%82%B9%E3%82%AF%E7%84%A1%E9%A7%84%E9%81%A3%E3%81%84%E9%9B%BB%E5%8D%93%E3%81%A7%E3%80%8C%E8%A6%8B%E7%9B%B4%E3%81%97%E3%81%A7%E5%B9%B4%E9%96%93%E3%81%84%E3%81%8F%E3%82%89%E5%9B%BA%E5%AE%9A%E8%B2%BB%E3%81%8C%E6%B5%AE%E3%81%8F%E3%81%8B%E3%80%8D%E3%82%92%E8%A8%88%E7%AE%97%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%23%E3%82%B5%E3%83%96%E3%82%B9%E3%82%AF%20%E6%95%B4%E7%90%86%20%E9%9B%BB%E5%8D%93%20%23%E5%9B%BA%E5%AE%9A%E8%B2%BB%20%E8%A6%8B%E7%9B%B4%E3%81%97%20%23%E6%9C%88%E9%A1%8D%E3%82%B5%E3%83%96%E3%82%B9%E3%82%AF%20%E8%A8%88%E7%AE%97%0Ahttps%3A//studyhelperproject.github.io/trend-minigames/tools/subsc-vpn-cost-calculator/%3Futm_source%3Dx" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 診断結果をシェア</a>
+  </div>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <main class="wrap">
+    <div class="hero-card">
+      <span class="badge">💳 固定費削減・VPNツール</span>
+      <h1>【固定費＆通信セキュリティ診断】月額サブスク無駄遣い電卓＆安全ネット環境チェッカー</h1>
+      <p class="lead">毎月払っている動画・音楽・クラウド・通信サブスクの金額と未使用サービスを入力し、見直しで浮く年間節約額と暗号化VPN導入後の実質お釣り額を計算します。</p>
+    </div>
+
+    
+    <div class="panel">
+      <h2>⚙️ 毎月のサブスク支出・通信固定費を入力</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label for="subVideo">動画・アニメ配信サブスク合計（月額・円）</label>
+          <input id="subVideo" type="number" min="0" max="50000" step="100" value="2500" />
+        </div>
+        <div class="field">
+          <label for="subMusicCloud">音楽・クラウド・アプリ課金合計（月額・円）</label>
+          <input id="subMusicCloud" type="number" min="0" max="50000" step="100" value="1800" />
+        </div>
+        <div class="field">
+          <label for="subUnused">あまり使っていない整理対象額（月額・円）</label>
+          <input id="subUnused" type="number" min="0" max="50000" step="100" value="1500" />
+        </div>
+        <div class="field">
+          <label for="subWifiDays">外での作業・フリーWi-Fi/モバイルWi-Fi利用（月日数）</label>
+          <input id="subWifiDays" type="number" min="0" max="31" step="1" value="8" />
+        </div>
+      </div>
+      <button id="btnRunSub" type="button" class="btn-run">💳 年間サブスク削減額＆通信安全コストを試算する</button>
+    </div>
+
+    <div class="panel">
+      <h2>📉 固定費削減＆通信セキュリティ試算結果</h2>
+      <div class="kpi-grid" id="subKpi"></div>
+      <div id="subAdvice" style="font-size:0.86rem;color:#e2e8f0;background:rgba(14,165,233,0.12);border:1px solid rgba(56,189,248,0.35);padding:12px;border-radius:10px;"></div>
+
+      <div class="cta-box">
+        <span class="cta-tag">PR｜浮いた固定費で月額ワンコイン未満の安全対策</span>
+        <div class="cta-title">🛡️ MillenVPN（ミレンVPN）でインターネットのセキュリティ強化！</div>
+        <div class="cta-desc">使わないサブスクを1つ解約した節約額だけで、国産ノーログVPN（2年プラン時 月額約396円相当〜）を契約して余りあるお釣りが残ります。フリーWi-Fiの安全化や海外版配信サービス対策にも活用可能です。</div>
+        <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6" rel="nofollow noopener noreferrer" target="_blank" class="cta-btn">MillenVPN の料金プラン・30日間返金保証を見る &raquo;</a>
+        <img border="0" width="1" height="1" src="https://www12.a8.net/0.gif?a8mat=4BGJFR+AQECDU+3JTE+HV7V6" alt="" />
+      </div>
+    </div>
+    
+
+    <div class="panel">
+      <h2>❓ よくある質問（FAQ）</h2>
+      <div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.08);"><div style="font-weight:900;color:#38bdf8;font-size:0.86rem;margin-bottom:3px;">Q. サブスク整理で見落としがちな支出は何ですか？</div><div style="font-size:0.82rem;color:#cbd5e1;line-height:1.55;">A. 初月無料後に放置された動画配信・クラウド容量・アプリ内課金に加え、海外渡航や公衆Wi-Fi対策のための高額な一時モバイルWi-Fiレンタル料金も見直し対象になりやすい固定費です。</div></div><div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.08);"><div style="font-weight:900;color:#38bdf8;font-size:0.86rem;margin-bottom:3px;">Q. 計算結果の保存や個人情報入力は必要ですか？</div><div style="font-size:0.82rem;color:#cbd5e1;line-height:1.55;">A. いいえ、登録不要・ブラウザ内完結で、メールアドレス等の個人情報を一切入力せずにその場で年間節約額を試算できます。</div></div>
+    </div>
+
+    <div class="panel">
+      <h2>🔗 他の無料実用ツール・風刺ミニゲーム</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="../stock-theme-analyzer/" class="nav-link">📈 新NISA・テンバガー資産推移＆テー</a><a href="../dividend-fire-simulator/" class="nav-link">💰 高配当株・新NISA「月3万・月10</a><a href="../vpn-security-checker/" class="nav-link">🛡️ フリーWi-Fi危険度＆通信露出チェ</a><a href="../subsc-vpn-cost-calculator/" class="nav-link">💳 月額サブスク無駄遣い電卓＆固定費削減</a><a href="../oshikatsu-goods-calculator/" class="nav-link">✨ 年間推し活予算・ランダム被り損失電卓</a>
+        <a href="../../index.html" class="nav-link">🎮 風刺ミニゲーム一覧 (23本)</a>
+      </div>
+      <div class="share-bar">
+        <span style="font-size:0.78rem;color:#94a3b8;">※入力値はブラウザ内のみで計算され外部送信されません。</span>
+        <a href="https://x.com/intent/post?text=%E6%9C%88%E9%A1%8D%E3%82%B5%E3%83%96%E3%82%B9%E3%82%AF%E7%84%A1%E9%A7%84%E9%81%A3%E3%81%84%E9%9B%BB%E5%8D%93%E3%81%A7%E3%80%8C%E8%A6%8B%E7%9B%B4%E3%81%97%E3%81%A7%E5%B9%B4%E9%96%93%E3%81%84%E3%81%8F%E3%82%89%E5%9B%BA%E5%AE%9A%E8%B2%BB%E3%81%8C%E6%B5%AE%E3%81%8F%E3%81%8B%E3%80%8D%E3%82%92%E8%A8%88%E7%AE%97%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%23%E3%82%B5%E3%83%96%E3%82%B9%E3%82%AF%20%E6%95%B4%E7%90%86%20%E9%9B%BB%E5%8D%93%20%23%E5%9B%BA%E5%AE%9A%E8%B2%BB%20%E8%A6%8B%E7%9B%B4%E3%81%97%20%23%E6%9C%88%E9%A1%8D%E3%82%B5%E3%83%96%E3%82%B9%E3%82%AF%20%E8%A8%88%E7%AE%97%0Ahttps%3A//studyhelperproject.github.io/trend-minigames/tools/subsc-vpn-cost-calculator/%3Futm_source%3Dx" target="_blank" rel="noopener noreferrer" class="btn-share-x">𝕏 このツールをシェアする</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="ad-slot">
+    <!-- admax -->
+    <script src="https://adm.shinobi.jp/s/93752c4fffa6919b91e2a59f34ce4982"></script>
+    <!-- admax -->
+  </div>
+
+  <footer>
+    <p>TrendMiniGames Studio / 実用診断＆シミュレーターコーナー（計算結果は参考目安であり投資判断・通信契約等はご自身の責任で行ってください）</p>
+  </footer>
+
+  <script>
+    (function() {
+      const TOOL_SLUG = "subsc-vpn-cost-calculator";
+      const isProd = window.location.hostname === 'studyhelperproject.github.io';
+
+      window.cfTrackEvent = function(evType, evSlug) {
+        if (!isProd) return;
+        try {
+          const uid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+            const r = Math.random() * 16 | 0;
+            return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+          });
+          const url = 'https://cloudflareinsights.com/cdn-cgi/rum';
+          const base = {
+            memory: {},
+            timings: {},
+            firstPaint: 0,
+            firstContentfulPaint: 0,
+            startTime: Math.ceil(performance.timeOrigin + performance.now()),
+            pageloadId: uid,
+            eventType: 1,
+            nt: 'routing-apis',
+            ntapi: 1,
+            location: 'https://studyhelperproject.github.io/trend-minigames/ev/' + evType + '/' + evSlug,
+            referrer: window.location.origin + window.location.pathname,
+            versions: { fl: '', js: '2026.10.1', timings: 1 },
+            siteToken: '0ec3287332604ee58676804a94371bdb'
+          };
+          if (navigator.sendBeacon) {
+            base.st = 1;
+            navigator.sendBeacon(url, new Blob([JSON.stringify(base)], { type: 'application/json' }));
+          } else {
+            base.st = 2;
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('content-type', 'application/json');
+            xhr.send(JSON.stringify(base));
+          }
+        } catch (e) {}
+      };
+
+      let toolPlayTracked = false;
+      window.trackToolRun = function() {
+        if (toolPlayTracked) return;
+        toolPlayTracked = true;
+        window.cfTrackEvent('play', TOOL_SLUG);
+      };
+
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href*="px.a8.net"]');
+        if (a) {
+          window.cfTrackEvent('aff', TOOL_SLUG);
+        }
+      });
+    })();
+  </script>
+  <script>
+
+    (function() {
+      function calc(triggeredByUser) {
+        if (triggeredByUser && window.trackToolRun) window.trackToolRun();
+        const video = Math.max(0, Number(document.getElementById('subVideo').value) || 0);
+        const music = Math.max(0, Number(document.getElementById('subMusicCloud').value) || 0);
+        const unused = Math.max(0, Number(document.getElementById('subUnused').value) || 0);
+        const wifiDays = Math.min(31, Math.max(0, Number(document.getElementById('subWifiDays').value) || 0));
+
+        const monthlyTotal = video + music;
+        const yearlyTotal = monthlyTotal * 12;
+        const yearlySaved = unused * 12;
+        const vpnAnnualRef = 4752; // 年間約4,752円目安(月396円換算)
+        const netSurplus = yearlySaved - vpnAnnualRef;
+
+        document.getElementById('subKpi').innerHTML = `
+          <div class="kpi-box"><div class="kpi-label">現在の年間サブスク支出</div><div class="kpi-val">¥${yearlyTotal.toLocaleString()}</div></div>
+          <div class="kpi-box"><div class="kpi-label">見直しで浮く年間節約額</div><div class="kpi-val" style="color:#4ade80;">+¥${yearlySaved.toLocaleString()}</div></div>
+          <div class="kpi-box"><div class="kpi-label">外Wi-Fi露出リスク頻度</div><div class="kpi-val" style="color:${wifiDays >= 5 ? '#f87171' : '#fde047'};">月 ${wifiDays} 日</div></div>
+          <div class="kpi-box"><div class="kpi-label">VPN導入後の実質年間収支</div><div class="kpi-val" style="color:${netSurplus >= 0 ? '#4ade80' : '#fbbf24'};">${netSurplus >= 0 ? '+' : ''}¥${netSurplus.toLocaleString()}</div></div>
+        `;
+
+        document.getElementById('subAdvice').innerHTML = `
+          未使用サブスク（月 <strong>¥${unused.toLocaleString()}</strong>）を整理すると年間 <strong style="color:#4ade80;">¥${yearlySaved.toLocaleString()}</strong> の固定費が削減できます。<br />
+          ${wifiDays > 0 ? `外出先Wi-Fi利用（月${wifiDays}日）のセキュリティ対策として国産VPNを導入しても、年間差引 <strong style="color:#fde047;">${netSurplus >= 0 ? '+' : ''}¥${netSurplus.toLocaleString()}</strong> でお釣りが来る計算です。` : '浮いた固定費をセキュリティ強化やNISA積立へ回せます。'}<br />
+          <a href="https://px.a8.net/svt/ejp?a8mat=4BGJFR+AQECDU+3JTE+HV7V6" rel="nofollow noopener noreferrer" target="_blank" class="inline-aff-link" style="color:#fde047;font-weight:900;text-decoration:underline;display:inline-block;margin-top:6px;">🛡️ 浮いたサブスク代で安心を手に入れる：国産『MillenVPN』公式プランを見る &raquo;</a>
+        `;
+      }
+
+      document.getElementById('btnRunSub').addEventListener('click', () => calc(true));
+      ['subVideo', 'subMusicCloud', 'subUnused', 'subWifiDays'].forEach(id => {
+        document.getElementById(id).addEventListener('change', () => calc(true));
+      });
+      calc(false);
+    })();
+    
+  </script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0ec3287332604ee58676804a94371bdb"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

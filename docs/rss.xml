@@ -15,11 +15,25 @@
       <category>📈 投資・資産形成ツール</category>
     </item>
     <item>
+      <title>【無料】高配当株・新NISA「月3万円・月10万円」配当生活＆必要元本シミュレーター</title>
+      <link>https://studyhelperproject.github.io/trend-minigames/tools/dividend-fire-simulator/</link>
+      <guid>https://studyhelperproject.github.io/trend-minigames/tools/dividend-fire-simulator/</guid>
+      <description>目標の毎月配当金（手取り）・想定配当利回り・現在の投資元本から、必要資金・新NISA非課税（20.315%）の節税額・目標達成までの年数を1秒で試算します。</description>
+      <category>💰 配当・FIRE計算ツール</category>
+    </item>
+    <item>
       <title>【無料診断】フリーWi-Fi危険度＆ブラウザ通信セキュリティ露出チェッカー｜VPN比較シミュレーター</title>
       <link>https://studyhelperproject.github.io/trend-minigames/tools/vpn-security-checker/</link>
       <guid>https://studyhelperproject.github.io/trend-minigames/tools/vpn-security-checker/</guid>
       <description>現在のブラウザ通信状態（HTTPS暗号化・OS・UA・言語・タイムゾーン等）を自動検出し、利用シーン別の情報漏洩危険度スコアと最適なVPN対策を診断します。</description>
       <category>🛡️ 通信セキュリティ診断</category>
+    </item>
+    <item>
+      <title>【固定費＆通信セキュリティ診断】月額サブスク無駄遣い電卓＆安全ネット環境チェッカー</title>
+      <link>https://studyhelperproject.github.io/trend-minigames/tools/subsc-vpn-cost-calculator/</link>
+      <guid>https://studyhelperproject.github.io/trend-minigames/tools/subsc-vpn-cost-calculator/</guid>
+      <description>毎月払っている動画・音楽・クラウド・通信サブスクの金額と未使用サービスを入力し、見直しで浮く年間節約額と暗号化VPN導入後の実質お釣り額を計算します。</description>
+      <category>💳 固定費削減・VPNツール</category>
     </item>
     <item>
       <title>【推し活電卓】年間グッズ・遠征費予算シミュレーター＆ランダム被り損失チェッカー</title>

@@ -102,71 +102,43 @@ class MiniGameMonetizationSDK {
     this.sendLiveTelemetry(eventType);
   }
 
-  static hitCounter(key) {
+  static sendCfEvent(evType, slug) {
     if (window.location.hostname !== 'studyhelperproject.github.io') return;
-    fetch(`https://abacus.jasoncameron.dev/hit/trendminigames2026/${encodeURIComponent(key)}`, {
-      method: 'GET',
-      mode: 'cors',
-      keepalive: true
-    }).catch(() => {});
-  }
-
-  static trackSessionAttribution() {
-    if (window.location.hostname !== 'studyhelperproject.github.io') return;
-    MiniGameMonetizationSDK.hitCounter('site_pv');
-
-    if (!localStorage.getItem('tmg_uu_counted')) {
-      localStorage.setItem('tmg_uu_counted', '1');
-      MiniGameMonetizationSDK.hitCounter('site_uu');
-    }
-
-    if (!sessionStorage.getItem('tmg_session_attr')) {
-      sessionStorage.setItem('tmg_session_attr', '1');
-      const isMobile = /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent) || window.innerWidth < 768;
-      MiniGameMonetizationSDK.hitCounter(isMobile ? 'dev_mobile' : 'dev_pc');
-
-      const params = new URLSearchParams(window.location.search);
-      const utm = (params.get('utm_source') || '').toLowerCase();
-      const ref = (document.referrer || '').toLowerCase();
-      if (ref.includes('studyhelperproject.github.io') && !utm) {
-        return; // サイト内回遊は外部流入経路として重複カウントしない
-      }
-      let refKey = 'ref_direct';
-      if (utm === 'x' || utm === 'twitter' || ref.includes('t.co') || ref.includes('x.com') || ref.includes('twitter.com')) {
-        refKey = 'ref_x';
-      } else if (utm === 'google' || ref.includes('google.')) {
-        refKey = 'ref_google';
-      } else if (ref.includes('yahoo.co.jp') || ref.includes('bing.com') || ref.includes('duckduckgo.')) {
-        refKey = 'ref_search_other';
-      } else if (ref.includes('github.')) {
-        refKey = 'ref_github';
-      } else if (ref.length > 0) {
-        refKey = 'ref_other';
-      }
-      MiniGameMonetizationSDK.hitCounter(refKey);
-    }
+    try {
+      const uid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+        const r = Math.random() * 16 | 0;
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+      });
+      const payload = {
+        memory: {},
+        timings: {},
+        firstPaint: 0,
+        firstContentfulPaint: 0,
+        startTime: Math.ceil(performance.timeOrigin + performance.now()),
+        pageloadId: uid,
+        eventType: 1,
+        nt: 'routing-apis',
+        ntapi: 1,
+        location: 'https://studyhelperproject.github.io/trend-minigames/ev/' + evType + '/' + slug,
+        referrer: window.location.origin + window.location.pathname,
+        versions: { fl: '', js: '2026.10.1', timings: 1 },
+        siteToken: '0ec3287332604ee58676804a94371bdb',
+        st: 2
+      };
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://cloudflareinsights.com/cdn-cgi/rum', true);
+      xhr.setRequestHeader('content-type', 'application/json');
+      xhr.send(JSON.stringify(payload));
+    } catch (e) {}
   }
 
   sendLiveTelemetry(eventType) {
-    const s = this.slug.replace(/[^a-zA-Z0-9_-]/g, '_');
-    if (eventType === 'impression') {
-      MiniGameMonetizationSDK.trackSessionAttribution();
-      MiniGameMonetizationSDK.hitCounter(`g_${s}_pv`);
-    } else if (eventType === 'play_start') {
-      MiniGameMonetizationSDK.hitCounter('total_plays');
-      MiniGameMonetizationSDK.hitCounter(`g_${s}_play`);
-    } else if (eventType === 'gameover') {
-      MiniGameMonetizationSDK.hitCounter('total_ends');
-      MiniGameMonetizationSDK.hitCounter(`g_${s}_end`);
-    } else if (eventType === 'retry') {
-      MiniGameMonetizationSDK.hitCounter('total_retries');
+    if (eventType === 'play_start') {
+      MiniGameMonetizationSDK.sendCfEvent('play', this.slug);
     } else if (eventType === 'banner_click' || eventType === 'affiliate_click') {
-      MiniGameMonetizationSDK.hitCounter('total_aff_clicks');
-      MiniGameMonetizationSDK.hitCounter(`g_${s}_aff`);
+      MiniGameMonetizationSDK.sendCfEvent('aff', this.slug);
     } else if (eventType === 'share_click') {
-      MiniGameMonetizationSDK.hitCounter('total_shares');
-    } else if (eventType === 'reward_ad_view') {
-      MiniGameMonetizationSDK.hitCounter('total_rewards');
+      MiniGameMonetizationSDK.sendCfEvent('share', this.slug);
     }
   }
 
